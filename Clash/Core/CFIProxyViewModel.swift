@@ -25,10 +25,10 @@ public final class CFIProxyViewModel: CFIUpdatableViewModel, ObservableObject, I
         guard type.isProxyType else {
             return ""
         }
-        guard !histories.isEmpty else {
+        guard let last = histories.last else {
             return "-"
         }
-        let delay = histories[0].delay
+        let delay = last.delay
         return delay == 0 ? "超时" : "\(delay)"
     }
 }
