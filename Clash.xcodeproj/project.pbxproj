@@ -25,7 +25,6 @@
 		708A48E82962A4540040184C /* CFIIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E72962A4540040184C /* CFIIcon.swift */; };
 		708A48EA2962AA2B0040184C /* CFIThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E92962AA2B0040184C /* CFIThemeView.swift */; };
 		708A48EC2962AD740040184C /* CFITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48EB2962AD740040184C /* CFITheme.swift */; };
-		708A48EE296319190040184C /* CFIStatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48ED296319190040184C /* CFIStatisticView.swift */; };
 		70B947A9295F302B006F6A38 /* Clash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947A8295F302B006F6A38 /* Clash.swift */; };
 		70B947AF29612F46006F6A38 /* CFISubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947AE29612F46006F6A38 /* CFISubscribeView.swift */; };
 		70B947B129613321006F6A38 /* CFISubscribeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B029613321006F6A38 /* CFISubscribeManager.swift */; };
@@ -90,7 +89,6 @@
 		708A48E72962A4540040184C /* CFIIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIIcon.swift; sourceTree = "<group>"; };
 		708A48E92962AA2B0040184C /* CFIThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIThemeView.swift; sourceTree = "<group>"; };
 		708A48EB2962AD740040184C /* CFITheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFITheme.swift; sourceTree = "<group>"; };
-		708A48ED296319190040184C /* CFIStatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIStatisticView.swift; sourceTree = "<group>"; };
 		70B947A8295F302B006F6A38 /* Clash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clash.swift; sourceTree = "<group>"; };
 		70B947AE29612F46006F6A38 /* CFISubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFISubscribeView.swift; sourceTree = "<group>"; };
 		70B947B029613321006F6A38 /* CFISubscribeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFISubscribeManager.swift; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				70B947AE29612F46006F6A38 /* CFISubscribeView.swift */,
-				708A48ED296319190040184C /* CFIStatisticView.swift */,
 				7000C6E3295D635F0005626E /* CFIControlView.swift */,
 				7000C6DD295D5F690005626E /* CFIConnectedDurationView.swift */,
 				708A48E0296295C50040184C /* CFIPolicyGroupView.swift */,
@@ -383,7 +380,6 @@
 				7084FC20295ECC7400065DAF /* CFITunnelMode.swift in Sources */,
 				7000C6D7295AED790005626E /* CFIProxyViewModel.swift in Sources */,
 				70C9EDCC295057DB00B6995B /* CFIProviderListView.swift in Sources */,
-				708A48EE296319190040184C /* CFIStatisticView.swift in Sources */,
 				7000C6E0295D60A50005626E /* CFITunnelModeView.swift in Sources */,
 				70C9EDD82951587D00B6995B /* CFIResetButton.swift in Sources */,
 				70C9EDBE29502D3500B6995B /* CFIPacketTunnelManager.swift in Sources */,
