@@ -63,12 +63,12 @@ struct CFISubscribeListView: View {
                         Task(priority: .userInitiated) {
                             do {
                                 try await subscribeManager.update(subscribe: subscribe)
-                                ProgressHUD.showSucceed()
+                                ProgressHUD.showSucceed(interaction: false)
                                 if current.wrappedValue == subscribe.id {
                                     packetTunnelManager.set(subscribe: subscribe.id)
                                 }
                             } catch {
-                                ProgressHUD.showFailed()
+                                ProgressHUD.showFailed(interaction: false)
                             }
                         }
                     }

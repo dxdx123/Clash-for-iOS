@@ -41,6 +41,19 @@ struct CFIContentView: View {
                                 CFIIcon(systemName: "clock", backgroundColor: .indigo)
                             }
                         }
+                        NavigationLink {
+                            CFIStatisticView(current: current)
+                        } label: {
+                            Label {
+                                Text("统计")
+                            } icon: {
+                                CFIIcon(systemName: "bell.badge", backgroundColor: .red)
+                            }
+                        }
+                    }
+                }
+                if manager.status == .connected {
+                    Section {
                         LabeledContent {
                             CFIPolicyGroupView(tunnelMode: tunnelMode)
                         } label: {

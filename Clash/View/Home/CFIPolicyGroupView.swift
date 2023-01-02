@@ -10,7 +10,7 @@ struct CFIPolicyGroupView: View {
         Button {
             isPresented.toggle()
         } label: {
-            EmptyView()
+            Text("点击查看")
         }
         .sheet(isPresented: $isPresented) {
             CFIProviderListView(tunnelMode: tunnelMode)
