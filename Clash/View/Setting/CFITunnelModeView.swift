@@ -32,11 +32,11 @@ struct CFITunnelModeView: View {
         case .rule:
             title = "规则"
             systemImage = "arrow.triangle.branch"
-            backgroundColor = .mint
+            backgroundColor = .orange
         case .direct:
             title = "直连"
             systemImage = "arrow.up"
-            backgroundColor = .pink
+            backgroundColor = .indigo
         }
         return Label {
             Text(title)

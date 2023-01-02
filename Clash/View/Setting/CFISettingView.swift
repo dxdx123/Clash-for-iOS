@@ -12,6 +12,9 @@ struct CFISettingView: View {
                 Text("模式")
             }
             Section {
+                CFIThemeView()
+            }
+            Section {
                 CFIResetButton()
             }
         }

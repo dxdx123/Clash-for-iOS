@@ -23,6 +23,8 @@
 		708A48E1296295C50040184C /* CFIPolicyGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E0296295C50040184C /* CFIPolicyGroupView.swift */; };
 		708A48E3296299640040184C /* CFIProxyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E2296299640040184C /* CFIProxyListView.swift */; };
 		708A48E82962A4540040184C /* CFIIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E72962A4540040184C /* CFIIcon.swift */; };
+		708A48EA2962AA2B0040184C /* CFIThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E92962AA2B0040184C /* CFIThemeView.swift */; };
+		708A48EC2962AD740040184C /* CFITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48EB2962AD740040184C /* CFITheme.swift */; };
 		70B947A9295F302B006F6A38 /* Clash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947A8295F302B006F6A38 /* Clash.swift */; };
 		70B947AF29612F46006F6A38 /* CFISubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947AE29612F46006F6A38 /* CFISubscribeView.swift */; };
 		70B947B129613321006F6A38 /* CFISubscribeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B029613321006F6A38 /* CFISubscribeManager.swift */; };
@@ -85,6 +87,8 @@
 		708A48E0296295C50040184C /* CFIPolicyGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIPolicyGroupView.swift; sourceTree = "<group>"; };
 		708A48E2296299640040184C /* CFIProxyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIProxyListView.swift; sourceTree = "<group>"; };
 		708A48E72962A4540040184C /* CFIIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIIcon.swift; sourceTree = "<group>"; };
+		708A48E92962AA2B0040184C /* CFIThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIThemeView.swift; sourceTree = "<group>"; };
+		708A48EB2962AD740040184C /* CFITheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFITheme.swift; sourceTree = "<group>"; };
 		70B947A8295F302B006F6A38 /* Clash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clash.swift; sourceTree = "<group>"; };
 		70B947AE29612F46006F6A38 /* CFISubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFISubscribeView.swift; sourceTree = "<group>"; };
 		70B947B029613321006F6A38 /* CFISubscribeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFISubscribeManager.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 				7000C6DF295D60A50005626E /* CFITunnelModeView.swift */,
 				70C9EDC92950565400B6995B /* CFISettingView.swift */,
 				70C9EDD72951587D00B6995B /* CFIResetButton.swift */,
+				708A48E92962AA2B0040184C /* CFIThemeView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 				70B947B229613354006F6A38 /* AppDelegate.swift */,
 				70C9ED9829501D5B00B6995B /* CFIApp.swift */,
 				70C9ED9A29501D5B00B6995B /* CFIContentView.swift */,
+				708A48EB2962AD740040184C /* CFITheme.swift */,
 				70C9EDC02950415F00B6995B /* View */,
 				70C9EDBA29502CF000B6995B /* Core */,
 				70C9ED9C29501D5C00B6995B /* Assets.xcassets */,
@@ -383,12 +389,14 @@
 				70B947AF29612F46006F6A38 /* CFISubscribeView.swift in Sources */,
 				70C9EDD12951469E00B6995B /* CFIConstant.swift in Sources */,
 				70C9ED9929501D5B00B6995B /* CFIApp.swift in Sources */,
+				708A48EC2962AD740040184C /* CFITheme.swift in Sources */,
 				7000C6DA295AED790005626E /* CFIUpdatableViewModel.swift in Sources */,
 				708A48E82962A4540040184C /* CFIIcon.swift in Sources */,
 				7084FC1D295ECBC900065DAF /* CFIAppMessage.swift in Sources */,
 				7000C6E4295D635F0005626E /* CFIControlView.swift in Sources */,
 				70B947B5296144A6006F6A38 /* CFISubscribeDownloader.swift in Sources */,
 				7000C6D8295AED790005626E /* CFIProxyModel.swift in Sources */,
+				708A48EA2962AA2B0040184C /* CFIThemeView.swift in Sources */,
 				7000C6D9295AED790005626E /* CFIProviderViewModel.swift in Sources */,
 				7000C6DE295D5F690005626E /* CFIConnectedDurationView.swift in Sources */,
 				708A48E1296295C50040184C /* CFIPolicyGroupView.swift in Sources */,
