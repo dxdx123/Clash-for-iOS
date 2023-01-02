@@ -20,6 +20,8 @@
 		7084FC1E295ECBC900065DAF /* CFIAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */; };
 		7084FC20295ECC7400065DAF /* CFITunnelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */; };
 		7084FC21295ECC7400065DAF /* CFITunnelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */; };
+		708A48E1296295C50040184C /* CFIPolicyGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E0296295C50040184C /* CFIPolicyGroupView.swift */; };
+		708A48E3296299640040184C /* CFIProxyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E2296299640040184C /* CFIProxyListView.swift */; };
 		70B947A9295F302B006F6A38 /* Clash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947A8295F302B006F6A38 /* Clash.swift */; };
 		70B947AF29612F46006F6A38 /* CFISubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947AE29612F46006F6A38 /* CFISubscribeView.swift */; };
 		70B947B129613321006F6A38 /* CFISubscribeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B029613321006F6A38 /* CFISubscribeManager.swift */; };
@@ -79,6 +81,8 @@
 		7000C6E3295D635F0005626E /* CFIControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIControlView.swift; sourceTree = "<group>"; };
 		7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIAppMessage.swift; sourceTree = "<group>"; };
 		7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFITunnelMode.swift; sourceTree = "<group>"; };
+		708A48E0296295C50040184C /* CFIPolicyGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIPolicyGroupView.swift; sourceTree = "<group>"; };
+		708A48E2296299640040184C /* CFIProxyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIProxyListView.swift; sourceTree = "<group>"; };
 		70B947A8295F302B006F6A38 /* Clash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clash.swift; sourceTree = "<group>"; };
 		70B947AE29612F46006F6A38 /* CFISubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFISubscribeView.swift; sourceTree = "<group>"; };
 		70B947B029613321006F6A38 /* CFISubscribeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFISubscribeManager.swift; sourceTree = "<group>"; };
@@ -140,7 +144,9 @@
 				70B947AE29612F46006F6A38 /* CFISubscribeView.swift */,
 				7000C6E3295D635F0005626E /* CFIControlView.swift */,
 				7000C6DD295D5F690005626E /* CFIConnectedDurationView.swift */,
+				708A48E0296295C50040184C /* CFIPolicyGroupView.swift */,
 				70C9EDCB295057DB00B6995B /* CFIProviderListView.swift */,
+				708A48E2296299640040184C /* CFIProxyListView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -381,8 +387,10 @@
 				7000C6D8295AED790005626E /* CFIProxyModel.swift in Sources */,
 				7000C6D9295AED790005626E /* CFIProviderViewModel.swift in Sources */,
 				7000C6DE295D5F690005626E /* CFIConnectedDurationView.swift in Sources */,
+				708A48E1296295C50040184C /* CFIPolicyGroupView.swift in Sources */,
 				7000C6C7295A8BC20005626E /* CFISubscribeDownloadView.swift in Sources */,
 				70B947B329613354006F6A38 /* AppDelegate.swift in Sources */,
+				708A48E3296299640040184C /* CFIProxyListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

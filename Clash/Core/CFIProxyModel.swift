@@ -6,8 +6,6 @@ public struct CFIProxyModel: Decodable {
         
         case direct         = "Direct"
         case reject         = "Reject"
-        case compatible     = "Compatible"
-        case pass           = "Pass"
         
         case relay          = "Relay"
         case selector       = "Selector"
@@ -21,11 +19,8 @@ public struct CFIProxyModel: Decodable {
         case socks5         = "Socks5"
         case http           = "Http"
         case vmess          = "Vmess"
-        case vless          = "Vless"
         case trojan         = "Trojan"
-        case hysteria       = "Hysteria"
         case wireGuard      = "WireGuard"
-        case tuic           = "Tuic"
     }
     
     public struct Delay: Decodable {
@@ -73,16 +68,16 @@ extension CFIProxyModel.AdapterType {
         switch self {
         case .relay, .selector, .fallback, .urlTest, .loadBalance:
             return true
-        case .compatible, .pass, .direct, .reject, .shadowsocks, .shadowsocksR, .snell, .socks5, .http, .vmess, .trojan, .vless, .hysteria, .wireGuard, .tuic:
+        case .direct, .reject, .shadowsocks, .shadowsocksR, .snell, .socks5, .http, .vmess, .trojan, .wireGuard:
             return false
         }
     }
     
     var isProxyType: Bool {
         switch self {
-        case .compatible, .pass, .relay, .selector, .fallback, .urlTest, .loadBalance, .direct, .reject:
+        case .relay, .selector, .fallback, .urlTest, .loadBalance, .direct, .reject:
             return false
-        case .shadowsocks, .shadowsocksR, .snell, .socks5, .http, .vmess, .trojan, .vless, .hysteria, .wireGuard, .tuic:
+        case .shadowsocks, .shadowsocksR, .snell, .socks5, .http, .vmess, .trojan, .wireGuard:
             return true
         }
     }
@@ -92,26 +87,21 @@ extension CFIProxyModel.AdapterType {
     
     var name: String {
         switch self {
-        case .direct:           return "DIRECT"
-        case .reject:           return "REJECT"
-        case .compatible:       return "COMPATIBLE"
-        case .pass:             return "PASS"
-        case .shadowsocks:      return "SHADOWSOCKS"
-        case .shadowsocksR:     return "SHADOWSOCKSR"
-        case .snell:            return "SNALL"
-        case .socks5:           return "SOCKS5"
+        case .direct:           return "Direct"
+        case .reject:           return "Reject"
+        case .shadowsocks:      return "Shadowsocks"
+        case .shadowsocksR:     return "ShadowsocksR"
+        case .snell:            return "Snell"
+        case .socks5:           return "Socks5"
         case .http:             return "HTTP"
-        case .vmess:            return "VMESS"
-        case .trojan:           return "TROJAN"
-        case .vless:            return "VLESS"
-        case .hysteria:         return "HYSTERIA"
+        case .vmess:            return "Vmess"
+        case .trojan:           return "Trojan"
         case .wireGuard:        return "WIREGUARD"
-        case .tuic:             return "TUIC"
-        case .relay:            return "RELAY"
-        case .selector:         return "SELECTOR"
-        case .fallback:         return "FALLBACK"
-        case .urlTest:          return "URL-TEST"
-        case .loadBalance:      return "LOAD-BALANCE"
+        case .relay:            return "Relay"
+        case .selector:         return "Selector"
+        case .fallback:         return "Fallback"
+        case .urlTest:          return "URL Test"
+        case .loadBalance:      return "Load Balance"
         }
     }
 }

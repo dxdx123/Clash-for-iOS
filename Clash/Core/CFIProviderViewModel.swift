@@ -18,6 +18,9 @@ public final class CFIProviderViewModel: CFIUpdatableViewModel, ObservableObject
     public let proxyMapping: [String: CFIProxyViewModel]
     public var name: String { model.name }
     public var type: CFIProxyModel.AdapterType { model.type }
+    public var isHealthCheckEnable: Bool {
+        model.type == .urlTest || model.type == .fallback || model.type == .loadBalance
+    }
     
     @Published public var now: String
     @Published public var isHealthChecking: Bool = false

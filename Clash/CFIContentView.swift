@@ -29,8 +29,8 @@ struct CFIContentView: View {
                         } label: {
                             Label("连接时长", systemImage: "clock")
                         }
-                        NavigationLink {
-                            CFIProviderListView(tunnelMode: tunnelMode)
+                        LabeledContent {
+                            CFIPolicyGroupView(tunnelMode: tunnelMode)
                         } label: {
                             Label("策略组", systemImage: "square.grid.2x2")
                         }
