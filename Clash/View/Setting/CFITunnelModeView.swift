@@ -9,7 +9,7 @@ struct CFITunnelModeView: View {
     var body: some View {
         Picker(selection: tunnelMode) {
             ForEach(CFITunnelMode.allCases) { mode in
-                Label(title(mode: mode), systemImage: systemImage(mode: mode))
+                makeLabel(mode: mode)
             }
         } label: {}
         .labelsHidden()
@@ -19,25 +19,29 @@ struct CFITunnelModeView: View {
         .pickerStyle(.inline)
     }
     
-    private func title(mode: CFITunnelMode) -> String {
-        switch mode {
-        case .global:
-            return "全局"
-        case .rule:
-            return "规则"
-        case .direct:
-            return "直连"
-        }
-    }
     
-    private func systemImage(mode: CFITunnelMode) -> String {
+    private func makeLabel(mode: CFITunnelMode) -> some View {
+        let title: String
+        let systemImage: String
+        let backgroundColor: Color
         switch mode {
         case .global:
-            return "globe"
+            title = "全局"
+            systemImage = "globe"
+            backgroundColor = .blue
         case .rule:
-            return "arrow.triangle.branch"
+            title = "规则"
+            systemImage = "arrow.triangle.branch"
+            backgroundColor = .mint
         case .direct:
-            return "arrow.up"
+            title = "直连"
+            systemImage = "arrow.up"
+            backgroundColor = .pink
+        }
+        return Label {
+            Text(title)
+        } icon: {
+            CFIIcon(systemName: systemImage, backgroundColor: backgroundColor)
         }
     }
 }

@@ -14,25 +14,41 @@ struct CFIContentView: View {
                     LabeledContent {
                         CFISubscribeView(current: $current)
                     } label: {
-                        Label("订阅", systemImage: "doc.plaintext")
+                        Label {
+                            Text("订阅")
+                        } icon: {
+                            CFIIcon(systemName: "doc.plaintext", backgroundColor: .green)
+                        }
                     }
                 }
                 Section {
                     LabeledContent {
                         CFIControlView()
                     } label: {
-                        Label("状态", systemImage: "link")
+                        Label {
+                            Text("状态")
+                        } icon: {
+                            CFIIcon(systemName: "link", backgroundColor: .blue)
+                        }
                     }
                     if let status = manager.status, status == .connected {
                         LabeledContent {
                             CFIConnectedDurationView()
                         } label: {
-                            Label("连接时长", systemImage: "clock")
+                            Label {
+                                Text("连接时长")
+                            } icon: {
+                                CFIIcon(systemName: "clock", backgroundColor: .indigo)
+                            }
                         }
                         LabeledContent {
                             CFIPolicyGroupView(tunnelMode: tunnelMode)
                         } label: {
-                            Label("策略组", systemImage: "square.grid.2x2")
+                            Label {
+                                Text("策略组")
+                            } icon: {
+                                CFIIcon(systemName: "square.grid.2x2", backgroundColor: .purple)
+                            }
                         }
                     }
                 }
@@ -40,13 +56,17 @@ struct CFIContentView: View {
                     NavigationLink {
                         CFISettingView(tunnelMode: $tunnelMode)
                     } label: {
-                        Label("设置", systemImage: "gearshape")
+                        Label {
+                            Text("设置")
+                        } icon: {
+                            CFIIcon(systemName: "gearshape", backgroundColor: .orange)
+                        }
                     }
                 }
             }
             .formStyle(.grouped)
             .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle(Text("主页"))
+            .navigationTitle(Text("Clash"))
             .onChange(of: tunnelMode) { newValue in
                 manager.set(tunnelMode: newValue)
             }
