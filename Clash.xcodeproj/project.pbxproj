@@ -85,6 +85,7 @@
 		7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIAppMessage.swift; sourceTree = "<group>"; };
 		7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFITunnelMode.swift; sourceTree = "<group>"; };
 		7084FC242963FB8A00065DAF /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		7084FC252963FDE300065DAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		708A48E0296295C50040184C /* CFIPolicyGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIPolicyGroupView.swift; sourceTree = "<group>"; };
 		708A48E2296299640040184C /* CFIProxyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIProxyListView.swift; sourceTree = "<group>"; };
 		708A48E72962A4540040184C /* CFIIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIIcon.swift; sourceTree = "<group>"; };
@@ -201,6 +202,7 @@
 				70C9EDBA29502CF000B6995B /* Core */,
 				70C9ED9C29501D5C00B6995B /* Assets.xcassets */,
 				70C9EDD3295149A400B6995B /* Country.mmdb */,
+				7084FC252963FDE300065DAF /* Info.plist */,
 				70C9ED9E29501D5C00B6995B /* Preview Content */,
 			);
 			path = Clash;
@@ -563,6 +565,7 @@
 				DEVELOPMENT_TEAM = A8XWAF2UFT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Clash/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Clash;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -574,7 +577,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Arror.Clash;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_ID}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -597,6 +600,7 @@
 				DEVELOPMENT_TEAM = A8XWAF2UFT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Clash/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Clash;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -608,7 +612,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Arror.Clash;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_ID}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -638,7 +642,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/PacketTunnel",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Arror.Clash.PacketTunnel;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_ID}.PacketTunnel";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -666,7 +670,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/PacketTunnel",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Arror.Clash.PacketTunnel;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_ID}.PacketTunnel";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;

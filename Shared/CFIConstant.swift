@@ -1,9 +1,16 @@
 import Foundation
 import UniformTypeIdentifiers
 
+extension Bundle {
+    
+    public static var appID: String {
+        Bundle.main.infoDictionary?["APP_ID"] as! String
+    }
+}
+
 @frozen public enum CFIConstant {
     
-    public static let suiteName             = "group.com.Arror.Clash"
+    public static let suiteName             = "group.\(Bundle.appID)"
     public static let tunnelMode            = "CLASH_TUNNEL_MODE"
     public static let current               = "CLASH_CURRENT_CONFIG"
     public static let extendAttributeKey    = "CLASH"
