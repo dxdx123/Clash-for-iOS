@@ -1,5 +1,4 @@
 import UIKit
-import ProgressHUD
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
     
@@ -8,11 +7,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     let subscribeManager    = CFISubscribeManager()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        
-        ProgressHUD.colorAnimation  = UIColor(.accentColor)
-        ProgressHUD.colorStatus     = UIColor(.accentColor)
-        ProgressHUD.animationType   = AnimationType.multipleCirclePulse
-        
+
         copyDatabase()
         
         return true

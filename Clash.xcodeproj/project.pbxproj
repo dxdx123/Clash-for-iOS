@@ -19,6 +19,7 @@
 		7084FC1E295ECBC900065DAF /* CFIAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */; };
 		7084FC20295ECC7400065DAF /* CFITunnelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */; };
 		7084FC21295ECC7400065DAF /* CFITunnelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */; };
+		7084FC282964251600065DAF /* CFILoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC272964251600065DAF /* CFILoadingView.swift */; };
 		708A48E1296295C50040184C /* CFIPolicyGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E0296295C50040184C /* CFIPolicyGroupView.swift */; };
 		708A48E3296299640040184C /* CFIProxyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E2296299640040184C /* CFIProxyListView.swift */; };
 		708A48E82962A4540040184C /* CFIIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E72962A4540040184C /* CFIIcon.swift */; };
@@ -28,7 +29,6 @@
 		70B947AF29612F46006F6A38 /* CFISubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947AE29612F46006F6A38 /* CFISubscribeView.swift */; };
 		70B947B129613321006F6A38 /* CFISubscribeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B029613321006F6A38 /* CFISubscribeManager.swift */; };
 		70B947B329613354006F6A38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B229613354006F6A38 /* AppDelegate.swift */; };
-		70B947B82961CEEE006F6A38 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 70B947B72961CEEE006F6A38 /* ProgressHUD */; };
 		70C9ED9929501D5B00B6995B /* CFIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED9829501D5B00B6995B /* CFIApp.swift */; };
 		70C9ED9B29501D5B00B6995B /* CFIContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED9A29501D5B00B6995B /* CFIContentView.swift */; };
 		70C9ED9D29501D5C00B6995B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70C9ED9C29501D5C00B6995B /* Assets.xcassets */; };
@@ -83,6 +83,7 @@
 		7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFITunnelMode.swift; sourceTree = "<group>"; };
 		7084FC242963FB8A00065DAF /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		7084FC252963FDE300065DAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7084FC272964251600065DAF /* CFILoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFILoadingView.swift; sourceTree = "<group>"; };
 		708A48E0296295C50040184C /* CFIPolicyGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIPolicyGroupView.swift; sourceTree = "<group>"; };
 		708A48E2296299640040184C /* CFIProxyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIProxyListView.swift; sourceTree = "<group>"; };
 		708A48E72962A4540040184C /* CFIIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIIcon.swift; sourceTree = "<group>"; };
@@ -117,7 +118,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70B947B82961CEEE006F6A38 /* ProgressHUD in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				708A48E72962A4540040184C /* CFIIcon.swift */,
+				7084FC272964251600065DAF /* CFILoadingView.swift */,
 				70B947AB295F37AC006F6A38 /* Home */,
 				70B947AD29612F22006F6A38 /* Subscribe */,
 				70B947AA295F378C006F6A38 /* Setting */,
@@ -284,7 +285,6 @@
 			);
 			name = Clash;
 			packageProductDependencies = (
-				70B947B72961CEEE006F6A38 /* ProgressHUD */,
 			);
 			productName = Clash;
 			productReference = 70C9ED9529501D5B00B6995B /* Clash.app */;
@@ -336,7 +336,6 @@
 			mainGroup = 70C9ED8C29501D5B00B6995B;
 			packageReferences = (
 				70059B56295F2D9E00D2C4CB /* XCRemoteSwiftPackageReference "ClashKit" */,
-				70B947B62961CEEE006F6A38 /* XCRemoteSwiftPackageReference "ProgressHUD" */,
 			);
 			productRefGroup = 70C9ED9629501D5B00B6995B /* Products */;
 			projectDirPath = "";
@@ -382,6 +381,7 @@
 				70C9EDD82951587D00B6995B /* CFIResetButton.swift in Sources */,
 				70C9EDBE29502D3500B6995B /* CFIPacketTunnelManager.swift in Sources */,
 				70B947B129613321006F6A38 /* CFISubscribeManager.swift in Sources */,
+				7084FC282964251600065DAF /* CFILoadingView.swift in Sources */,
 				7000C6D6295AED790005626E /* CFIProvidersManager.swift in Sources */,
 				70C9EDCA2950565400B6995B /* CFISettingView.swift in Sources */,
 				70B947AF29612F46006F6A38 /* CFISubscribeView.swift in Sources */,
@@ -708,14 +708,6 @@
 				version = 1.0.0;
 			};
 		};
-		70B947B62961CEEE006F6A38 /* XCRemoteSwiftPackageReference "ProgressHUD" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/relatedcode/ProgressHUD.git";
-			requirement = {
-				kind = exactVersion;
-				version = 13.6.2;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -723,11 +715,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 70059B56295F2D9E00D2C4CB /* XCRemoteSwiftPackageReference "ClashKit" */;
 			productName = ClashKit;
-		};
-		70B947B72961CEEE006F6A38 /* ProgressHUD */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 70B947B62961CEEE006F6A38 /* XCRemoteSwiftPackageReference "ProgressHUD" */;
-			productName = ProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
