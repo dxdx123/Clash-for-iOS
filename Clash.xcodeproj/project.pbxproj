@@ -562,7 +562,6 @@
 				CODE_SIGN_ENTITLEMENTS = Clash/Clash.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Clash/Preview Content\"";
-				DEVELOPMENT_TEAM = A8XWAF2UFT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Clash/Info.plist;
@@ -597,7 +596,6 @@
 				CODE_SIGN_ENTITLEMENTS = Clash/Clash.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Clash/Preview Content\"";
-				DEVELOPMENT_TEAM = A8XWAF2UFT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Clash/Info.plist;
@@ -628,7 +626,6 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PacketTunnel/PacketTunnel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A8XWAF2UFT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PacketTunnel/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = PacketTunnel;
@@ -656,7 +653,6 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PacketTunnel/PacketTunnel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A8XWAF2UFT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PacketTunnel/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = PacketTunnel;
