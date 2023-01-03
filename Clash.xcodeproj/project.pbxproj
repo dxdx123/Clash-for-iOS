@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7000C6C7295A8BC20005626E /* CFISubscribeDownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6C6295A8BC20005626E /* CFISubscribeDownloadView.swift */; };
 		7000C6D6295AED790005626E /* CFIProvidersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6D1295AED790005626E /* CFIProvidersManager.swift */; };
 		7000C6D7295AED790005626E /* CFIProxyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6D2295AED790005626E /* CFIProxyViewModel.swift */; };
 		7000C6D8295AED790005626E /* CFIProxyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6D3295AED790005626E /* CFIProxyModel.swift */; };
@@ -29,7 +28,6 @@
 		70B947AF29612F46006F6A38 /* CFISubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947AE29612F46006F6A38 /* CFISubscribeView.swift */; };
 		70B947B129613321006F6A38 /* CFISubscribeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B029613321006F6A38 /* CFISubscribeManager.swift */; };
 		70B947B329613354006F6A38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B229613354006F6A38 /* AppDelegate.swift */; };
-		70B947B5296144A6006F6A38 /* CFISubscribeDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B4296144A6006F6A38 /* CFISubscribeDownloader.swift */; };
 		70B947B82961CEEE006F6A38 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 70B947B72961CEEE006F6A38 /* ProgressHUD */; };
 		70C9ED9929501D5B00B6995B /* CFIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED9829501D5B00B6995B /* CFIApp.swift */; };
 		70C9ED9B29501D5B00B6995B /* CFIContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED9A29501D5B00B6995B /* CFIContentView.swift */; };
@@ -73,7 +71,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7000C6C6295A8BC20005626E /* CFISubscribeDownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFISubscribeDownloadView.swift; sourceTree = "<group>"; };
 		7000C6D1295AED790005626E /* CFIProvidersManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFIProvidersManager.swift; sourceTree = "<group>"; };
 		7000C6D2295AED790005626E /* CFIProxyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFIProxyViewModel.swift; sourceTree = "<group>"; };
 		7000C6D3295AED790005626E /* CFIProxyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFIProxyModel.swift; sourceTree = "<group>"; };
@@ -95,7 +92,6 @@
 		70B947AE29612F46006F6A38 /* CFISubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFISubscribeView.swift; sourceTree = "<group>"; };
 		70B947B029613321006F6A38 /* CFISubscribeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFISubscribeManager.swift; sourceTree = "<group>"; };
 		70B947B229613354006F6A38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		70B947B4296144A6006F6A38 /* CFISubscribeDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFISubscribeDownloader.swift; sourceTree = "<group>"; };
 		70C9ED9529501D5B00B6995B /* Clash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70C9ED9829501D5B00B6995B /* CFIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIApp.swift; sourceTree = "<group>"; };
 		70C9ED9A29501D5B00B6995B /* CFIContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIContentView.swift; sourceTree = "<group>"; };
@@ -164,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				70C9EDD92951841E00B6995B /* CFISubscribeListView.swift */,
-				7000C6C6295A8BC20005626E /* CFISubscribeDownloadView.swift */,
 			);
 			path = Subscribe;
 			sourceTree = "<group>";
@@ -245,7 +240,6 @@
 				7000C6D2295AED790005626E /* CFIProxyViewModel.swift */,
 				7000C6D3295AED790005626E /* CFIProxyModel.swift */,
 				70B947B029613321006F6A38 /* CFISubscribeManager.swift */,
-				70B947B4296144A6006F6A38 /* CFISubscribeDownloader.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -398,13 +392,11 @@
 				708A48E82962A4540040184C /* CFIIcon.swift in Sources */,
 				7084FC1D295ECBC900065DAF /* CFIAppMessage.swift in Sources */,
 				7000C6E4295D635F0005626E /* CFIControlView.swift in Sources */,
-				70B947B5296144A6006F6A38 /* CFISubscribeDownloader.swift in Sources */,
 				7000C6D8295AED790005626E /* CFIProxyModel.swift in Sources */,
 				708A48EA2962AA2B0040184C /* CFIThemeView.swift in Sources */,
 				7000C6D9295AED790005626E /* CFIProviderViewModel.swift in Sources */,
 				7000C6DE295D5F690005626E /* CFIConnectedDurationView.swift in Sources */,
 				708A48E1296295C50040184C /* CFIPolicyGroupView.swift in Sources */,
-				7000C6C7295A8BC20005626E /* CFISubscribeDownloadView.swift in Sources */,
 				70B947B329613354006F6A38 /* AppDelegate.swift in Sources */,
 				708A48E3296299640040184C /* CFIProxyListView.swift in Sources */,
 			);

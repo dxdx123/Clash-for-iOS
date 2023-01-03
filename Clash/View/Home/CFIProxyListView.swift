@@ -55,14 +55,17 @@ struct CFIProxyListView: View {
                 HStack {
                     VStack(alignment: .leading, spacing: 6) {
                         Text(proxy.name)
+                            .lineLimit(1)
                             .foregroundColor(isSelected ? .accentColor : .primary)
                         Text(proxy.type.name)
+                            .lineLimit(1)
                             .foregroundColor(.secondary)
                             .font(.callout)
                             .fontWeight(.light)
                     }
                     Spacer()
                     Text(proxy.delay)
+                        .lineLimit(1)
                         .foregroundColor(.secondary)
                         .font(.callout)
                         .fontWeight(.light)

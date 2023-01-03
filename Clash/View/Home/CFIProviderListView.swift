@@ -60,12 +60,15 @@ struct CFIProviderListView: View {
                 HStack {
                     VStack(alignment: .leading, spacing: 6) {
                         Text(provider.name)
+                            .lineLimit(1)
                         Text(provider.now)
+                            .lineLimit(1)
                             .foregroundColor(.secondary)
                             .fontWeight(.light)
                     }
                     Spacer()
                     Text(provider.proxyMapping[provider.now]?.delay ?? "")
+                        .lineLimit(1)
                         .foregroundColor(.secondary)
                         .fontWeight(.light)
                         .font(.callout)

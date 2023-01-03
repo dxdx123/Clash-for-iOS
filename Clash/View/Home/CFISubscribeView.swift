@@ -12,6 +12,7 @@ struct CFISubscribeView: View {
         Button(title) {
             isPresented.toggle()
         }
+        .lineLimit(1)
         .sheet(isPresented: $isPresented) {
             CFISubscribeListView(current: current)
                 .presentationDetents([.medium, .large])

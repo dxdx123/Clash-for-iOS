@@ -5,11 +5,12 @@ struct CFISubscribeListView: View {
         
     @EnvironmentObject private var packetTunnelManager: CFIPacketTunnelManager
     @EnvironmentObject private var subscribeManager: CFISubscribeManager
-        
+            
     let current: Binding<String>
     
-    @State private var isPresented = false
-    
+    @State private var isDownloadAlertPresented: Bool = false
+    @State private var subscribeURLString: String = ""
+        
     @State private var isRenameAlertPresented = false
     @State private var subscribe: CFISubscribe?
     @State private var subscribeName: String = ""
@@ -26,9 +27,11 @@ struct CFISubscribeListView: View {
                     HStack(alignment: .center, spacing: 0) {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(subscribe.extend.alias)
+                                .lineLimit(1)
                                 .foregroundColor(.primary)
                                 .fontWeight(.medium)
                             Text(subscribe.extend.leastUpdated.formatted(.relative(presentation: .named)))
+                                .lineLimit(1)
                                 .foregroundColor(.secondary)
                                 .font(.callout)
                                 .fontWeight(.light)
@@ -79,14 +82,12 @@ struct CFISubscribeListView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button {
-                    isPresented.toggle()
+                    subscribeURLString = ""
+                    isDownloadAlertPresented.toggle()
                 } label: {
                     Image(systemName: "plus")
                         .fontWeight(.medium)
                 }
-            }
-            .sheet(isPresented: $isPresented) {
-                CFISubscribeDownloadView()
             }
             .alert("重命名", isPresented: $isRenameAlertPresented, presenting: subscribe) { subscribe in
                 TextField("请输入订阅名称", text: $subscribeName)
@@ -99,6 +100,24 @@ struct CFISubscribeListView: View {
                         try subscribeManager.rename(subscribe: subscribe, name: name)
                     } catch {
                         debugPrint(error.localizedDescription)
+                    }
+                }
+                Button("取消", role: .cancel) {}
+            }
+            .alert("订阅", isPresented: $isDownloadAlertPresented) {
+                TextField("请输入订阅地址", text: $subscribeURLString)
+                Button("确定") {
+                    guard let source = URL(string: subscribeURLString) else {
+                        return ProgressHUD.showFailed("无效的订阅地址")
+                    }
+                    ProgressHUD.show(interaction: false)
+                    Task(priority: .high) {
+                        do {
+                            try await subscribeManager.download(source: source)
+                            ProgressHUD.dismiss()
+                        } catch {
+                            ProgressHUD.showFailed(error.localizedDescription)
+                        }
                     }
                 }
                 Button("取消", role: .cancel) {}

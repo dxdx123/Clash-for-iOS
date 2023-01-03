@@ -76,6 +76,25 @@ final class CFISubscribeManager: ObservableObject {
         self.subscribes = self.fetchSubscribes()
     }
     
+    func download(source: URL) async throws {
+        let id = UUID().uuidString
+        let data = try await URLSession.shared.data(for: URLRequest(url: source)).0
+        let target = CFIConstant.homeDirectory.appending(path: "\(id).yaml")
+        try data.write(to: target)
+        let extend = CFISubscribe.Extend(
+            alias: id,
+            source: source,
+            leastUpdated: Date()
+        )
+        try FileManager.default.setAttributes(
+            [.extended: [CFIConstant.extendAttributeKey: try JSONEncoder().encode(extend)]],
+            ofItemAtPath: target.path(percentEncoded: false)
+        )
+        await MainActor.run {
+            self.subscribes = self.fetchSubscribes()
+        }
+    }
+    
     func update(subscribe: CFISubscribe) async throws {
         let data = try await URLSession.shared.data(for: URLRequest(url: subscribe.extend.source)).0
         let target = CFIConstant.homeDirectory.appending(path: "\(subscribe.id).yaml")
