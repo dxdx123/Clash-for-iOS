@@ -23,6 +23,7 @@ struct CFIProxyListView: View {
                 }
         }
         .navigationTitle(Text(provider.name))
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             if provider.isHealthCheckEnable {
                 if provider.isHealthChecking {
