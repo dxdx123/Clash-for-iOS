@@ -94,10 +94,13 @@ iOSInjectionProject/
 ### Xcode Patch ###
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj
+!*.xcodeproj/project.xcworkspace
 !*.xcodeproj/xcshareddata/
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
+**/xcshareddata/IDEWorkspaceChecks.plist
+**/contents.xcworkspacedata
 
 **/ClashKit.xcframework
 

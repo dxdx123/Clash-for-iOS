@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "clashkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Daemonomead/ClashKit.git",
+      "state" : {
+        "revision" : "9c635ea8ad3668120c86ce031ff5b510018bc58f",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "progresshud",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/relatedcode/ProgressHUD.git",
+      "state" : {
+        "revision" : "2b80c6f5a091c76a01f080545723f9b0bcf928cd",
+        "version" : "13.6.2"
+      }
+    }
+  ],
+  "version" : 2
+}
