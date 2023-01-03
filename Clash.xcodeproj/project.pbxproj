@@ -84,6 +84,7 @@
 		7000C6E3295D635F0005626E /* CFIControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIControlView.swift; sourceTree = "<group>"; };
 		7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIAppMessage.swift; sourceTree = "<group>"; };
 		7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFITunnelMode.swift; sourceTree = "<group>"; };
+		7084FC242963FB8A00065DAF /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		708A48E0296295C50040184C /* CFIPolicyGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIPolicyGroupView.swift; sourceTree = "<group>"; };
 		708A48E2296299640040184C /* CFIProxyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIProxyListView.swift; sourceTree = "<group>"; };
 		708A48E72962A4540040184C /* CFIIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIIcon.swift; sourceTree = "<group>"; };
@@ -170,6 +171,7 @@
 		70C9ED8C29501D5B00B6995B = {
 			isa = PBXGroup;
 			children = (
+				7084FC242963FB8A00065DAF /* Config.xcconfig */,
 				70C9EDCF295145DB00B6995B /* Shared */,
 				70C9ED9729501D5B00B6995B /* Clash */,
 				70C9EDAE29502C6500B6995B /* PacketTunnel */,
@@ -435,6 +437,7 @@
 /* Begin XCBuildConfiguration section */
 		70C9EDA129501D5C00B6995B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7084FC242963FB8A00065DAF /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -495,6 +498,7 @@
 		};
 		70C9EDA229501D5C00B6995B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7084FC242963FB8A00065DAF /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -555,7 +559,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Clash/Clash.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Clash/Preview Content\"";
 				DEVELOPMENT_TEAM = A8XWAF2UFT;
 				ENABLE_PREVIEWS = YES;
@@ -571,7 +574,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Arror.Clash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -591,7 +593,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Clash/Clash.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Clash/Preview Content\"";
 				DEVELOPMENT_TEAM = A8XWAF2UFT;
 				ENABLE_PREVIEWS = YES;
@@ -607,7 +608,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Arror.Clash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -624,7 +624,6 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PacketTunnel/PacketTunnel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A8XWAF2UFT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PacketTunnel/Info.plist;
@@ -639,7 +638,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/PacketTunnel",
 				);
-				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Arror.Clash.PacketTunnel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -654,7 +652,6 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PacketTunnel/PacketTunnel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A8XWAF2UFT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PacketTunnel/Info.plist;
@@ -669,7 +666,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/PacketTunnel",
 				);
-				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Arror.Clash.PacketTunnel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
