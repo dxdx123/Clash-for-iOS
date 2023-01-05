@@ -715,7 +715,7 @@
 			repositoryURL = "https://github.com/Daemonomead/ClashKit.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.1.9;
+				version = 1.1.10;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
