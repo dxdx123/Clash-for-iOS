@@ -165,6 +165,19 @@ extension CFIPacketTunnelManager {
         }
     }
     
+    public func set(logLevel level: CFILogLevel) {
+        guard let status = status, status == .connected else {
+            return
+        }
+        Task(priority: .userInitiated) {
+            do {
+                try await sendProviderMessage(data: try CFIAppMessage.logLevel(level).data())
+            } catch {
+                debugPrint(error.localizedDescription)
+            }
+        }
+    }
+    
     public func set(provider: String, selected proxy: String) {
         guard let status = status, status == .connected else {
             return

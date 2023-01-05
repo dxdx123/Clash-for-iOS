@@ -12,6 +12,9 @@ struct CFISettingView: View {
                 Text("模式")
             }
             Section {
+                CFILogLevelView()
+            }
+            Section {
                 CFIThemeView()
             }
             Section {

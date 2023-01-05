@@ -8,6 +8,8 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
+        setupDefaults()
+        
         copyDatabase()
         
         return true
@@ -27,6 +29,15 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
             try FileManager.default.copyItem(at: local, to: dbURL)
         } catch {
             debugPrint(error.localizedDescription)
+        }
+    }
+    
+    private func setupDefaults() {
+        if let reval = UserDefaults.shared.string(forKey: CFIConstant.tunnelMode), reval.isEmpty {
+            UserDefaults.shared.set(CFITunnelMode.rule.rawValue, forKey: CFIConstant.tunnelMode)
+        }
+        if let reval = UserDefaults.shared.string(forKey: CFIConstant.logLevel), reval.isEmpty {
+            UserDefaults.shared.set(CFILogLevel.silent.rawValue, forKey: CFIConstant.logLevel)
         }
     }
 }
