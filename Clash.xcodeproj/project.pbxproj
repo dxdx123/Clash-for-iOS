@@ -20,6 +20,9 @@
 		7084FC20295ECC7400065DAF /* CFITunnelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */; };
 		7084FC21295ECC7400065DAF /* CFITunnelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */; };
 		7084FC282964251600065DAF /* CFILoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC272964251600065DAF /* CFILoadingView.swift */; };
+		7084FC302965872200065DAF /* CFILogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC2F2965872200065DAF /* CFILogLevel.swift */; };
+		7084FC312965872200065DAF /* CFILogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC2F2965872200065DAF /* CFILogLevel.swift */; };
+		7084FC33296587C600065DAF /* CFILogLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC32296587C600065DAF /* CFILogLevelView.swift */; };
 		708A48E1296295C50040184C /* CFIPolicyGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E0296295C50040184C /* CFIPolicyGroupView.swift */; };
 		708A48E3296299640040184C /* CFIProxyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E2296299640040184C /* CFIProxyListView.swift */; };
 		708A48E82962A4540040184C /* CFIIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E72962A4540040184C /* CFIIcon.swift */; };
@@ -84,6 +87,8 @@
 		7084FC242963FB8A00065DAF /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		7084FC252963FDE300065DAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7084FC272964251600065DAF /* CFILoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFILoadingView.swift; sourceTree = "<group>"; };
+		7084FC2F2965872200065DAF /* CFILogLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFILogLevel.swift; sourceTree = "<group>"; };
+		7084FC32296587C600065DAF /* CFILogLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFILogLevelView.swift; sourceTree = "<group>"; };
 		708A48E0296295C50040184C /* CFIPolicyGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIPolicyGroupView.swift; sourceTree = "<group>"; };
 		708A48E2296299640040184C /* CFIProxyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIProxyListView.swift; sourceTree = "<group>"; };
 		708A48E72962A4540040184C /* CFIIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIIcon.swift; sourceTree = "<group>"; };
@@ -139,6 +144,7 @@
 				70C9EDC92950565400B6995B /* CFISettingView.swift */,
 				70C9EDD72951587D00B6995B /* CFIResetButton.swift */,
 				708A48E92962AA2B0040184C /* CFIThemeView.swift */,
+				7084FC32296587C600065DAF /* CFILogLevelView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -262,6 +268,7 @@
 				70C9EDD02951469E00B6995B /* CFIConstant.swift */,
 				7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */,
 				7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */,
+				7084FC2F2965872200065DAF /* CFILogLevel.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -380,12 +387,14 @@
 				7000C6E0295D60A50005626E /* CFITunnelModeView.swift in Sources */,
 				70C9EDD82951587D00B6995B /* CFIResetButton.swift in Sources */,
 				70C9EDBE29502D3500B6995B /* CFIPacketTunnelManager.swift in Sources */,
+				7084FC302965872200065DAF /* CFILogLevel.swift in Sources */,
 				70B947B129613321006F6A38 /* CFISubscribeManager.swift in Sources */,
 				7084FC282964251600065DAF /* CFILoadingView.swift in Sources */,
 				7000C6D6295AED790005626E /* CFIProvidersManager.swift in Sources */,
 				70C9EDCA2950565400B6995B /* CFISettingView.swift in Sources */,
 				70B947AF29612F46006F6A38 /* CFISubscribeView.swift in Sources */,
 				70C9EDD12951469E00B6995B /* CFIConstant.swift in Sources */,
+				7084FC33296587C600065DAF /* CFILogLevelView.swift in Sources */,
 				70C9ED9929501D5B00B6995B /* CFIApp.swift in Sources */,
 				708A48EC2962AD740040184C /* CFITheme.swift in Sources */,
 				7000C6DA295AED790005626E /* CFIUpdatableViewModel.swift in Sources */,
@@ -406,6 +415,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7084FC312965872200065DAF /* CFILogLevel.swift in Sources */,
 				70C9EDB029502C6500B6995B /* PacketTunnelProvider.swift in Sources */,
 				70C9EDD22951469E00B6995B /* CFIConstant.swift in Sources */,
 				70B947A9295F302B006F6A38 /* Clash.swift in Sources */,
@@ -705,7 +715,7 @@
 			repositoryURL = "https://github.com/Daemonomead/ClashKit.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.0;
+				version = 1.1.10;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

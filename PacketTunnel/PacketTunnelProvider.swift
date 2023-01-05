@@ -43,6 +43,9 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             case .select(let provider, let proxy):
                 Clash.set(provider: provider, selected: proxy)
                 return nil
+            case .logLevel(let level):
+                Clash.set(logLevel: level)
+                return nil
             }
         } catch {
             return nil
