@@ -19,6 +19,7 @@ struct CFISettingView: View {
             }
             Section {
                 CFIThemeView()
+                CFIAccentColorView()
             }
             Section {
                 CFIResetButton()
