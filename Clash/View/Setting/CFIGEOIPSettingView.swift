@@ -1,79 +1,19 @@
 import SwiftUI
 
-final class CFIGEOIPManager: ObservableObject {
+enum CFIGEOIPAutoUpdateInterval: String, CaseIterable, Identifiable {
     
-    @Published var isUpdating: Bool = false
-    @Published var leastUpdated: Date?
+    var id: Self { self }
     
-    private let fileURL = CFIConstant.homeDirectory.appendingPathComponent("Country.mmdb")
-    
-    init() {
-        refresh()
-    }
-    
-    func checkAndUpdateIfNeeded() {
-        let shouldUpdate: Bool
-        if let least = leastUpdated {
-            shouldUpdate = abs(least.distance(to: Date())) > 7 * 24 * 60
-        } else {
-            shouldUpdate = true
-        }
-        guard shouldUpdate, let url = URL(string: UserDefaults.standard.string(forKey: CFIConstant.geoipDatabaseRemoteURLString) ?? "") else {
-            return
-        }
-        Task(priority: .medium) {
-            do {
-                try await update(url: url)
-            } catch {
-                debugPrint(error.localizedDescription)
-            }
-        }
-    }
-    
-    func refresh() {
-        if FileManager.default.fileExists(atPath: fileURL.path(percentEncoded: false)) {
-            do {
-                let attributes = try FileManager.default.attributesOfItem(atPath: fileURL.path(percentEncoded: false))
-                let creationDate = attributes[.creationDate] as? Date
-                let modificationDate = attributes[.modificationDate] as? Date
-                leastUpdated = modificationDate ?? creationDate
-            } catch {
-                leastUpdated = nil
-            }
-        } else {
-            leastUpdated = nil
-        }
-    }
-    
-    func update(url: URL) async throws {
-        await MainActor.run {
-            isUpdating = true
-        }
-        do {
-            let destinationURL = CFIConstant.homeDirectory.appendingPathComponent("Country.mmdb")
-            let tempURL = try await URLSession.shared.download(from: url, delegate: nil).0
-            if FileManager.default.fileExists(atPath: destinationURL.path(percentEncoded: false)) {
-                try FileManager.default.removeItem(at: destinationURL)
-            }
-            try FileManager.default.copyItem(at: tempURL, to: destinationURL)
-            await MainActor.run {
-                isUpdating = false
-                refresh()
-            }
-        } catch {
-            await MainActor.run {
-                isUpdating = false
-                refresh()
-            }
-            throw error
-        }
-    }
+    case day
+    case week
+    case month
 }
 
 extension CFIConstant {
     static let defaultGEOIPDatabaseRemoteURLString  = "https://github.com/Dreamacro/maxmind-geoip/releases/latest/download/Country.mmdb"
     static let geoipDatabaseRemoteURLString         = "CLASH_GEOIP_DATABASE_REMOTE_URL_STRING"
     static let geoipDatabaseAutoUpdate              = "CLASH_GEOIP_DATABASE_AUTO_UPDATE"
+    static let geoipDatabaseAutoUpdateInterval      = "CLASH_GEOIP_DATABASE_AUTO_UPDATE_INTERVAL"
 }
 
 struct CFIGEOIPSettingView: View {
@@ -82,6 +22,7 @@ struct CFIGEOIPSettingView: View {
     
     @AppStorage(CFIConstant.geoipDatabaseRemoteURLString) private var geoipDatabaseRemoteURLString: String = CFIConstant.defaultGEOIPDatabaseRemoteURLString
     @AppStorage(CFIConstant.geoipDatabaseAutoUpdate) private var geoipDatabaseAutoUpdate: Bool = true
+    @AppStorage(CFIConstant.geoipDatabaseAutoUpdateInterval) private var geoipDatabaseAutoUpdateInterval: CFIGEOIPAutoUpdateInterval = .week
     
     var body: some View {
         Form {
@@ -92,6 +33,13 @@ struct CFIGEOIPSettingView: View {
                     Text("地址")
                 }
                 Toggle("自动更新", isOn: $geoipDatabaseAutoUpdate)
+                if geoipDatabaseAutoUpdate {
+                    Picker("更新间隔", selection: $geoipDatabaseAutoUpdateInterval) {
+                        ForEach(CFIGEOIPAutoUpdateInterval.allCases) { interval in
+                            Text(title(for: interval))
+                        }
+                    }
+                }
             }
             .disabled(geoipManager.isUpdating)
             
@@ -124,6 +72,17 @@ struct CFIGEOIPSettingView: View {
             if geoipManager.isUpdating {
                 ProgressView()
             }
+        }
+    }
+    
+    private func title(for interval: CFIGEOIPAutoUpdateInterval) -> String {
+        switch interval {
+        case .day:
+            return "每天"
+        case .week:
+            return "每周"
+        case .month:
+            return "每月"
         }
     }
 }

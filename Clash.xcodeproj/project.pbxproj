@@ -25,6 +25,7 @@
 		7084FC33296587C600065DAF /* CFILogLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC32296587C600065DAF /* CFILogLevelView.swift */; };
 		7084FC362967B8AC00065DAF /* CFIGEOIPSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC352967B8AC00065DAF /* CFIGEOIPSettingView.swift */; };
 		7084FC382967DB7300065DAF /* CFIGEOIPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC372967DB7300065DAF /* CFIGEOIPView.swift */; };
+		7084FC3A2967E6FD00065DAF /* CFIGEOIPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC392967E6FD00065DAF /* CFIGEOIPManager.swift */; };
 		708A48E1296295C50040184C /* CFIPolicyGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E0296295C50040184C /* CFIPolicyGroupView.swift */; };
 		708A48E3296299640040184C /* CFIProxyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E2296299640040184C /* CFIProxyListView.swift */; };
 		708A48E82962A4540040184C /* CFIIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E72962A4540040184C /* CFIIcon.swift */; };
@@ -92,6 +93,7 @@
 		7084FC32296587C600065DAF /* CFILogLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFILogLevelView.swift; sourceTree = "<group>"; };
 		7084FC352967B8AC00065DAF /* CFIGEOIPSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIGEOIPSettingView.swift; sourceTree = "<group>"; };
 		7084FC372967DB7300065DAF /* CFIGEOIPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIGEOIPView.swift; sourceTree = "<group>"; };
+		7084FC392967E6FD00065DAF /* CFIGEOIPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIGEOIPManager.swift; sourceTree = "<group>"; };
 		708A48E0296295C50040184C /* CFIPolicyGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIPolicyGroupView.swift; sourceTree = "<group>"; };
 		708A48E2296299640040184C /* CFIProxyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIProxyListView.swift; sourceTree = "<group>"; };
 		708A48E72962A4540040184C /* CFIIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIIcon.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				7000C6D2295AED790005626E /* CFIProxyViewModel.swift */,
 				7000C6D3295AED790005626E /* CFIProxyModel.swift */,
 				70B947B029613321006F6A38 /* CFISubscribeManager.swift */,
+				7084FC392967E6FD00065DAF /* CFIGEOIPManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				70C9EDCA2950565400B6995B /* CFISettingView.swift in Sources */,
 				70B947AF29612F46006F6A38 /* CFISubscribeView.swift in Sources */,
 				70C9EDD12951469E00B6995B /* CFIConstant.swift in Sources */,
+				7084FC3A2967E6FD00065DAF /* CFIGEOIPManager.swift in Sources */,
 				7084FC33296587C600065DAF /* CFILogLevelView.swift in Sources */,
 				70C9ED9929501D5B00B6995B /* CFIApp.swift in Sources */,
 				708A48EC2962AD740040184C /* CFITheme.swift in Sources */,
