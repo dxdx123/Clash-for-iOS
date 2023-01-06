@@ -17,7 +17,17 @@ final class CFIGEOIPManager: ObservableObject {
         }
         let shouldUpdate: Bool
         if let least = leastUpdated {
-            shouldUpdate = abs(least.distance(to: Date())) > 7 * 24 * 60
+            let interval = UserDefaults.standard.string(forKey: CFIConstant.geoipDatabaseAutoUpdateInterval).flatMap(CFIGEOIPAutoUpdateInterval.init(rawValue:)) ?? .week
+            let day: Double
+            switch interval {
+            case .day:
+                day = 1
+            case .week:
+                day = 7
+            case .month:
+                day = 30
+            }
+            shouldUpdate = abs(least.distance(to: Date())) > day * 24 * 60
         } else {
             shouldUpdate = true
         }
