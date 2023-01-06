@@ -6,15 +6,28 @@ struct CFILogLevelView: View {
     @AppStorage(CFIConstant.logLevel, store: .shared) private var logLevel  = CFILogLevel.silent
     
     var body: some View {
-        Picker(selection: $logLevel) {
-            ForEach(CFILogLevel.allCases) { level in
-                Text(title(for: level))
+        NavigationLink {
+            Form {
+                Picker(selection: $logLevel) {
+                    ForEach(CFILogLevel.allCases) { level in
+                        Text(title(for: level))
+                    }
+                } label: {
+                    EmptyView()
+                }
+                .pickerStyle(.inline)
             }
+            .navigationTitle(Text("日志"))
+            .navigationBarTitleDisplayMode(.inline)
         } label: {
-            Label {
-                Text("日志")
-            } icon: {
-                CFIIcon(systemName: "doc.text.below.ecg", backgroundColor: .brown)
+            LabeledContent {
+                Text(title(for: logLevel))
+            } label: {
+                Label {
+                    Text("日志")
+                } icon: {
+                    CFIIcon(systemName: "doc.text.below.ecg", backgroundColor: .brown)
+                }
             }
         }
         .onChange(of: logLevel) { newValue in

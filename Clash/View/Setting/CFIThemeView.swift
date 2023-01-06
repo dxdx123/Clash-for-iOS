@@ -5,15 +5,28 @@ struct CFIThemeView: View {
     @AppStorage(CFIConstant.theme) private var theme = CFITheme.system
     
     var body: some View {
-        Picker(selection: $theme) {
-            ForEach(CFITheme.allCases) { theme in
-                Text(title(for: theme))
+        NavigationLink {
+            Form {
+                Picker(selection: $theme) {
+                    ForEach(CFITheme.allCases) { theme in
+                        Text(title(for: theme))
+                    }
+                } label: {
+                    EmptyView()
+                }
+                .pickerStyle(.inline)
             }
+            .navigationTitle(Text("主题"))
+            .navigationBarTitleDisplayMode(.inline)
         } label: {
-            Label {
-                Text("主题")
-            } icon: {
-                CFIIcon(systemName: "app.dashed", backgroundColor: .mint)
+            LabeledContent {
+                Text(title(for: theme))
+            } label: {
+                Label {
+                    Text("主题")
+                } icon: {
+                    CFIIcon(systemName: "app.dashed", backgroundColor: .mint)
+                }
             }
         }
     }

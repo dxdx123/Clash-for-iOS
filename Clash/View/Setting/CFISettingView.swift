@@ -20,6 +20,8 @@ struct CFISettingView: View {
             Section {
                 CFIThemeView()
                 CFIAccentColorView()
+            } header: {
+                Text("外观")
             }
             Section {
                 CFIResetButton()
