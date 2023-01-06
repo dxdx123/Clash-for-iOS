@@ -12,6 +12,9 @@ struct CFISettingView: View {
                 Text("模式")
             }
             Section {
+                CFIGEOIPView()
+            }
+            Section {
                 CFILogLevelView()
             }
             Section {
@@ -41,4 +44,3 @@ struct CFISettingView: View {
         return "版本: \(version)"
     }
 }
-

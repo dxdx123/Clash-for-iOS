@@ -12,6 +12,7 @@ struct CFIApp: App {
             CFIContentView()
                 .environmentObject(delegate.packetTunnelManager)
                 .environmentObject(delegate.subscribeManager)
+                .environmentObject(delegate.geoipManager)
                 .preferredColorScheme(theme.preferredColorScheme)
         }
     }

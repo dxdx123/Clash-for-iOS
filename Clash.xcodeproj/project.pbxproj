@@ -23,6 +23,8 @@
 		7084FC302965872200065DAF /* CFILogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC2F2965872200065DAF /* CFILogLevel.swift */; };
 		7084FC312965872200065DAF /* CFILogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC2F2965872200065DAF /* CFILogLevel.swift */; };
 		7084FC33296587C600065DAF /* CFILogLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC32296587C600065DAF /* CFILogLevelView.swift */; };
+		7084FC362967B8AC00065DAF /* CFIGEOIPSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC352967B8AC00065DAF /* CFIGEOIPSettingView.swift */; };
+		7084FC382967DB7300065DAF /* CFIGEOIPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC372967DB7300065DAF /* CFIGEOIPView.swift */; };
 		708A48E1296295C50040184C /* CFIPolicyGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E0296295C50040184C /* CFIPolicyGroupView.swift */; };
 		708A48E3296299640040184C /* CFIProxyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E2296299640040184C /* CFIProxyListView.swift */; };
 		708A48E82962A4540040184C /* CFIIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E72962A4540040184C /* CFIIcon.swift */; };
@@ -44,7 +46,6 @@
 		70C9EDCC295057DB00B6995B /* CFIProviderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDCB295057DB00B6995B /* CFIProviderListView.swift */; };
 		70C9EDD12951469E00B6995B /* CFIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD02951469E00B6995B /* CFIConstant.swift */; };
 		70C9EDD22951469E00B6995B /* CFIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD02951469E00B6995B /* CFIConstant.swift */; };
-		70C9EDD4295149A400B6995B /* Country.mmdb in Resources */ = {isa = PBXBuildFile; fileRef = 70C9EDD3295149A400B6995B /* Country.mmdb */; };
 		70C9EDD82951587D00B6995B /* CFIResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD72951587D00B6995B /* CFIResetButton.swift */; };
 		70C9EDDA2951841E00B6995B /* CFISubscribeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD92951841E00B6995B /* CFISubscribeListView.swift */; };
 /* End PBXBuildFile section */
@@ -89,6 +90,8 @@
 		7084FC272964251600065DAF /* CFILoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFILoadingView.swift; sourceTree = "<group>"; };
 		7084FC2F2965872200065DAF /* CFILogLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFILogLevel.swift; sourceTree = "<group>"; };
 		7084FC32296587C600065DAF /* CFILogLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFILogLevelView.swift; sourceTree = "<group>"; };
+		7084FC352967B8AC00065DAF /* CFIGEOIPSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIGEOIPSettingView.swift; sourceTree = "<group>"; };
+		7084FC372967DB7300065DAF /* CFIGEOIPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIGEOIPView.swift; sourceTree = "<group>"; };
 		708A48E0296295C50040184C /* CFIPolicyGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIPolicyGroupView.swift; sourceTree = "<group>"; };
 		708A48E2296299640040184C /* CFIProxyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIProxyListView.swift; sourceTree = "<group>"; };
 		708A48E72962A4540040184C /* CFIIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIIcon.swift; sourceTree = "<group>"; };
@@ -113,7 +116,6 @@
 		70C9EDC92950565400B6995B /* CFISettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFISettingView.swift; sourceTree = "<group>"; };
 		70C9EDCB295057DB00B6995B /* CFIProviderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIProviderListView.swift; sourceTree = "<group>"; };
 		70C9EDD02951469E00B6995B /* CFIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIConstant.swift; sourceTree = "<group>"; };
-		70C9EDD3295149A400B6995B /* Country.mmdb */ = {isa = PBXFileReference; lastKnownFileType = file; path = Country.mmdb; sourceTree = "<group>"; };
 		70C9EDD72951587D00B6995B /* CFIResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIResetButton.swift; sourceTree = "<group>"; };
 		70C9EDD92951841E00B6995B /* CFISubscribeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFISubscribeListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,6 +147,8 @@
 				70C9EDD72951587D00B6995B /* CFIResetButton.swift */,
 				708A48E92962AA2B0040184C /* CFIThemeView.swift */,
 				7084FC32296587C600065DAF /* CFILogLevelView.swift */,
+				7084FC372967DB7300065DAF /* CFIGEOIPView.swift */,
+				7084FC352967B8AC00065DAF /* CFIGEOIPSettingView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -202,7 +206,6 @@
 				70C9EDC02950415F00B6995B /* View */,
 				70C9EDBA29502CF000B6995B /* Core */,
 				70C9ED9C29501D5C00B6995B /* Assets.xcassets */,
-				70C9EDD3295149A400B6995B /* Country.mmdb */,
 				7084FC252963FDE300065DAF /* Info.plist */,
 				70C9ED9E29501D5C00B6995B /* Preview Content */,
 			);
@@ -361,7 +364,6 @@
 			files = (
 				70C9EDA029501D5C00B6995B /* Preview Assets.xcassets in Resources */,
 				70C9ED9D29501D5C00B6995B /* Assets.xcassets in Resources */,
-				70C9EDD4295149A400B6995B /* Country.mmdb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,9 +390,11 @@
 				70C9EDD82951587D00B6995B /* CFIResetButton.swift in Sources */,
 				70C9EDBE29502D3500B6995B /* CFIPacketTunnelManager.swift in Sources */,
 				7084FC302965872200065DAF /* CFILogLevel.swift in Sources */,
+				7084FC382967DB7300065DAF /* CFIGEOIPView.swift in Sources */,
 				70B947B129613321006F6A38 /* CFISubscribeManager.swift in Sources */,
 				7084FC282964251600065DAF /* CFILoadingView.swift in Sources */,
 				7000C6D6295AED790005626E /* CFIProvidersManager.swift in Sources */,
+				7084FC362967B8AC00065DAF /* CFIGEOIPSettingView.swift in Sources */,
 				70C9EDCA2950565400B6995B /* CFISettingView.swift in Sources */,
 				70B947AF29612F46006F6A38 /* CFISubscribeView.swift in Sources */,
 				70C9EDD12951469E00B6995B /* CFIConstant.swift in Sources */,
