@@ -6,7 +6,7 @@ struct CFISubscribeListView: View {
     @EnvironmentObject private var packetTunnelManager: CFIPacketTunnelManager
     @EnvironmentObject private var subscribeManager: CFISubscribeManager
     
-    @StateObject private var loadingVM = CFILoadingViewModel()
+    @State private var isDownloading = false
             
     let current: Binding<String>
     
@@ -67,18 +67,15 @@ struct CFISubscribeListView: View {
                     }
                     .tint(.yellow)
                     Button("更新") {
-                        loadingVM.loading(message: "正在更新订阅...")
                         Task(priority: .userInitiated) {
                             do {
                                 try await subscribeManager.update(subscribe: subscribe)
-                                loadingVM.success(message: "更新订阅成功")
                                 if current.wrappedValue == subscribe.id {
                                     packetTunnelManager.set(subscribe: subscribe.id)
                                 }
                                 SPIndicatorView(title: "更新订阅成功", preset: .done)
                                     .present(duration: 1.0)
                             } catch {
-                                loadingVM.failure(message: error.localizedDescription)
                                 SPIndicatorView(title: "更新订阅失败", message: error.localizedDescription, preset: .error)
                                     .present(duration: 3.0)
                             }
@@ -90,12 +87,16 @@ struct CFISubscribeListView: View {
             .navigationTitle(Text("订阅管理"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                Button {
-                    subscribeURLString = ""
-                    isDownloadAlertPresented.toggle()
-                } label: {
-                    Image(systemName: "plus")
-                        .fontWeight(.medium)
+                if isDownloading {
+                    ProgressView()
+                } else {
+                    Button {
+                        subscribeURLString = ""
+                        isDownloadAlertPresented.toggle()
+                    } label: {
+                        Image(systemName: "plus")
+                            .fontWeight(.medium)
+                    }
                 }
             }
             .alert("重命名", isPresented: $isRenameAlertPresented, presenting: subscribe) { subscribe in
@@ -118,34 +119,28 @@ struct CFISubscribeListView: View {
                 TextField("请输入订阅地址", text: $subscribeURLString)
                 Button("确定") {
                     guard let source = URL(string: subscribeURLString) else {
-                        SPIndicatorView(title: "订阅失败", message: "不支持的URL", preset: .error)
+                        return SPIndicatorView(title: "订阅失败", message: "不支持的URL", preset: .error)
                             .present(duration: 3.0)
-                        return loadingVM.failure(message: "不支持的URL")
                     }
-                    loadingVM.loading(message: "正在下载订阅...")
+                    isDownloading = true
                     Task(priority: .high) {
                         do {
                             try await subscribeManager.download(source: source)
                             await MainActor.run {
-                                loadingVM.success(message: "下载成功")
+                                isDownloading = false
+                                SPIndicatorView(title: "订阅成功", preset: .done)
+                                    .present(duration: 1.0)
                             }
-                            SPIndicatorView(title: "订阅成功", preset: .done)
-                                .present(duration: 1.0)
                         } catch {
                             await MainActor.run {
-                                loadingVM.failure(message: error.localizedDescription)
+                                isDownloading = false
+                                SPIndicatorView(title: "订阅失败", message: error.localizedDescription, preset: .error)
+                                    .present(duration: 3.0)
                             }
-                            SPIndicatorView(title: "订阅失败", message: error.localizedDescription, preset: .error)
-                                .present(duration: 3.0)
                         }
                     }
                 }
                 Button("取消", role: .cancel) {}
-            }
-            .sheet(isPresented: $loadingVM.isPresented) {
-                CFILoadingView(state: $loadingVM.state)
-                    .presentationDetents([.height(60.0)])
-                    .presentationDragIndicator(.hidden)
             }
         }
     }
