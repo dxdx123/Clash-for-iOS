@@ -2,15 +2,8 @@ import SwiftUI
 
 struct CFISettingView: View {
     
-    let tunnelMode: Binding<CFITunnelMode>
-
     var body: some View {
         Form {
-            Section {
-                CFITunnelModeView(tunnelMode: tunnelMode)
-            } header: {
-                Text("模式")
-            }
             Section {
                 CFIGEOIPView()
             }

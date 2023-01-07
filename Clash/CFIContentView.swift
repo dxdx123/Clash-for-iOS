@@ -22,6 +22,9 @@ struct CFIContentView: View {
                     }
                 }
                 Section {
+                    CFITunnelModeView(tunnelMode: $tunnelMode)
+                }
+                Section {
                     LabeledContent {
                         CFIControlView()
                     } label: {
@@ -54,7 +57,7 @@ struct CFIContentView: View {
                 }
                 Section {
                     NavigationLink {
-                        CFISettingView(tunnelMode: $tunnelMode)
+                        CFISettingView()
                     } label: {
                         Label {
                             Text("设置")

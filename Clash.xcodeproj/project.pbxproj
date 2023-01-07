@@ -148,7 +148,6 @@
 		70B947AA295F378C006F6A38 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				7000C6DF295D60A50005626E /* CFITunnelModeView.swift */,
 				70C9EDC92950565400B6995B /* CFISettingView.swift */,
 				70C9EDD72951587D00B6995B /* CFIResetButton.swift */,
 				708A48E92962AA2B0040184C /* CFIThemeView.swift */,
@@ -164,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				70B947AE29612F46006F6A38 /* CFISubscribeView.swift */,
+				7000C6DF295D60A50005626E /* CFITunnelModeView.swift */,
 				7000C6E3295D635F0005626E /* CFIControlView.swift */,
 				7000C6DD295D5F690005626E /* CFIConnectedDurationView.swift */,
 				708A48E0296295C50040184C /* CFIPolicyGroupView.swift */,
