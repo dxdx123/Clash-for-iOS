@@ -10,9 +10,14 @@ struct CFIAccentColorView: View {
                 Picker(selection: $accentColor) {
                     ForEach(CFIAccentColor.allCases) { color in
                         HStack {
-                            Circle()
-                                .foregroundColor(color.rawColor)
-                                .frame(width: 20, height: 20)
+                            ZStack {
+                                Circle()
+                                    .foregroundColor(color.rawColor)
+                                Circle()
+                                    .frame(width: 8, height: 8)
+                                    .foregroundColor(accentColor == color ? .white : .clear)
+                            }
+                            .frame(width: 20, height: 20)
                             Text(color.name)
                         }
                     }
