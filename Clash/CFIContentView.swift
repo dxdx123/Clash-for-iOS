@@ -34,16 +34,20 @@ struct CFIContentView: View {
                             CFIIcon(systemName: "link", backgroundColor: .blue)
                         }
                     }
-                    if let status = manager.status, status == .connected {
-                        LabeledContent {
+                    LabeledContent {
+                        if let status = manager.status, status == .connected {
                             CFIConnectedDurationView()
-                        } label: {
-                            Label {
-                                Text("连接时长")
-                            } icon: {
-                                CFIIcon(systemName: "clock", backgroundColor: .indigo)
-                            }
                         }
+                    } label: {
+                        Label {
+                            Text("连接时长")
+                        } icon: {
+                            CFIIcon(systemName: "clock", backgroundColor: .indigo)
+                        }
+                    }
+                }
+                if let status = manager.status, status == .connected {
+                    Section {
                         LabeledContent {
                             CFIPolicyGroupView(tunnelMode: tunnelMode)
                         } label: {

@@ -5,10 +5,10 @@ struct CFISettingView: View {
     var body: some View {
         Form {
             Section {
-                CFIGEOIPView()
-            }
-            Section {
                 CFILogLevelView()
+                CFIGEOIPView()
+            } header: {
+                Text("内核")
             }
             Section {
                 CFIAppearanceView()
