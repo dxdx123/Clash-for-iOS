@@ -31,30 +31,45 @@ struct CFIContentView: View {
                             CFIIcon(systemName: "link", backgroundColor: .blue)
                         }
                     }
-                    if let status = manager.status, status == .connected {
-                        LabeledContent {
+                    LabeledContent {
+                        if let status = manager.status, status == .connected {
                             CFIConnectedDurationView()
-                        } label: {
-                            Label {
-                                Text("连接时长")
-                            } icon: {
-                                CFIIcon(systemName: "clock", backgroundColor: .indigo)
-                            }
                         }
-                        LabeledContent {
-                            CFIPolicyGroupView(tunnelMode: tunnelMode)
-                        } label: {
-                            Label {
-                                Text("策略组")
-                            } icon: {
-                                CFIIcon(systemName: "square.grid.2x2", backgroundColor: .purple)
-                            }
+                    } label: {
+                        Label {
+                            Text("连接时长")
+                        } icon: {
+                            CFIIcon(systemName: "clock", backgroundColor: .indigo)
                         }
                     }
                 }
                 Section {
                     NavigationLink {
-                        CFISettingView(tunnelMode: $tunnelMode)
+                        CFITunnelModeView(tunnelMode: $tunnelMode)
+                    } label: {
+                        LabeledContent {
+                            Text(tunnelMode.name)
+                        } label: {
+                            Label {
+                                Text("代理模式")
+                            } icon: {
+                                CFIIcon(systemName: "arrow.uturn.right", backgroundColor: .teal)
+                            }
+                        }
+                    }
+                    LabeledContent {
+                        CFIPolicyGroupView(tunnelMode: tunnelMode)
+                    } label: {
+                        Label {
+                            Text("策略组")
+                        } icon: {
+                            CFIIcon(systemName: "square.3.layers.3d", backgroundColor: .purple)
+                        }
+                    }
+                }
+                Section {
+                    NavigationLink {
+                        CFISettingView()
                     } label: {
                         Label {
                             Text("设置")

@@ -2,20 +2,19 @@ import SwiftUI
 
 struct CFISettingView: View {
     
-    let tunnelMode: Binding<CFITunnelMode>
-
     var body: some View {
         Form {
             Section {
-                CFITunnelModeView(tunnelMode: tunnelMode)
-            } header: {
-                Text("模式")
-            }
-            Section {
                 CFILogLevelView()
+                CFIGEOIPView()
+            } header: {
+                Text("内核")
             }
             Section {
-                CFIThemeView()
+                CFIAppearanceView()
+                CFIAccentColorView()
+            } header: {
+                Text("主题")
             }
             Section {
                 CFIResetButton()
@@ -41,4 +40,3 @@ struct CFISettingView: View {
         return "版本: \(version)"
     }
 }
-
