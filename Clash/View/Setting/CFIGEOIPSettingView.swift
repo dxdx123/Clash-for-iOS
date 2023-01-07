@@ -35,22 +35,14 @@ struct CFIGEOIPSettingView: View {
                 Toggle("自动更新", isOn: $geoipDatabaseAutoUpdate)
                 if geoipDatabaseAutoUpdate {
                     NavigationLink {
-                        Form {
-                            Picker(selection: $geoipDatabaseAutoUpdateInterval) {
-                                ForEach(CFIGEOIPAutoUpdateInterval.allCases) { interval in
-                                    Text(title(for: interval))
-                                }
-                            } label: {
-                                EmptyView()
+                        CFIFormPicker(title: "更新频率", selection: $geoipDatabaseAutoUpdateInterval) {
+                            ForEach(CFIGEOIPAutoUpdateInterval.allCases) { value in
+                                Text(value.name)
                             }
-                            .pickerStyle(.inline)
                         }
-                        .formStyle(.grouped)
-                        .navigationTitle(Text("更新频率"))
-                        .navigationBarTitleDisplayMode(.inline)
                     } label: {
                         LabeledContent {
-                            Text(title(for: geoipDatabaseAutoUpdateInterval))
+                            Text(geoipDatabaseAutoUpdateInterval.name)
                         } label: {
                             Text("更新频率")
                         }
@@ -90,9 +82,12 @@ struct CFIGEOIPSettingView: View {
             }
         }
     }
+}
+
+extension CFIGEOIPAutoUpdateInterval {
     
-    private func title(for interval: CFIGEOIPAutoUpdateInterval) -> String {
-        switch interval {
+    var name: String {
+        switch self {
         case .day:
             return "每天"
         case .week:

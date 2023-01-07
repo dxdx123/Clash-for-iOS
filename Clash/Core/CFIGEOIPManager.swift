@@ -27,7 +27,7 @@ final class CFIGEOIPManager: ObservableObject {
             case .month:
                 day = 30
             }
-            shouldUpdate = abs(least.distance(to: Date())) > day * 24 * 60
+            shouldUpdate = abs(least.distance(to: Date())) > day * 24 * 60 * 60
         } else {
             shouldUpdate = true
         }

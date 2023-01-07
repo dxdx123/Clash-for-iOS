@@ -6,21 +6,14 @@ struct CFIAppearanceView: View {
     
     var body: some View {
         NavigationLink {
-            Form {
-                Picker(selection: $theme) {
-                    ForEach(CFITheme.allCases) { theme in
-                        Text(title(for: theme))
-                    }
-                } label: {
-                    EmptyView()
+            CFIFormPicker(title: "外观", selection: $theme) {
+                ForEach(CFITheme.allCases) { theme in
+                    Text(theme.name)
                 }
-                .pickerStyle(.inline)
             }
-            .navigationTitle(Text("外观"))
-            .navigationBarTitleDisplayMode(.inline)
         } label: {
             LabeledContent {
-                Text(title(for: theme))
+                Text(theme.name)
             } label: {
                 Label {
                     Text("外观")
@@ -30,9 +23,12 @@ struct CFIAppearanceView: View {
             }
         }
     }
+}
+
+extension CFITheme {
     
-    private func title(for theme: CFITheme) -> String {
-        switch theme {
+    var name: String {
+        switch self {
         case .light:
             return "浅色"
         case .dark:
