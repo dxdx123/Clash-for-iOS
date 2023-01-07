@@ -17,6 +17,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
             UserDefaults.standard.set(CFIConstant.defaultGEOIPDatabaseRemoteURLString, forKey: CFIConstant.geoipDatabaseRemoteURLString)
             UserDefaults.standard.set(true, forKey: CFIConstant.geoipDatabaseAutoUpdate)
             UserDefaults.standard.set(CFIConstant.geoipDatabaseAutoUpdateInterval, forKey: CFIGEOIPAutoUpdateInterval.week.rawValue)
+            UserDefaults.standard.set(CFIAccentColor.system.rawValue, forKey: CFIConstant.accentColor)
             UserDefaults.standard.setValue(true, forKey: CFIConstant.isAppHasLaunched)
         }
         geoipManager.checkAndUpdateIfNeeded()

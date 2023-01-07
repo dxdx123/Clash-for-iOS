@@ -11,10 +11,10 @@ struct CFISettingView: View {
                 CFILogLevelView()
             }
             Section {
-                CFIThemeView()
+                CFIAppearanceView()
                 CFIAccentColorView()
             } header: {
-                Text("外观")
+                Text("主题")
             }
             Section {
                 CFIResetButton()

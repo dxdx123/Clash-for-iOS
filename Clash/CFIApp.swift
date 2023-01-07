@@ -15,7 +15,7 @@ struct CFIApp: App {
                 .environmentObject(delegate.subscribeManager)
                 .environmentObject(delegate.geoipManager)
                 .preferredColorScheme(theme.preferredColorScheme)
-                .tint(accentColor.rawColor)
+                .tint(accentColor.tint)
         }
     }
 }

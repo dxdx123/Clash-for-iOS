@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CFIThemeView: View {
+struct CFIAppearanceView: View {
     
     @AppStorage(CFIConstant.theme) private var theme = CFITheme.system
     
@@ -16,14 +16,14 @@ struct CFIThemeView: View {
                 }
                 .pickerStyle(.inline)
             }
-            .navigationTitle(Text("主题"))
+            .navigationTitle(Text("外观"))
             .navigationBarTitleDisplayMode(.inline)
         } label: {
             LabeledContent {
                 Text(title(for: theme))
             } label: {
                 Label {
-                    Text("主题")
+                    Text("外观")
                 } icon: {
                     CFIIcon(systemName: "app.dashed", backgroundColor: .mint)
                 }

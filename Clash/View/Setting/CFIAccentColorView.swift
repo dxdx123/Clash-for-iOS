@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CFIAccentColorView: View {
     
-    @AppStorage(CFIConstant.accentColor) private var accentColor = CFIAccentColor.blue
+    @AppStorage(CFIConstant.accentColor) private var accentColor = CFIAccentColor.system
     
     var body: some View {
         NavigationLink {
@@ -12,7 +12,7 @@ struct CFIAccentColorView: View {
                         HStack {
                             ZStack {
                                 Circle()
-                                    .foregroundColor(color.rawColor)
+                                    .fill(AngularGradient(colors: color.tint.flatMap({ [$0] }) ?? CFIAccentColor.allCases.compactMap(\.tint), center: .center))
                                 Circle()
                                     .frame(width: 8, height: 8)
                                     .foregroundColor(accentColor == color ? .white : .clear)

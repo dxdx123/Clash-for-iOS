@@ -4,51 +4,43 @@ enum CFIAccentColor: String, CaseIterable, Identifiable {
     
     var id: Self { self }
     
+    case system
     case blue
+    case purple
+    case pink
     case red
     case orange
     case green
-    case mint
-    case teal
-    case cyan
-    case indigo
-    case purple
-    case pink
     case brown
-    
 }
 
 extension CFIAccentColor {
     
     var name: String {
         switch self {
+        case .system:
+            return "多色"
         case .blue:
-            return "蓝"
+            return "蓝色"
         case .red:
-            return "红"
+            return "红色"
         case .orange:
-            return "橘黄"
+            return "橙色"
         case .green:
-            return "绿"
-        case .mint:
-            return "薄荷"
-        case .teal:
-            return "蓝绿"
-        case .cyan:
-            return "青"
-        case .indigo:
-            return "靛蓝"
+            return "绿色"
         case .purple:
-            return "紫"
+            return "紫色"
         case .pink:
-            return "粉红"
+            return "粉色"
         case .brown:
-            return "棕"
+            return "棕色"
         }
     }
     
-    var rawColor: Color {
+    var tint: Color? {
         switch self {
+        case .system:
+            return nil
         case .blue:
             return .blue
         case .red:
@@ -57,14 +49,6 @@ extension CFIAccentColor {
             return .orange
         case .green:
             return .green
-        case .mint:
-            return .mint
-        case .teal:
-            return .teal
-        case .cyan:
-            return .cyan
-        case .indigo:
-            return .indigo
         case .purple:
             return .purple
         case .pink:
