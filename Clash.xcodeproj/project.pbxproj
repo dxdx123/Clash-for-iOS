@@ -17,6 +17,7 @@
 		7000C6E4295D635F0005626E /* CFIControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6E3295D635F0005626E /* CFIControlView.swift */; };
 		70615814296815260005C024 /* CFIAccentColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70615813296815260005C024 /* CFIAccentColorView.swift */; };
 		7061581629695E6A0005C024 /* CFIFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061581529695E6A0005C024 /* CFIFormPicker.swift */; };
+		70615819296975D90005C024 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 70615818296975D90005C024 /* SPIndicator */; };
 		7084FC1D295ECBC900065DAF /* CFIAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */; };
 		7084FC1E295ECBC900065DAF /* CFIAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */; };
 		7084FC20295ECC7400065DAF /* CFITunnelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */; };
@@ -133,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70615819296975D90005C024 /* SPIndicator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +309,7 @@
 			);
 			name = Clash;
 			packageProductDependencies = (
+				70615818296975D90005C024 /* SPIndicator */,
 			);
 			productName = Clash;
 			productReference = 70C9ED9529501D5B00B6995B /* Clash.app */;
@@ -358,6 +361,7 @@
 			mainGroup = 70C9ED8C29501D5B00B6995B;
 			packageReferences = (
 				70059B56295F2D9E00D2C4CB /* XCRemoteSwiftPackageReference "ClashKit" */,
+				70615817296975D90005C024 /* XCRemoteSwiftPackageReference "SPIndicator" */,
 			);
 			productRefGroup = 70C9ED9629501D5B00B6995B /* Products */;
 			projectDirPath = "";
@@ -738,9 +742,22 @@
 				version = 1.2.0;
 			};
 		};
+		70615817296975D90005C024 /* XCRemoteSwiftPackageReference "SPIndicator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPIndicator.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.6.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		70615818296975D90005C024 /* SPIndicator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 70615817296975D90005C024 /* XCRemoteSwiftPackageReference "SPIndicator" */;
+			productName = SPIndicator;
+		};
 		70B947A6295F2EF2006F6A38 /* ClashKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 70059B56295F2D9E00D2C4CB /* XCRemoteSwiftPackageReference "ClashKit" */;

@@ -1,4 +1,5 @@
 import SwiftUI
+import SPIndicator
 import UniformTypeIdentifiers
 
 enum CFIGEOIPAutoUpdateInterval: String, CaseIterable, Identifiable {
@@ -24,6 +25,7 @@ extension CFIConstant {
 struct CFIGEOIPSettingView: View {
     
     @EnvironmentObject private var geoipManager: CFIGEOIPManager
+    @Environment(\.dismiss) private var dismiss
     
     @AppStorage(CFIConstant.geoipDatabaseRemoteURLString) private var geoipDatabaseRemoteURLString: String = CFIConstant.defaultGEOIPDatabaseRemoteURLString
     @AppStorage(CFIConstant.geoipDatabaseAutoUpdate) private var geoipDatabaseAutoUpdate: Bool = true
@@ -66,8 +68,13 @@ struct CFIGEOIPSettingView: View {
                     Task(priority: .medium) {
                         do {
                             try await geoipManager.update(url: url)
+                            SPIndicatorView(title: "更新成功", preset: .done)
+                                .present(duration: 1.0) {
+                                    dismiss()
+                                }
                         } catch {
-                            debugPrint(error.localizedDescription)
+                            SPIndicatorView(title: "更新失败", message: error.localizedDescription, preset: .error)
+                                .present(duration: 1.0)
                         }
                     }
                 } label: {
@@ -97,8 +104,13 @@ struct CFIGEOIPSettingView: View {
         .fileImporter(isPresented: $isFileImporterPresented, allowedContentTypes: [.mmdb]) { result in
             do {
                 try geoipManager.importLocalFile(from: try result.get())
+                SPIndicatorView(title: "导入成功", preset: .done)
+                    .present(duration: 1.0) {
+                        dismiss()
+                    }
             } catch {
-                debugPrint(error.localizedDescription)
+                SPIndicatorView(title: "导入失败", message: error.localizedDescription, preset: .error)
+                    .present(duration: 1.0)
             }
         }
     }
