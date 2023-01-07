@@ -57,15 +57,13 @@ struct CFIContentView: View {
                             }
                         }
                     }
-                    if let status = manager.status, status == .connected {
-                        LabeledContent {
-                            CFIPolicyGroupView(tunnelMode: tunnelMode)
-                        } label: {
-                            Label {
-                                Text("策略组")
-                            } icon: {
-                                CFIIcon(systemName: "square.3.layers.3d", backgroundColor: .purple)
-                            }
+                    LabeledContent {
+                        CFIPolicyGroupView(tunnelMode: tunnelMode)
+                    } label: {
+                        Label {
+                            Text("策略组")
+                        } icon: {
+                            CFIIcon(systemName: "square.3.layers.3d", backgroundColor: .purple)
                         }
                     }
                 }
