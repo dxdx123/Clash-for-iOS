@@ -1,4 +1,5 @@
 import SwiftUI
+import SPIndicator
 
 struct CFISubscribeListView: View {
         
@@ -52,8 +53,11 @@ struct CFISubscribeListView: View {
                             if subscribe.id == current.wrappedValue {
                                 current.wrappedValue = ""
                             }
+                            SPIndicatorView(title: "删除成功", preset: .done)
+                                .present(duration: 1.0)
                         } catch {
-                            debugPrint(error.localizedDescription)
+                            SPIndicatorView(title: "删除失败", message: error.localizedDescription, preset: .error)
+                                .present(duration: 3.0)
                         }
                     }
                     Button("重命名") {
@@ -71,8 +75,12 @@ struct CFISubscribeListView: View {
                                 if current.wrappedValue == subscribe.id {
                                     packetTunnelManager.set(subscribe: subscribe.id)
                                 }
+                                SPIndicatorView(title: "更新订阅成功", preset: .done)
+                                    .present(duration: 1.0)
                             } catch {
                                 loadingVM.failure(message: error.localizedDescription)
+                                SPIndicatorView(title: "更新订阅失败", message: error.localizedDescription, preset: .error)
+                                    .present(duration: 3.0)
                             }
                         }
                     }
@@ -100,7 +108,8 @@ struct CFISubscribeListView: View {
                     do {
                         try subscribeManager.rename(subscribe: subscribe, name: name)
                     } catch {
-                        debugPrint(error.localizedDescription)
+                        SPIndicatorView(title: "重命名失败", message: error.localizedDescription, preset: .error)
+                            .present(duration: 3.0)
                     }
                 }
                 Button("取消", role: .cancel) {}
@@ -109,6 +118,8 @@ struct CFISubscribeListView: View {
                 TextField("请输入订阅地址", text: $subscribeURLString)
                 Button("确定") {
                     guard let source = URL(string: subscribeURLString) else {
+                        SPIndicatorView(title: "订阅失败", message: "不支持的URL", preset: .error)
+                            .present(duration: 3.0)
                         return loadingVM.failure(message: "不支持的URL")
                     }
                     loadingVM.loading(message: "正在下载订阅...")
@@ -118,10 +129,14 @@ struct CFISubscribeListView: View {
                             await MainActor.run {
                                 loadingVM.success(message: "下载成功")
                             }
+                            SPIndicatorView(title: "订阅成功", preset: .done)
+                                .present(duration: 1.0)
                         } catch {
                             await MainActor.run {
                                 loadingVM.failure(message: error.localizedDescription)
                             }
+                            SPIndicatorView(title: "订阅失败", message: error.localizedDescription, preset: .error)
+                                .present(duration: 3.0)
                         }
                     }
                 }

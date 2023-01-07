@@ -74,7 +74,7 @@ struct CFIGEOIPSettingView: View {
                                 }
                         } catch {
                             SPIndicatorView(title: "更新失败", message: error.localizedDescription, preset: .error)
-                                .present(duration: 1.0)
+                                .present(duration: 3.0)
                         }
                     }
                 } label: {
@@ -110,7 +110,7 @@ struct CFIGEOIPSettingView: View {
                     }
             } catch {
                 SPIndicatorView(title: "导入失败", message: error.localizedDescription, preset: .error)
-                    .present(duration: 1.0)
+                    .present(duration: 3.0)
             }
         }
     }
