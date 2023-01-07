@@ -1,4 +1,5 @@
 import SwiftUI
+import UniformTypeIdentifiers
 
 enum CFIGEOIPAutoUpdateInterval: String, CaseIterable, Identifiable {
     
@@ -7,6 +8,10 @@ enum CFIGEOIPAutoUpdateInterval: String, CaseIterable, Identifiable {
     case day
     case week
     case month
+}
+
+extension UTType {
+    static let mmdb = UTType(filenameExtension: "mmdb")!
 }
 
 extension CFIConstant {
@@ -23,6 +28,8 @@ struct CFIGEOIPSettingView: View {
     @AppStorage(CFIConstant.geoipDatabaseRemoteURLString) private var geoipDatabaseRemoteURLString: String = CFIConstant.defaultGEOIPDatabaseRemoteURLString
     @AppStorage(CFIConstant.geoipDatabaseAutoUpdate) private var geoipDatabaseAutoUpdate: Bool = true
     @AppStorage(CFIConstant.geoipDatabaseAutoUpdateInterval) private var geoipDatabaseAutoUpdateInterval: CFIGEOIPAutoUpdateInterval = .week
+    
+    @State private var isFileImporterPresented: Bool = false
     
     var body: some View {
         Form {
@@ -79,6 +86,19 @@ struct CFIGEOIPSettingView: View {
         .toolbar {
             if geoipManager.isUpdating {
                 ProgressView()
+            } else {
+                Button {
+                    isFileImporterPresented.toggle()
+                } label: {
+                    Image(systemName: "square.and.arrow.down")
+                }
+            }
+        }
+        .fileImporter(isPresented: $isFileImporterPresented, allowedContentTypes: [.mmdb]) { result in
+            do {
+                try geoipManager.importLocalFile(from: try result.get())
+            } catch {
+                debugPrint(error.localizedDescription)
             }
         }
     }

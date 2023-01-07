@@ -81,4 +81,19 @@ final class CFIGEOIPManager: ObservableObject {
             throw error
         }
     }
+    
+    func importLocalFile(from url: URL) throws {
+        guard url.startAccessingSecurityScopedResource() else {
+            return
+        }
+        defer {
+            url.stopAccessingSecurityScopedResource()
+        }
+        let destinationURL = CFIConstant.homeDirectory.appendingPathComponent("Country.mmdb")
+        if FileManager.default.fileExists(atPath: destinationURL.path(percentEncoded: false)) {
+            try FileManager.default.removeItem(at: destinationURL)
+        }
+        try FileManager.default.copyItem(at: url, to: destinationURL)
+        refresh()
+    }
 }
