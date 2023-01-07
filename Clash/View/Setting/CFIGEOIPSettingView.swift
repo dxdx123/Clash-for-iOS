@@ -34,9 +34,25 @@ struct CFIGEOIPSettingView: View {
                 }
                 Toggle("自动更新", isOn: $geoipDatabaseAutoUpdate)
                 if geoipDatabaseAutoUpdate {
-                    Picker("更新间隔", selection: $geoipDatabaseAutoUpdateInterval) {
-                        ForEach(CFIGEOIPAutoUpdateInterval.allCases) { interval in
-                            Text(title(for: interval))
+                    NavigationLink {
+                        Form {
+                            Picker(selection: $geoipDatabaseAutoUpdateInterval) {
+                                ForEach(CFIGEOIPAutoUpdateInterval.allCases) { interval in
+                                    Text(title(for: interval))
+                                }
+                            } label: {
+                                EmptyView()
+                            }
+                            .pickerStyle(.inline)
+                        }
+                        .formStyle(.grouped)
+                        .navigationTitle(Text("更新频率"))
+                        .navigationBarTitleDisplayMode(.inline)
+                    } label: {
+                        LabeledContent {
+                            Text(title(for: geoipDatabaseAutoUpdateInterval))
+                        } label: {
+                            Text("更新频率")
                         }
                     }
                 }
@@ -66,7 +82,7 @@ struct CFIGEOIPSettingView: View {
             .disabled(geoipManager.isUpdating)
         }
         .formStyle(.grouped)
-        .navigationTitle(Text("GEOIP 数据库"))
+        .navigationTitle(Text("GEOIP"))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             if geoipManager.isUpdating {

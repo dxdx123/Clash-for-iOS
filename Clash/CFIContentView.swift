@@ -22,9 +22,6 @@ struct CFIContentView: View {
                     }
                 }
                 Section {
-                    CFITunnelModeView(tunnelMode: $tunnelMode)
-                }
-                Section {
                     LabeledContent {
                         CFIControlView()
                     } label: {
@@ -46,15 +43,28 @@ struct CFIContentView: View {
                         }
                     }
                 }
-                if let status = manager.status, status == .connected {
-                    Section {
+                Section {
+                    NavigationLink {
+                        CFITunnelModeView(tunnelMode: $tunnelMode)
+                    } label: {
+                        LabeledContent {
+                            Text(tunnelMode.name)
+                        } label: {
+                            Label {
+                                Text("代理模式")
+                            } icon: {
+                                CFIIcon(systemName: "arrow.uturn.right", backgroundColor: .teal)
+                            }
+                        }
+                    }
+                    if let status = manager.status, status == .connected {
                         LabeledContent {
                             CFIPolicyGroupView(tunnelMode: tunnelMode)
                         } label: {
                             Label {
                                 Text("策略组")
                             } icon: {
-                                CFIIcon(systemName: "square.grid.2x2", backgroundColor: .purple)
+                                CFIIcon(systemName: "square.3.layers.3d", backgroundColor: .purple)
                             }
                         }
                     }

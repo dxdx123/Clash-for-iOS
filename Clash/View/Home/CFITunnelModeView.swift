@@ -7,16 +7,19 @@ struct CFITunnelModeView: View {
     let tunnelMode: Binding<CFITunnelMode>
     
     var body: some View {
-        Picker(selection: tunnelMode) {
-            ForEach(CFITunnelMode.allCases) { mode in
-                makeLabel(mode: mode)
+        Form {
+            Picker(selection: tunnelMode) {
+                ForEach(CFITunnelMode.allCases) { mode in
+                    makeLabel(mode: mode)
+                }
+            } label: {
+                EmptyView()
             }
-        } label: {}
-        .labelsHidden()
-        .onChange(of: tunnelMode.wrappedValue) { value in
-            manager.set(tunnelMode: value)
+            .pickerStyle(.inline)
         }
-        .pickerStyle(.inline)
+        .formStyle(.grouped)
+        .navigationTitle(Text("代理模式"))
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     
@@ -42,6 +45,42 @@ struct CFITunnelModeView: View {
             Text(title)
         } icon: {
             CFIIcon(systemName: systemImage, backgroundColor: backgroundColor)
+        }
+    }
+}
+
+extension CFITunnelMode {
+    
+    var name: String {
+        switch self {
+        case .global:
+            return "全局"
+        case .rule:
+            return "规则"
+        case .direct:
+            return "直连"
+        }
+    }
+    
+    var systemImage: String {
+        switch self {
+        case .global:
+            return "globe"
+        case .rule:
+            return "arrow.triangle.branch"
+        case .direct:
+            return "arrow.up"
+        }
+    }
+    
+    var iconBackgroundColor: Color {
+        switch self {
+        case .global:
+            return .blue
+        case .rule:
+            return .orange
+        case .direct:
+            return .indigo
         }
     }
 }

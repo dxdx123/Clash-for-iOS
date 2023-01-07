@@ -20,7 +20,7 @@ struct CFIGEOIPView: View {
                 }
             } label: {
                 Label {
-                    Text("GEOIP 数据库")
+                    Text("GEOIP")
                 } icon: {
                     CFIIcon(systemName: "cylinder.split.1x2", backgroundColor: .black)
                 }
