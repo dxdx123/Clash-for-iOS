@@ -68,12 +68,12 @@ struct CFIGEOIPSettingView: View {
                     Task(priority: .medium) {
                         do {
                             try await geoipManager.update(url: url)
-                            SPIndicatorView(title: "更新成功", preset: .done)
+                            SPIndicatorView(title: "GEOIP数据库更新成功", preset: .done)
                                 .present(duration: 3.0) {
                                     dismiss()
                                 }
                         } catch {
-                            SPIndicatorView(title: "更新失败", message: error.localizedDescription, preset: .error)
+                            SPIndicatorView(title: "GEOIP数据库更新失败", message: error.localizedDescription, preset: .error)
                                 .present(duration: 3.0)
                         }
                     }
@@ -104,12 +104,12 @@ struct CFIGEOIPSettingView: View {
         .fileImporter(isPresented: $isFileImporterPresented, allowedContentTypes: [.mmdb]) { result in
             do {
                 try geoipManager.importLocalFile(from: try result.get())
-                SPIndicatorView(title: "导入成功", preset: .done)
+                SPIndicatorView(title: "GEOIP数据库导入成功", preset: .done)
                     .present(duration: 3.0) {
                         dismiss()
                     }
             } catch {
-                SPIndicatorView(title: "导入失败", message: error.localizedDescription, preset: .error)
+                SPIndicatorView(title: "GEOIP数据库导入失败", message: error.localizedDescription, preset: .error)
                     .present(duration: 3.0)
             }
         }
