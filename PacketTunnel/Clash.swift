@@ -37,14 +37,6 @@ import os
         UserDefaults.shared.string(forKey: CFIConstant.current) ?? ""
     }
     
-    private static var tunnelFileDescriptor: Int32? {
-        var buf = Array<CChar>(repeating: 0, count: Int(IFNAMSIZ))
-        return (1...1024).first {
-            var len = socklen_t(buf.count)
-            return getsockopt($0, 2, 2, &buf, &len) == 0 && String(cString: buf).hasPrefix("utun")
-        }
-    }
-    
     private static var tunnelMode: CFITunnelMode {
         CFITunnelMode(rawValue: UserDefaults.shared.string(forKey: CFIConstant.tunnelMode) ?? "") ?? .rule
     }
@@ -54,14 +46,14 @@ import os
     }
     
     static func run() throws {
-        guard let fd = tunnelFileDescriptor else {
-            fatalError("Get tunnel file descriptor failed.")
-        }
+        let port: Int = 8080
         let config = """
+        mixed-port: \(port)
         mode: \(tunnelMode.rawValue)
         log-level: \(logLevel.rawValue)
         """
-        ClashRun(Int(fd), CFIConstant.homeDirectory.path(percentEncoded: false), config, OSLogger.shared)
+        ClashRun(CFIConstant.homeDirectory.path(percentEncoded: false), config, OSLogger.shared)
+        Tun2Socks.run(port: port)
         guard let current = UserDefaults.shared.string(forKey: CFIConstant.current), !current.isEmpty else {
             return
         }
