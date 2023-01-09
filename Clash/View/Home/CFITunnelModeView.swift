@@ -7,19 +7,11 @@ struct CFITunnelModeView: View {
     let tunnelMode: Binding<CFITunnelMode>
     
     var body: some View {
-        Form {
-            Picker(selection: tunnelMode) {
-                ForEach(CFITunnelMode.allCases) { mode in
-                    makeLabel(mode: mode)
-                }
-            } label: {
-                EmptyView()
+        CFIFormPicker(title: "代理模式", selection: tunnelMode) {
+            ForEach(CFITunnelMode.allCases) { mode in
+                makeLabel(mode: mode)
             }
-            .pickerStyle(.inline)
         }
-        .formStyle(.grouped)
-        .navigationTitle(Text("代理模式"))
-        .navigationBarTitleDisplayMode(.inline)
     }
     
     

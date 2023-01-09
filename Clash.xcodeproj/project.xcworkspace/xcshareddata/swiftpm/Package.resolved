@@ -3,10 +3,28 @@
     {
       "identity" : "clashkit",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Daemonomead/ClashKit.git",
+      "location" : "https://github.com/daemonomead/ClashKit.git",
       "state" : {
-        "revision" : "adfccb4a095feb441ffa1d7fa77cbf8664990cd8",
-        "version" : "1.2.0"
+        "revision" : "6dda11dd34db838d330e4f171c72bb10f04f1fbc",
+        "version" : "1.3.0"
+      }
+    },
+    {
+      "identity" : "spindicator",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ivanvorobei/SPIndicator.git",
+      "state" : {
+        "revision" : "43600857729d9efff046dc6673e6f94e095882c7",
+        "version" : "1.6.4"
+      }
+    },
+    {
+      "identity" : "tun2sockskit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/daemonomead/Tun2SocksKit.git",
+      "state" : {
+        "revision" : "f1c689606968b9dc68552559df558656a8186581",
+        "version" : "1.0.0"
       }
     }
   ],

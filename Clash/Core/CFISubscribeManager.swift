@@ -14,6 +14,7 @@ struct CFISubscribe: Identifiable {
 final class CFISubscribeManager: ObservableObject {
     
     @Published var subscribes: [CFISubscribe] = []
+    @Published var downloadingSubscribeIDs: Set<String> = []
     
     init() {
         self.subscribes = self.fetchSubscribes()
@@ -96,20 +97,31 @@ final class CFISubscribeManager: ObservableObject {
     }
     
     func update(subscribe: CFISubscribe) async throws {
-        let data = try await URLSession.shared.data(for: URLRequest(url: subscribe.extend.source)).0
-        let target = CFIConstant.homeDirectory.appending(path: "\(subscribe.id).yaml")
-        try data.write(to: target)
-        let extend = CFISubscribe.Extend(
-            alias: subscribe.extend.alias,
-            source: subscribe.extend.source,
-            leastUpdated: Date()
-        )
-        try FileManager.default.setAttributes(
-            [.extended: [CFIConstant.extendAttributeKey: try JSONEncoder().encode(extend)]],
-            ofItemAtPath: target.path(percentEncoded: false)
-        )
-        await MainActor.run {
-            self.subscribes = self.fetchSubscribes()
+        do {
+            await MainActor.run {
+                _ = self.downloadingSubscribeIDs.insert(subscribe.id)
+            }
+            let data = try await URLSession.shared.data(for: URLRequest(url: subscribe.extend.source)).0
+            let target = CFIConstant.homeDirectory.appending(path: "\(subscribe.id).yaml")
+            try data.write(to: target)
+            let extend = CFISubscribe.Extend(
+                alias: subscribe.extend.alias,
+                source: subscribe.extend.source,
+                leastUpdated: Date()
+            )
+            try FileManager.default.setAttributes(
+                [.extended: [CFIConstant.extendAttributeKey: try JSONEncoder().encode(extend)]],
+                ofItemAtPath: target.path(percentEncoded: false)
+            )
+            await MainActor.run {
+                self.subscribes = self.fetchSubscribes()
+                _ = self.downloadingSubscribeIDs.remove(subscribe.id)
+            }
+        } catch {
+            await MainActor.run {
+                _ = self.downloadingSubscribeIDs.remove(subscribe.id)
+            }
+            throw error
         }
     }
 }

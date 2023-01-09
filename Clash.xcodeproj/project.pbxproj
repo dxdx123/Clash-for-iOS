@@ -15,12 +15,16 @@
 		7000C6DE295D5F690005626E /* CFIConnectedDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6DD295D5F690005626E /* CFIConnectedDurationView.swift */; };
 		7000C6E0295D60A50005626E /* CFITunnelModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6DF295D60A50005626E /* CFITunnelModeView.swift */; };
 		7000C6E4295D635F0005626E /* CFIControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6E3295D635F0005626E /* CFIControlView.swift */; };
+		7015F0DD296C5C25003E6A7D /* ClashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7015F0DC296C5C25003E6A7D /* ClashKit */; };
+		7015F0E0296C5D08003E6A7D /* Tun2SocksKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7015F0DF296C5D08003E6A7D /* Tun2SocksKit */; };
+		7015F0E8296C657C003E6A7D /* Tun2Socks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7015F0E7296C657C003E6A7D /* Tun2Socks.swift */; };
 		70615814296815260005C024 /* CFIAccentColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70615813296815260005C024 /* CFIAccentColorView.swift */; };
+		7061581629695E6A0005C024 /* CFIFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061581529695E6A0005C024 /* CFIFormPicker.swift */; };
+		70615819296975D90005C024 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 70615818296975D90005C024 /* SPIndicator */; };
 		7084FC1D295ECBC900065DAF /* CFIAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */; };
 		7084FC1E295ECBC900065DAF /* CFIAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */; };
 		7084FC20295ECC7400065DAF /* CFITunnelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */; };
 		7084FC21295ECC7400065DAF /* CFITunnelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */; };
-		7084FC282964251600065DAF /* CFILoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC272964251600065DAF /* CFILoadingView.swift */; };
 		7084FC302965872200065DAF /* CFILogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC2F2965872200065DAF /* CFILogLevel.swift */; };
 		7084FC312965872200065DAF /* CFILogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC2F2965872200065DAF /* CFILogLevel.swift */; };
 		7084FC33296587C600065DAF /* CFILogLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC32296587C600065DAF /* CFILogLevelView.swift */; };
@@ -86,12 +90,13 @@
 		7000C6DD295D5F690005626E /* CFIConnectedDurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIConnectedDurationView.swift; sourceTree = "<group>"; };
 		7000C6DF295D60A50005626E /* CFITunnelModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFITunnelModeView.swift; sourceTree = "<group>"; };
 		7000C6E3295D635F0005626E /* CFIControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIControlView.swift; sourceTree = "<group>"; };
+		7015F0E7296C657C003E6A7D /* Tun2Socks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tun2Socks.swift; sourceTree = "<group>"; };
 		70615813296815260005C024 /* CFIAccentColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIAccentColorView.swift; sourceTree = "<group>"; };
+		7061581529695E6A0005C024 /* CFIFormPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIFormPicker.swift; sourceTree = "<group>"; };
 		7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIAppMessage.swift; sourceTree = "<group>"; };
 		7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFITunnelMode.swift; sourceTree = "<group>"; };
 		7084FC242963FB8A00065DAF /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		7084FC252963FDE300065DAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7084FC272964251600065DAF /* CFILoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFILoadingView.swift; sourceTree = "<group>"; };
 		7084FC2F2965872200065DAF /* CFILogLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFILogLevel.swift; sourceTree = "<group>"; };
 		7084FC32296587C600065DAF /* CFILogLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFILogLevelView.swift; sourceTree = "<group>"; };
 		7084FC352967B8AC00065DAF /* CFIGEOIPSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIGEOIPSettingView.swift; sourceTree = "<group>"; };
@@ -131,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70615819296975D90005C024 /* SPIndicator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +145,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				70C9EDAD29502C6500B6995B /* NetworkExtension.framework in Frameworks */,
+				7015F0DD296C5C25003E6A7D /* ClashKit in Frameworks */,
+				7015F0E0296C5D08003E6A7D /* Tun2SocksKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				70B947A8295F302B006F6A38 /* Clash.swift */,
+				7015F0E7296C657C003E6A7D /* Tun2Socks.swift */,
 				70C9EDAF29502C6500B6995B /* PacketTunnelProvider.swift */,
 				70C9EDB129502C6500B6995B /* Info.plist */,
 				70C9EDB229502C6500B6995B /* PacketTunnel.entitlements */,
@@ -266,7 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				708A48E72962A4540040184C /* CFIIcon.swift */,
-				7084FC272964251600065DAF /* CFILoadingView.swift */,
+				7061581529695E6A0005C024 /* CFIFormPicker.swift */,
 				70B947AB295F37AC006F6A38 /* Home */,
 				70B947AD29612F22006F6A38 /* Subscribe */,
 				70B947AA295F378C006F6A38 /* Setting */,
@@ -304,6 +313,7 @@
 			);
 			name = Clash;
 			packageProductDependencies = (
+				70615818296975D90005C024 /* SPIndicator */,
 			);
 			productName = Clash;
 			productReference = 70C9ED9529501D5B00B6995B /* Clash.app */;
@@ -320,9 +330,14 @@
 			buildRules = (
 			);
 			dependencies = (
-				70B947A7295F2EF2006F6A38 /* PBXTargetDependency */,
+				7015F0E6296C5DA7003E6A7D /* PBXTargetDependency */,
+				7015F0E4296C5DA1003E6A7D /* PBXTargetDependency */,
 			);
 			name = PacketTunnel;
+			packageProductDependencies = (
+				7015F0DC296C5C25003E6A7D /* ClashKit */,
+				7015F0DF296C5D08003E6A7D /* Tun2SocksKit */,
+			);
 			productName = PacketTunnel;
 			productReference = 70C9EDAA29502C6500B6995B /* PacketTunnel.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -354,7 +369,9 @@
 			);
 			mainGroup = 70C9ED8C29501D5B00B6995B;
 			packageReferences = (
-				70059B56295F2D9E00D2C4CB /* XCRemoteSwiftPackageReference "ClashKit" */,
+				7015F0DB296C5C25003E6A7D /* XCRemoteSwiftPackageReference "ClashKit" */,
+				7015F0DE296C5D08003E6A7D /* XCRemoteSwiftPackageReference "Tun2SocksKit" */,
+				70615817296975D90005C024 /* XCRemoteSwiftPackageReference "SPIndicator" */,
 			);
 			productRefGroup = 70C9ED9629501D5B00B6995B /* Products */;
 			projectDirPath = "";
@@ -402,7 +419,6 @@
 				7084FC302965872200065DAF /* CFILogLevel.swift in Sources */,
 				7084FC382967DB7300065DAF /* CFIGEOIPView.swift in Sources */,
 				70B947B129613321006F6A38 /* CFISubscribeManager.swift in Sources */,
-				7084FC282964251600065DAF /* CFILoadingView.swift in Sources */,
 				7000C6D6295AED790005626E /* CFIProvidersManager.swift in Sources */,
 				7084FC362967B8AC00065DAF /* CFIGEOIPSettingView.swift in Sources */,
 				70C9EDCA2950565400B6995B /* CFISettingView.swift in Sources */,
@@ -419,6 +435,7 @@
 				7000C6E4295D635F0005626E /* CFIControlView.swift in Sources */,
 				7000C6D8295AED790005626E /* CFIProxyModel.swift in Sources */,
 				708A48EA2962AA2B0040184C /* CFIAppearanceView.swift in Sources */,
+				7061581629695E6A0005C024 /* CFIFormPicker.swift in Sources */,
 				7000C6D9295AED790005626E /* CFIProviderViewModel.swift in Sources */,
 				7000C6DE295D5F690005626E /* CFIConnectedDurationView.swift in Sources */,
 				708A48E1296295C50040184C /* CFIPolicyGroupView.swift in Sources */,
@@ -431,6 +448,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7015F0E8296C657C003E6A7D /* Tun2Socks.swift in Sources */,
 				7084FC312965872200065DAF /* CFILogLevel.swift in Sources */,
 				70C9EDB029502C6500B6995B /* PacketTunnelProvider.swift in Sources */,
 				70C9EDD22951469E00B6995B /* CFIConstant.swift in Sources */,
@@ -443,9 +461,13 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		70B947A7295F2EF2006F6A38 /* PBXTargetDependency */ = {
+		7015F0E4296C5DA1003E6A7D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 70B947A6295F2EF2006F6A38 /* ClashKit */;
+			productRef = 7015F0E3296C5DA1003E6A7D /* ClashKit */;
+		};
+		7015F0E6296C5DA7003E6A7D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 7015F0E5296C5DA7003E6A7D /* Tun2SocksKit */;
 		};
 		70C9EDB429502C6500B6995B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -726,21 +748,57 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		70059B56295F2D9E00D2C4CB /* XCRemoteSwiftPackageReference "ClashKit" */ = {
+		7015F0DB296C5C25003E6A7D /* XCRemoteSwiftPackageReference "ClashKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Daemonomead/ClashKit.git";
+			repositoryURL = "https://github.com/daemonomead/ClashKit.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.2.0;
+				version = 1.3.0;
+			};
+		};
+		7015F0DE296C5D08003E6A7D /* XCRemoteSwiftPackageReference "Tun2SocksKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daemonomead/Tun2SocksKit.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.0;
+			};
+		};
+		70615817296975D90005C024 /* XCRemoteSwiftPackageReference "SPIndicator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPIndicator.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.6.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		70B947A6295F2EF2006F6A38 /* ClashKit */ = {
+		7015F0DC296C5C25003E6A7D /* ClashKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 70059B56295F2D9E00D2C4CB /* XCRemoteSwiftPackageReference "ClashKit" */;
+			package = 7015F0DB296C5C25003E6A7D /* XCRemoteSwiftPackageReference "ClashKit" */;
 			productName = ClashKit;
+		};
+		7015F0DF296C5D08003E6A7D /* Tun2SocksKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7015F0DE296C5D08003E6A7D /* XCRemoteSwiftPackageReference "Tun2SocksKit" */;
+			productName = Tun2SocksKit;
+		};
+		7015F0E3296C5DA1003E6A7D /* ClashKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7015F0DB296C5C25003E6A7D /* XCRemoteSwiftPackageReference "ClashKit" */;
+			productName = ClashKit;
+		};
+		7015F0E5296C5DA7003E6A7D /* Tun2SocksKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7015F0DE296C5D08003E6A7D /* XCRemoteSwiftPackageReference "Tun2SocksKit" */;
+			productName = Tun2SocksKit;
+		};
+		70615818296975D90005C024 /* SPIndicator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 70615817296975D90005C024 /* XCRemoteSwiftPackageReference "SPIndicator" */;
+			productName = SPIndicator;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

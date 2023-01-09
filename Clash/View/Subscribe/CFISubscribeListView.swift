@@ -1,11 +1,12 @@
 import SwiftUI
+import SPIndicator
 
 struct CFISubscribeListView: View {
         
     @EnvironmentObject private var packetTunnelManager: CFIPacketTunnelManager
     @EnvironmentObject private var subscribeManager: CFISubscribeManager
     
-    @StateObject private var loadingVM = CFILoadingViewModel()
+    @State private var isDownloading = false
             
     let current: Binding<String>
     
@@ -25,7 +26,7 @@ struct CFISubscribeListView: View {
                     }
                     current.wrappedValue = subscribe.id
                 } label: {
-                    HStack(alignment: .center, spacing: 0) {
+                    HStack(alignment: .center, spacing: 8) {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(subscribe.extend.alias)
                                 .lineLimit(1)
@@ -38,6 +39,9 @@ struct CFISubscribeListView: View {
                                 .fontWeight(.light)
                         }
                         Spacer()
+                        if subscribeManager.downloadingSubscribeIDs.contains(subscribe.id) {
+                            ProgressView()
+                        }
                         if current.wrappedValue == subscribe.id {
                             Image(systemName: "checkmark")
                                 .foregroundColor(.accentColor)
@@ -52,42 +56,55 @@ struct CFISubscribeListView: View {
                             if subscribe.id == current.wrappedValue {
                                 current.wrappedValue = ""
                             }
+                            SPIndicatorView(title: "\(subscribe.extend.alias)删除成功", preset: .done)
+                                .present(duration: 3.0)
                         } catch {
-                            debugPrint(error.localizedDescription)
+                            SPIndicatorView(title: "\(subscribe.extend.alias)删除失败", message: error.localizedDescription, preset: .error)
+                                .present(duration: 3.0)
                         }
                     }
+                    .disabled(subscribeManager.downloadingSubscribeIDs.contains(subscribe.id))
+                    
                     Button("重命名") {
                         self.subscribeName = subscribe.extend.alias
                         self.subscribe = subscribe
                         self.isRenameAlertPresented.toggle()
                     }
                     .tint(.yellow)
+                    .disabled(subscribeManager.downloadingSubscribeIDs.contains(subscribe.id))
+                    
                     Button("更新") {
-                        loadingVM.loading(message: "正在更新订阅...")
                         Task(priority: .userInitiated) {
                             do {
                                 try await subscribeManager.update(subscribe: subscribe)
-                                loadingVM.success(message: "更新订阅成功")
                                 if current.wrappedValue == subscribe.id {
                                     packetTunnelManager.set(subscribe: subscribe.id)
                                 }
+                                SPIndicatorView(title: "\(subscribe.extend.alias)更新成功", preset: .done)
+                                    .present(duration: 3.0)
                             } catch {
-                                loadingVM.failure(message: error.localizedDescription)
+                                SPIndicatorView(title: "\(subscribe.extend.alias)更新失败", message: error.localizedDescription, preset: .error)
+                                    .present(duration: 3.0)
                             }
                         }
                     }
                     .tint(.green)
+                    .disabled(subscribeManager.downloadingSubscribeIDs.contains(subscribe.id))
                 }
             }
             .navigationTitle(Text("订阅管理"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                Button {
-                    subscribeURLString = ""
-                    isDownloadAlertPresented.toggle()
-                } label: {
-                    Image(systemName: "plus")
-                        .fontWeight(.medium)
+                if isDownloading {
+                    ProgressView()
+                } else {
+                    Button {
+                        subscribeURLString = ""
+                        isDownloadAlertPresented.toggle()
+                    } label: {
+                        Image(systemName: "plus")
+                            .fontWeight(.medium)
+                    }
                 }
             }
             .alert("重命名", isPresented: $isRenameAlertPresented, presenting: subscribe) { subscribe in
@@ -100,7 +117,8 @@ struct CFISubscribeListView: View {
                     do {
                         try subscribeManager.rename(subscribe: subscribe, name: name)
                     } catch {
-                        debugPrint(error.localizedDescription)
+                        SPIndicatorView(title: "重命名失败", message: error.localizedDescription, preset: .error)
+                            .present(duration: 3.0)
                     }
                 }
                 Button("取消", role: .cancel) {}
@@ -109,28 +127,28 @@ struct CFISubscribeListView: View {
                 TextField("请输入订阅地址", text: $subscribeURLString)
                 Button("确定") {
                     guard let source = URL(string: subscribeURLString) else {
-                        return loadingVM.failure(message: "不支持的URL")
+                        return SPIndicatorView(title: "订阅失败", message: "不支持的URL", preset: .error)
+                            .present(duration: 3.0)
                     }
-                    loadingVM.loading(message: "正在下载订阅...")
+                    isDownloading = true
                     Task(priority: .high) {
                         do {
                             try await subscribeManager.download(source: source)
                             await MainActor.run {
-                                loadingVM.success(message: "下载成功")
+                                isDownloading = false
+                                SPIndicatorView(title: "订阅成功", preset: .done)
+                                    .present(duration: 3.0)
                             }
                         } catch {
                             await MainActor.run {
-                                loadingVM.failure(message: error.localizedDescription)
+                                isDownloading = false
+                                SPIndicatorView(title: "订阅失败", message: error.localizedDescription, preset: .error)
+                                    .present(duration: 3.0)
                             }
                         }
                     }
                 }
                 Button("取消", role: .cancel) {}
-            }
-            .sheet(isPresented: $loadingVM.isPresented) {
-                CFILoadingView(state: $loadingVM.state)
-                    .presentationDetents([.height(60.0)])
-                    .presentationDragIndicator(.hidden)
             }
         }
     }

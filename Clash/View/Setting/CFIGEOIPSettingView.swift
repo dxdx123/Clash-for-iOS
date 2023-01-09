@@ -1,4 +1,6 @@
 import SwiftUI
+import SPIndicator
+import UniformTypeIdentifiers
 
 enum CFIGEOIPAutoUpdateInterval: String, CaseIterable, Identifiable {
     
@@ -7,6 +9,10 @@ enum CFIGEOIPAutoUpdateInterval: String, CaseIterable, Identifiable {
     case day
     case week
     case month
+}
+
+extension UTType {
+    static let mmdb = UTType(filenameExtension: "mmdb")!
 }
 
 extension CFIConstant {
@@ -19,10 +25,13 @@ extension CFIConstant {
 struct CFIGEOIPSettingView: View {
     
     @EnvironmentObject private var geoipManager: CFIGEOIPManager
+    @Environment(\.dismiss) private var dismiss
     
     @AppStorage(CFIConstant.geoipDatabaseRemoteURLString) private var geoipDatabaseRemoteURLString: String = CFIConstant.defaultGEOIPDatabaseRemoteURLString
     @AppStorage(CFIConstant.geoipDatabaseAutoUpdate) private var geoipDatabaseAutoUpdate: Bool = true
     @AppStorage(CFIConstant.geoipDatabaseAutoUpdateInterval) private var geoipDatabaseAutoUpdateInterval: CFIGEOIPAutoUpdateInterval = .week
+    
+    @State private var isFileImporterPresented: Bool = false
     
     var body: some View {
         Form {
@@ -35,22 +44,14 @@ struct CFIGEOIPSettingView: View {
                 Toggle("自动更新", isOn: $geoipDatabaseAutoUpdate)
                 if geoipDatabaseAutoUpdate {
                     NavigationLink {
-                        Form {
-                            Picker(selection: $geoipDatabaseAutoUpdateInterval) {
-                                ForEach(CFIGEOIPAutoUpdateInterval.allCases) { interval in
-                                    Text(title(for: interval))
-                                }
-                            } label: {
-                                EmptyView()
+                        CFIFormPicker(title: "更新频率", selection: $geoipDatabaseAutoUpdateInterval) {
+                            ForEach(CFIGEOIPAutoUpdateInterval.allCases) { value in
+                                Text(value.name)
                             }
-                            .pickerStyle(.inline)
                         }
-                        .formStyle(.grouped)
-                        .navigationTitle(Text("更新频率"))
-                        .navigationBarTitleDisplayMode(.inline)
                     } label: {
                         LabeledContent {
-                            Text(title(for: geoipDatabaseAutoUpdateInterval))
+                            Text(geoipDatabaseAutoUpdateInterval.name)
                         } label: {
                             Text("更新频率")
                         }
@@ -67,8 +68,13 @@ struct CFIGEOIPSettingView: View {
                     Task(priority: .medium) {
                         do {
                             try await geoipManager.update(url: url)
+                            SPIndicatorView(title: "GEOIP数据库更新成功", preset: .done)
+                                .present(duration: 3.0) {
+                                    dismiss()
+                                }
                         } catch {
-                            debugPrint(error.localizedDescription)
+                            SPIndicatorView(title: "GEOIP数据库更新失败", message: error.localizedDescription, preset: .error)
+                                .present(duration: 3.0)
                         }
                     }
                 } label: {
@@ -87,12 +93,33 @@ struct CFIGEOIPSettingView: View {
         .toolbar {
             if geoipManager.isUpdating {
                 ProgressView()
+            } else {
+                Button {
+                    isFileImporterPresented.toggle()
+                } label: {
+                    Image(systemName: "square.and.arrow.down")
+                }
+            }
+        }
+        .fileImporter(isPresented: $isFileImporterPresented, allowedContentTypes: [.mmdb]) { result in
+            do {
+                try geoipManager.importLocalFile(from: try result.get())
+                SPIndicatorView(title: "GEOIP数据库导入成功", preset: .done)
+                    .present(duration: 3.0) {
+                        dismiss()
+                    }
+            } catch {
+                SPIndicatorView(title: "GEOIP数据库导入失败", message: error.localizedDescription, preset: .error)
+                    .present(duration: 3.0)
             }
         }
     }
+}
+
+extension CFIGEOIPAutoUpdateInterval {
     
-    private func title(for interval: CFIGEOIPAutoUpdateInterval) -> String {
-        switch interval {
+    var name: String {
+        switch self {
         case .day:
             return "每天"
         case .week:
