@@ -56,10 +56,10 @@ struct CFISubscribeListView: View {
                             if subscribe.id == current.wrappedValue {
                                 current.wrappedValue = ""
                             }
-                            SPIndicatorView(title: "删除成功", preset: .done)
-                                .present(duration: 1.0)
+                            SPIndicatorView(title: "\(subscribe.extend.alias)删除成功", preset: .done)
+                                .present(duration: 3.0)
                         } catch {
-                            SPIndicatorView(title: "删除失败", message: error.localizedDescription, preset: .error)
+                            SPIndicatorView(title: "\(subscribe.extend.alias)删除失败", message: error.localizedDescription, preset: .error)
                                 .present(duration: 3.0)
                         }
                     }
@@ -80,10 +80,10 @@ struct CFISubscribeListView: View {
                                 if current.wrappedValue == subscribe.id {
                                     packetTunnelManager.set(subscribe: subscribe.id)
                                 }
-                                SPIndicatorView(title: "更新订阅成功", preset: .done)
-                                    .present(duration: 1.0)
+                                SPIndicatorView(title: "\(subscribe.extend.alias)更新成功", preset: .done)
+                                    .present(duration: 3.0)
                             } catch {
-                                SPIndicatorView(title: "更新订阅失败", message: error.localizedDescription, preset: .error)
+                                SPIndicatorView(title: "\(subscribe.extend.alias)更新失败", message: error.localizedDescription, preset: .error)
                                     .present(duration: 3.0)
                             }
                         }
@@ -137,7 +137,7 @@ struct CFISubscribeListView: View {
                             await MainActor.run {
                                 isDownloading = false
                                 SPIndicatorView(title: "订阅成功", preset: .done)
-                                    .present(duration: 1.0)
+                                    .present(duration: 3.0)
                             }
                         } catch {
                             await MainActor.run {

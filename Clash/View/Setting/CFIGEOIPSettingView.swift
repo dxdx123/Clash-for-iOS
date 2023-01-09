@@ -69,7 +69,7 @@ struct CFIGEOIPSettingView: View {
                         do {
                             try await geoipManager.update(url: url)
                             SPIndicatorView(title: "更新成功", preset: .done)
-                                .present(duration: 1.0) {
+                                .present(duration: 3.0) {
                                     dismiss()
                                 }
                         } catch {
@@ -105,7 +105,7 @@ struct CFIGEOIPSettingView: View {
             do {
                 try geoipManager.importLocalFile(from: try result.get())
                 SPIndicatorView(title: "导入成功", preset: .done)
-                    .present(duration: 1.0) {
+                    .present(duration: 3.0) {
                         dismiss()
                     }
             } catch {
