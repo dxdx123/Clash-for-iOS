@@ -26,7 +26,7 @@ struct CFISubscribeListView: View {
                     }
                     current.wrappedValue = subscribe.id
                 } label: {
-                    HStack(alignment: .center, spacing: 0) {
+                    HStack(alignment: .center, spacing: 8) {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(subscribe.extend.alias)
                                 .lineLimit(1)
@@ -39,6 +39,9 @@ struct CFISubscribeListView: View {
                                 .fontWeight(.light)
                         }
                         Spacer()
+                        if subscribeManager.downloadingSubscribeIDs.contains(subscribe.id) {
+                            ProgressView()
+                        }
                         if current.wrappedValue == subscribe.id {
                             Image(systemName: "checkmark")
                                 .foregroundColor(.accentColor)
@@ -60,12 +63,16 @@ struct CFISubscribeListView: View {
                                 .present(duration: 3.0)
                         }
                     }
+                    .disabled(subscribeManager.downloadingSubscribeIDs.contains(subscribe.id))
+                    
                     Button("重命名") {
                         self.subscribeName = subscribe.extend.alias
                         self.subscribe = subscribe
                         self.isRenameAlertPresented.toggle()
                     }
                     .tint(.yellow)
+                    .disabled(subscribeManager.downloadingSubscribeIDs.contains(subscribe.id))
+                    
                     Button("更新") {
                         Task(priority: .userInitiated) {
                             do {
@@ -82,6 +89,7 @@ struct CFISubscribeListView: View {
                         }
                     }
                     .tint(.green)
+                    .disabled(subscribeManager.downloadingSubscribeIDs.contains(subscribe.id))
                 }
             }
             .navigationTitle(Text("订阅管理"))
