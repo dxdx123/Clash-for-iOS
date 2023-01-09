@@ -1,4 +1,5 @@
 import SwiftUI
+import SPIndicator
 
 struct CFIPolicyGroupView: View {
     
@@ -10,10 +11,15 @@ struct CFIPolicyGroupView: View {
     
     var body: some View {
         Button {
+            guard let status = manager.status, status == .connected else {
+                SPIndicatorView(title: "Clash未启动", preset: .error)
+                    .present(duration: 1.0)
+                return
+            }
             isPresented.toggle()
         } label: {
             HStack {
-                Text((manager.status.flatMap({ $0 == .connected }) ?? false) ? "查看" : "暂不可用")
+                Text("查看")
                     .foregroundColor(.secondary)
                 Image(systemName: "chevron.right")
                     .font(.caption)
@@ -21,7 +27,6 @@ struct CFIPolicyGroupView: View {
                     .foregroundColor(.secondary.opacity(0.5))
             }
         }
-        .disabled(manager.status.flatMap({ $0 != .connected }) ?? true)
         .sheet(isPresented: $isPresented) {
             CFIProviderListView(tunnelMode: tunnelMode)
         }
