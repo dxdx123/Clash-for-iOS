@@ -1,6 +1,6 @@
 import SwiftUI
 
-enum CFITheme: String, CaseIterable, Identifiable {
+enum CFIAppearance: String, CaseIterable, Identifiable {
     
     var id: Self { self }
     
@@ -9,16 +9,16 @@ enum CFITheme: String, CaseIterable, Identifiable {
     case system
 }
 
-extension CFITheme {
+extension CFIAppearance {
     
-    var preferredColorScheme: ColorScheme? {
+    var userInterfaceStyle: UIUserInterfaceStyle {
         switch self {
         case .light:
             return .light
         case .dark:
             return .dark
         case .system:
-            return nil
+            return .unspecified
         }
     }
 }
