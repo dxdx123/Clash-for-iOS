@@ -45,15 +45,27 @@ import os
         CFILogLevel(rawValue: UserDefaults.shared.string(forKey: CFIConstant.logLevel) ?? "") ?? .silent
     }
     
+    private static var tunnelFileDescriptor: Int32? {
+        var buf = Array<CChar>(repeating: 0, count: Int(IFNAMSIZ))
+        return (1...1024).first {
+            var len = socklen_t(buf.count)
+            return getsockopt($0, 2, 2, &buf, &len) == 0 && String(cString: buf).hasPrefix("utun")
+        }
+    }
+    
     static func run() throws {
-        let port: Int = 8080
         let config = """
-        mixed-port: \(port)
         mode: \(tunnelMode.rawValue)
         log-level: \(logLevel.rawValue)
         """
-        ClashRun(CFIConstant.homeDirectory.path(percentEncoded: false), config, OSLogger.shared)
-        Tun2Socks.run(port: port)
+        guard let fd = tunnelFileDescriptor else {
+            fatalError("Get tunnel file descriptor failed.")
+        }
+        var error: NSError?
+        ClashRun(Int(fd), CFIConstant.homeDirectory.path(percentEncoded: false), config, OSLogger.shared, &error)
+        if let err = error {
+            throw err
+        }
         guard let current = UserDefaults.shared.string(forKey: CFIConstant.current), !current.isEmpty else {
             return
         }
