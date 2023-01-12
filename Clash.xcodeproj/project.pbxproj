@@ -19,6 +19,8 @@
 		70615814296815260005C024 /* CFIAccentColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70615813296815260005C024 /* CFIAccentColorView.swift */; };
 		7061581629695E6A0005C024 /* CFIFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061581529695E6A0005C024 /* CFIFormPicker.swift */; };
 		70615819296975D90005C024 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 70615818296975D90005C024 /* SPIndicator */; };
+		7061581C296F9D210005C024 /* Tun2SocksKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7061581B296F9D210005C024 /* Tun2SocksKit */; };
+		7061581E296FFE6B0005C024 /* Tun2Socks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061581D296FFE6B0005C024 /* Tun2Socks.swift */; };
 		7084FC1D295ECBC900065DAF /* CFIAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */; };
 		7084FC1E295ECBC900065DAF /* CFIAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */; };
 		7084FC20295ECC7400065DAF /* CFITunnelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */; };
@@ -90,6 +92,7 @@
 		7000C6E3295D635F0005626E /* CFIControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIControlView.swift; sourceTree = "<group>"; };
 		70615813296815260005C024 /* CFIAccentColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIAccentColorView.swift; sourceTree = "<group>"; };
 		7061581529695E6A0005C024 /* CFIFormPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIFormPicker.swift; sourceTree = "<group>"; };
+		7061581D296FFE6B0005C024 /* Tun2Socks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tun2Socks.swift; sourceTree = "<group>"; };
 		7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIAppMessage.swift; sourceTree = "<group>"; };
 		7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFITunnelMode.swift; sourceTree = "<group>"; };
 		7084FC242963FB8A00065DAF /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -143,6 +146,7 @@
 			files = (
 				70C9EDAD29502C6500B6995B /* NetworkExtension.framework in Frameworks */,
 				7015F0DD296C5C25003E6A7D /* ClashKit in Frameworks */,
+				7061581C296F9D210005C024 /* Tun2SocksKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				70B947A8295F302B006F6A38 /* Clash.swift */,
+				7061581D296FFE6B0005C024 /* Tun2Socks.swift */,
 				70C9EDAF29502C6500B6995B /* PacketTunnelProvider.swift */,
 				70C9EDB129502C6500B6995B /* Info.plist */,
 				70C9EDB229502C6500B6995B /* PacketTunnel.entitlements */,
@@ -331,6 +336,7 @@
 			name = PacketTunnel;
 			packageProductDependencies = (
 				7015F0DC296C5C25003E6A7D /* ClashKit */,
+				7061581B296F9D210005C024 /* Tun2SocksKit */,
 			);
 			productName = PacketTunnel;
 			productReference = 70C9EDAA29502C6500B6995B /* PacketTunnel.appex */;
@@ -365,6 +371,7 @@
 			packageReferences = (
 				7015F0DB296C5C25003E6A7D /* XCRemoteSwiftPackageReference "ClashKit" */,
 				70615817296975D90005C024 /* XCRemoteSwiftPackageReference "SPIndicator" */,
+				7061581A296F9D210005C024 /* XCRemoteSwiftPackageReference "Tun2SocksKit" */,
 			);
 			productRefGroup = 70C9ED9629501D5B00B6995B /* Products */;
 			projectDirPath = "";
@@ -441,6 +448,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7061581E296FFE6B0005C024 /* Tun2Socks.swift in Sources */,
 				7084FC312965872200065DAF /* CFILogLevel.swift in Sources */,
 				70C9EDB029502C6500B6995B /* PacketTunnelProvider.swift in Sources */,
 				70C9EDD22951469E00B6995B /* CFIConstant.swift in Sources */,
@@ -745,7 +753,7 @@
 			repositoryURL = "https://github.com/daemonomead/ClashKit.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.3.4;
+				version = 1.3.11;
 			};
 		};
 		7015F0DE296C5D08003E6A7D /* XCRemoteSwiftPackageReference "Tun2SocksKit" */ = {
@@ -762,6 +770,14 @@
 			requirement = {
 				kind = exactVersion;
 				version = 1.6.4;
+			};
+		};
+		7061581A296F9D210005C024 /* XCRemoteSwiftPackageReference "Tun2SocksKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daemonomead/Tun2SocksKit.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.2.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -786,6 +802,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 70615817296975D90005C024 /* XCRemoteSwiftPackageReference "SPIndicator" */;
 			productName = SPIndicator;
+		};
+		7061581B296F9D210005C024 /* Tun2SocksKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7061581A296F9D210005C024 /* XCRemoteSwiftPackageReference "Tun2SocksKit" */;
+			productName = Tun2SocksKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
