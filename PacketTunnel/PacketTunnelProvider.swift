@@ -10,7 +10,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             settings.includedRoutes = [NEIPv4Route.default()]
             return settings
         }()
-        settings.dnsSettings = NEDNSSettings(servers: ["127.0.0.1"])
+        settings.dnsSettings = NEDNSSettings(servers: ["114.114.114.114"])
         try await self.setTunnelNetworkSettings(settings)
         try Clash.run()
     }

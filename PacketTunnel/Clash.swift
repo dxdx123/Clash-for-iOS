@@ -45,29 +45,23 @@ import os
         CFILogLevel(rawValue: UserDefaults.shared.string(forKey: CFIConstant.logLevel) ?? "") ?? .silent
     }
     
+    private static var tunnelFileDescriptor: Int32? {
+        var buf = Array<CChar>(repeating: 0, count: Int(IFNAMSIZ))
+        return (1...1024).first {
+            var len = socklen_t(buf.count)
+            return getsockopt($0, 2, 2, &buf, &len) == 0 && String(cString: buf).hasPrefix("utun")
+        }
+    }
+    
     static func run() throws {
-        let port = 8080
         let config = """
-        mixed-port: \(port)
         mode: \(tunnelMode.rawValue)
         log-level: \(logLevel.rawValue)
-        dns:
-            enable: true
-            listen: 127.0.0.1:53
-            default-nameserver: [223.5.5.5, 119.29.29.29]
-            enhanced-mode: fake-ip
-            fake-ip-range: 198.18.0.1/16
-            use-hosts: true
-            nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
-            fallback: ['https://doh.dns.sb/dns-query', 'https://dns.cloudflare.com/dns-query', 'https://dns.twnic.tw/dns-query', 'tls://8.8.4.4:853']
-            fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
         """
-        var error: NSError?
-        ClashRun(CFIConstant.homeDirectory.path(percentEncoded: false), config, OSLogger.shared, &error)
-        if let err = error {
-            throw err
+        guard let fd = tunnelFileDescriptor else {
+            fatalError("Get tunnel file descriptor failed.")
         }
-        Tun2Socks.run(port: port)
+        ClashRun(Int(fd), CFIConstant.homeDirectory.path(percentEncoded: false), config, OSLogger.shared)
         guard let current = UserDefaults.shared.string(forKey: CFIConstant.current), !current.isEmpty else {
             return
         }

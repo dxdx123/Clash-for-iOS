@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/daemonomead/ClashKit.git",
       "state" : {
-        "revision" : "3a7b39996d8f5149409b6a27a895b2367bd45170",
-        "version" : "1.3.11"
+        "revision" : "d79a818095803ff794b0a72d46233cfc89a2508e",
+        "version" : "1.5.2"
       }
     },
     {
@@ -16,15 +16,6 @@
       "state" : {
         "revision" : "43600857729d9efff046dc6673e6f94e095882c7",
         "version" : "1.6.4"
-      }
-    },
-    {
-      "identity" : "tun2sockskit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/daemonomead/Tun2SocksKit.git",
-      "state" : {
-        "revision" : "37221cf2bd507af299bd6ba2220e771c1de57460",
-        "version" : "1.2.0"
       }
     }
   ],
