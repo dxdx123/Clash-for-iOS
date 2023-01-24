@@ -61,7 +61,7 @@ import os
             enable: true
             listen: 127.0.0.1:53
             default-nameserver: [223.5.5.5, 119.29.29.29]
-            enhanced-mode: redir-host
+            enhanced-mode: fake-ip
             fake-ip-range: 198.18.0.1/16
             nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
             fallback: ['https://doh.dns.sb/dns-query', 'https://dns.cloudflare.com/dns-query', 'https://dns.twnic.tw/dns-query', 'tls://8.8.4.4:853']
