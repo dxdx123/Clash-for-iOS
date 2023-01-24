@@ -2,6 +2,8 @@ import SwiftUI
 import SPIndicator
 
 struct CFISubscribeListView: View {
+    
+    @Environment(\.dismiss) private var dismiss
         
     @EnvironmentObject private var packetTunnelManager: CFIPacketTunnelManager
     @EnvironmentObject private var subscribeManager: CFISubscribeManager
@@ -25,6 +27,7 @@ struct CFISubscribeListView: View {
                         return
                     }
                     current.wrappedValue = subscribe.id
+                    dismiss()
                 } label: {
                     HStack(alignment: .center, spacing: 8) {
                         VStack(alignment: .leading, spacing: 4) {

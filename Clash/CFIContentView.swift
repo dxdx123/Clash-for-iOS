@@ -53,7 +53,7 @@ struct CFIContentView: View {
                             Label {
                                 Text("代理模式")
                             } icon: {
-                                CFIIcon(systemName: "arrow.uturn.right", backgroundColor: .teal)
+                                CFIIcon(systemName: "arrow.uturn.right", backgroundColor: .orange)
                             }
                         }
                     }
@@ -74,7 +74,7 @@ struct CFIContentView: View {
                         Label {
                             Text("设置")
                         } icon: {
-                            CFIIcon(systemName: "gearshape", backgroundColor: .orange)
+                            CFIIcon(systemName: "gearshape", backgroundColor: .blue)
                         }
                     }
                 }

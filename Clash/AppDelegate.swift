@@ -21,6 +21,23 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
             UserDefaults.standard.setValue(true, forKey: CFIConstant.isAppHasLaunched)
         }
         geoipManager.checkAndUpdateIfNeeded()
+        application.applyAppearance()
         return true
+    }
+}
+
+extension UIApplication {
+    
+    func applyAppearance() {
+        let current = UserDefaults.standard.string(forKey: CFIConstant.theme).flatMap(CFIAppearance.init(rawValue:)) ?? .system
+        self.override(userInterfaceStyle: current.userInterfaceStyle)
+    }
+    
+    private func override(userInterfaceStyle style: UIUserInterfaceStyle) {
+        DispatchQueue.main.async {
+            UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).compactMap({ $0.windows }).flatMap({ $0 }).forEach { window in
+                window.overrideUserInterfaceStyle = style
+            }
+        }
     }
 }
