@@ -26,8 +26,8 @@
 		7084FC302965872200065DAF /* CFILogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC2F2965872200065DAF /* CFILogLevel.swift */; };
 		7084FC312965872200065DAF /* CFILogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC2F2965872200065DAF /* CFILogLevel.swift */; };
 		7084FC33296587C600065DAF /* CFILogLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC32296587C600065DAF /* CFILogLevelView.swift */; };
-		7084FC362967B8AC00065DAF /* CFIGEOIPSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC352967B8AC00065DAF /* CFIGEOIPSettingView.swift */; };
-		7084FC382967DB7300065DAF /* CFIGEOIPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC372967DB7300065DAF /* CFIGEOIPView.swift */; };
+		7084FC362967B8AC00065DAF /* CFIGeoIPSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC352967B8AC00065DAF /* CFIGeoIPSettingView.swift */; };
+		7084FC382967DB7300065DAF /* CFIGeoIPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC372967DB7300065DAF /* CFIGeoIPView.swift */; };
 		7084FC3A2967E6FD00065DAF /* CFIGEOIPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC392967E6FD00065DAF /* CFIGEOIPManager.swift */; };
 		7084FC3C29680A2200065DAF /* CFIAccentColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC3B29680A2200065DAF /* CFIAccentColor.swift */; };
 		708A48E1296295C50040184C /* CFIPolicyGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E0296295C50040184C /* CFIPolicyGroupView.swift */; };
@@ -96,8 +96,8 @@
 		7084FC252963FDE300065DAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7084FC2F2965872200065DAF /* CFILogLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFILogLevel.swift; sourceTree = "<group>"; };
 		7084FC32296587C600065DAF /* CFILogLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFILogLevelView.swift; sourceTree = "<group>"; };
-		7084FC352967B8AC00065DAF /* CFIGEOIPSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIGEOIPSettingView.swift; sourceTree = "<group>"; };
-		7084FC372967DB7300065DAF /* CFIGEOIPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIGEOIPView.swift; sourceTree = "<group>"; };
+		7084FC352967B8AC00065DAF /* CFIGeoIPSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIGeoIPSettingView.swift; sourceTree = "<group>"; };
+		7084FC372967DB7300065DAF /* CFIGeoIPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIGeoIPView.swift; sourceTree = "<group>"; };
 		7084FC392967E6FD00065DAF /* CFIGEOIPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIGEOIPManager.swift; sourceTree = "<group>"; };
 		7084FC3B29680A2200065DAF /* CFIAccentColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIAccentColor.swift; sourceTree = "<group>"; };
 		708A48E0296295C50040184C /* CFIPolicyGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIPolicyGroupView.swift; sourceTree = "<group>"; };
@@ -157,8 +157,8 @@
 				708A48E92962AA2B0040184C /* CFIAppearanceView.swift */,
 				70615813296815260005C024 /* CFIAccentColorView.swift */,
 				7084FC32296587C600065DAF /* CFILogLevelView.swift */,
-				7084FC372967DB7300065DAF /* CFIGEOIPView.swift */,
-				7084FC352967B8AC00065DAF /* CFIGEOIPSettingView.swift */,
+				7084FC372967DB7300065DAF /* CFIGeoIPView.swift */,
+				7084FC352967B8AC00065DAF /* CFIGeoIPSettingView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -410,10 +410,10 @@
 				70615814296815260005C024 /* CFIAccentColorView.swift in Sources */,
 				70C9EDBE29502D3500B6995B /* CFIPacketTunnelManager.swift in Sources */,
 				7084FC302965872200065DAF /* CFILogLevel.swift in Sources */,
-				7084FC382967DB7300065DAF /* CFIGEOIPView.swift in Sources */,
+				7084FC382967DB7300065DAF /* CFIGeoIPView.swift in Sources */,
 				70B947B129613321006F6A38 /* CFISubscribeManager.swift in Sources */,
 				7000C6D6295AED790005626E /* CFIProvidersManager.swift in Sources */,
-				7084FC362967B8AC00065DAF /* CFIGEOIPSettingView.swift in Sources */,
+				7084FC362967B8AC00065DAF /* CFIGeoIPSettingView.swift in Sources */,
 				70C9EDCA2950565400B6995B /* CFISettingView.swift in Sources */,
 				70B947AF29612F46006F6A38 /* CFISubscribeView.swift in Sources */,
 				70C9EDD12951469E00B6995B /* CFIConstant.swift in Sources */,

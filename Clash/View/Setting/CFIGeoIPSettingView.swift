@@ -16,18 +16,18 @@ extension UTType {
 }
 
 extension CFIConstant {
-    static let defaultGEOIPDatabaseRemoteURLString  = "https://github.com/Dreamacro/maxmind-geoip/releases/latest/download/Country.mmdb"
+    static let defaultGeoIPDatabaseRemoteURLString  = "https://github.com/Dreamacro/maxmind-geoip/releases/latest/download/Country.mmdb"
     static let geoipDatabaseRemoteURLString         = "CLASH_GEOIP_DATABASE_REMOTE_URL_STRING"
     static let geoipDatabaseAutoUpdate              = "CLASH_GEOIP_DATABASE_AUTO_UPDATE"
     static let geoipDatabaseAutoUpdateInterval      = "CLASH_GEOIP_DATABASE_AUTO_UPDATE_INTERVAL"
 }
 
-struct CFIGEOIPSettingView: View {
+struct CFIGeoIPSettingView: View {
     
     @EnvironmentObject private var geoipManager: CFIGEOIPManager
     @Environment(\.dismiss) private var dismiss
     
-    @AppStorage(CFIConstant.geoipDatabaseRemoteURLString) private var geoipDatabaseRemoteURLString: String = CFIConstant.defaultGEOIPDatabaseRemoteURLString
+    @AppStorage(CFIConstant.geoipDatabaseRemoteURLString) private var geoipDatabaseRemoteURLString: String = CFIConstant.defaultGeoIPDatabaseRemoteURLString
     @AppStorage(CFIConstant.geoipDatabaseAutoUpdate) private var geoipDatabaseAutoUpdate: Bool = true
     @AppStorage(CFIConstant.geoipDatabaseAutoUpdateInterval) private var geoipDatabaseAutoUpdateInterval: CFIGEOIPAutoUpdateInterval = .week
     
@@ -88,7 +88,7 @@ struct CFIGEOIPSettingView: View {
             .disabled(geoipManager.isUpdating)
         }
         .formStyle(.grouped)
-        .navigationTitle(Text("GEOIP"))
+        .navigationTitle(Text("GeoIP 数据库"))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             if geoipManager.isUpdating {
