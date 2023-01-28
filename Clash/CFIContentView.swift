@@ -39,7 +39,7 @@ struct CFIContentView: View {
                         Label {
                             Text("连接时长")
                         } icon: {
-                            CFIIcon(systemName: "clock", backgroundColor: .indigo)
+                            CFIIcon(systemName: "clock", backgroundColor: .blue)
                         }
                     }
                 }
@@ -53,7 +53,7 @@ struct CFIContentView: View {
                             Label {
                                 Text("代理模式")
                             } icon: {
-                                CFIIcon(systemName: "arrow.uturn.right", backgroundColor: .orange)
+                                CFIIcon(systemName: "arrow.uturn.right", backgroundColor: .teal)
                             }
                         }
                     }
@@ -63,7 +63,7 @@ struct CFIContentView: View {
                         Label {
                             Text("策略组")
                         } icon: {
-                            CFIIcon(systemName: "square.3.layers.3d", backgroundColor: .purple)
+                            CFIIcon(systemName: "square.3.layers.3d", backgroundColor: .teal)
                         }
                     }
                 }
