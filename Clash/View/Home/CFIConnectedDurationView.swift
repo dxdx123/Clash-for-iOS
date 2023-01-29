@@ -12,7 +12,7 @@ struct CFIConnectedDurationView: View {
                     .monospacedDigit()
             }
         } else {
-            EmptyView()
+            Text("-")
         }
     }
     

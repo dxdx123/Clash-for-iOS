@@ -34,6 +34,8 @@ struct CFIContentView: View {
                     LabeledContent {
                         if let status = manager.status, status == .connected {
                             CFIConnectedDurationView()
+                        } else {
+                            Text("-")
                         }
                     } label: {
                         Label {

@@ -19,6 +19,7 @@
 		70615814296815260005C024 /* CFIAccentColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70615813296815260005C024 /* CFIAccentColorView.swift */; };
 		7061581629695E6A0005C024 /* CFIFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061581529695E6A0005C024 /* CFIFormPicker.swift */; };
 		70615819296975D90005C024 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 70615818296975D90005C024 /* SPIndicator */; };
+		70615839298620F20005C024 /* CFITrafficFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70615838298620F20005C024 /* CFITrafficFormatter.swift */; };
 		7084FC1D295ECBC900065DAF /* CFIAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */; };
 		7084FC1E295ECBC900065DAF /* CFIAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */; };
 		7084FC20295ECC7400065DAF /* CFITunnelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */; };
@@ -90,6 +91,7 @@
 		7000C6E3295D635F0005626E /* CFIControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIControlView.swift; sourceTree = "<group>"; };
 		70615813296815260005C024 /* CFIAccentColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIAccentColorView.swift; sourceTree = "<group>"; };
 		7061581529695E6A0005C024 /* CFIFormPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIFormPicker.swift; sourceTree = "<group>"; };
+		70615838298620F20005C024 /* CFITrafficFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFITrafficFormatter.swift; sourceTree = "<group>"; };
 		7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIAppMessage.swift; sourceTree = "<group>"; };
 		7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFITunnelMode.swift; sourceTree = "<group>"; };
 		7084FC242963FB8A00065DAF /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				7000C6D3295AED790005626E /* CFIProxyModel.swift */,
 				70B947B029613321006F6A38 /* CFISubscribeManager.swift */,
 				7084FC392967E6FD00065DAF /* CFIGEOIPManager.swift */,
+				70615838298620F20005C024 /* CFITrafficFormatter.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				7000C6E4295D635F0005626E /* CFIControlView.swift in Sources */,
 				7000C6D8295AED790005626E /* CFIProxyModel.swift in Sources */,
 				708A48EA2962AA2B0040184C /* CFIAppearanceView.swift in Sources */,
+				70615839298620F20005C024 /* CFITrafficFormatter.swift in Sources */,
 				7061581629695E6A0005C024 /* CFIFormPicker.swift in Sources */,
 				7000C6D9295AED790005626E /* CFIProviderViewModel.swift in Sources */,
 				7000C6DE295D5F690005626E /* CFIConnectedDurationView.swift in Sources */,
