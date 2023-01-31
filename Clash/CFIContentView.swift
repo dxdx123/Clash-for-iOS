@@ -1,4 +1,5 @@
 import SwiftUI
+import NetworkExtension
 
 struct CFIContentView: View {
     
@@ -26,7 +27,7 @@ struct CFIContentView: View {
                         CFIControlView()
                     } label: {
                         Label {
-                            Text("状态")
+                            Text(manager.status?.displayString ?? "无配置")
                         } icon: {
                             CFIIcon(systemName: "link", backgroundColor: .blue)
                         }
@@ -35,7 +36,7 @@ struct CFIContentView: View {
                         if let status = manager.status, status == .connected {
                             CFIConnectedDurationView()
                         } else {
-                            Text("-")
+                            Text("--:--")
                         }
                     } label: {
                         Label {
@@ -93,4 +94,3 @@ struct CFIContentView: View {
         }
     }
 }
-
