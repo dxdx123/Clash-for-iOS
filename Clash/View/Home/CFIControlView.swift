@@ -7,15 +7,20 @@ struct CFIControlView: View {
     
     var body: some View {
         if let status = manager.status {
-            switch status {
-            case .connected, .disconnected:
-                Button {
-                    onTap(status: status)
-                } label: {
-                    Text(status.buttonTitle)
+            HStack {
+                Text("-")
+                Text(status.displayString)
+                Spacer()
+                switch status {
+                case .connected, .disconnected:
+                    Button {
+                        onTap(status: status)
+                    } label: {
+                        Text(status.buttonTitle)
+                    }
+                default:
+                    ProgressView()
                 }
-            default:
-                ProgressView()
             }
         } else {
             Button  {

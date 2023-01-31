@@ -27,7 +27,7 @@ struct CFIContentView: View {
                         CFIControlView()
                     } label: {
                         Label {
-                            Text(manager.status?.displayString ?? "无配置")
+                            Text("状态")
                         } icon: {
                             CFIIcon(systemName: "link", backgroundColor: .blue)
                         }
