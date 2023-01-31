@@ -16,7 +16,9 @@ extension Bundle {
     public static let current               = "CLASH_CURRENT_CONFIG"
     public static let extendAttributeKey    = "CLASH"
     public static let fileAttributeKey      = "NSFileExtendedAttributes"
-    
+    public static let trafficUp             = "CLASH_TRAFFIC_UP"
+    public static let trafficDown           = "CLASH_TRAFFIC_DOWN"
+
     public static let homeDirectory: URL = {
         guard let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: CFIConstant.suiteName) else {
             fatalError("无法加载共享文件路径")

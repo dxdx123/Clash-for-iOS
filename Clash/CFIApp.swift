@@ -5,7 +5,7 @@ struct CFIApp: App {
     
     @UIApplicationDelegateAdaptor private var delegate: AppDelegate
     
-    @AppStorage(CFIConstant.accentColor) private var accentColor = CFIAccentColor.blue
+    @AppStorage(CFIConstant.accentColor) private var accentColor = CFIAccentColor.system
     
     var body: some Scene {
         WindowGroup {

@@ -4,14 +4,14 @@ import os
 
 @frozen enum Clash {
     
-    private final class OSLogger: NSObject, ClashLoggerProtocol {
+    private final class Client: NSObject, ClashClientProtocol {
         
-        private let raw: Logger
+        private let logger: Logger
         
-        static let shared = OSLogger()
+        static let shared = Client()
         
         private override init() {
-            self.raw = Logger(subsystem: Bundle.main.infoDictionary?["CFBundleIdentifier"] as! String, category: "Clash")
+            self.logger = Logger(subsystem: Bundle.main.infoDictionary?["CFBundleIdentifier"] as! String, category: "Clash")
             super.init()
         }
         
@@ -24,12 +24,17 @@ import os
             case .silent:
                 break
             case .info, .debug:
-                raw.notice("\(payload, privacy: .public)")
+                logger.notice("\(payload, privacy: .public)")
             case .warning:
-                raw.warning("\(payload, privacy: .public)")
+                logger.warning("\(payload, privacy: .public)")
             case .error:
-                raw.critical("\(payload, privacy: .public)")
+                logger.critical("\(payload, privacy: .public)")
             }
+        }
+        
+        func onTraffic(_ up: Int64, down: Int64) {
+            UserDefaults.shared.set(up, forKey: CFIConstant.trafficUp)
+            UserDefaults.shared.set(down, forKey: CFIConstant.trafficDown)
         }
     }
         
@@ -70,7 +75,7 @@ import os
         guard let fd = tunnelFileDescriptor else {
             fatalError("Get tunnel file descriptor failed.")
         }
-        ClashRun(Int(fd), CFIConstant.homeDirectory.path(percentEncoded: false), config, OSLogger.shared)
+        ClashRun(Int(fd), CFIConstant.homeDirectory.path(percentEncoded: false), config, Client.shared)
         guard let current = UserDefaults.shared.string(forKey: CFIConstant.current), !current.isEmpty else {
             return
         }

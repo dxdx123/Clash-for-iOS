@@ -1,12 +1,12 @@
 import SwiftUI
 
-struct CFIGEOIPView: View {
+struct CFIGeoIPView: View {
     
     @EnvironmentObject private var geoipManager: CFIGEOIPManager
     
     var body: some View {
         NavigationLink {
-            CFIGEOIPSettingView()
+            CFIGeoIPSettingView()
         } label: {
             LabeledContent {
                 if geoipManager.isUpdating {
@@ -20,7 +20,7 @@ struct CFIGEOIPView: View {
                 }
             } label: {
                 Label {
-                    Text("GEOIP")
+                    Text("GeoIP 数据库")
                 } icon: {
                     CFIIcon(systemName: "cylinder.split.1x2", backgroundColor: .black)
                 }
