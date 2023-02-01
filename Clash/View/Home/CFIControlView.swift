@@ -7,15 +7,20 @@ struct CFIControlView: View {
     
     var body: some View {
         if let status = manager.status {
-            switch status {
-            case .connected, .disconnected:
-                Button {
-                    onTap(status: status)
-                } label: {
-                    Text(buttonTitle(for: status))
+            HStack {
+                Text("-")
+                Text(status.displayString)
+                Spacer()
+                switch status {
+                case .connected, .disconnected:
+                    Button {
+                        onTap(status: status)
+                    } label: {
+                        Text(status.buttonTitle)
+                    }
+                default:
+                    ProgressView()
                 }
-            default:
-                ProgressView()
             }
         } else {
             Button  {
@@ -65,6 +70,47 @@ struct CFIControlView: View {
             } catch {
                 debugPrint(error.localizedDescription)
             }
+        }
+    }
+}
+
+extension NEVPNStatus {
+    
+    var buttonTitle: String {
+        switch self {
+        case .invalid:
+            return "不可用"
+        case .connecting:
+            return "正在连接..."
+        case .connected:
+            return "断开"
+        case .reasserting:
+            return "正在重连..."
+        case .disconnecting:
+            return "正在断开..."
+        case .disconnected:
+            return "连接"
+        @unknown default:
+            return "未知"
+        }
+    }
+    
+    var displayString: String {
+        switch self {
+        case .invalid:
+            return "不可用"
+        case .disconnected:
+            return "未连接"
+        case .connecting:
+            return "正在连接..."
+        case .connected:
+            return "已连接"
+        case .reasserting:
+            return "正在重新连接..."
+        case .disconnecting:
+            return "正在断开连接..."
+        @unknown default:
+            return "未知"
         }
     }
 }

@@ -1,4 +1,5 @@
 import SwiftUI
+import NetworkExtension
 
 struct CFIContentView: View {
     
@@ -35,7 +36,7 @@ struct CFIContentView: View {
                         if let status = manager.status, status == .connected {
                             CFIConnectedDurationView()
                         } else {
-                            Text("-")
+                            Text("--:--")
                         }
                     } label: {
                         Label {
@@ -93,4 +94,3 @@ struct CFIContentView: View {
         }
     }
 }
-
