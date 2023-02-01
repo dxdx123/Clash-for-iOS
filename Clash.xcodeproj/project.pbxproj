@@ -749,7 +749,7 @@
 			repositoryURL = "https://github.com/daemonomead/ClashKit.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.7.1;
+				version = 1.7.3;
 			};
 		};
 		7015F0DE296C5D08003E6A7D /* XCRemoteSwiftPackageReference "Tun2SocksKit" */ = {

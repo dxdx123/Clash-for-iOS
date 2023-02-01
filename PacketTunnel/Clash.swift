@@ -71,6 +71,8 @@ import os
             nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
             fallback: ['https://doh.dns.sb/dns-query', 'https://dns.cloudflare.com/dns-query', 'https://dns.twnic.tw/dns-query', 'tls://8.8.4.4:853']
             fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
+        rules:
+            - MATCH,DIRECT
         """
         guard let fd = tunnelFileDescriptor else {
             fatalError("Get tunnel file descriptor failed.")
