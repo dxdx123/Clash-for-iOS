@@ -7,13 +7,12 @@
 内核：https://github.com/Dreamacro/clash
 
 TUN实现：LwIP & System混合
-  TCP（LwIP）：
-    参考项目：
+  参考项目：
+    https://github.com/WireGuard/wireguard-apple
+    TCP（LwIP）：
       - https://github.com/eycorsican/go-tun2socks
       - https://github.com/SagerNet/sing-tun
-      - https://github.com/WireGuard/wireguard-apple
-  UDP（System）：
-    参考项目：
+    UDP（System）：
       - https://github.com/MetaCubeX/Clash.Meta
       - https://github.com/yaling888/clash
       - https://github.com/SagerNet/sing-tun
