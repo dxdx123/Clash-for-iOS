@@ -60,24 +60,18 @@ import os
     
     static func run() throws {
         let config = """
+        mixed-port: 8080
         mode: \(tunnelMode.rawValue)
         log-level: \(logLevel.rawValue)
-        dns:
-            enable: true
-            listen: 127.0.0.1:53
-            default-nameserver: [223.5.5.5, 119.29.29.29]
-            enhanced-mode: fake-ip
-            fake-ip-range: 198.18.0.1/16
-            nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
-            fallback: ['https://doh.dns.sb/dns-query', 'https://dns.cloudflare.com/dns-query', 'https://dns.twnic.tw/dns-query', 'tls://8.8.4.4:853']
-            fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
         rules:
             - MATCH,DIRECT
         """
         guard let fd = tunnelFileDescriptor else {
             fatalError("Get tunnel file descriptor failed.")
         }
-        ClashRun(Int(fd), CFIConstant.homeDirectory.path(percentEncoded: false), config, Client.shared)
+        print(fd)
+        // fd 传 0，用于禁用ClashKit内部的tun实现
+        ClashRun(0, CFIConstant.homeDirectory.path(percentEncoded: false), config, Client.shared)
         guard let current = UserDefaults.shared.string(forKey: CFIConstant.current), !current.isEmpty else {
             return
         }

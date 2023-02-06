@@ -10,6 +10,15 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             settings.includedRoutes = [NEIPv4Route.default()]
             return settings
         }()
+        settings.proxySettings = {
+            let settings = NEProxySettings()
+            settings.httpEnabled = true
+            settings.httpServer = NEProxyServer(address: "127.0.0.1", port: 8080)
+            settings.httpsEnabled = true
+            settings.httpsServer = NEProxyServer(address: "127.0.0.1", port: 8080)
+            settings.matchDomains = [""]
+            return settings
+        }()
         settings.dnsSettings = NEDNSSettings(servers: ["127.0.0.1"])
         try await self.setTunnelNetworkSettings(settings)
         try Clash.run()
