@@ -7,7 +7,7 @@ import NetworkExtension
 public final class CFIPacketTunnelManager: ObservableObject {
 
     private let providerBundleIdentifier: String = {
-        "\(Bundle.appID).PacketTunnel"
+        "\(Bundle.appID).\(Bundle.tunnelBundleSuffix)"
     }()
     
     @Published private var manager: NETunnelProviderManager?

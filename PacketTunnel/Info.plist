@@ -4,6 +4,8 @@
 <dict>
 	<key>APP_ID</key>
 	<string>${APP_ID}</string>
+	<key>TUNNEL_BUNDLE_SUFFIX</key>
+	<string>${TUNNEL_BUNDLE_SUFFIX}</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionPointIdentifier</key>
