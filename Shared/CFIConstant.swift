@@ -6,6 +6,10 @@ extension Bundle {
     public static var appID: String {
         Bundle.main.infoDictionary?["APP_ID"] as! String
     }
+    
+    public static var tunnelBundleSuffix: String {
+        Bundle.main.infoDictionary?["TUNNEL_BUNDLE_SUFFIX"] as! String
+    }
 }
 
 @frozen public enum CFIConstant {
@@ -18,6 +22,7 @@ extension Bundle {
     public static let fileAttributeKey      = "NSFileExtendedAttributes"
     public static let trafficUp             = "CLASH_TRAFFIC_UP"
     public static let trafficDown           = "CLASH_TRAFFIC_DOWN"
+    public static let ipv6Enable            = "CLASH_IPV6_ENABLE"
 
     public static let homeDirectory: URL = {
         guard let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: CFIConstant.suiteName) else {

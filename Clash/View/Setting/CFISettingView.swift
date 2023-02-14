@@ -7,6 +7,7 @@ struct CFISettingView: View {
             Section {
                 CFILogLevelView()
                 CFIGeoIPView()
+                CFIIPV6View()
             } header: {
                 Text("内核")
             }

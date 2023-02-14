@@ -16,6 +16,7 @@
 		7000C6E0295D60A50005626E /* CFITunnelModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6DF295D60A50005626E /* CFITunnelModeView.swift */; };
 		7000C6E4295D635F0005626E /* CFIControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6E3295D635F0005626E /* CFIControlView.swift */; };
 		7015F0DD296C5C25003E6A7D /* ClashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7015F0DC296C5C25003E6A7D /* ClashKit */; };
+		702D9087299B2B4500B83324 /* CFIIPV6View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9086299B2B4500B83324 /* CFIIPV6View.swift */; };
 		70615814296815260005C024 /* CFIAccentColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70615813296815260005C024 /* CFIAccentColorView.swift */; };
 		7061581629695E6A0005C024 /* CFIFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061581529695E6A0005C024 /* CFIFormPicker.swift */; };
 		70615819296975D90005C024 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 70615818296975D90005C024 /* SPIndicator */; };
@@ -89,6 +90,7 @@
 		7000C6DD295D5F690005626E /* CFIConnectedDurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIConnectedDurationView.swift; sourceTree = "<group>"; };
 		7000C6DF295D60A50005626E /* CFITunnelModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFITunnelModeView.swift; sourceTree = "<group>"; };
 		7000C6E3295D635F0005626E /* CFIControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIControlView.swift; sourceTree = "<group>"; };
+		702D9086299B2B4500B83324 /* CFIIPV6View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIIPV6View.swift; sourceTree = "<group>"; };
 		70615813296815260005C024 /* CFIAccentColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIAccentColorView.swift; sourceTree = "<group>"; };
 		7061581529695E6A0005C024 /* CFIFormPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIFormPicker.swift; sourceTree = "<group>"; };
 		70615838298620F20005C024 /* CFITrafficFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFITrafficFormatter.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				7084FC32296587C600065DAF /* CFILogLevelView.swift */,
 				7084FC372967DB7300065DAF /* CFIGeoIPView.swift */,
 				7084FC352967B8AC00065DAF /* CFIGeoIPSettingView.swift */,
+				702D9086299B2B4500B83324 /* CFIIPV6View.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				708A48EA2962AA2B0040184C /* CFIAppearanceView.swift in Sources */,
 				70615839298620F20005C024 /* CFITrafficFormatter.swift in Sources */,
 				7061581629695E6A0005C024 /* CFIFormPicker.swift in Sources */,
+				702D9087299B2B4500B83324 /* CFIIPV6View.swift in Sources */,
 				7000C6D9295AED790005626E /* CFIProviderViewModel.swift in Sources */,
 				7000C6DE295D5F690005626E /* CFIConnectedDurationView.swift in Sources */,
 				708A48E1296295C50040184C /* CFIPolicyGroupView.swift in Sources */,
@@ -675,7 +679,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/PacketTunnel",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "${APP_ID}.PacketTunnel";
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_ID}.${TUNNEL_BUNDLE_SUFFIX}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -702,7 +706,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/PacketTunnel",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "${APP_ID}.PacketTunnel";
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_ID}.${TUNNEL_BUNDLE_SUFFIX}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -749,7 +753,7 @@
 			repositoryURL = "https://github.com/daemonomead/ClashKit.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.7.5;
+				version = 1.8.1;
 			};
 		};
 		7015F0DE296C5D08003E6A7D /* XCRemoteSwiftPackageReference "Tun2SocksKit" */ = {
