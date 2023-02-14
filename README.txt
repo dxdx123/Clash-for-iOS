@@ -1,6 +1,6 @@
 系统要求：iOS16.0+
 
-开发语言：Swift、Golang、C
+开发语言：Swift、Golang
 
 界面框架：SwiftUI、UIKit
 

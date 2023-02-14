@@ -91,6 +91,7 @@
 		7000C6DF295D60A50005626E /* CFITunnelModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFITunnelModeView.swift; sourceTree = "<group>"; };
 		7000C6E3295D635F0005626E /* CFIControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIControlView.swift; sourceTree = "<group>"; };
 		702D9086299B2B4500B83324 /* CFIIPV6View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIIPV6View.swift; sourceTree = "<group>"; };
+		702D9088299B54FD00B83324 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		70615813296815260005C024 /* CFIAccentColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIAccentColorView.swift; sourceTree = "<group>"; };
 		7061581529695E6A0005C024 /* CFIFormPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIFormPicker.swift; sourceTree = "<group>"; };
 		70615838298620F20005C024 /* CFITrafficFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFITrafficFormatter.swift; sourceTree = "<group>"; };
@@ -193,6 +194,7 @@
 		70C9ED8C29501D5B00B6995B = {
 			isa = PBXGroup;
 			children = (
+				702D9088299B54FD00B83324 /* README.txt */,
 				7084FC242963FB8A00065DAF /* Config.xcconfig */,
 				70C9EDCF295145DB00B6995B /* Shared */,
 				70C9ED9729501D5B00B6995B /* Clash */,
