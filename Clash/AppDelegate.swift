@@ -1,10 +1,11 @@
 import UIKit
+import UserNotifications
 
 extension CFIConstant {
     fileprivate static let isAppHasLaunched = "IS_APP_HAS_LAUNCHED"
 }
 
-final class AppDelegate: NSObject, UIApplicationDelegate {
+final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
     let packetTunnelManager = CFIPacketTunnelManager()
     let subscribeManager    = CFISubscribeManager()
@@ -22,7 +23,13 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         }
         geoipManager.checkAndUpdateIfNeeded()
         application.applyAppearance()
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound], completionHandler: { _, _ in })
+        UNUserNotificationCenter.current().delegate = self
         return true
+    }
+    
+    func userNotificationCenter(_: UNUserNotificationCenter, willPresent _: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .sound])
     }
 }
 

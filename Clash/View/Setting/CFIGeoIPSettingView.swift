@@ -1,5 +1,4 @@
 import SwiftUI
-import SPIndicator
 import UniformTypeIdentifiers
 
 enum CFIGEOIPAutoUpdateInterval: String, CaseIterable, Identifiable {
@@ -67,14 +66,9 @@ struct CFIGeoIPSettingView: View {
                     }
                     Task(priority: .medium) {
                         do {
-                            try await geoipManager.update(url: url)
-                            SPIndicatorView(title: "GEOIP数据库更新成功", preset: .done)
-                                .present(duration: 3.0) {
-                                    dismiss()
-                                }
+                            CFINotification.send(level: .info, message: "GEOIP数据库更新成功")
                         } catch {
-                            SPIndicatorView(title: "GEOIP数据库更新失败", message: error.localizedDescription, preset: .error)
-                                .present(duration: 3.0)
+                            CFINotification.send(level: .warning, message: "GEOIP数据库更新失败")
                         }
                     }
                 } label: {
@@ -104,13 +98,9 @@ struct CFIGeoIPSettingView: View {
         .fileImporter(isPresented: $isFileImporterPresented, allowedContentTypes: [.mmdb]) { result in
             do {
                 try geoipManager.importLocalFile(from: try result.get())
-                SPIndicatorView(title: "GEOIP数据库导入成功", preset: .done)
-                    .present(duration: 3.0) {
-                        dismiss()
-                    }
+                CFINotification.send(level: .info, message: "GEOIP数据库导入成功")
             } catch {
-                SPIndicatorView(title: "GEOIP数据库导入失败", message: error.localizedDescription, preset: .error)
-                    .present(duration: 3.0)
+                CFINotification.send(level: .warning, message: "GEOIP数据库导入失败")
             }
         }
     }

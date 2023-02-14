@@ -8,15 +8,6 @@
         "revision" : "27e438605873cfa9119e7cef77d084abe33bdce4",
         "version" : "1.8.1"
       }
-    },
-    {
-      "identity" : "spindicator",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ivanvorobei/SPIndicator.git",
-      "state" : {
-        "revision" : "43600857729d9efff046dc6673e6f94e095882c7",
-        "version" : "1.6.4"
-      }
     }
   ],
   "version" : 2
