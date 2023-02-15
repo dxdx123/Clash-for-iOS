@@ -5,7 +5,7 @@ extension CFIConstant {
     fileprivate static let isAppHasLaunched = "IS_APP_HAS_LAUNCHED"
 }
 
-final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+final class AppDelegate: NSObject, UIApplicationDelegate {
     
     let packetTunnelManager = CFIPacketTunnelManager()
     let subscribeManager    = CFISubscribeManager()
@@ -21,21 +21,24 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
             UserDefaults.standard.set(CFIAccentColor.system.rawValue, forKey: CFIConstant.accentColor)
             UserDefaults.standard.setValue(true, forKey: CFIConstant.isAppHasLaunched)
         }
+        application.overrideUserInterfaceStyle()
         geoipManager.checkAndUpdateIfNeeded()
-        application.applyAppearance()
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound], completionHandler: { _, _ in })
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: { _, _ in })
         UNUserNotificationCenter.current().delegate = self
         return true
     }
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_: UNUserNotificationCenter, willPresent _: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.banner, .sound])
+        completionHandler([.banner])
     }
 }
 
 extension UIApplication {
     
-    func applyAppearance() {
+    func overrideUserInterfaceStyle() {
         let current = UserDefaults.standard.string(forKey: CFIConstant.theme).flatMap(CFIAppearance.init(rawValue:)) ?? .system
         self.override(userInterfaceStyle: current.userInterfaceStyle)
     }

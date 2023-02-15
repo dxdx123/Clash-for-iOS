@@ -66,9 +66,10 @@ struct CFIGeoIPSettingView: View {
                     }
                     Task(priority: .medium) {
                         do {
-                            CFINotification.send(level: .info, message: "GEOIP数据库更新成功")
+                            try await geoipManager.update(url: url)
+                            CFINotification.send(title: "", subtitle: "", body: "GEOIP数据库更新成功")
                         } catch {
-                            CFINotification.send(level: .warning, message: "GEOIP数据库更新失败")
+                            CFINotification.send(title: "", subtitle: "", body: "GEOIP数据库更新失败, 原因: \(error.localizedDescription)")
                         }
                     }
                 } label: {
@@ -98,9 +99,9 @@ struct CFIGeoIPSettingView: View {
         .fileImporter(isPresented: $isFileImporterPresented, allowedContentTypes: [.mmdb]) { result in
             do {
                 try geoipManager.importLocalFile(from: try result.get())
-                CFINotification.send(level: .info, message: "GEOIP数据库导入成功")
+                CFINotification.send(title: "", subtitle: "", body: "GEOIP数据库导入成功")
             } catch {
-                CFINotification.send(level: .warning, message: "GEOIP数据库导入失败")
+                CFINotification.send(title: "", subtitle: "", body: "GEOIP数据库导入失败, 原因: \(error.localizedDescription)")
             }
         }
     }

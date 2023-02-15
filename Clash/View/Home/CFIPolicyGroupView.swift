@@ -11,7 +11,7 @@ struct CFIPolicyGroupView: View {
     var body: some View {
         Button {
             guard let status = manager.status, status == .connected else {
-                CFINotification.send(level: .warning, message: "Clash未启动")
+                CFINotification.send(title: "", subtitle: "", body: "未启动, 请启动之后查看策略组信息")
                 return
             }
             isPresented.toggle()
