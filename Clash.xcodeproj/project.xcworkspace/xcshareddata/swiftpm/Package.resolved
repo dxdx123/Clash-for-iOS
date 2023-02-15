@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/daemonomead/ClashKit.git",
       "state" : {
-        "revision" : "7691b70c402d60636d25f928feb7056921ee2211",
-        "version" : "1.8.2"
+        "revision" : "55406a1c233280fdcd9b8d917648eb644964c8f7",
+        "version" : "1.8.5"
       }
     }
   ],
