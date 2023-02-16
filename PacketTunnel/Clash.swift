@@ -83,7 +83,9 @@ import os
         guard let fd = tunnelFileDescriptor else {
             fatalError("Get tunnel file descriptor failed.")
         }
-        ClashRun(Int(fd), CFIConstant.homeDirectory.path(percentEncoded: false), config, Client.shared)
+        var err: NSError? = nil
+        ClashRun(Int(fd), CFIConstant.homeDirectory.path(percentEncoded: false), config, Client.shared, &err)
+        try err.flatMap { throw $0 }
         guard let current = UserDefaults.shared.string(forKey: CFIConstant.current), !current.isEmpty else {
             return
         }

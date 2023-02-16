@@ -19,14 +19,19 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         }
         settings.dnsSettings = NEDNSSettings(servers: ["127.0.0.1"])
         try await self.setTunnelNetworkSettings(settings)
-        try Clash.run()
+        do {
+            try Clash.run()
+        } catch {
+            CFINotification.send(title: "", subtitle: "", body: error.localizedDescription)
+            throw error
+        }
     }
     
     override func stopTunnel(with reason: NEProviderStopReason) async {
         do {
             try await self.setTunnelNetworkSettings(nil)
         } catch {
-            debugPrint(error)
+            CFINotification.send(title: "", subtitle: "", body: error.localizedDescription)
         }
     }
     
