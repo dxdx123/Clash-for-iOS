@@ -1,5 +1,4 @@
 import SwiftUI
-import SPIndicator
 
 struct CFIPolicyGroupView: View {
     
@@ -12,8 +11,7 @@ struct CFIPolicyGroupView: View {
     var body: some View {
         Button {
             guard let status = manager.status, status == .connected else {
-                SPIndicatorView(title: "Clash未启动", preset: .error)
-                    .present(duration: 1.0)
+                CFINotification.send(title: "", subtitle: "", body: "未启动, 请启动之后查看策略组信息")
                 return
             }
             isPresented.toggle()

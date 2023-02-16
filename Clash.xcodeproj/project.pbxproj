@@ -17,9 +17,10 @@
 		7000C6E4295D635F0005626E /* CFIControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6E3295D635F0005626E /* CFIControlView.swift */; };
 		7015F0DD296C5C25003E6A7D /* ClashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7015F0DC296C5C25003E6A7D /* ClashKit */; };
 		702D9087299B2B4500B83324 /* CFIIPV6View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9086299B2B4500B83324 /* CFIIPV6View.swift */; };
+		702D908A299B58A400B83324 /* CFINotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* CFINotification.swift */; };
+		702D908B299B58A400B83324 /* CFINotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* CFINotification.swift */; };
 		70615814296815260005C024 /* CFIAccentColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70615813296815260005C024 /* CFIAccentColorView.swift */; };
 		7061581629695E6A0005C024 /* CFIFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061581529695E6A0005C024 /* CFIFormPicker.swift */; };
-		70615819296975D90005C024 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 70615818296975D90005C024 /* SPIndicator */; };
 		70615839298620F20005C024 /* CFITrafficFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70615838298620F20005C024 /* CFITrafficFormatter.swift */; };
 		7084FC1D295ECBC900065DAF /* CFIAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */; };
 		7084FC1E295ECBC900065DAF /* CFIAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */; };
@@ -91,6 +92,8 @@
 		7000C6DF295D60A50005626E /* CFITunnelModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFITunnelModeView.swift; sourceTree = "<group>"; };
 		7000C6E3295D635F0005626E /* CFIControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIControlView.swift; sourceTree = "<group>"; };
 		702D9086299B2B4500B83324 /* CFIIPV6View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIIPV6View.swift; sourceTree = "<group>"; };
+		702D9088299B54FD00B83324 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		702D9089299B58A400B83324 /* CFINotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFINotification.swift; sourceTree = "<group>"; };
 		70615813296815260005C024 /* CFIAccentColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIAccentColorView.swift; sourceTree = "<group>"; };
 		7061581529695E6A0005C024 /* CFIFormPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIFormPicker.swift; sourceTree = "<group>"; };
 		70615838298620F20005C024 /* CFITrafficFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFITrafficFormatter.swift; sourceTree = "<group>"; };
@@ -137,7 +140,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70615819296975D90005C024 /* SPIndicator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +195,7 @@
 		70C9ED8C29501D5B00B6995B = {
 			isa = PBXGroup;
 			children = (
+				702D9088299B54FD00B83324 /* README.txt */,
 				7084FC242963FB8A00065DAF /* Config.xcconfig */,
 				70C9EDCF295145DB00B6995B /* Shared */,
 				70C9ED9729501D5B00B6995B /* Clash */,
@@ -291,6 +294,7 @@
 				7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */,
 				7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */,
 				7084FC2F2965872200065DAF /* CFILogLevel.swift */,
+				702D9089299B58A400B83324 /* CFINotification.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -314,7 +318,6 @@
 			);
 			name = Clash;
 			packageProductDependencies = (
-				70615818296975D90005C024 /* SPIndicator */,
 			);
 			productName = Clash;
 			productReference = 70C9ED9529501D5B00B6995B /* Clash.app */;
@@ -370,7 +373,6 @@
 			mainGroup = 70C9ED8C29501D5B00B6995B;
 			packageReferences = (
 				7015F0DB296C5C25003E6A7D /* XCRemoteSwiftPackageReference "ClashKit" */,
-				70615817296975D90005C024 /* XCRemoteSwiftPackageReference "SPIndicator" */,
 			);
 			productRefGroup = 70C9ED9629501D5B00B6995B /* Products */;
 			projectDirPath = "";
@@ -407,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70C9ED9B29501D5B00B6995B /* CFIContentView.swift in Sources */,
+				702D908A299B58A400B83324 /* CFINotification.swift in Sources */,
 				70C9EDDA2951841E00B6995B /* CFISubscribeListView.swift in Sources */,
 				7084FC20295ECC7400065DAF /* CFITunnelMode.swift in Sources */,
 				7000C6D7295AED790005626E /* CFIProxyViewModel.swift in Sources */,
@@ -452,6 +455,7 @@
 				7084FC312965872200065DAF /* CFILogLevel.swift in Sources */,
 				70C9EDB029502C6500B6995B /* PacketTunnelProvider.swift in Sources */,
 				70C9EDD22951469E00B6995B /* CFIConstant.swift in Sources */,
+				702D908B299B58A400B83324 /* CFINotification.swift in Sources */,
 				70B947A9295F302B006F6A38 /* Clash.swift in Sources */,
 				7084FC1E295ECBC900065DAF /* CFIAppMessage.swift in Sources */,
 				7084FC21295ECC7400065DAF /* CFITunnelMode.swift in Sources */,
@@ -753,7 +757,7 @@
 			repositoryURL = "https://github.com/daemonomead/ClashKit.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.8.1;
+				version = 1.8.10;
 			};
 		};
 		7015F0DE296C5D08003E6A7D /* XCRemoteSwiftPackageReference "Tun2SocksKit" */ = {
@@ -762,14 +766,6 @@
 			requirement = {
 				kind = exactVersion;
 				version = 1.0.0;
-			};
-		};
-		70615817296975D90005C024 /* XCRemoteSwiftPackageReference "SPIndicator" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ivanvorobei/SPIndicator.git";
-			requirement = {
-				kind = exactVersion;
-				version = 1.6.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -789,11 +785,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7015F0DE296C5D08003E6A7D /* XCRemoteSwiftPackageReference "Tun2SocksKit" */;
 			productName = Tun2SocksKit;
-		};
-		70615818296975D90005C024 /* SPIndicator */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 70615817296975D90005C024 /* XCRemoteSwiftPackageReference "SPIndicator" */;
-			productName = SPIndicator;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -30,7 +30,7 @@ struct CFIAppearanceView: View {
                     debugPrint(error)
                 }
                 await MainActor.run {
-                    UIApplication.shared.applyAppearance()
+                    UIApplication.shared.overrideUserInterfaceStyle()
                 }
             }
         }

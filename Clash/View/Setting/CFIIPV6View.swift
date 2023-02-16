@@ -20,7 +20,7 @@ struct CFIIPV6View: View {
                 CFIIcon(systemName: "network", backgroundColor: .purple)
             }
         }
-        .allowsHitTesting(isToggleEnabel && !processing)
+        .disabled(processing)
         .onChange(of: isOn) { newValue in
             guard let status = manager.status, status == .connected else {
                 return
@@ -36,20 +36,6 @@ struct CFIIPV6View: View {
                     processing = false
                 }
             }
-        }
-    }
-    
-    private var isToggleEnabel: Bool {
-        guard let status = manager.status else {
-            return true
-        }
-        switch status {
-        case .invalid, .disconnected, .connected:
-            return true
-        case .connecting, .reasserting, .disconnecting:
-            return false
-        @unknown default:
-            return false
         }
     }
 }
