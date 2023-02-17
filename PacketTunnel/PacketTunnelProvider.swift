@@ -28,11 +28,46 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     }
     
     override func stopTunnel(with reason: NEProviderStopReason) async {
-        do {
-            try await self.setTunnelNetworkSettings(nil)
-        } catch {
-            CFINotification.send(title: "", subtitle: "", body: error.localizedDescription)
+        let message: String
+        switch reason {
+        case .none:
+            message = "No specific reason."
+        case .userInitiated:
+            message = "The user stopped the provider."
+        case .providerFailed:
+            message = "The provider failed."
+        case .noNetworkAvailable:
+            message = "There is no network connectivity."
+        case .unrecoverableNetworkChange:
+            message = "The device attached to a new network."
+        case .providerDisabled:
+            message = "The provider was disabled."
+        case .authenticationCanceled:
+            message = "The authentication process was cancelled."
+        case .configurationFailed:
+            message = "The provider could not be configured."
+        case .idleTimeout:
+            message = "The provider was idle for too long."
+        case .configurationDisabled:
+            message = "The associated configuration was disabled."
+        case .configurationRemoved:
+            message = "The associated configuration was deleted."
+        case .superceded:
+            message = "A high-priority configuration was started."
+        case .userLogout:
+            message = "The user logged out."
+        case .userSwitch:
+            message = "The active user changed."
+        case .connectionFailed:
+            message = "Failed to establish connection."
+        case .sleep:
+            message = "The device went to sleep and disconnectOnSleep is enabled in the configuration."
+        case .appUpdate:
+            message = "The NEProvider is being updated."
+        @unknown default:
+            return
         }
+        CFINotification.send(title: "", subtitle: "", body: message)
     }
     
     override func handleAppMessage(_ messageData: Data) async -> Data? {
