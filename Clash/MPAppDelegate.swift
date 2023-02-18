@@ -5,7 +5,7 @@ extension CFIConstant {
     fileprivate static let isAppHasLaunched = "IS_APP_HAS_LAUNCHED"
 }
 
-final class AppDelegate: NSObject, UIApplicationDelegate {
+final class MPAppDelegate: NSObject, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         if !UserDefaults.standard.bool(forKey: CFIConstant.isAppHasLaunched) {
@@ -24,7 +24,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     }
 }
 
-extension AppDelegate: UNUserNotificationCenterDelegate {
+extension MPAppDelegate: UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_: UNUserNotificationCenter, willPresent _: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.banner])

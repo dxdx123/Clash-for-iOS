@@ -3,7 +3,7 @@ import SwiftUI
 @main
 struct MPApp: App {
     
-    @UIApplicationDelegateAdaptor private var delegate: AppDelegate
+    @UIApplicationDelegateAdaptor private var delegate: MPAppDelegate
     
     @AppStorage(MPConstant.kernel)          private var kernel      = MPKernel.clash
     @AppStorage(CFIConstant.accentColor)    private var accentColor = CFIAccentColor.system
