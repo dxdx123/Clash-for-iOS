@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CFIAppearanceView: View {
+struct MPAppearanceView: View {
     
     @AppStorage(MPConstant.theme) private var appearance = MPAppearance.system
     

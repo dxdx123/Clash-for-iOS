@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CFIAccentColorView: View {
+struct MPAccentColorView: View {
     
     @AppStorage(MPConstant.accentColor) private var accentColor = MPAccentColor.system
     

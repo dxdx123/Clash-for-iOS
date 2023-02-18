@@ -22,7 +22,7 @@
 		702D9091299FA40600B83324 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70C9EDAC29502C6500B6995B /* NetworkExtension.framework */; };
 		702D9094299FA40600B83324 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9093299FA40600B83324 /* PacketTunnelProvider.swift */; };
 		702D9099299FA40600B83324 /* XrayTunnel.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 702D9090299FA40600B83324 /* XrayTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		70615814296815260005C024 /* CFIAccentColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70615813296815260005C024 /* CFIAccentColorView.swift */; };
+		70615814296815260005C024 /* MPAccentColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70615813296815260005C024 /* MPAccentColorView.swift */; };
 		7061581629695E6A0005C024 /* MPFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061581529695E6A0005C024 /* MPFormPicker.swift */; };
 		70615839298620F20005C024 /* CFITrafficFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70615838298620F20005C024 /* CFITrafficFormatter.swift */; };
 		7084FC1D295ECBC900065DAF /* CFIAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */; };
@@ -39,7 +39,7 @@
 		708A48E1296295C50040184C /* CFIPolicyGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E0296295C50040184C /* CFIPolicyGroupView.swift */; };
 		708A48E3296299640040184C /* CFIProxyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E2296299640040184C /* CFIProxyListView.swift */; };
 		708A48E82962A4540040184C /* MPIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E72962A4540040184C /* MPIcon.swift */; };
-		708A48EA2962AA2B0040184C /* CFIAppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E92962AA2B0040184C /* CFIAppearanceView.swift */; };
+		708A48EA2962AA2B0040184C /* MPAppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E92962AA2B0040184C /* MPAppearanceView.swift */; };
 		708A48EC2962AD740040184C /* MPAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48EB2962AD740040184C /* MPAppearance.swift */; };
 		70B947A9295F302B006F6A38 /* Clash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947A8295F302B006F6A38 /* Clash.swift */; };
 		70B947AF29612F46006F6A38 /* CFISubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947AE29612F46006F6A38 /* CFISubscribeView.swift */; };
@@ -57,7 +57,7 @@
 		70C9EDCC295057DB00B6995B /* CFIProviderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDCB295057DB00B6995B /* CFIProviderListView.swift */; };
 		70C9EDD12951469E00B6995B /* CFIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD02951469E00B6995B /* CFIConstant.swift */; };
 		70C9EDD22951469E00B6995B /* CFIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD02951469E00B6995B /* CFIConstant.swift */; };
-		70C9EDD82951587D00B6995B /* CFIResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD72951587D00B6995B /* CFIResetButton.swift */; };
+		70C9EDD82951587D00B6995B /* MPResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD72951587D00B6995B /* MPResetButton.swift */; };
 		70C9EDDA2951841E00B6995B /* CFISubscribeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD92951841E00B6995B /* CFISubscribeListView.swift */; };
 		70CEB88529A07605003436C2 /* MPXrayContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB88429A07605003436C2 /* MPXrayContentView.swift */; };
 		70CEB88D29A0BEEF003436C2 /* MPAppVersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB88C29A0BEEF003436C2 /* MPAppVersionView.swift */; };
@@ -114,7 +114,7 @@
 		702D9093299FA40600B83324 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
 		702D9095299FA40600B83324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		702D9096299FA40600B83324 /* XrayTunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XrayTunnel.entitlements; sourceTree = "<group>"; };
-		70615813296815260005C024 /* CFIAccentColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIAccentColorView.swift; sourceTree = "<group>"; };
+		70615813296815260005C024 /* MPAccentColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAccentColorView.swift; sourceTree = "<group>"; };
 		7061581529695E6A0005C024 /* MPFormPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPFormPicker.swift; sourceTree = "<group>"; };
 		70615838298620F20005C024 /* CFITrafficFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFITrafficFormatter.swift; sourceTree = "<group>"; };
 		7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIAppMessage.swift; sourceTree = "<group>"; };
@@ -130,7 +130,7 @@
 		708A48E0296295C50040184C /* CFIPolicyGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIPolicyGroupView.swift; sourceTree = "<group>"; };
 		708A48E2296299640040184C /* CFIProxyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIProxyListView.swift; sourceTree = "<group>"; };
 		708A48E72962A4540040184C /* MPIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPIcon.swift; sourceTree = "<group>"; };
-		708A48E92962AA2B0040184C /* CFIAppearanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIAppearanceView.swift; sourceTree = "<group>"; };
+		708A48E92962AA2B0040184C /* MPAppearanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAppearanceView.swift; sourceTree = "<group>"; };
 		708A48EB2962AD740040184C /* MPAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAppearance.swift; sourceTree = "<group>"; };
 		70B947A8295F302B006F6A38 /* Clash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clash.swift; sourceTree = "<group>"; };
 		70B947AE29612F46006F6A38 /* CFISubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFISubscribeView.swift; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 		70C9EDC92950565400B6995B /* CFISettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFISettingView.swift; sourceTree = "<group>"; };
 		70C9EDCB295057DB00B6995B /* CFIProviderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIProviderListView.swift; sourceTree = "<group>"; };
 		70C9EDD02951469E00B6995B /* CFIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIConstant.swift; sourceTree = "<group>"; };
-		70C9EDD72951587D00B6995B /* CFIResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIResetButton.swift; sourceTree = "<group>"; };
+		70C9EDD72951587D00B6995B /* MPResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPResetButton.swift; sourceTree = "<group>"; };
 		70C9EDD92951841E00B6995B /* CFISubscribeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFISubscribeListView.swift; sourceTree = "<group>"; };
 		70CEB88429A07605003436C2 /* MPXrayContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPXrayContentView.swift; sourceTree = "<group>"; };
 		70CEB88C29A0BEEF003436C2 /* MPAppVersionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPAppVersionView.swift; sourceTree = "<group>"; };
@@ -202,9 +202,9 @@
 			isa = PBXGroup;
 			children = (
 				70C9EDC92950565400B6995B /* CFISettingView.swift */,
-				70C9EDD72951587D00B6995B /* CFIResetButton.swift */,
-				708A48E92962AA2B0040184C /* CFIAppearanceView.swift */,
-				70615813296815260005C024 /* CFIAccentColorView.swift */,
+				70C9EDD72951587D00B6995B /* MPResetButton.swift */,
+				708A48E92962AA2B0040184C /* MPAppearanceView.swift */,
+				70615813296815260005C024 /* MPAccentColorView.swift */,
 				7084FC32296587C600065DAF /* CFILogLevelView.swift */,
 				7084FC372967DB7300065DAF /* CFIGeoIPView.swift */,
 				7084FC352967B8AC00065DAF /* CFIGeoIPSettingView.swift */,
@@ -504,8 +504,8 @@
 				70C9EDCC295057DB00B6995B /* CFIProviderListView.swift in Sources */,
 				7000C6E0295D60A50005626E /* CFITunnelModeView.swift in Sources */,
 				70CEB88F29A0C4D9003436C2 /* MPSettingButton.swift in Sources */,
-				70C9EDD82951587D00B6995B /* CFIResetButton.swift in Sources */,
-				70615814296815260005C024 /* CFIAccentColorView.swift in Sources */,
+				70C9EDD82951587D00B6995B /* MPResetButton.swift in Sources */,
+				70615814296815260005C024 /* MPAccentColorView.swift in Sources */,
 				70C9EDBE29502D3500B6995B /* MPPacketTunnelManager.swift in Sources */,
 				70CEB88529A07605003436C2 /* MPXrayContentView.swift in Sources */,
 				7084FC302965872200065DAF /* CFILogLevel.swift in Sources */,
@@ -527,7 +527,7 @@
 				7084FC1D295ECBC900065DAF /* CFIAppMessage.swift in Sources */,
 				7000C6E4295D635F0005626E /* CFIControlView.swift in Sources */,
 				7000C6D8295AED790005626E /* CFIProxyModel.swift in Sources */,
-				708A48EA2962AA2B0040184C /* CFIAppearanceView.swift in Sources */,
+				708A48EA2962AA2B0040184C /* MPAppearanceView.swift in Sources */,
 				70615839298620F20005C024 /* CFITrafficFormatter.swift in Sources */,
 				70CEB89329A0C7BA003436C2 /* MPConstant.swift in Sources */,
 				7061581629695E6A0005C024 /* MPFormPicker.swift in Sources */,

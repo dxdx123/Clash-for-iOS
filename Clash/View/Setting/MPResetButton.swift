@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CFIResetButton: View {
+struct MPResetButton: View {
     
     @StateObject private var packetTunnelManager: MPPacketTunnelManager
     

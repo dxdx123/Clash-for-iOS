@@ -27,13 +27,13 @@ struct CFISettingView: View {
                     Text("内核")
                 }
                 Section {
-                    CFIAppearanceView()
-                    CFIAccentColorView()
+                    MPAppearanceView()
+                    MPAccentColorView()
                 } header: {
                     Text("主题")
                 }
                 Section {
-                    CFIResetButton(packetTunnelManager: packetTunnelManager)
+                    MPResetButton(packetTunnelManager: packetTunnelManager)
                 }
             }
             .formStyle(.grouped)
