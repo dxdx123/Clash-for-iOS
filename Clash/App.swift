@@ -5,20 +5,26 @@ struct CFIApp: App {
     
     @UIApplicationDelegateAdaptor private var delegate: AppDelegate
         
-    @AppStorage(CFIConstant.core)           private var core = Core.clash
-    @AppStorage(CFIConstant.accentColor)    private var accentColor = CFIAccentColor.system
+    @AppStorage(CFIConstant.accentColor) private var accentColor = CFIAccentColor.system
     
     var body: some Scene {
         WindowGroup {
-            Group {
-                switch core {
-                case .clash:
-                    ClashContentView(core: $core)
-                case .xray:
-                    XrayContentView(core: $core)
-                }
-            }
-            .tint(accentColor.tint)
+            ContentView()
+                .tint(accentColor.tint)
+        }
+    }
+}
+
+struct ContentView: View {
+    
+    @AppStorage(CFIConstant.core) private var core = Core.clash
+
+    var body: some View {
+        switch core {
+        case .clash:
+            ClashContentView(core: $core)
+        case .xray:
+            XrayContentView(core: $core)
         }
     }
 }
