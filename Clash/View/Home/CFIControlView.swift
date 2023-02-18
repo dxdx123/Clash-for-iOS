@@ -19,6 +19,7 @@ struct CFIControlView: View {
                     } label: {
                         Text(status.buttonTitle)
                     }
+                    .disabled(status == .invalid)
                 default:
                     ProgressView()
                 }
@@ -44,25 +45,6 @@ struct CFIControlView: View {
         }
     }
     
-    private func buttonTitle(for status: NEVPNStatus) -> String {
-        switch status {
-        case .invalid:
-            return "不可用"
-        case .connecting:
-            return "正在连接..."
-        case .connected:
-            return "断开"
-        case .reasserting:
-            return "正在重连..."
-        case .disconnecting:
-            return "正在断开..."
-        case .disconnected:
-            return "连接"
-        @unknown default:
-            return "未知"
-        }
-    }
-    
     private func onTap(status: NEVPNStatus) {
         Task(priority: .high) {
             do {
@@ -85,18 +67,12 @@ extension NEVPNStatus {
     
     var buttonTitle: String {
         switch self {
-        case .invalid:
-            return "不可用"
-        case .connecting:
-            return "正在连接..."
+        case .invalid, .disconnected:
+            return "连接"
         case .connected:
             return "断开"
-        case .reasserting:
-            return "正在重连..."
-        case .disconnecting:
-            return "正在断开..."
-        case .disconnected:
-            return "连接"
+        case .connecting, .reasserting, .disconnecting:
+            return ""
         @unknown default:
             return "未知"
         }
