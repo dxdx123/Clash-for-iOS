@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MPXrayContentView: View {
+struct MPXContentView: View {
         
     @StateObject private var packetTunnelManager    = MPPacketTunnelManager(kernel: .xray)
     @StateObject private var databaseManager        = CFIGEOIPManager()

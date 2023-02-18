@@ -1,7 +1,7 @@
 import SwiftUI
 import NetworkExtension
 
-struct MPClashContentView: View {
+struct MPCContentView: View {
         
     @AppStorage(CFIConstant.tunnelMode, store: .shared) private var tunnelMode  = CFITunnelMode.rule
     @AppStorage(CFIConstant.current,    store: .shared) private var current     = ""

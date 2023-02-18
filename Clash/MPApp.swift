@@ -14,10 +14,10 @@ struct MPApp: App {
                 Group {
                     switch kernel {
                     case .clash:
-                        MPClashContentView()
+                        MPCContentView()
                             .tint(accentColor.tint)
                     case .xray:
-                        MPXrayContentView()
+                        MPXContentView()
                             .tint(accentColor.tint)
                     }
                 }

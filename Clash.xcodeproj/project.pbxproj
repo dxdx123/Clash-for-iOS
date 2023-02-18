@@ -46,7 +46,7 @@
 		70B947B129613321006F6A38 /* CFISubscribeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B029613321006F6A38 /* CFISubscribeManager.swift */; };
 		70B947B329613354006F6A38 /* MPAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B229613354006F6A38 /* MPAppDelegate.swift */; };
 		70C9ED9929501D5B00B6995B /* MPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED9829501D5B00B6995B /* MPApp.swift */; };
-		70C9ED9B29501D5B00B6995B /* MPClashContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED9A29501D5B00B6995B /* MPClashContentView.swift */; };
+		70C9ED9B29501D5B00B6995B /* MPCContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED9A29501D5B00B6995B /* MPCContentView.swift */; };
 		70C9ED9D29501D5C00B6995B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70C9ED9C29501D5C00B6995B /* Assets.xcassets */; };
 		70C9EDA029501D5C00B6995B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70C9ED9F29501D5C00B6995B /* Preview Assets.xcassets */; };
 		70C9EDAD29502C6500B6995B /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70C9EDAC29502C6500B6995B /* NetworkExtension.framework */; };
@@ -59,7 +59,7 @@
 		70C9EDD22951469E00B6995B /* CFIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD02951469E00B6995B /* CFIConstant.swift */; };
 		70C9EDD82951587D00B6995B /* MPResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD72951587D00B6995B /* MPResetButton.swift */; };
 		70C9EDDA2951841E00B6995B /* CFISubscribeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD92951841E00B6995B /* CFISubscribeListView.swift */; };
-		70CEB88529A07605003436C2 /* MPXrayContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB88429A07605003436C2 /* MPXrayContentView.swift */; };
+		70CEB88529A07605003436C2 /* MPXContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB88429A07605003436C2 /* MPXContentView.swift */; };
 		70CEB88D29A0BEEF003436C2 /* MPAppVersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB88C29A0BEEF003436C2 /* MPAppVersionView.swift */; };
 		70CEB88F29A0C4D9003436C2 /* MPSettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB88E29A0C4D9003436C2 /* MPSettingButton.swift */; };
 		70CEB89129A0C775003436C2 /* MPKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB89029A0C775003436C2 /* MPKernel.swift */; };
@@ -138,7 +138,7 @@
 		70B947B229613354006F6A38 /* MPAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAppDelegate.swift; sourceTree = "<group>"; };
 		70C9ED9529501D5B00B6995B /* Clash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70C9ED9829501D5B00B6995B /* MPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPApp.swift; sourceTree = "<group>"; };
-		70C9ED9A29501D5B00B6995B /* MPClashContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPClashContentView.swift; sourceTree = "<group>"; };
+		70C9ED9A29501D5B00B6995B /* MPCContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCContentView.swift; sourceTree = "<group>"; };
 		70C9ED9C29501D5C00B6995B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70C9ED9F29501D5C00B6995B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		70C9EDAA29502C6500B6995B /* ClashTunnel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ClashTunnel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,7 +153,7 @@
 		70C9EDD02951469E00B6995B /* CFIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIConstant.swift; sourceTree = "<group>"; };
 		70C9EDD72951587D00B6995B /* MPResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPResetButton.swift; sourceTree = "<group>"; };
 		70C9EDD92951841E00B6995B /* CFISubscribeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFISubscribeListView.swift; sourceTree = "<group>"; };
-		70CEB88429A07605003436C2 /* MPXrayContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPXrayContentView.swift; sourceTree = "<group>"; };
+		70CEB88429A07605003436C2 /* MPXContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPXContentView.swift; sourceTree = "<group>"; };
 		70CEB88C29A0BEEF003436C2 /* MPAppVersionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPAppVersionView.swift; sourceTree = "<group>"; };
 		70CEB88E29A0C4D9003436C2 /* MPSettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPSettingButton.swift; sourceTree = "<group>"; };
 		70CEB89029A0C775003436C2 /* MPKernel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPKernel.swift; sourceTree = "<group>"; };
@@ -265,8 +265,8 @@
 				70C9EDBF2950303900B6995B /* Clash.entitlements */,
 				70B947B229613354006F6A38 /* MPAppDelegate.swift */,
 				70C9ED9829501D5B00B6995B /* MPApp.swift */,
-				70C9ED9A29501D5B00B6995B /* MPClashContentView.swift */,
-				70CEB88429A07605003436C2 /* MPXrayContentView.swift */,
+				70C9ED9A29501D5B00B6995B /* MPCContentView.swift */,
+				70CEB88429A07605003436C2 /* MPXContentView.swift */,
 				708A48EB2962AD740040184C /* MPAppearance.swift */,
 				7084FC3B29680A2200065DAF /* MPAccentColor.swift */,
 				70C9EDC02950415F00B6995B /* View */,
@@ -495,7 +495,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70C9ED9B29501D5B00B6995B /* MPClashContentView.swift in Sources */,
+				70C9ED9B29501D5B00B6995B /* MPCContentView.swift in Sources */,
 				702D908A299B58A400B83324 /* MPNotification.swift in Sources */,
 				70CEB88D29A0BEEF003436C2 /* MPAppVersionView.swift in Sources */,
 				70C9EDDA2951841E00B6995B /* CFISubscribeListView.swift in Sources */,
@@ -507,7 +507,7 @@
 				70C9EDD82951587D00B6995B /* MPResetButton.swift in Sources */,
 				70615814296815260005C024 /* MPAccentColorView.swift in Sources */,
 				70C9EDBE29502D3500B6995B /* MPPacketTunnelManager.swift in Sources */,
-				70CEB88529A07605003436C2 /* MPXrayContentView.swift in Sources */,
+				70CEB88529A07605003436C2 /* MPXContentView.swift in Sources */,
 				7084FC302965872200065DAF /* CFILogLevel.swift in Sources */,
 				7084FC382967DB7300065DAF /* CFIGeoIPView.swift in Sources */,
 				70B947B129613321006F6A38 /* CFISubscribeManager.swift in Sources */,
