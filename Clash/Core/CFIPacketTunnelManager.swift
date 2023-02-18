@@ -36,6 +36,10 @@ public enum Core: String, Identifiable, CaseIterable {
 @MainActor
 open class PacketTunnelManager: ObservableObject {
     
+    deinit {
+        print("------------->>>>")
+    }
+    
     @Published private var manager: NETunnelProviderManager?
     
     public final var status: NEVPNStatus? { manager.flatMap { $0.connection.status } }

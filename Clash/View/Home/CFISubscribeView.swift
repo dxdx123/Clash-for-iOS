@@ -2,9 +2,14 @@ import SwiftUI
 
 struct CFISubscribeView: View {
     
-    @EnvironmentObject private var subscribeManager: CFISubscribeManager
+    private let current: Binding<String>
     
-    let current: Binding<String>
+    @StateObject private var subscribeManager: CFISubscribeManager
+    
+    init(current: Binding<String>, subscribeManager: CFISubscribeManager) {
+        self._subscribeManager = StateObject(wrappedValue: subscribeManager)
+        self.current = current
+    }
     
     @State private var isPresented = false
     

@@ -25,7 +25,7 @@ struct XrayContentView: View {
             .formStyle(.grouped)
             .navigationTitle(Text("Xray"))
         }
-        .environmentObject(packetTunnelManager)
-        .environmentObject(databaseManager)
+//        .environmentObject(packetTunnelManager)
+//        .environmentObject(databaseManager)
     }
 }

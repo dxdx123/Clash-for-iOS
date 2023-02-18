@@ -6,19 +6,19 @@ struct CFISettingView: View {
     
     var body: some View {
         Form {
-            Section {
-                switch core.wrappedValue {
-                case .clash:
-                    CFILogLevelView()
-                    CFIGeoIPView()
-                        .environmentObject(CFIGEOIPManager())
-                    CFIIPV6View()
-                case .xray:
-                    EmptyView()
-                }
-            } header: {
-                Text("内核")
-            }
+//            Section {
+//                switch core.wrappedValue {
+//                case .clash:
+//                    CFILogLevelView()
+//                    CFIGeoIPView()
+//                        .environmentObject(CFIGEOIPManager())
+//                    CFIIPV6View()
+//                case .xray:
+//                    EmptyView()
+//                }
+//            } header: {
+//                Text("内核")
+//            }
             Section {
                 CFIAppearanceView()
                 CFIAccentColorView()
@@ -35,9 +35,9 @@ struct CFISettingView: View {
                 }
                 .pickerStyle(.menu)
             }
-            Section {
-                CFIResetButton()
-            }
+//            Section {
+//                CFIResetButton()
+//            }
         }
         .formStyle(.grouped)
         .navigationBarTitleDisplayMode(.inline)

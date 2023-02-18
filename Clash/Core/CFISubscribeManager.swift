@@ -13,6 +13,10 @@ struct CFISubscribe: Identifiable {
 
 final class CFISubscribeManager: ObservableObject {
     
+    deinit {
+        print("CFISubscribeManager deinit")
+    }
+    
     @Published var subscribes: [CFISubscribe] = []
     @Published var downloadingSubscribeIDs: Set<String> = []
     

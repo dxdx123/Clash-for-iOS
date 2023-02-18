@@ -3,10 +3,14 @@ import NetworkExtension
 
 struct CFIControlView: View {
     
-    @EnvironmentObject private var manager: PacketTunnelManager
+    @StateObject private var packetTunnelManager: PacketTunnelManager
+    
+    init(packetTunnelManager: PacketTunnelManager) {
+        self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
+    }
     
     var body: some View {
-        if let status = manager.status {
+        if let status = packetTunnelManager.status {
             HStack {
                 Text("-")
                 Text(status.displayString)
@@ -26,7 +30,7 @@ struct CFIControlView: View {
             Button  {
                 Task(priority: .high) {
                     do {
-                        try await manager.saveToPreferences()
+                        try await packetTunnelManager.saveToPreferences()
                     } catch {
                         debugPrint(error.localizedDescription)
                     }
@@ -61,9 +65,9 @@ struct CFIControlView: View {
             do {
                 switch status {
                 case .connected:
-                    manager.stop()
+                    packetTunnelManager.stop()
                 case .disconnected:
-                    try await manager.start()
+                    try await packetTunnelManager.start()
                 default:
                     break
                 }

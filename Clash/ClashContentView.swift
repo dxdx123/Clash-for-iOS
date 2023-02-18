@@ -17,7 +17,7 @@ struct ClashContentView: View {
             Form {
                 Section {
                     LabeledContent {
-                        CFISubscribeView(current: $current)
+                        CFISubscribeView(current: $current, subscribeManager: subscribeManager)
                     } label: {
                         Label {
                             Text("订阅")
@@ -28,7 +28,7 @@ struct ClashContentView: View {
                 }
                 Section {
                     LabeledContent {
-                        CFIControlView()
+                        CFIControlView(packetTunnelManager: packetTunnelManager)
                     } label: {
                         Label {
                             Text("状态")
@@ -96,7 +96,5 @@ struct ClashContentView: View {
                 packetTunnelManager.set(subscribe: newValue)
             }
         }
-        .environmentObject(packetTunnelManager)
-        .environmentObject(subscribeManager)
     }
 }
