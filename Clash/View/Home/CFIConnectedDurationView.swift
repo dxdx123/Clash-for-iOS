@@ -2,10 +2,14 @@ import SwiftUI
 
 struct CFIConnectedDurationView: View {
     
-    @EnvironmentObject private var manager: PacketTunnelManager
+    @StateObject private var packetTunnelManager: PacketTunnelManager
+    
+    init(packetTunnelManager: PacketTunnelManager) {
+        self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
+    }
     
     var body: some View {
-        if let connectedDate = manager.connectedDate {
+        if let connectedDate = packetTunnelManager.connectedDate {
             TimelineView(.periodic(from: Date(), by: 1.0)) { context in
                 Text(connectedDateString(connectedDate: connectedDate, current: context.date))
                     .foregroundColor(.secondary)

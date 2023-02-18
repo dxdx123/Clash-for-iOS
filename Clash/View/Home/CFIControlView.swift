@@ -10,11 +10,8 @@ struct CFIControlView: View {
     }
     
     var body: some View {
-        if let status = packetTunnelManager.status {
-            HStack {
-                Text("-")
-                Text(status.displayString)
-                Spacer()
+        LabeledContent {
+            if let status = packetTunnelManager.status {
                 switch status {
                 case .connected, .disconnected:
                     Button {
@@ -25,18 +22,24 @@ struct CFIControlView: View {
                 default:
                     ProgressView()
                 }
-            }
-        } else {
-            Button  {
-                Task(priority: .high) {
-                    do {
-                        try await packetTunnelManager.saveToPreferences()
-                    } catch {
-                        debugPrint(error.localizedDescription)
+            } else {
+                Button  {
+                    Task(priority: .high) {
+                        do {
+                            try await packetTunnelManager.saveToPreferences()
+                        } catch {
+                            debugPrint(error.localizedDescription)
+                        }
                     }
+                } label: {
+                    Text("安装")
                 }
-            } label: {
-                Text("添加VPN配置")
+            }
+        } label: {
+            Label {
+                Text(packetTunnelManager.status.flatMap({ $0.displayString }) ?? "未安装VPN配置")
+            } icon: {
+                CFIIcon(systemName: "link", backgroundColor: .blue)
             }
         }
     }

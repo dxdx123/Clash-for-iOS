@@ -21,18 +21,10 @@ struct ClashContentView: View {
                     Text("订阅")
                 }
                 Section {
-                    LabeledContent {
-                        CFIControlView(packetTunnelManager: packetTunnelManager)
-                    } label: {
-                        Label {
-                            Text("状态")
-                        } icon: {
-                            CFIIcon(systemName: "link", backgroundColor: .blue)
-                        }
-                    }
+                    CFIControlView(packetTunnelManager: packetTunnelManager)
                     LabeledContent {
                         if let status = packetTunnelManager.status, status == .connected {
-                            CFIConnectedDurationView()
+                            CFIConnectedDurationView(packetTunnelManager: packetTunnelManager)
                         } else {
                             Text("--:--")
                         }
@@ -43,6 +35,8 @@ struct ClashContentView: View {
                             CFIIcon(systemName: "clock", backgroundColor: .blue)
                         }
                     }
+                } header: {
+                    Text("状态")
                 }
                 Section {
                     NavigationLink {
