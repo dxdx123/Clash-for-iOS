@@ -45,7 +45,7 @@
 		70B947AF29612F46006F6A38 /* CFISubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947AE29612F46006F6A38 /* CFISubscribeView.swift */; };
 		70B947B129613321006F6A38 /* CFISubscribeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B029613321006F6A38 /* CFISubscribeManager.swift */; };
 		70B947B329613354006F6A38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B229613354006F6A38 /* AppDelegate.swift */; };
-		70C9ED9929501D5B00B6995B /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED9829501D5B00B6995B /* App.swift */; };
+		70C9ED9929501D5B00B6995B /* MPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED9829501D5B00B6995B /* MPApp.swift */; };
 		70C9ED9B29501D5B00B6995B /* MPClashContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED9A29501D5B00B6995B /* MPClashContentView.swift */; };
 		70C9ED9D29501D5C00B6995B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70C9ED9C29501D5C00B6995B /* Assets.xcassets */; };
 		70C9EDA029501D5C00B6995B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70C9ED9F29501D5C00B6995B /* Preview Assets.xcassets */; };
@@ -137,7 +137,7 @@
 		70B947B029613321006F6A38 /* CFISubscribeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFISubscribeManager.swift; sourceTree = "<group>"; };
 		70B947B229613354006F6A38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70C9ED9529501D5B00B6995B /* Clash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clash.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		70C9ED9829501D5B00B6995B /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		70C9ED9829501D5B00B6995B /* MPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPApp.swift; sourceTree = "<group>"; };
 		70C9ED9A29501D5B00B6995B /* MPClashContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPClashContentView.swift; sourceTree = "<group>"; };
 		70C9ED9C29501D5C00B6995B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70C9ED9F29501D5C00B6995B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -264,7 +264,7 @@
 			children = (
 				70C9EDBF2950303900B6995B /* Clash.entitlements */,
 				70B947B229613354006F6A38 /* AppDelegate.swift */,
-				70C9ED9829501D5B00B6995B /* App.swift */,
+				70C9ED9829501D5B00B6995B /* MPApp.swift */,
 				70C9ED9A29501D5B00B6995B /* MPClashContentView.swift */,
 				70CEB88429A07605003436C2 /* MPXrayContentView.swift */,
 				708A48EB2962AD740040184C /* CFIAppearance.swift */,
@@ -520,7 +520,7 @@
 				70CEB89129A0C775003436C2 /* MPKernel.swift in Sources */,
 				7084FC3A2967E6FD00065DAF /* CFIGEOIPManager.swift in Sources */,
 				7084FC33296587C600065DAF /* CFILogLevelView.swift in Sources */,
-				70C9ED9929501D5B00B6995B /* App.swift in Sources */,
+				70C9ED9929501D5B00B6995B /* MPApp.swift in Sources */,
 				708A48EC2962AD740040184C /* CFIAppearance.swift in Sources */,
 				7000C6DA295AED790005626E /* CFIUpdatableViewModel.swift in Sources */,
 				708A48E82962A4540040184C /* CFIIcon.swift in Sources */,
