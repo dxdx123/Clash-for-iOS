@@ -16,7 +16,7 @@ struct CFISubscribeView: View {
     
     var body: some View {
         LabeledContent {
-            Button("选择") {
+            Button("切换") {
                 isPresented.toggle()
             }
             .sheet(isPresented: $isPresented) {

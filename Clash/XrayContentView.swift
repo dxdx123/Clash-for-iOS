@@ -4,12 +4,30 @@ struct XrayContentView: View {
     
     let core: Binding<Core>
     
-    @StateObject private var packetTunnelManager    = PacketTunnelManager(core: .clash)
+    @StateObject private var packetTunnelManager    = PacketTunnelManager(core: .xray)
     @StateObject private var databaseManager        = CFIGEOIPManager()
     
     var body: some View {
         NavigationStack {
             Form {
+                Section {
+                    CFIControlView(packetTunnelManager: packetTunnelManager)
+                    LabeledContent {
+                        if let status = packetTunnelManager.status, status == .connected {
+                            CFIConnectedDurationView(packetTunnelManager: packetTunnelManager)
+                        } else {
+                            Text("--:--")
+                        }
+                    } label: {
+                        Label {
+                            Text("连接时长")
+                        } icon: {
+                            CFIIcon(systemName: "clock", backgroundColor: .blue)
+                        }
+                    }
+                } header: {
+                    Text("状态")
+                }
                 Section {
                     NavigationLink {
                         CFISettingView(core: core)
