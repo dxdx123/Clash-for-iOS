@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CFIProxyListView: View {
     
-    @EnvironmentObject private var manager: CFIPacketTunnelManager
+    @EnvironmentObject private var manager: PacketTunnelManager
     
     @StateObject private var provider: CFIProviderViewModel
     

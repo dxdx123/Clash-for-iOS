@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CFIConnectedDurationView: View {
     
-    @EnvironmentObject private var manager: CFIPacketTunnelManager
+    @EnvironmentObject private var manager: PacketTunnelManager
     
     var body: some View {
         if let connectedDate = manager.connectedDate {

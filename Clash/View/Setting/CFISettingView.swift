@@ -2,12 +2,20 @@ import SwiftUI
 
 struct CFISettingView: View {
     
+    let core: Binding<Core>
+    
     var body: some View {
         Form {
             Section {
-                CFILogLevelView()
-                CFIGeoIPView()
-                CFIIPV6View()
+                switch core.wrappedValue {
+                case .clash:
+                    CFILogLevelView()
+                    CFIGeoIPView()
+                        .environmentObject(CFIGEOIPManager())
+                    CFIIPV6View()
+                case .xray:
+                    EmptyView()
+                }
             } header: {
                 Text("内核")
             }
@@ -16,6 +24,16 @@ struct CFISettingView: View {
                 CFIAccentColorView()
             } header: {
                 Text("主题")
+            }
+            Section {
+                Picker(selection: core) {
+                    ForEach(Core.allCases) { core in
+                        Text(core.rawValue)
+                    }
+                } label: {
+                    Text("内核")
+                }
+                .pickerStyle(.menu)
             }
             Section {
                 CFIResetButton()

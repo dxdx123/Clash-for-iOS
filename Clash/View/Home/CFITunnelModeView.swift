@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CFITunnelModeView: View {
     
-    @EnvironmentObject private var manager: CFIPacketTunnelManager
+    @EnvironmentObject private var manager: PacketTunnelManager
     
     let tunnelMode: Binding<CFITunnelMode>
     

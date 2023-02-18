@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "70C9EDA929502C6500B6995B"
-               BuildableName = "PacketTunnel.appex"
-               BlueprintName = "PacketTunnel"
+               BuildableName = "ClashTunnel.appex"
+               BlueprintName = "ClashTunnel"
                ReferencedContainer = "container:Clash.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

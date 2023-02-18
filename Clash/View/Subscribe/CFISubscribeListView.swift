@@ -4,7 +4,7 @@ struct CFISubscribeListView: View {
     
     @Environment(\.dismiss) private var dismiss
         
-    @EnvironmentObject private var packetTunnelManager: CFIPacketTunnelManager
+    @EnvironmentObject private var packetTunnelManager: PacketTunnelManager
     @EnvironmentObject private var subscribeManager: CFISubscribeManager
     
     @State private var isDownloading = false

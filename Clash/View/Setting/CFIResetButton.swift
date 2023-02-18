@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CFIResetButton: View {
     
-    @EnvironmentObject private var manager: CFIPacketTunnelManager
+    @EnvironmentObject private var manager: PacketTunnelManager
     
     @State private var isPresented: Bool = false
     

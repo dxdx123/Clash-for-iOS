@@ -1,12 +1,16 @@
 import SwiftUI
 import NetworkExtension
 
-struct CFIContentView: View {
+struct ClashContentView: View {
     
-    @EnvironmentObject private var manager: CFIPacketTunnelManager
+    let core: Binding<Core>
     
     @AppStorage(CFIConstant.tunnelMode, store: .shared) private var tunnelMode  = CFITunnelMode.rule
     @AppStorage(CFIConstant.current,    store: .shared) private var current     = ""
+    
+    @StateObject private var packetTunnelManager    = PacketTunnelManager(core: .clash)
+    @StateObject private var subscribeManager       = CFISubscribeManager()
+    @StateObject private var databaseManager        = CFIGEOIPManager()
     
     var body: some View {
         NavigationStack {
@@ -33,7 +37,7 @@ struct CFIContentView: View {
                         }
                     }
                     LabeledContent {
-                        if let status = manager.status, status == .connected {
+                        if let status = packetTunnelManager.status, status == .connected {
                             CFIConnectedDurationView()
                         } else {
                             Text("--:--")
@@ -72,7 +76,7 @@ struct CFIContentView: View {
                 }
                 Section {
                     NavigationLink {
-                        CFISettingView()
+                        CFISettingView(core: core)
                     } label: {
                         Label {
                             Text("设置")
@@ -82,15 +86,17 @@ struct CFIContentView: View {
                     }
                 }
             }
+            
             .formStyle(.grouped)
-            .navigationBarTitleDisplayMode(.inline)
             .navigationTitle(Text("Clash"))
             .onChange(of: tunnelMode) { newValue in
-                manager.set(tunnelMode: newValue)
+                packetTunnelManager.set(tunnelMode: newValue)
             }
             .onChange(of: current) { newValue in
-                manager.set(subscribe: newValue)
+                packetTunnelManager.set(subscribe: newValue)
             }
         }
+        .environmentObject(packetTunnelManager)
+        .environmentObject(subscribeManager)
     }
 }

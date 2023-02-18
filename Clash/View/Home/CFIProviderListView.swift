@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CFIProviderListView: View {
     
-    @EnvironmentObject private var manager: CFIPacketTunnelManager
+    @EnvironmentObject private var manager: PacketTunnelManager
     
     @Environment(\.dismiss) var dismiss
     
@@ -45,7 +45,7 @@ struct CFIProviderListView: View {
     
     private struct ProviderCell: View {
         
-        @EnvironmentObject private var manager: CFIPacketTunnelManager
+        @EnvironmentObject private var manager: PacketTunnelManager
         
         @StateObject private var provider: CFIProviderViewModel
         

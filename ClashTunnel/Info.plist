@@ -6,7 +6,12 @@
 	<string>${APP_ID}</string>
 	<key>TUNNEL_BUNDLE_SUFFIX_CLASH</key>
 	<string>${TUNNEL_BUNDLE_SUFFIX_CLASH}</string>
-	<key>TUNNEL_BUNDLE_SUFFIX_XRAY</key>
-	<string>${TUNNEL_BUNDLE_SUFFIX_XRAY}</string>
+	<key>NSExtension</key>
+	<dict>
+		<key>NSExtensionPointIdentifier</key>
+		<string>com.apple.networkextension.packet-tunnel</string>
+		<key>NSExtensionPrincipalClass</key>
+		<string>$(PRODUCT_MODULE_NAME).PacketTunnelProvider</string>
+	</dict>
 </dict>
 </plist>

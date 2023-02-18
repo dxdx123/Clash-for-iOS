@@ -7,10 +7,6 @@ extension CFIConstant {
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
     
-    let packetTunnelManager = CFIPacketTunnelManager()
-    let subscribeManager    = CFISubscribeManager()
-    let geoipManager        = CFIGEOIPManager()
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         if !UserDefaults.standard.bool(forKey: CFIConstant.isAppHasLaunched) {
             UserDefaults.shared.set(CFITunnelMode.rule.rawValue, forKey: CFIConstant.tunnelMode)
@@ -22,7 +18,6 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
             UserDefaults.standard.setValue(true, forKey: CFIConstant.isAppHasLaunched)
         }
         application.overrideUserInterfaceStyle()
-        geoipManager.checkAndUpdateIfNeeded()
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: { _, _ in })
         UNUserNotificationCenter.current().delegate = self
         return true

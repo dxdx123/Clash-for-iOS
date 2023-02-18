@@ -3,7 +3,7 @@ import NetworkExtension
 
 struct CFIControlView: View {
     
-    @EnvironmentObject private var manager: CFIPacketTunnelManager
+    @EnvironmentObject private var manager: PacketTunnelManager
     
     var body: some View {
         if let status = manager.status {

@@ -3,22 +3,51 @@ import SwiftUI
 import Combine
 import NetworkExtension
 
-@MainActor
-public final class CFIPacketTunnelManager: ObservableObject {
+extension CFIConstant {
+    static let core: String = "CORE"
+}
 
-    private let providerBundleIdentifier: String = {
-        "\(Bundle.appID).\(Bundle.tunnelBundleSuffix)"
-    }()
+public enum Core: String, Identifiable, CaseIterable {
+    
+    case clash, xray
+    
+    public var id: Self { self }
+    
+    public var providerBundleIdentifier: String {
+        let suffix = Bundle.main.infoDictionary?["TUNNEL_BUNDLE_SUFFIX_\(rawValue.uppercased())"] as! String
+        return "\(Bundle.appID).\(suffix)"
+    }
+    
+    public func createTunnelProviderManager() -> NETunnelProviderManager {
+        let manager = NETunnelProviderManager()
+        manager.localizedDescription = "iOS-\(rawValue.uppercased())"
+        manager.protocolConfiguration = {
+            let configuration = NETunnelProviderProtocol()
+            configuration.providerBundleIdentifier = self.providerBundleIdentifier
+            configuration.serverAddress = "iOS-\(rawValue.uppercased())"
+            configuration.providerConfiguration = [:]
+            configuration.excludeLocalNetworks = true
+            return configuration
+        }()
+        return manager
+    }
+}
+
+@MainActor
+open class PacketTunnelManager: ObservableObject {
     
     @Published private var manager: NETunnelProviderManager?
     
-    public var status: NEVPNStatus? { manager.flatMap { $0.connection.status } }
+    public final var status: NEVPNStatus? { manager.flatMap { $0.connection.status } }
     
-    public var connectedDate: Date? { manager.flatMap { $0.connection.connectedDate } }
+    public final var connectedDate: Date? { manager.flatMap { $0.connection.connectedDate } }
 
     private var cancellables: Set<AnyCancellable> = []
-
-    public init() {
+    
+    public let core: Core
+    
+    public init(core: Core) {
+        self.core = core
         self.reload()
         NotificationCenter.default
             .publisher(for: .NEVPNConfigurationChange, object: nil)
@@ -38,29 +67,20 @@ public final class CFIPacketTunnelManager: ObservableObject {
         }
     }
 
-    public func saveToPreferences() async throws {
-        let manager = NETunnelProviderManager()
-        manager.localizedDescription = "Clash"
-        manager.protocolConfiguration = {
-            let configuration = NETunnelProviderProtocol()
-            configuration.providerBundleIdentifier = self.providerBundleIdentifier
-            configuration.serverAddress = "Clash"
-            configuration.providerConfiguration = [:]
-            configuration.excludeLocalNetworks = true
-            return configuration
-        }()
+    public final func saveToPreferences() async throws {
+        let manager = core.createTunnelProviderManager()
         manager.isEnabled = true
         try await manager.saveToPreferences()
     }
 
-    public func removeFromPreferences() async throws {
+    public final func removeFromPreferences() async throws {
         guard let manager = manager else {
             return
         }
         try await manager.removeFromPreferences()
     }
     
-    public func start() async throws {
+    public final func start() async throws {
         guard let manager = manager else {
             return
         }
@@ -71,7 +91,7 @@ public final class CFIPacketTunnelManager: ObservableObject {
         try manager.connection.startVPNTunnel()
     }
     
-    public func stop() {
+    public final func stop() {
         guard let manager = manager else {
             return
         }
@@ -79,7 +99,7 @@ public final class CFIPacketTunnelManager: ObservableObject {
     }
     
     @discardableResult
-    private func sendProviderMessage(data: Data) async throws -> Data? {
+    private final func sendProviderMessage(data: Data) async throws -> Data? {
         guard let manager = manager else {
             return nil
         }
@@ -97,11 +117,12 @@ public final class CFIPacketTunnelManager: ObservableObject {
     private func loadTunnelProviderManager() async -> NETunnelProviderManager? {
         do {
             let managers = try await NETunnelProviderManager.loadAllFromPreferences()
+            let providerBundleIdentifier = self.core.providerBundleIdentifier
             guard let reval = managers.first(where: {
                 guard let configuration = $0.protocolConfiguration as? NETunnelProviderProtocol else {
                     return false
                 }
-                return configuration.providerBundleIdentifier == self.providerBundleIdentifier
+                return configuration.providerBundleIdentifier == providerBundleIdentifier
             }) else {
                 return nil
             }
@@ -113,7 +134,7 @@ public final class CFIPacketTunnelManager: ObservableObject {
     }
 }
 
-extension CFIPacketTunnelManager {
+extension PacketTunnelManager {
     
     private func fetchProxies() async -> [String: CFIProxyModel] {
         do {

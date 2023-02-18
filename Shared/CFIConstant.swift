@@ -6,10 +6,6 @@ extension Bundle {
     public static var appID: String {
         Bundle.main.infoDictionary?["APP_ID"] as! String
     }
-    
-    public static var tunnelBundleSuffix: String {
-        Bundle.main.infoDictionary?["TUNNEL_BUNDLE_SUFFIX"] as! String
-    }
 }
 
 @frozen public enum CFIConstant {

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CFILogLevelView: View {
     
-    @EnvironmentObject private var manager: CFIPacketTunnelManager
+    @EnvironmentObject private var manager: PacketTunnelManager
     @AppStorage(CFIConstant.logLevel, store: .shared) private var logLevel  = CFILogLevel.silent
     
     var body: some View {
