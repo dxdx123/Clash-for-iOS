@@ -22,7 +22,7 @@ struct CFIIPV6View: View {
                     }
                 }
             } icon: {
-                CFIIcon(systemName: "network", backgroundColor: .purple)
+                MPIcon(systemName: "network", backgroundColor: .purple)
             }
         }
         .disabled(processing)

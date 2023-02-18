@@ -23,6 +23,6 @@ extension MPAppearance {
     }
 }
 
-extension CFIConstant {
+extension MPConstant {
     static let theme = "APP_PREFERRED_COLORSCHEME"
 }

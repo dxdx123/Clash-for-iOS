@@ -2,11 +2,11 @@ import SwiftUI
 
 struct CFIAccentColorView: View {
     
-    @AppStorage(CFIConstant.accentColor) private var accentColor = MPAccentColor.system
+    @AppStorage(MPConstant.accentColor) private var accentColor = MPAccentColor.system
     
     var body: some View {
         NavigationLink {
-            CFIFormPicker(title: "强调色", selection: $accentColor) {
+            MPFormPicker(title: "强调色", selection: $accentColor) {
                 ForEach(MPAccentColor.allCases) { color in
                     HStack {
                         ZStack {
@@ -28,7 +28,7 @@ struct CFIAccentColorView: View {
                 Label {
                     Text("强调色")
                 } icon: {
-                    CFIIcon(systemName: "scribble.variable", backgroundColor: .accentColor)
+                    MPIcon(systemName: "scribble.variable", backgroundColor: .accentColor)
                 }
             }            
         }

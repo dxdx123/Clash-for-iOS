@@ -40,7 +40,7 @@ struct CFIControlView: View {
             Label {
                 Text(packetTunnelManager.status.flatMap({ $0.displayString }) ?? "未安装VPN配置")
             } icon: {
-                CFIIcon(systemName: "link", backgroundColor: .blue)
+                MPIcon(systemName: "link", backgroundColor: .blue)
             }
         }
     }

@@ -22,7 +22,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         do {
             try Clash.run()
         } catch {
-            CFINotification.send(title: "", subtitle: "", body: error.localizedDescription)
+            MPNotification.send(title: "", subtitle: "", body: error.localizedDescription)
             throw error
         }
     }
@@ -67,7 +67,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         @unknown default:
             return
         }
-        CFINotification.send(title: "", subtitle: "", body: message)
+        MPNotification.send(title: "", subtitle: "", body: message)
     }
     
     override func handleAppMessage(_ messageData: Data) async -> Data? {

@@ -64,9 +64,9 @@ struct CFISubscribeListView: View {
                             if subscribe.id == current.wrappedValue {
                                 current.wrappedValue = ""
                             }
-                            CFINotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"删除成功")
+                            MPNotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"删除成功")
                         } catch {
-                            CFINotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"删除失败, 原因: \(error.localizedDescription)")
+                            MPNotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"删除失败, 原因: \(error.localizedDescription)")
                         }
                     }
                     .disabled(subscribeManager.downloadingSubscribeIDs.contains(subscribe.id))
@@ -86,9 +86,9 @@ struct CFISubscribeListView: View {
                                 if current.wrappedValue == subscribe.id {
                                     packetTunnelManager.set(subscribe: subscribe.id)
                                 }
-                                CFINotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"更新成功")
+                                MPNotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"更新成功")
                             } catch {
-                                CFINotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"更新失败, 原因: \(error.localizedDescription)")
+                                MPNotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"更新失败, 原因: \(error.localizedDescription)")
                             }
                         }
                     }
@@ -121,7 +121,7 @@ struct CFISubscribeListView: View {
                     do {
                         try subscribeManager.rename(subscribe: subscribe, name: name)
                     } catch {
-                        CFINotification.send(title: "", subtitle: "", body: "重命名失败, 原因: \(error.localizedDescription)")
+                        MPNotification.send(title: "", subtitle: "", body: "重命名失败, 原因: \(error.localizedDescription)")
                     }
                 }
                 Button("取消", role: .cancel) {}
@@ -130,7 +130,7 @@ struct CFISubscribeListView: View {
                 TextField("请输入订阅地址", text: $subscribeURLString)
                 Button("确定") {
                     guard let source = URL(string: subscribeURLString) else {
-                        return CFINotification.send(title: "", subtitle: "", body: "订阅失败, 原因: 不支持的URL")
+                        return MPNotification.send(title: "", subtitle: "", body: "订阅失败, 原因: 不支持的URL")
                     }
                     isDownloading = true
                     Task(priority: .high) {
@@ -138,12 +138,12 @@ struct CFISubscribeListView: View {
                             try await subscribeManager.download(source: source)
                             await MainActor.run {
                                 isDownloading = false
-                                return CFINotification.send(title: "", subtitle: "", body: "订阅成功")
+                                return MPNotification.send(title: "", subtitle: "", body: "订阅成功")
                             }
                         } catch {
                             await MainActor.run {
                                 isDownloading = false
-                                CFINotification.send(title: "", subtitle: "", body: "订阅失败, 原因: \(error.localizedDescription)")
+                                MPNotification.send(title: "", subtitle: "", body: "订阅失败, 原因: \(error.localizedDescription)")
                             }
                         }
                     }

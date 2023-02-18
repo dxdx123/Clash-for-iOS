@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct CFIIcon: View {
+public struct MPIcon: View {
 
     public let systemName: String
     public let backgroundColor: Color

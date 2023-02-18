@@ -29,7 +29,7 @@ struct CFISubscribeView: View {
                 Text(title)
                     .lineLimit(1)
             } icon: {
-                CFIIcon(systemName: "doc.plaintext", backgroundColor: .green)
+                MPIcon(systemName: "doc.plaintext", backgroundColor: .green)
             }
         }        
     }

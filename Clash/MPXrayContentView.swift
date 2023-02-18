@@ -19,7 +19,7 @@ struct MPXrayContentView: View {
                     Label {
                         Text("连接时长")
                     } icon: {
-                        CFIIcon(systemName: "clock", backgroundColor: .blue)
+                        MPIcon(systemName: "clock", backgroundColor: .blue)
                     }
                 }
             } header: {

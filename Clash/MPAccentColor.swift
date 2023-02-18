@@ -59,6 +59,6 @@ extension MPAccentColor {
     }
 }
 
-extension CFIConstant {
+extension MPConstant {
     static let accentColor = "APP_ACCENT_COLOR"
 }

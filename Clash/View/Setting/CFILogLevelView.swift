@@ -30,7 +30,7 @@ struct CFILogLevelView: View {
                 Label {
                     Text("日志")
                 } icon: {
-                    CFIIcon(systemName: "doc.text.below.ecg", backgroundColor: .brown)
+                    MPIcon(systemName: "doc.text.below.ecg", backgroundColor: .brown)
                 }
             }
         }

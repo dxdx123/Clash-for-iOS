@@ -2,11 +2,11 @@ import SwiftUI
 
 struct CFIAppearanceView: View {
     
-    @AppStorage(CFIConstant.theme) private var appearance = MPAppearance.system
+    @AppStorage(MPConstant.theme) private var appearance = MPAppearance.system
     
     var body: some View {
         NavigationLink {
-            CFIFormPicker(title: "外观", selection: $appearance) {
+            MPFormPicker(title: "外观", selection: $appearance) {
                 ForEach(MPAppearance.allCases) { appearance in
                     Text(appearance.name)
                 }
@@ -18,7 +18,7 @@ struct CFIAppearanceView: View {
                 Label {
                     Text("外观")
                 } icon: {
-                    CFIIcon(systemName: "app.dashed", backgroundColor: .mint)
+                    MPIcon(systemName: "app.dashed", backgroundColor: .mint)
                 }
             }
         }

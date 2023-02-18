@@ -14,7 +14,7 @@ struct CFIPolicyGroupView: View {
     var body: some View {
         Button {
             guard let status = packetTunnelManager.status, status == .connected else {
-                CFINotification.send(title: "", subtitle: "", body: "未启动, 请启动之后查看策略组信息")
+                MPNotification.send(title: "", subtitle: "", body: "未启动, 请启动之后查看策略组信息")
                 return
             }
             isPresented.toggle()

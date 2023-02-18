@@ -43,7 +43,7 @@ struct CFIGeoIPSettingView: View {
                 Toggle("自动更新", isOn: $geoipDatabaseAutoUpdate)
                 if geoipDatabaseAutoUpdate {
                     NavigationLink {
-                        CFIFormPicker(title: "更新频率", selection: $geoipDatabaseAutoUpdateInterval) {
+                        MPFormPicker(title: "更新频率", selection: $geoipDatabaseAutoUpdateInterval) {
                             ForEach(CFIGEOIPAutoUpdateInterval.allCases) { value in
                                 Text(value.name)
                             }
@@ -67,9 +67,9 @@ struct CFIGeoIPSettingView: View {
                     Task(priority: .medium) {
                         do {
                             try await geoipManager.update(url: url)
-                            CFINotification.send(title: "", subtitle: "", body: "GEOIP数据库更新成功")
+                            MPNotification.send(title: "", subtitle: "", body: "GEOIP数据库更新成功")
                         } catch {
-                            CFINotification.send(title: "", subtitle: "", body: "GEOIP数据库更新失败, 原因: \(error.localizedDescription)")
+                            MPNotification.send(title: "", subtitle: "", body: "GEOIP数据库更新失败, 原因: \(error.localizedDescription)")
                         }
                     }
                 } label: {
@@ -99,9 +99,9 @@ struct CFIGeoIPSettingView: View {
         .fileImporter(isPresented: $isFileImporterPresented, allowedContentTypes: [.mmdb]) { result in
             do {
                 try geoipManager.importLocalFile(from: try result.get())
-                CFINotification.send(title: "", subtitle: "", body: "GEOIP数据库导入成功")
+                MPNotification.send(title: "", subtitle: "", body: "GEOIP数据库导入成功")
             } catch {
-                CFINotification.send(title: "", subtitle: "", body: "GEOIP数据库导入失败, 原因: \(error.localizedDescription)")
+                MPNotification.send(title: "", subtitle: "", body: "GEOIP数据库导入失败, 原因: \(error.localizedDescription)")
             }
         }
     }

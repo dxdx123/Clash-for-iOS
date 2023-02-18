@@ -11,7 +11,7 @@ struct CFITunnelModeView: View {
     }
     
     var body: some View {
-        CFIFormPicker(title: "代理模式", selection: tunnelMode) {
+        MPFormPicker(title: "代理模式", selection: tunnelMode) {
             ForEach(CFITunnelMode.allCases) { mode in
                 makeLabel(mode: mode)
             }
@@ -40,7 +40,7 @@ struct CFITunnelModeView: View {
         return Label {
             Text(title)
         } icon: {
-            CFIIcon(systemName: systemImage, backgroundColor: backgroundColor)
+            MPIcon(systemName: systemImage, backgroundColor: backgroundColor)
         }
     }
 }

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CFIFormPicker<SelectionValue, Content>: View where SelectionValue: Hashable, Content: View {
+struct MPFormPicker<SelectionValue, Content>: View where SelectionValue: Hashable, Content: View {
         
     @Environment(\.dismiss) private var dismiss
         

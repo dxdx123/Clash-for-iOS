@@ -22,7 +22,7 @@ struct CFIGeoIPView: View {
                 Label {
                     Text("GeoIP 数据库")
                 } icon: {
-                    CFIIcon(systemName: "cylinder.split.1x2", backgroundColor: .black)
+                    MPIcon(systemName: "cylinder.split.1x2", backgroundColor: .black)
                 }
             }
         }
