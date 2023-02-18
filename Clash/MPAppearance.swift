@@ -1,6 +1,6 @@
 import SwiftUI
 
-enum CFIAppearance: String, CaseIterable, Identifiable {
+enum MPAppearance: String, CaseIterable, Identifiable {
     
     var id: Self { self }
     
@@ -9,7 +9,7 @@ enum CFIAppearance: String, CaseIterable, Identifiable {
     case system
 }
 
-extension CFIAppearance {
+extension MPAppearance {
     
     var userInterfaceStyle: UIUserInterfaceStyle {
         switch self {

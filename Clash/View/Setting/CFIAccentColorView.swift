@@ -2,16 +2,16 @@ import SwiftUI
 
 struct CFIAccentColorView: View {
     
-    @AppStorage(CFIConstant.accentColor) private var accentColor = CFIAccentColor.system
+    @AppStorage(CFIConstant.accentColor) private var accentColor = MPAccentColor.system
     
     var body: some View {
         NavigationLink {
             CFIFormPicker(title: "强调色", selection: $accentColor) {
-                ForEach(CFIAccentColor.allCases) { color in
+                ForEach(MPAccentColor.allCases) { color in
                     HStack {
                         ZStack {
                             Circle()
-                                .fill(AngularGradient(colors: color.tint.flatMap({ [$0] }) ?? CFIAccentColor.allCases.compactMap(\.tint), center: .center))
+                                .fill(AngularGradient(colors: color.tint.flatMap({ [$0] }) ?? MPAccentColor.allCases.compactMap(\.tint), center: .center))
                             Circle()
                                 .frame(width: 8, height: 8)
                                 .foregroundColor(accentColor == color ? .white : .clear)

@@ -14,7 +14,7 @@ final class MPAppDelegate: NSObject, UIApplicationDelegate {
             UserDefaults.standard.set(CFIConstant.defaultGeoIPDatabaseRemoteURLString, forKey: CFIConstant.geoipDatabaseRemoteURLString)
             UserDefaults.standard.set(true, forKey: CFIConstant.geoipDatabaseAutoUpdate)
             UserDefaults.standard.set(CFIConstant.geoipDatabaseAutoUpdateInterval, forKey: CFIGEOIPAutoUpdateInterval.week.rawValue)
-            UserDefaults.standard.set(CFIAccentColor.system.rawValue, forKey: CFIConstant.accentColor)
+            UserDefaults.standard.set(MPAccentColor.system.rawValue, forKey: CFIConstant.accentColor)
             UserDefaults.standard.setValue(true, forKey: CFIConstant.isAppHasLaunched)
         }
         application.overrideUserInterfaceStyle()
@@ -34,7 +34,7 @@ extension MPAppDelegate: UNUserNotificationCenterDelegate {
 extension UIApplication {
     
     func overrideUserInterfaceStyle() {
-        let current = UserDefaults.standard.string(forKey: CFIConstant.theme).flatMap(CFIAppearance.init(rawValue:)) ?? .system
+        let current = UserDefaults.standard.string(forKey: CFIConstant.theme).flatMap(MPAppearance.init(rawValue:)) ?? .system
         self.override(userInterfaceStyle: current.userInterfaceStyle)
     }
     

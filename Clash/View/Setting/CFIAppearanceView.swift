@@ -2,12 +2,12 @@ import SwiftUI
 
 struct CFIAppearanceView: View {
     
-    @AppStorage(CFIConstant.theme) private var appearance = CFIAppearance.system
+    @AppStorage(CFIConstant.theme) private var appearance = MPAppearance.system
     
     var body: some View {
         NavigationLink {
             CFIFormPicker(title: "外观", selection: $appearance) {
-                ForEach(CFIAppearance.allCases) { appearance in
+                ForEach(MPAppearance.allCases) { appearance in
                     Text(appearance.name)
                 }
             }
@@ -37,7 +37,7 @@ struct CFIAppearanceView: View {
     }
 }
 
-extension CFIAppearance {
+extension MPAppearance {
     
     var name: String {
         switch self {

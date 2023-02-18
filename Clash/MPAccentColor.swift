@@ -1,6 +1,6 @@
 import SwiftUI
 
-enum CFIAccentColor: String, CaseIterable, Identifiable {
+enum MPAccentColor: String, CaseIterable, Identifiable {
     
     var id: Self { self }
     
@@ -14,7 +14,7 @@ enum CFIAccentColor: String, CaseIterable, Identifiable {
     case brown
 }
 
-extension CFIAccentColor {
+extension MPAccentColor {
     
     var name: String {
         switch self {
