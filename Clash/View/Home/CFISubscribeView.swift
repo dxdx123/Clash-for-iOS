@@ -3,10 +3,11 @@ import SwiftUI
 struct CFISubscribeView: View {
     
     private let current: Binding<String>
-    
+    @StateObject private var packetTunnelManager: PacketTunnelManager
     @StateObject private var subscribeManager: CFISubscribeManager
     
-    init(current: Binding<String>, subscribeManager: CFISubscribeManager) {
+    init(current: Binding<String>, packetTunnelManager: PacketTunnelManager, subscribeManager: CFISubscribeManager) {
+        self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
         self._subscribeManager = StateObject(wrappedValue: subscribeManager)
         self.current = current
     }
@@ -14,15 +15,23 @@ struct CFISubscribeView: View {
     @State private var isPresented = false
     
     var body: some View {
-        Button(title) {
-            isPresented.toggle()
-        }
-        .lineLimit(1)
-        .sheet(isPresented: $isPresented) {
-            CFISubscribeListView(current: current)
-                .presentationDetents([.medium, .large])
-                .presentationDragIndicator(.hidden)
-        }
+        LabeledContent {
+            Button("选择") {
+                isPresented.toggle()
+            }
+            .sheet(isPresented: $isPresented) {
+                CFISubscribeListView(current: current, packetTunnelManager: packetTunnelManager, subscribeManager: subscribeManager)
+                    .presentationDetents([.medium, .large])
+                    .presentationDragIndicator(.hidden)
+            }
+        } label: {
+            Label {
+                Text(title)
+                    .lineLimit(1)
+            } icon: {
+                CFIIcon(systemName: "doc.plaintext", backgroundColor: .green)
+            }
+        }        
     }
     
     private var title: String {

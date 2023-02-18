@@ -16,15 +16,9 @@ struct ClashContentView: View {
         NavigationStack {
             Form {
                 Section {
-                    LabeledContent {
-                        CFISubscribeView(current: $current, subscribeManager: subscribeManager)
-                    } label: {
-                        Label {
-                            Text("订阅")
-                        } icon: {
-                            CFIIcon(systemName: "doc.plaintext", backgroundColor: .green)
-                        }
-                    }
+                    CFISubscribeView(current: $current, packetTunnelManager: packetTunnelManager, subscribeManager: subscribeManager)
+                } header: {
+                    Text("订阅")
                 }
                 Section {
                     LabeledContent {

@@ -4,12 +4,18 @@ struct CFISubscribeListView: View {
     
     @Environment(\.dismiss) private var dismiss
         
-    @EnvironmentObject private var packetTunnelManager: PacketTunnelManager
-    @EnvironmentObject private var subscribeManager: CFISubscribeManager
+    let current: Binding<String>
+    @StateObject private var packetTunnelManager: PacketTunnelManager
+    @StateObject private var subscribeManager: CFISubscribeManager
+    
+    init(current: Binding<String>, packetTunnelManager: PacketTunnelManager, subscribeManager: CFISubscribeManager) {
+        self.current = current
+        self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
+        self._subscribeManager = StateObject(wrappedValue: subscribeManager)
+    }
     
     @State private var isDownloading = false
             
-    let current: Binding<String>
     
     @State private var isDownloadAlertPresented: Bool = false
     @State private var subscribeURLString: String = ""
