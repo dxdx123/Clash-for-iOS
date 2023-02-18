@@ -5,10 +5,10 @@ struct CFISubscribeListView: View {
     @Environment(\.dismiss) private var dismiss
         
     let current: Binding<String>
-    @StateObject private var packetTunnelManager: PacketTunnelManager
+    @StateObject private var packetTunnelManager: MPPacketTunnelManager
     @StateObject private var subscribeManager: CFISubscribeManager
     
-    init(current: Binding<String>, packetTunnelManager: PacketTunnelManager, subscribeManager: CFISubscribeManager) {
+    init(current: Binding<String>, packetTunnelManager: MPPacketTunnelManager, subscribeManager: CFISubscribeManager) {
         self.current = current
         self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
         self._subscribeManager = StateObject(wrappedValue: subscribeManager)

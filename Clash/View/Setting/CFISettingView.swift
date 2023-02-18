@@ -2,48 +2,50 @@ import SwiftUI
 
 struct CFISettingView: View {
     
-    let core: Binding<Core>
-    @StateObject private var packetTunnelManager: PacketTunnelManager
+    @AppStorage(MPConstant.kernel) private var kernel = MPKernel.clash
     
-    init(core: Binding<Core>, packetTunnelManager: PacketTunnelManager) {
-        self.core = core
+    @StateObject private var packetTunnelManager: MPPacketTunnelManager
+    
+    init(packetTunnelManager: MPPacketTunnelManager) {
         self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
     }
     
     var body: some View {
-        Form {
-            Section {
-                switch core.wrappedValue {
-                case .clash:
-                    CFILogLevelView(packetTunnelManager: packetTunnelManager)
-                    CFIGeoIPView()
-                        .environmentObject(CFIGEOIPManager())
-                    CFIIPV6View(packetTunnelManager: packetTunnelManager)
-                case .xray:
-                    EmptyView()
+        NavigationStack {
+            Form {
+                Section {
+                    switch kernel {
+                    case .clash:
+                        CFILogLevelView(packetTunnelManager: packetTunnelManager)
+                        CFIGeoIPView()
+                            .environmentObject(CFIGEOIPManager())
+                        CFIIPV6View(packetTunnelManager: packetTunnelManager)
+                    case .xray:
+                        EmptyView()
+                    }
+                } header: {
+                    Text("内核")
                 }
-            } header: {
-                Text("内核")
+                Section {
+                    CFIAppearanceView()
+                    CFIAccentColorView()
+                } header: {
+                    Text("主题")
+                }
+                Section {
+                    CFIResetButton(packetTunnelManager: packetTunnelManager)
+                }
             }
-            Section {
-                CFIAppearanceView()
-                CFIAccentColorView()
-            } header: {
-                Text("主题")
+            .formStyle(.grouped)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle(Text("设置"))
+            .safeAreaInset(edge: .bottom) {
+                Text(version)
+                    .foregroundColor(.secondary)
+                    .font(.caption)
+                    .fontWeight(.light)
+                    .monospacedDigit()
             }
-            Section {
-                CFIResetButton(packetTunnelManager: packetTunnelManager)
-            }
-        }
-        .formStyle(.grouped)
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle(Text("设置"))
-        .safeAreaInset(edge: .bottom) {
-            Text(version)
-                .foregroundColor(.secondary)
-                .font(.caption)
-                .fontWeight(.light)
-                .monospacedDigit()
         }
     }
     

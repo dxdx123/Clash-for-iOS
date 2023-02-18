@@ -1,14 +1,12 @@
 import SwiftUI
 import NetworkExtension
 
-struct ClashContentView: View {
-    
-    let core: Binding<Core>
-    
+struct MPClashContentView: View {
+        
     @AppStorage(CFIConstant.tunnelMode, store: .shared) private var tunnelMode  = CFITunnelMode.rule
     @AppStorage(CFIConstant.current,    store: .shared) private var current     = ""
     
-    @StateObject private var packetTunnelManager    = PacketTunnelManager(core: .clash)
+    @StateObject private var packetTunnelManager    = MPPacketTunnelManager(kernel: .clash)
     @StateObject private var subscribeManager       = CFISubscribeManager()
     @StateObject private var databaseManager        = CFIGEOIPManager()
     
@@ -62,17 +60,6 @@ struct ClashContentView: View {
                         }
                     }
                 }
-                Section {
-                    NavigationLink {
-                        CFISettingView(core: core, packetTunnelManager: packetTunnelManager)
-                    } label: {
-                        Label {
-                            Text("设置")
-                        } icon: {
-                            CFIIcon(systemName: "gearshape", backgroundColor: .blue)
-                        }
-                    }
-                }
             }
             .formStyle(.grouped)
             .onChange(of: tunnelMode) { newValue in
@@ -80,6 +67,11 @@ struct ClashContentView: View {
             }
             .onChange(of: current) { newValue in
                 packetTunnelManager.set(subscribe: newValue)
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    MPSettingButton(packetTunnelManager: packetTunnelManager)
+                }
             }
         }
     }

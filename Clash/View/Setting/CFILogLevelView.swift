@@ -2,10 +2,10 @@ import SwiftUI
 
 struct CFILogLevelView: View {
     
-    @StateObject private var packetTunnelManager: PacketTunnelManager
+    @StateObject private var packetTunnelManager: MPPacketTunnelManager
     @AppStorage(CFIConstant.logLevel, store: .shared) private var logLevel  = CFILogLevel.silent
     
-    init(packetTunnelManager: PacketTunnelManager) {
+    init(packetTunnelManager: MPPacketTunnelManager) {
         self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
     }
     

@@ -3,38 +3,8 @@ import SwiftUI
 import Combine
 import NetworkExtension
 
-extension CFIConstant {
-    static let core: String = "CORE"
-}
-
-public enum Core: String, Identifiable, CaseIterable {
-    
-    case clash, xray
-    
-    public var id: Self { self }
-    
-    public var providerBundleIdentifier: String {
-        let suffix = Bundle.main.infoDictionary?["TUNNEL_BUNDLE_SUFFIX_\(rawValue.uppercased())"] as! String
-        return "\(Bundle.appID).\(suffix)"
-    }
-    
-    public func createTunnelProviderManager() -> NETunnelProviderManager {
-        let manager = NETunnelProviderManager()
-        manager.localizedDescription = "iOS-\(rawValue.uppercased())"
-        manager.protocolConfiguration = {
-            let configuration = NETunnelProviderProtocol()
-            configuration.providerBundleIdentifier = self.providerBundleIdentifier
-            configuration.serverAddress = "iOS-\(rawValue.uppercased())"
-            configuration.providerConfiguration = [:]
-            configuration.excludeLocalNetworks = true
-            return configuration
-        }()
-        return manager
-    }
-}
-
 @MainActor
-open class PacketTunnelManager: ObservableObject {
+open class MPPacketTunnelManager: ObservableObject {
     
     deinit {
         print("------------->>>>")
@@ -48,10 +18,16 @@ open class PacketTunnelManager: ObservableObject {
 
     private var cancellables: Set<AnyCancellable> = []
     
-    public let core: Core
+    public let kernel: MPKernel
     
-    public init(core: Core) {
-        self.core = core
+    private let providerBundleIdentifier: String
+    
+    public init(kernel: MPKernel) {
+        self.kernel = kernel
+        self.providerBundleIdentifier = {
+            let suffix = Bundle.main.infoDictionary?["TUNNEL_BUNDLE_SUFFIX_\(kernel.rawValue.uppercased())"] as! String
+            return "\(Bundle.appID).\(suffix)"
+        }()
         self.reload()
         NotificationCenter.default
             .publisher(for: .NEVPNConfigurationChange, object: nil)
@@ -72,7 +48,16 @@ open class PacketTunnelManager: ObservableObject {
     }
 
     public final func saveToPreferences() async throws {
-        let manager = core.createTunnelProviderManager()
+        let manager = NETunnelProviderManager()
+        manager.localizedDescription = "iOS-\(kernel.rawValue.uppercased())"
+        manager.protocolConfiguration = {
+            let configuration = NETunnelProviderProtocol()
+            configuration.providerBundleIdentifier = self.providerBundleIdentifier
+            configuration.serverAddress = "iOS-\(kernel.rawValue.uppercased())"
+            configuration.providerConfiguration = [:]
+            configuration.excludeLocalNetworks = true
+            return configuration
+        }()
         manager.isEnabled = true
         try await manager.saveToPreferences()
     }
@@ -121,12 +106,11 @@ open class PacketTunnelManager: ObservableObject {
     private func loadTunnelProviderManager() async -> NETunnelProviderManager? {
         do {
             let managers = try await NETunnelProviderManager.loadAllFromPreferences()
-            let providerBundleIdentifier = self.core.providerBundleIdentifier
             guard let reval = managers.first(where: {
                 guard let configuration = $0.protocolConfiguration as? NETunnelProviderProtocol else {
                     return false
                 }
-                return configuration.providerBundleIdentifier == providerBundleIdentifier
+                return configuration.providerBundleIdentifier == self.providerBundleIdentifier
             }) else {
                 return nil
             }
@@ -138,7 +122,7 @@ open class PacketTunnelManager: ObservableObject {
     }
 }
 
-extension PacketTunnelManager {
+extension MPPacketTunnelManager {
     
     private func fetchProxies() async -> [String: CFIProxyModel] {
         do {

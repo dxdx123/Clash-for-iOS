@@ -1,10 +1,8 @@
 import SwiftUI
 
-struct XrayContentView: View {
-    
-    let core: Binding<Core>
-    
-    @StateObject private var packetTunnelManager    = PacketTunnelManager(core: .xray)
+struct MPXrayContentView: View {
+        
+    @StateObject private var packetTunnelManager    = MPPacketTunnelManager(kernel: .xray)
     @StateObject private var databaseManager        = CFIGEOIPManager()
     
     var body: some View {
@@ -28,19 +26,13 @@ struct XrayContentView: View {
                 } header: {
                     Text("状态")
                 }
-                Section {
-                    NavigationLink {
-                        CFISettingView(core: core, packetTunnelManager: packetTunnelManager)
-                    } label: {
-                        Label {
-                            Text("设置")
-                        } icon: {
-                            CFIIcon(systemName: "gearshape", backgroundColor: .blue)
-                        }
-                    }
-                }
             }
             .formStyle(.grouped)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    MPSettingButton(packetTunnelManager: packetTunnelManager)
+                }
+            }
         }
     }
 }

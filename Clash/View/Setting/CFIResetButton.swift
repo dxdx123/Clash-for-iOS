@@ -2,11 +2,11 @@ import SwiftUI
 
 struct CFIResetButton: View {
     
-    @StateObject private var packetTunnelManager: PacketTunnelManager
+    @StateObject private var packetTunnelManager: MPPacketTunnelManager
     
     @State private var isPresented: Bool = false
     
-    init(packetTunnelManager: PacketTunnelManager) {
+    init(packetTunnelManager: MPPacketTunnelManager) {
         self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
     }
     

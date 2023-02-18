@@ -2,9 +2,9 @@ import SwiftUI
 
 struct CFIConnectedDurationView: View {
     
-    @StateObject private var packetTunnelManager: PacketTunnelManager
+    @StateObject private var packetTunnelManager: MPPacketTunnelManager
     
-    init(packetTunnelManager: PacketTunnelManager) {
+    init(packetTunnelManager: MPPacketTunnelManager) {
         self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
     }
     

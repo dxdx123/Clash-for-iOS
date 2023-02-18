@@ -2,12 +2,12 @@ import SwiftUI
 
 struct CFIIPV6View: View {
     
-    @StateObject private var packetTunnelManager: PacketTunnelManager
+    @StateObject private var packetTunnelManager: MPPacketTunnelManager
     
     @AppStorage(CFIConstant.ipv6Enable, store: .shared) private var isOn  = false
     @State private var processing = false
     
-    init(packetTunnelManager: PacketTunnelManager) {
+    init(packetTunnelManager: MPPacketTunnelManager) {
         self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
     }
     

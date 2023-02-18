@@ -3,10 +3,10 @@ import SwiftUI
 struct CFISubscribeView: View {
     
     private let current: Binding<String>
-    @StateObject private var packetTunnelManager: PacketTunnelManager
+    @StateObject private var packetTunnelManager: MPPacketTunnelManager
     @StateObject private var subscribeManager: CFISubscribeManager
     
-    init(current: Binding<String>, packetTunnelManager: PacketTunnelManager, subscribeManager: CFISubscribeManager) {
+    init(current: Binding<String>, packetTunnelManager: MPPacketTunnelManager, subscribeManager: CFISubscribeManager) {
         self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
         self._subscribeManager = StateObject(wrappedValue: subscribeManager)
         self.current = current

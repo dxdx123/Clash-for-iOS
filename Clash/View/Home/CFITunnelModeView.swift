@@ -3,9 +3,9 @@ import SwiftUI
 struct CFITunnelModeView: View {
     
     let tunnelMode: Binding<CFITunnelMode>
-    @StateObject private var packetTunnelManager: PacketTunnelManager
+    @StateObject private var packetTunnelManager: MPPacketTunnelManager
     
-    init(tunnelMode: Binding<CFITunnelMode>, packetTunnelManager: PacketTunnelManager) {
+    init(tunnelMode: Binding<CFITunnelMode>, packetTunnelManager: MPPacketTunnelManager) {
         self.tunnelMode = tunnelMode
         self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
     }

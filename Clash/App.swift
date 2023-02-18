@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct CFIApp: App {
+struct MPApp: App {
     
     @UIApplicationDelegateAdaptor private var delegate: AppDelegate
         
@@ -17,24 +17,24 @@ struct CFIApp: App {
 
 struct ContentView: View {
     
-    @AppStorage(CFIConstant.core) private var core = Core.clash
+    @AppStorage(MPConstant.kernel) private var kernel = MPKernel.clash
 
     var body: some View {
         NavigationStack {
             Group {
-                switch core {
+                switch kernel {
                 case .clash:
-                    ClashContentView(core: $core)
+                    MPClashContentView()
                 case .xray:
-                    XrayContentView(core: $core)
+                    MPXrayContentView()
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Picker(selection: $core) {
-                        ForEach(Core.allCases) { core in
-                            Text(core.rawValue.uppercased())
+                    Picker(selection: $kernel) {
+                        ForEach(MPKernel.allCases) { kernel in
+                            Text(kernel.rawValue.uppercased())
                         }
                     } label: {
                         EmptyView()

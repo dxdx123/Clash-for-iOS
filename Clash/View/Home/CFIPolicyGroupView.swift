@@ -3,10 +3,10 @@ import SwiftUI
 struct CFIPolicyGroupView: View {
     
     let tunnelMode: CFITunnelMode
-    @StateObject private var packetTunnelManager: PacketTunnelManager
+    @StateObject private var packetTunnelManager: MPPacketTunnelManager
     @State private var isPresented = false
     
-    init(tunnelMode: CFITunnelMode, packetTunnelManager: PacketTunnelManager) {
+    init(tunnelMode: CFITunnelMode, packetTunnelManager: MPPacketTunnelManager) {
         self.tunnelMode = tunnelMode
         self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
     }

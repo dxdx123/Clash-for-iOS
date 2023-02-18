@@ -2,11 +2,11 @@ import SwiftUI
 
 struct CFIProxyListView: View {
     
-    @StateObject private var packetTunnelManager: PacketTunnelManager
+    @StateObject private var packetTunnelManager: MPPacketTunnelManager
     
     @StateObject private var provider: CFIProviderViewModel
     
-    init(packetTunnelManager: PacketTunnelManager, provider: CFIProviderViewModel) {
+    init(packetTunnelManager: MPPacketTunnelManager, provider: CFIProviderViewModel) {
         self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
         self._provider = StateObject(wrappedValue: provider)
     }
