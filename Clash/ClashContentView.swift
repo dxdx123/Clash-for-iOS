@@ -75,22 +75,11 @@ struct ClashContentView: View {
                 }
             }
             .formStyle(.grouped)
-            .navigationTitle(Text("Clash"))
             .onChange(of: tunnelMode) { newValue in
                 packetTunnelManager.set(tunnelMode: newValue)
             }
             .onChange(of: current) { newValue in
                 packetTunnelManager.set(subscribe: newValue)
-            }
-            .toolbar {
-                Picker(selection: core) {
-                    ForEach(Core.allCases) { core in
-                        Text(core.rawValue.capitalized)
-                    }
-                } label: {
-                    Image(systemName: "ellipsis")
-                        .fontWeight(.bold)
-                }
             }
         }
     }

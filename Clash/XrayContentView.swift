@@ -41,17 +41,6 @@ struct XrayContentView: View {
                 }
             }
             .formStyle(.grouped)
-            .navigationTitle(Text("Xray"))
-            .toolbar {
-                Picker(selection: core) {
-                    ForEach(Core.allCases) { core in
-                        Text(core.rawValue.capitalized)
-                    }
-                } label: {
-                    Image(systemName: "ellipsis")
-                        .fontWeight(.bold)
-                }
-            }
         }
     }
 }

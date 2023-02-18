@@ -20,11 +20,29 @@ struct ContentView: View {
     @AppStorage(CFIConstant.core) private var core = Core.clash
 
     var body: some View {
-        switch core {
-        case .clash:
-            ClashContentView(core: $core)
-        case .xray:
-            XrayContentView(core: $core)
+        NavigationStack {
+            Group {
+                switch core {
+                case .clash:
+                    ClashContentView(core: $core)
+                case .xray:
+                    XrayContentView(core: $core)
+                }
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Picker(selection: $core) {
+                        ForEach(Core.allCases) { core in
+                            Text(core.rawValue.uppercased())
+                        }
+                    } label: {
+                        EmptyView()
+                    }
+                    .pickerStyle(.segmented)
+                    .frame(width: 200)
+                }
+            }
         }
     }
 }
