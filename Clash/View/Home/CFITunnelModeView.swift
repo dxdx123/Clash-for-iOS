@@ -2,9 +2,13 @@ import SwiftUI
 
 struct CFITunnelModeView: View {
     
-    @EnvironmentObject private var manager: PacketTunnelManager
-    
     let tunnelMode: Binding<CFITunnelMode>
+    @StateObject private var packetTunnelManager: PacketTunnelManager
+    
+    init(tunnelMode: Binding<CFITunnelMode>, packetTunnelManager: PacketTunnelManager) {
+        self.tunnelMode = tunnelMode
+        self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
+    }
     
     var body: some View {
         CFIFormPicker(title: "代理模式", selection: tunnelMode) {

@@ -40,7 +40,7 @@ struct ClashContentView: View {
                 }
                 Section {
                     NavigationLink {
-                        CFITunnelModeView(tunnelMode: $tunnelMode)
+                        CFITunnelModeView(tunnelMode: $tunnelMode, packetTunnelManager: packetTunnelManager)
                     } label: {
                         LabeledContent {
                             Text(tunnelMode.name)
@@ -53,7 +53,7 @@ struct ClashContentView: View {
                         }
                     }
                     LabeledContent {
-                        CFIPolicyGroupView(tunnelMode: tunnelMode)
+                        CFIPolicyGroupView(tunnelMode: tunnelMode, packetTunnelManager: packetTunnelManager)
                     } label: {
                         Label {
                             Text("策略组")
@@ -64,7 +64,7 @@ struct ClashContentView: View {
                 }
                 Section {
                     NavigationLink {
-                        CFISettingView(core: core)
+                        CFISettingView(core: core, packetTunnelManager: packetTunnelManager)
                     } label: {
                         Label {
                             Text("设置")
@@ -74,7 +74,6 @@ struct ClashContentView: View {
                     }
                 }
             }
-            
             .formStyle(.grouped)
             .navigationTitle(Text("Clash"))
             .onChange(of: tunnelMode) { newValue in
@@ -82,6 +81,16 @@ struct ClashContentView: View {
             }
             .onChange(of: current) { newValue in
                 packetTunnelManager.set(subscribe: newValue)
+            }
+            .toolbar {
+                Picker(selection: core) {
+                    ForEach(Core.allCases) { core in
+                        Text(core.rawValue.capitalized)
+                    }
+                } label: {
+                    Image(systemName: "ellipsis")
+                        .fontWeight(.bold)
+                }
             }
         }
     }

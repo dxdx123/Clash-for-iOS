@@ -2,15 +2,18 @@ import SwiftUI
 
 struct CFIPolicyGroupView: View {
     
-    @EnvironmentObject private var manager: PacketTunnelManager
-    
+    let tunnelMode: CFITunnelMode
+    @StateObject private var packetTunnelManager: PacketTunnelManager
     @State private var isPresented = false
     
-    let tunnelMode: CFITunnelMode
+    init(tunnelMode: CFITunnelMode, packetTunnelManager: PacketTunnelManager) {
+        self.tunnelMode = tunnelMode
+        self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
+    }
     
     var body: some View {
         Button {
-            guard let status = manager.status, status == .connected else {
+            guard let status = packetTunnelManager.status, status == .connected else {
                 CFINotification.send(title: "", subtitle: "", body: "未启动, 请启动之后查看策略组信息")
                 return
             }
@@ -26,7 +29,7 @@ struct CFIPolicyGroupView: View {
             }
         }
         .sheet(isPresented: $isPresented) {
-            CFIProviderListView(tunnelMode: tunnelMode)
+            CFIProviderListView(tunnelMode: tunnelMode, packetTunnelManager: packetTunnelManager)
         }
     }
 }

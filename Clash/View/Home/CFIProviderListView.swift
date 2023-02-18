@@ -2,13 +2,16 @@ import SwiftUI
 
 struct CFIProviderListView: View {
     
-    @EnvironmentObject private var manager: PacketTunnelManager
-    
     @Environment(\.dismiss) var dismiss
-    
     @StateObject private var providersManager = CFIProvidersManager()
-        
+    
     let tunnelMode: CFITunnelMode
+    @StateObject private var packetTunnelManager: PacketTunnelManager
+    
+    init(tunnelMode: CFITunnelMode, packetTunnelManager: PacketTunnelManager) {
+        self.tunnelMode = tunnelMode
+        self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
+    }
         
     var body: some View {
         NavigationStack {
@@ -16,46 +19,46 @@ struct CFIProviderListView: View {
                 if tunnelMode == .global {
                     Section {
                         ForEach(providersManager.gProviderVMs) { provider in
-                            ProviderCell(provider: provider)
+                            ProviderCell(packetTunnelManager: packetTunnelManager, provider: provider)
                         }
                     }
                 }
                 Section {
                     ForEach(providersManager.rProviderVMs) { provider in
-                        ProviderCell(provider: provider)
+                        ProviderCell(packetTunnelManager: packetTunnelManager, provider: provider)
                     }
                 }
             }
             .navigationTitle(Text("策略组"))
             .navigationBarTitleDisplayMode(.inline)
-            .onChange(of: manager.status) { status in
+            .onChange(of: packetTunnelManager.status) { status in
                 guard status != .connected else {
                     return
                 }
                 dismiss()
             }
             .onAppear {
-                manager.update(providersManager: providersManager)
+                packetTunnelManager.update(providersManager: providersManager)
             }
             .onReceive(Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()) { _ in
-                manager.update(providersManager: providersManager)
+                packetTunnelManager.update(providersManager: providersManager)
             }
         }
     }
     
     private struct ProviderCell: View {
         
-        @EnvironmentObject private var manager: PacketTunnelManager
-        
+        @StateObject private var packetTunnelManager: PacketTunnelManager
         @StateObject private var provider: CFIProviderViewModel
         
-        init(provider: CFIProviderViewModel) {
+        init(packetTunnelManager: PacketTunnelManager, provider: CFIProviderViewModel) {
+            self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
             self._provider = StateObject(wrappedValue: provider)
         }
                 
         var body: some View {
             NavigationLink {
-                CFIProxyListView(provider: provider)
+                CFIProxyListView(packetTunnelManager: packetTunnelManager, provider: provider)
             } label: {
                 HStack {
                     VStack(alignment: .leading, spacing: 6) {

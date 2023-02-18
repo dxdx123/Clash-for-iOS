@@ -30,7 +30,7 @@ struct XrayContentView: View {
                 }
                 Section {
                     NavigationLink {
-                        CFISettingView(core: core)
+                        CFISettingView(core: core, packetTunnelManager: packetTunnelManager)
                     } label: {
                         Label {
                             Text("设置")
@@ -42,8 +42,16 @@ struct XrayContentView: View {
             }
             .formStyle(.grouped)
             .navigationTitle(Text("Xray"))
+            .toolbar {
+                Picker(selection: core) {
+                    ForEach(Core.allCases) { core in
+                        Text(core.rawValue.capitalized)
+                    }
+                } label: {
+                    Image(systemName: "ellipsis")
+                        .fontWeight(.bold)
+                }
+            }
         }
-//        .environmentObject(packetTunnelManager)
-//        .environmentObject(databaseManager)
     }
 }

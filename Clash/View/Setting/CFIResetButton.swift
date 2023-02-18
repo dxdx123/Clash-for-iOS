@@ -2,9 +2,13 @@ import SwiftUI
 
 struct CFIResetButton: View {
     
-    @EnvironmentObject private var manager: PacketTunnelManager
+    @StateObject private var packetTunnelManager: PacketTunnelManager
     
     @State private var isPresented: Bool = false
+    
+    init(packetTunnelManager: PacketTunnelManager) {
+        self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
+    }
     
     var body: some View {
         HStack {
@@ -12,14 +16,14 @@ struct CFIResetButton: View {
             Button("重置VPN配置", role: .destructive) {
                 isPresented.toggle()
             }
-            .disabled(manager.status == nil)
+            .disabled(packetTunnelManager.status == nil)
             Spacer()
         }
         .alert("重置", isPresented: $isPresented) {
             Button("确定", role: .destructive) {
                 Task(priority: .high) {
-                    try await manager.removeFromPreferences()
-                    try await manager.saveToPreferences()
+                    try await packetTunnelManager.removeFromPreferences()
+                    try await packetTunnelManager.saveToPreferences()
                 }
             }
             Button("取消", role: .cancel, action: {})

@@ -2,8 +2,12 @@ import SwiftUI
 
 struct CFILogLevelView: View {
     
-    @EnvironmentObject private var manager: PacketTunnelManager
+    @StateObject private var packetTunnelManager: PacketTunnelManager
     @AppStorage(CFIConstant.logLevel, store: .shared) private var logLevel  = CFILogLevel.silent
+    
+    init(packetTunnelManager: PacketTunnelManager) {
+        self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
+    }
     
     var body: some View {
         NavigationLink {
@@ -31,7 +35,7 @@ struct CFILogLevelView: View {
             }
         }
         .onChange(of: logLevel) { newValue in
-            manager.set(logLevel: newValue)
+            packetTunnelManager.set(logLevel: newValue)
         }
     }
     

@@ -3,22 +3,28 @@ import SwiftUI
 struct CFISettingView: View {
     
     let core: Binding<Core>
+    @StateObject private var packetTunnelManager: PacketTunnelManager
+    
+    init(core: Binding<Core>, packetTunnelManager: PacketTunnelManager) {
+        self.core = core
+        self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
+    }
     
     var body: some View {
         Form {
-//            Section {
-//                switch core.wrappedValue {
-//                case .clash:
-//                    CFILogLevelView()
-//                    CFIGeoIPView()
-//                        .environmentObject(CFIGEOIPManager())
-//                    CFIIPV6View()
-//                case .xray:
-//                    EmptyView()
-//                }
-//            } header: {
-//                Text("内核")
-//            }
+            Section {
+                switch core.wrappedValue {
+                case .clash:
+                    CFILogLevelView(packetTunnelManager: packetTunnelManager)
+                    CFIGeoIPView()
+                        .environmentObject(CFIGEOIPManager())
+                    CFIIPV6View(packetTunnelManager: packetTunnelManager)
+                case .xray:
+                    EmptyView()
+                }
+            } header: {
+                Text("内核")
+            }
             Section {
                 CFIAppearanceView()
                 CFIAccentColorView()
@@ -26,18 +32,8 @@ struct CFISettingView: View {
                 Text("主题")
             }
             Section {
-                Picker(selection: core) {
-                    ForEach(Core.allCases) { core in
-                        Text(core.rawValue)
-                    }
-                } label: {
-                    Text("内核")
-                }
-                .pickerStyle(.menu)
+                CFIResetButton(packetTunnelManager: packetTunnelManager)
             }
-//            Section {
-//                CFIResetButton()
-//            }
         }
         .formStyle(.grouped)
         .navigationBarTitleDisplayMode(.inline)

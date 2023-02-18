@@ -2,11 +2,12 @@ import SwiftUI
 
 struct CFIProxyListView: View {
     
-    @EnvironmentObject private var manager: PacketTunnelManager
+    @StateObject private var packetTunnelManager: PacketTunnelManager
     
     @StateObject private var provider: CFIProviderViewModel
     
-    init(provider: CFIProviderViewModel) {
+    init(packetTunnelManager: PacketTunnelManager, provider: CFIProviderViewModel) {
+        self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
         self._provider = StateObject(wrappedValue: provider)
     }
     
@@ -18,7 +19,7 @@ struct CFIProxyListView: View {
                     guard provider.type == .selector else {
                         return
                     }
-                    manager.set(provider: provider.name, selected: proxy.name)
+                    packetTunnelManager.set(provider: provider.name, selected: proxy.name)
                     provider.now = proxy.name
                 }
         }
@@ -30,7 +31,7 @@ struct CFIProxyListView: View {
                     ProgressView()
                 } else {
                     Button {
-                        manager.healthCheck(name: provider.name, isProcessing: $provider.isHealthChecking)
+                        packetTunnelManager.healthCheck(name: provider.name, isProcessing: $provider.isHealthChecking)
                     } label: {
                         Image(systemName: "speedometer")
                     }
