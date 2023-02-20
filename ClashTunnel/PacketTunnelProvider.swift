@@ -10,7 +10,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             settings.includedRoutes = [NEIPv4Route.default()]
             return settings
         }()
-        if UserDefaults.shared.bool(forKey: CFIConstant.ipv6Enable){
+        if UserDefaults.shared.bool(forKey: MPConstant.Clash.ipv6Enable){
             settings.ipv6Settings = {
                 let settings = NEIPv6Settings(addresses: ["fd6e:a81b:704f:1211::1"], networkPrefixLengths: [64])
                 settings.includedRoutes = [NEIPv6Route.default()]

@@ -1,21 +1,21 @@
 import UIKit
 import UserNotifications
 
-extension CFIConstant {
+extension MPConstant {
     fileprivate static let isAppHasLaunched = "IS_APP_HAS_LAUNCHED"
 }
 
 final class MPAppDelegate: NSObject, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        if !UserDefaults.standard.bool(forKey: CFIConstant.isAppHasLaunched) {
-            UserDefaults.shared.set(MPCTunnelMode.rule.rawValue, forKey: CFIConstant.tunnelMode)
-            UserDefaults.shared.set(MPCLogLevel.silent.rawValue, forKey: CFIConstant.logLevel)
-            UserDefaults.standard.set(CFIConstant.defaultGeoIPDatabaseRemoteURLString, forKey: CFIConstant.geoipDatabaseRemoteURLString)
-            UserDefaults.standard.set(true, forKey: CFIConstant.geoipDatabaseAutoUpdate)
-            UserDefaults.standard.set(CFIConstant.geoipDatabaseAutoUpdateInterval, forKey: MPCGEOIPAutoUpdateInterval.week.rawValue)
+        if !UserDefaults.standard.bool(forKey: MPConstant.isAppHasLaunched) {
+            UserDefaults.shared.set(MPCTunnelMode.rule.rawValue, forKey: MPConstant.Clash.tunnelMode)
+            UserDefaults.shared.set(MPCLogLevel.silent.rawValue, forKey: MPConstant.Clash.logLevel)
+            UserDefaults.standard.set(MPConstant.Clash.defaultGeoIPDatabaseRemoteURLString, forKey: MPConstant.Clash.geoipDatabaseRemoteURLString)
+            UserDefaults.standard.set(true, forKey: MPConstant.Clash.geoipDatabaseAutoUpdate)
+            UserDefaults.standard.set(MPConstant.Clash.geoipDatabaseAutoUpdateInterval, forKey: MPCGEOIPAutoUpdateInterval.week.rawValue)
             UserDefaults.standard.set(MPAccentColor.system.rawValue, forKey: MPConstant.accentColor)
-            UserDefaults.standard.setValue(true, forKey: CFIConstant.isAppHasLaunched)
+            UserDefaults.standard.setValue(true, forKey: MPConstant.isAppHasLaunched)
         }
         application.overrideUserInterfaceStyle()
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: { _, _ in })

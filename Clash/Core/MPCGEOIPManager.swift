@@ -5,19 +5,19 @@ final class MPCGEOIPManager: ObservableObject {
     @Published var isUpdating: Bool = false
     @Published var leastUpdated: Date?
     
-    private let fileURL = CFIConstant.homeDirectory.appendingPathComponent("Country.mmdb")
+    private let fileURL = MPConstant.Clash.homeDirectory.appendingPathComponent("Country.mmdb")
     
     init() {
         refresh()
     }
     
     func checkAndUpdateIfNeeded() {
-        guard UserDefaults.standard.bool(forKey: CFIConstant.geoipDatabaseAutoUpdate) else {
+        guard UserDefaults.standard.bool(forKey: MPConstant.Clash.geoipDatabaseAutoUpdate) else {
             return
         }
         let shouldUpdate: Bool
         if let least = leastUpdated {
-            let interval = UserDefaults.standard.string(forKey: CFIConstant.geoipDatabaseAutoUpdateInterval).flatMap(MPCGEOIPAutoUpdateInterval.init(rawValue:)) ?? .week
+            let interval = UserDefaults.standard.string(forKey: MPConstant.Clash.geoipDatabaseAutoUpdateInterval).flatMap(MPCGEOIPAutoUpdateInterval.init(rawValue:)) ?? .week
             let day: Double
             switch interval {
             case .day:
@@ -31,7 +31,7 @@ final class MPCGEOIPManager: ObservableObject {
         } else {
             shouldUpdate = true
         }
-        guard shouldUpdate, let url = URL(string: UserDefaults.standard.string(forKey: CFIConstant.geoipDatabaseRemoteURLString) ?? "") else {
+        guard shouldUpdate, let url = URL(string: UserDefaults.standard.string(forKey: MPConstant.Clash.geoipDatabaseRemoteURLString) ?? "") else {
             return
         }
         Task(priority: .medium) {
@@ -63,7 +63,7 @@ final class MPCGEOIPManager: ObservableObject {
             isUpdating = true
         }
         do {
-            let destinationURL = CFIConstant.homeDirectory.appendingPathComponent("Country.mmdb")
+            let destinationURL = MPConstant.Clash.homeDirectory.appendingPathComponent("Country.mmdb")
             let tempURL = try await URLSession.shared.download(from: url, delegate: nil).0
             if FileManager.default.fileExists(atPath: destinationURL.path(percentEncoded: false)) {
                 try FileManager.default.removeItem(at: destinationURL)
@@ -89,7 +89,7 @@ final class MPCGEOIPManager: ObservableObject {
         defer {
             url.stopAccessingSecurityScopedResource()
         }
-        let destinationURL = CFIConstant.homeDirectory.appendingPathComponent("Country.mmdb")
+        let destinationURL = MPConstant.Clash.homeDirectory.appendingPathComponent("Country.mmdb")
         if FileManager.default.fileExists(atPath: destinationURL.path(percentEncoded: false)) {
             try FileManager.default.removeItem(at: destinationURL)
         }

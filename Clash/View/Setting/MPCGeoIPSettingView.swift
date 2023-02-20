@@ -14,7 +14,7 @@ extension UTType {
     static let mmdb = UTType(filenameExtension: "mmdb")!
 }
 
-extension CFIConstant {
+extension MPConstant.Clash {
     static let defaultGeoIPDatabaseRemoteURLString  = "https://github.com/Dreamacro/maxmind-geoip/releases/latest/download/Country.mmdb"
     static let geoipDatabaseRemoteURLString         = "CLASH_GEOIP_DATABASE_REMOTE_URL_STRING"
     static let geoipDatabaseAutoUpdate              = "CLASH_GEOIP_DATABASE_AUTO_UPDATE"
@@ -26,9 +26,9 @@ struct MPCGeoIPSettingView: View {
     @EnvironmentObject private var geoipManager: MPCGEOIPManager
     @Environment(\.dismiss) private var dismiss
     
-    @AppStorage(CFIConstant.geoipDatabaseRemoteURLString) private var geoipDatabaseRemoteURLString: String = CFIConstant.defaultGeoIPDatabaseRemoteURLString
-    @AppStorage(CFIConstant.geoipDatabaseAutoUpdate) private var geoipDatabaseAutoUpdate: Bool = true
-    @AppStorage(CFIConstant.geoipDatabaseAutoUpdateInterval) private var geoipDatabaseAutoUpdateInterval: MPCGEOIPAutoUpdateInterval = .week
+    @AppStorage(MPConstant.Clash.geoipDatabaseRemoteURLString) private var geoipDatabaseRemoteURLString: String = MPConstant.Clash.defaultGeoIPDatabaseRemoteURLString
+    @AppStorage(MPConstant.Clash.geoipDatabaseAutoUpdate) private var geoipDatabaseAutoUpdate: Bool = true
+    @AppStorage(MPConstant.Clash.geoipDatabaseAutoUpdateInterval) private var geoipDatabaseAutoUpdateInterval: MPCGEOIPAutoUpdateInterval = .week
     
     @State private var isFileImporterPresented: Bool = false
     

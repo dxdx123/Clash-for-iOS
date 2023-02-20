@@ -3,7 +3,7 @@ import NetworkExtension
 
 struct MPCContentView: View {
         
-    @AppStorage(CFIConstant.current,    store: .shared) private var current     = ""
+    @AppStorage(MPConstant.Clash.current, store: .shared) private var current = ""
     
     @StateObject private var packetTunnelManager    = MPPacketTunnelManager(kernel: .clash)
     @StateObject private var subscribeManager       = MPCSubscribeManager()

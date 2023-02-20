@@ -30,7 +30,7 @@ final class MPCSubscribeManager: ObservableObject {
     
     private func fetchSubscribes() -> [MPCSubscribe] {
         do {
-            let children = try FileManager.default.contentsOfDirectory(at: CFIConstant.homeDirectory, includingPropertiesForKeys: nil)
+            let children = try FileManager.default.contentsOfDirectory(at: MPConstant.Clash.homeDirectory, includingPropertiesForKeys: nil)
             return children.compactMap(load(from:)).sorted(by: { $0.creationDate < $1.creationDate })
         } catch {
             return []
@@ -45,7 +45,7 @@ final class MPCSubscribeManager: ObservableObject {
             let attributes = try FileManager.default.attributesOfItem(atPath: url.path(percentEncoded: false))
             guard let creationDate = attributes[.creationDate] as? Date,
                   let extends = attributes[.extended] as? [String: Data],
-                  let data = extends[CFIConstant.extendAttributeKey] else {
+                  let data = extends[MPConstant.Clash.extendAttributeKey] else {
                 return nil
             }
             return MPCSubscribe(
@@ -60,7 +60,7 @@ final class MPCSubscribeManager: ObservableObject {
     
     func delete(subscribe: MPCSubscribe) throws {
         do {
-            try FileManager.default.removeItem(at: CFIConstant.homeDirectory.appending(path: "\(subscribe.id).yaml"))
+            try FileManager.default.removeItem(at: MPConstant.Clash.homeDirectory.appending(path: "\(subscribe.id).yaml"))
         } catch {
             debugPrint(error.localizedDescription)
         }
@@ -68,14 +68,14 @@ final class MPCSubscribeManager: ObservableObject {
     }
     
     func rename(subscribe: MPCSubscribe, name: String) throws {
-        let target = CFIConstant.homeDirectory.appending(path: "\(subscribe.id).yaml")
+        let target = MPConstant.Clash.homeDirectory.appending(path: "\(subscribe.id).yaml")
         let extend = MPCSubscribe.Extend(
             alias: name,
             source: subscribe.extend.source,
             leastUpdated: subscribe.extend.leastUpdated
         )
         try FileManager.default.setAttributes(
-            [.extended: [CFIConstant.extendAttributeKey: try JSONEncoder().encode(extend)]],
+            [.extended: [MPConstant.Clash.extendAttributeKey: try JSONEncoder().encode(extend)]],
             ofItemAtPath: target.path(percentEncoded: false)
         )
         self.subscribes = self.fetchSubscribes()
@@ -84,7 +84,7 @@ final class MPCSubscribeManager: ObservableObject {
     func download(source: URL) async throws {
         let id = UUID().uuidString
         let data = try await URLSession.shared.data(for: URLRequest(url: source)).0
-        let target = CFIConstant.homeDirectory.appending(path: "\(id).yaml")
+        let target = MPConstant.Clash.homeDirectory.appending(path: "\(id).yaml")
         try data.write(to: target)
         let extend = MPCSubscribe.Extend(
             alias: id,
@@ -92,7 +92,7 @@ final class MPCSubscribeManager: ObservableObject {
             leastUpdated: Date()
         )
         try FileManager.default.setAttributes(
-            [.extended: [CFIConstant.extendAttributeKey: try JSONEncoder().encode(extend)]],
+            [.extended: [MPConstant.Clash.extendAttributeKey: try JSONEncoder().encode(extend)]],
             ofItemAtPath: target.path(percentEncoded: false)
         )
         await MainActor.run {
@@ -106,7 +106,7 @@ final class MPCSubscribeManager: ObservableObject {
                 _ = self.downloadingSubscribeIDs.insert(subscribe.id)
             }
             let data = try await URLSession.shared.data(for: URLRequest(url: subscribe.extend.source)).0
-            let target = CFIConstant.homeDirectory.appending(path: "\(subscribe.id).yaml")
+            let target = MPConstant.Clash.homeDirectory.appending(path: "\(subscribe.id).yaml")
             try data.write(to: target)
             let extend = MPCSubscribe.Extend(
                 alias: subscribe.extend.alias,
@@ -114,7 +114,7 @@ final class MPCSubscribeManager: ObservableObject {
                 leastUpdated: Date()
             )
             try FileManager.default.setAttributes(
-                [.extended: [CFIConstant.extendAttributeKey: try JSONEncoder().encode(extend)]],
+                [.extended: [MPConstant.Clash.extendAttributeKey: try JSONEncoder().encode(extend)]],
                 ofItemAtPath: target.path(percentEncoded: false)
             )
             await MainActor.run {

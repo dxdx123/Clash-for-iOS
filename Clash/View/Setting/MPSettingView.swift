@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MPSettingView: View {
     
-    @AppStorage(CFIConstant.tunnelMode, store: .shared) private var tunnelMode = MPCTunnelMode.rule
+    @AppStorage(MPConstant.Clash.tunnelMode, store: .shared) private var tunnelMode = MPCTunnelMode.rule
     
     @StateObject private var packetTunnelManager: MPPacketTunnelManager
     

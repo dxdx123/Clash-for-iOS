@@ -55,8 +55,6 @@
 		70C9EDBE29502D3500B6995B /* MPPacketTunnelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDBD29502D3500B6995B /* MPPacketTunnelManager.swift */; };
 		70C9EDCA2950565400B6995B /* MPSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDC92950565400B6995B /* MPSettingView.swift */; };
 		70C9EDCC295057DB00B6995B /* MPCProviderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDCB295057DB00B6995B /* MPCProviderListView.swift */; };
-		70C9EDD12951469E00B6995B /* CFIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD02951469E00B6995B /* CFIConstant.swift */; };
-		70C9EDD22951469E00B6995B /* CFIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD02951469E00B6995B /* CFIConstant.swift */; };
 		70C9EDD82951587D00B6995B /* MPResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD72951587D00B6995B /* MPResetButton.swift */; };
 		70C9EDDA2951841E00B6995B /* MPCSubscribeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD92951841E00B6995B /* MPCSubscribeListView.swift */; };
 		70CEB88529A07605003436C2 /* MPXContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB88429A07605003436C2 /* MPXContentView.swift */; };
@@ -64,6 +62,8 @@
 		70CEB88F29A0C4D9003436C2 /* MPSettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB88E29A0C4D9003436C2 /* MPSettingButton.swift */; };
 		70CEB89129A0C775003436C2 /* MPKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB89029A0C775003436C2 /* MPKernel.swift */; };
 		70CEB89329A0C7BA003436C2 /* MPConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB89229A0C7BA003436C2 /* MPConstant.swift */; };
+		70CEB89829A30C79003436C2 /* MPConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB89229A0C7BA003436C2 /* MPConstant.swift */; };
+		70CEB89929A30C79003436C2 /* MPConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB89229A0C7BA003436C2 /* MPConstant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,7 +150,6 @@
 		70C9EDBF2950303900B6995B /* Clash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clash.entitlements; sourceTree = "<group>"; };
 		70C9EDC92950565400B6995B /* MPSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPSettingView.swift; sourceTree = "<group>"; };
 		70C9EDCB295057DB00B6995B /* MPCProviderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCProviderListView.swift; sourceTree = "<group>"; };
-		70C9EDD02951469E00B6995B /* CFIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIConstant.swift; sourceTree = "<group>"; };
 		70C9EDD72951587D00B6995B /* MPResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPResetButton.swift; sourceTree = "<group>"; };
 		70C9EDD92951841E00B6995B /* MPCSubscribeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSubscribeListView.swift; sourceTree = "<group>"; };
 		70CEB88429A07605003436C2 /* MPXContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPXContentView.swift; sourceTree = "<group>"; };
@@ -339,7 +338,6 @@
 		70C9EDCF295145DB00B6995B /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				70C9EDD02951469E00B6995B /* CFIConstant.swift */,
 				70CEB89229A0C7BA003436C2 /* MPConstant.swift */,
 				7084FC1C295ECBC900065DAF /* MPCAppMessage.swift */,
 				7084FC1F295ECC7400065DAF /* MPCTunnelMode.swift */,
@@ -487,6 +485,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70CEB89929A30C79003436C2 /* MPConstant.swift in Sources */,
 				702D9094299FA40600B83324 /* PacketTunnelProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,7 +514,6 @@
 				7084FC362967B8AC00065DAF /* MPCGeoIPSettingView.swift in Sources */,
 				70C9EDCA2950565400B6995B /* MPSettingView.swift in Sources */,
 				70B947AF29612F46006F6A38 /* MPCSubscribeView.swift in Sources */,
-				70C9EDD12951469E00B6995B /* CFIConstant.swift in Sources */,
 				7084FC3C29680A2200065DAF /* MPAccentColor.swift in Sources */,
 				70CEB89129A0C775003436C2 /* MPKernel.swift in Sources */,
 				7084FC3A2967E6FD00065DAF /* MPCGEOIPManager.swift in Sources */,
@@ -546,7 +544,7 @@
 			files = (
 				7084FC312965872200065DAF /* MPCLogLevel.swift in Sources */,
 				70C9EDB029502C6500B6995B /* PacketTunnelProvider.swift in Sources */,
-				70C9EDD22951469E00B6995B /* CFIConstant.swift in Sources */,
+				70CEB89829A30C79003436C2 /* MPConstant.swift in Sources */,
 				702D908B299B58A400B83324 /* MPNotification.swift in Sources */,
 				70B947A9295F302B006F6A38 /* Clash.swift in Sources */,
 				7084FC1E295ECBC900065DAF /* MPCAppMessage.swift in Sources */,
