@@ -83,7 +83,12 @@ final class MPCSubscribeManager: ObservableObject {
     
     func download(source: URL) async throws {
         let id = UUID().uuidString
-        let data = try await URLSession.shared.data(for: URLRequest(url: source)).0
+        let request: URLRequest = {
+            var temp = URLRequest(url: source)
+            temp.allHTTPHeaderFields = ["User-Agent": "Clash"]
+            return temp
+        }()
+        let data = try await URLSession.shared.data(for: request).0
         let target = MPConstant.Clash.homeDirectory.appending(path: "\(id).yaml")
         try data.write(to: target)
         let extend = MPCSubscribe.Extend(
