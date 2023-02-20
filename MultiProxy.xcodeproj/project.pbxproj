@@ -16,6 +16,11 @@
 		7000C6E0295D60A50005626E /* MPCTunnelModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6DF295D60A50005626E /* MPCTunnelModeView.swift */; };
 		7000C6E4295D635F0005626E /* MPControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6E3295D635F0005626E /* MPControlView.swift */; };
 		7015F0DD296C5C25003E6A7D /* ClashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7015F0DC296C5C25003E6A7D /* ClashKit */; };
+		701811D729A32D58005E5CDB /* MPNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MPNotification.swift */; };
+		701811D929A32D6C005E5CDB /* MPCConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811D829A32D6C005E5CDB /* MPCConstant.swift */; };
+		701811DA29A32D71005E5CDB /* MPCConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811D829A32D6C005E5CDB /* MPCConstant.swift */; };
+		701811DC29A32D7A005E5CDB /* MPXConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811DB29A32D7A005E5CDB /* MPXConstant.swift */; };
+		701811DD29A32E28005E5CDB /* MPXConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811DB29A32D7A005E5CDB /* MPXConstant.swift */; };
 		702D9087299B2B4500B83324 /* MPCIPV6View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9086299B2B4500B83324 /* MPCIPV6View.swift */; };
 		702D908A299B58A400B83324 /* MPNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MPNotification.swift */; };
 		702D908B299B58A400B83324 /* MPNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MPNotification.swift */; };
@@ -107,6 +112,8 @@
 		7000C6DD295D5F690005626E /* MPConnectedDurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPConnectedDurationView.swift; sourceTree = "<group>"; };
 		7000C6DF295D60A50005626E /* MPCTunnelModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCTunnelModeView.swift; sourceTree = "<group>"; };
 		7000C6E3295D635F0005626E /* MPControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPControlView.swift; sourceTree = "<group>"; };
+		701811D829A32D6C005E5CDB /* MPCConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCConstant.swift; sourceTree = "<group>"; };
+		701811DB29A32D7A005E5CDB /* MPXConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPXConstant.swift; sourceTree = "<group>"; };
 		702D9086299B2B4500B83324 /* MPCIPV6View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCIPV6View.swift; sourceTree = "<group>"; };
 		702D9088299B54FD00B83324 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		702D9089299B58A400B83324 /* MPNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPNotification.swift; sourceTree = "<group>"; };
@@ -187,6 +194,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		701811CC29A32B7A005E5CDB /* Clash */ = {
+			isa = PBXGroup;
+			children = (
+				70C9ED9A29501D5B00B6995B /* MPCContentView.swift */,
+				701811CE29A32B9C005E5CDB /* Core */,
+				70B947AB295F37AC006F6A38 /* View */,
+			);
+			path = Clash;
+			sourceTree = "<group>";
+		};
+		701811CD29A32B81005E5CDB /* Xray */ = {
+			isa = PBXGroup;
+			children = (
+				70CEB88429A07605003436C2 /* MPXContentView.swift */,
+				701811CF29A32BA2005E5CDB /* Core */,
+				701811D029A32BD4005E5CDB /* View */,
+			);
+			path = Xray;
+			sourceTree = "<group>";
+		};
+		701811CE29A32B9C005E5CDB /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				7000C6D1295AED790005626E /* MPCProvidersManager.swift */,
+				7000C6D5295AED790005626E /* MPCUpdatableViewModel.swift */,
+				7000C6D4295AED790005626E /* MPCProviderViewModel.swift */,
+				7000C6D2295AED790005626E /* MPCProxyViewModel.swift */,
+				7000C6D3295AED790005626E /* MPCProxyModel.swift */,
+				70B947B029613321006F6A38 /* MPCSubscribeManager.swift */,
+				7084FC392967E6FD00065DAF /* MPCGEOIPManager.swift */,
+				70615838298620F20005C024 /* MPCTrafficFormatter.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		701811CF29A32BA2005E5CDB /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		701811D029A32BD4005E5CDB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		701811D529A32D1B005E5CDB /* Clash */ = {
+			isa = PBXGroup;
+			children = (
+				701811D829A32D6C005E5CDB /* MPCConstant.swift */,
+				7084FC1C295ECBC900065DAF /* MPCAppMessage.swift */,
+				7084FC1F295ECC7400065DAF /* MPCTunnelMode.swift */,
+				7084FC2F2965872200065DAF /* MPCLogLevel.swift */,
+			);
+			path = Clash;
+			sourceTree = "<group>";
+		};
+		701811D629A32D21005E5CDB /* Xray */ = {
+			isa = PBXGroup;
+			children = (
+				701811DB29A32D7A005E5CDB /* MPXConstant.swift */,
+			);
+			path = Xray;
+			sourceTree = "<group>";
+		};
 		702D9092299FA40600B83324 /* XrayTunnel */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,15 +279,11 @@
 				70C9EDD72951587D00B6995B /* MPResetButton.swift */,
 				708A48E92962AA2B0040184C /* MPAppearanceView.swift */,
 				70615813296815260005C024 /* MPAccentColorView.swift */,
-				7084FC32296587C600065DAF /* MPCLogLevelView.swift */,
-				7084FC372967DB7300065DAF /* MPCGeoIPView.swift */,
-				7084FC352967B8AC00065DAF /* MPCGeoIPSettingView.swift */,
-				702D9086299B2B4500B83324 /* MPCIPV6View.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
 		};
-		70B947AB295F37AC006F6A38 /* Home */ = {
+		70B947AB295F37AC006F6A38 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				70B947AE29612F46006F6A38 /* MPCSubscribeView.swift */,
@@ -222,16 +293,13 @@
 				708A48E0296295C50040184C /* MPCPolicyGroupView.swift */,
 				70C9EDCB295057DB00B6995B /* MPCProviderListView.swift */,
 				708A48E2296299640040184C /* MPCProxyListView.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		70B947AD29612F22006F6A38 /* Subscribe */ = {
-			isa = PBXGroup;
-			children = (
 				70C9EDD92951841E00B6995B /* MPCSubscribeListView.swift */,
+				7084FC32296587C600065DAF /* MPCLogLevelView.swift */,
+				7084FC372967DB7300065DAF /* MPCGeoIPView.swift */,
+				7084FC352967B8AC00065DAF /* MPCGeoIPSettingView.swift */,
+				702D9086299B2B4500B83324 /* MPCIPV6View.swift */,
 			);
-			path = Subscribe;
+			path = View;
 			sourceTree = "<group>";
 		};
 		70C9ED8C29501D5B00B6995B = {
@@ -264,10 +332,8 @@
 				70C9EDBF2950303900B6995B /* MPApp.entitlements */,
 				70B947B229613354006F6A38 /* MPAppDelegate.swift */,
 				70C9ED9829501D5B00B6995B /* MPApp.swift */,
-				70C9ED9A29501D5B00B6995B /* MPCContentView.swift */,
-				70CEB88429A07605003436C2 /* MPXContentView.swift */,
-				708A48EB2962AD740040184C /* MPAppearance.swift */,
-				7084FC3B29680A2200065DAF /* MPAccentColor.swift */,
+				701811CC29A32B7A005E5CDB /* Clash */,
+				701811CD29A32B81005E5CDB /* Xray */,
 				70C9EDC02950415F00B6995B /* View */,
 				70C9EDBA29502CF000B6995B /* Core */,
 				70C9ED9C29501D5C00B6995B /* Assets.xcassets */,
@@ -309,14 +375,8 @@
 			children = (
 				70CEB89029A0C775003436C2 /* MPKernel.swift */,
 				70C9EDBD29502D3500B6995B /* MPPacketTunnelManager.swift */,
-				7000C6D1295AED790005626E /* MPCProvidersManager.swift */,
-				7000C6D5295AED790005626E /* MPCUpdatableViewModel.swift */,
-				7000C6D4295AED790005626E /* MPCProviderViewModel.swift */,
-				7000C6D2295AED790005626E /* MPCProxyViewModel.swift */,
-				7000C6D3295AED790005626E /* MPCProxyModel.swift */,
-				70B947B029613321006F6A38 /* MPCSubscribeManager.swift */,
-				7084FC392967E6FD00065DAF /* MPCGEOIPManager.swift */,
-				70615838298620F20005C024 /* MPCTrafficFormatter.swift */,
+				708A48EB2962AD740040184C /* MPAppearance.swift */,
+				7084FC3B29680A2200065DAF /* MPAccentColor.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -328,8 +388,6 @@
 				7061581529695E6A0005C024 /* MPFormPicker.swift */,
 				70CEB88E29A0C4D9003436C2 /* MPSettingButton.swift */,
 				70CEB88C29A0BEEF003436C2 /* MPAppVersionView.swift */,
-				70B947AB295F37AC006F6A38 /* Home */,
-				70B947AD29612F22006F6A38 /* Subscribe */,
 				70B947AA295F378C006F6A38 /* Setting */,
 			);
 			path = View;
@@ -339,10 +397,9 @@
 			isa = PBXGroup;
 			children = (
 				70CEB89229A0C7BA003436C2 /* MPConstant.swift */,
-				7084FC1C295ECBC900065DAF /* MPCAppMessage.swift */,
-				7084FC1F295ECC7400065DAF /* MPCTunnelMode.swift */,
-				7084FC2F2965872200065DAF /* MPCLogLevel.swift */,
 				702D9089299B58A400B83324 /* MPNotification.swift */,
+				701811D529A32D1B005E5CDB /* Clash */,
+				701811D629A32D21005E5CDB /* Xray */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -487,6 +544,8 @@
 			files = (
 				70CEB89929A30C79003436C2 /* MPConstant.swift in Sources */,
 				702D9094299FA40600B83324 /* PacketTunnelProvider.swift in Sources */,
+				701811D729A32D58005E5CDB /* MPNotification.swift in Sources */,
+				701811DD29A32E28005E5CDB /* MPXConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +569,7 @@
 				7084FC302965872200065DAF /* MPCLogLevel.swift in Sources */,
 				7084FC382967DB7300065DAF /* MPCGeoIPView.swift in Sources */,
 				70B947B129613321006F6A38 /* MPCSubscribeManager.swift in Sources */,
+				701811D929A32D6C005E5CDB /* MPCConstant.swift in Sources */,
 				7000C6D6295AED790005626E /* MPCProvidersManager.swift in Sources */,
 				7084FC362967B8AC00065DAF /* MPCGeoIPSettingView.swift in Sources */,
 				70C9EDCA2950565400B6995B /* MPSettingView.swift in Sources */,
@@ -529,6 +589,7 @@
 				70615839298620F20005C024 /* MPCTrafficFormatter.swift in Sources */,
 				70CEB89329A0C7BA003436C2 /* MPConstant.swift in Sources */,
 				7061581629695E6A0005C024 /* MPFormPicker.swift in Sources */,
+				701811DC29A32D7A005E5CDB /* MPXConstant.swift in Sources */,
 				702D9087299B2B4500B83324 /* MPCIPV6View.swift in Sources */,
 				7000C6D9295AED790005626E /* MPCProviderViewModel.swift in Sources */,
 				7000C6DE295D5F690005626E /* MPConnectedDurationView.swift in Sources */,
@@ -548,6 +609,7 @@
 				702D908B299B58A400B83324 /* MPNotification.swift in Sources */,
 				70B947A9295F302B006F6A38 /* Clash.swift in Sources */,
 				7084FC1E295ECBC900065DAF /* MPCAppMessage.swift in Sources */,
+				701811DA29A32D71005E5CDB /* MPCConstant.swift in Sources */,
 				7084FC21295ECC7400065DAF /* MPCTunnelMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
