@@ -30,8 +30,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "70C9ED9429501D5B00B6995B"
-               BuildableName = "Clash.app"
-               BlueprintName = "Clash"
+               BuildableName = "MultiProxy.app"
+               BlueprintName = "MultiProxy"
                ReferencedContainer = "container:Clash.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "70C9ED9429501D5B00B6995B"
-            BuildableName = "Clash.app"
-            BlueprintName = "Clash"
+            BuildableName = "MultiProxy.app"
+            BlueprintName = "MultiProxy"
             ReferencedContainer = "container:Clash.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -81,8 +81,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "70C9ED9429501D5B00B6995B"
-            BuildableName = "Clash.app"
-            BlueprintName = "Clash"
+            BuildableName = "MultiProxy.app"
+            BlueprintName = "MultiProxy"
             ReferencedContainer = "container:Clash.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

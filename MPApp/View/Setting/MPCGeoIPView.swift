@@ -7,6 +7,7 @@ struct MPCGeoIPView: View {
     var body: some View {
         NavigationLink {
             MPCGeoIPSettingView()
+                .environmentObject(geoipManager)
         } label: {
             LabeledContent {
                 if geoipManager.isUpdating {
