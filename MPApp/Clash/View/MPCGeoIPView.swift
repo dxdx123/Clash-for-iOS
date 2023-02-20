@@ -2,7 +2,11 @@ import SwiftUI
 
 struct MPCGeoIPView: View {
     
-    @EnvironmentObject private var geoipManager: MPCGEOIPManager
+    @StateObject private var geoipManager: MPCGEOIPManager
+    
+    init(geoipManager: MPCGEOIPManager) {
+        self._geoipManager = StateObject(wrappedValue: geoipManager)
+    }
     
     var body: some View {
         NavigationLink {

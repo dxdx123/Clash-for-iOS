@@ -7,7 +7,7 @@ struct MPCContentView: View {
     
     @StateObject private var packetTunnelManager    = MPPacketTunnelManager(kernel: .clash)
     @StateObject private var subscribeManager       = MPCSubscribeManager()
-    @StateObject private var databaseManager        = MPCGEOIPManager()
+    @StateObject private var geoipManager           = MPCGEOIPManager()
     
     var body: some View {
         Form {
@@ -32,9 +32,14 @@ struct MPCContentView: View {
         .onChange(of: current) { newValue in
             packetTunnelManager.set(subscribe: newValue)
         }
+        .onAppear {
+            geoipManager.checkAndUpdateIfNeeded()
+        }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                MPSettingButton(packetTunnelManager: packetTunnelManager)
+                MPSettingButton {
+                    MPCSettingView(packetTunnelManager: packetTunnelManager, geoipManager: geoipManager)
+                }
             }
         }
     }

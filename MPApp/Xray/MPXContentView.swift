@@ -3,7 +3,6 @@ import SwiftUI
 struct MPXContentView: View {
         
     @StateObject private var packetTunnelManager    = MPPacketTunnelManager(kernel: .xray)
-    @StateObject private var databaseManager        = MPCGEOIPManager()
     
     var body: some View {
         Form {
@@ -17,7 +16,11 @@ struct MPXContentView: View {
         .formStyle(.grouped)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                MPSettingButton(packetTunnelManager: packetTunnelManager)
+                MPSettingButton {
+                    NavigationStack {
+                        MPXSettingView(packetTunnelManager: packetTunnelManager)
+                    }
+                }
             }
         }
     }
