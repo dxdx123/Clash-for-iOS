@@ -2,7 +2,8 @@ import SwiftUI
 
 struct CFISettingView: View {
     
-    @AppStorage(MPConstant.kernel) private var kernel = MPKernel.clash
+    @AppStorage(MPConstant.kernel)                      private var kernel      = MPKernel.clash
+    @AppStorage(CFIConstant.tunnelMode, store: .shared) private var tunnelMode  = CFITunnelMode.rule
     
     @StateObject private var packetTunnelManager: MPPacketTunnelManager
     
@@ -16,6 +17,7 @@ struct CFISettingView: View {
                 Section {
                     switch kernel {
                     case .clash:
+                        CFITunnelModeView(tunnelMode: $tunnelMode, packetTunnelManager: packetTunnelManager)
                         CFILogLevelView(packetTunnelManager: packetTunnelManager)
                         CFIGeoIPView()
                             .environmentObject(CFIGEOIPManager())

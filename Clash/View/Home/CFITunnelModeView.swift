@@ -11,10 +11,25 @@ struct CFITunnelModeView: View {
     }
     
     var body: some View {
-        MPFormPicker(title: "代理模式", selection: tunnelMode) {
-            ForEach(CFITunnelMode.allCases) { mode in
-                makeLabel(mode: mode)
+        NavigationLink {
+            MPFormPicker(title: "代理模式", selection: tunnelMode) {
+                ForEach(CFITunnelMode.allCases) { mode in
+                    makeLabel(mode: mode)
+                }
             }
+        } label: {
+            LabeledContent {
+                Text(tunnelMode.wrappedValue.name)
+            } label: {
+                Label {
+                    Text("代理模式")
+                } icon: {
+                    MPIcon(systemName: "arrow.uturn.right", backgroundColor: .teal)
+                }
+            }
+        }
+        .onChange(of: tunnelMode.wrappedValue) { newValue in
+            packetTunnelManager.set(tunnelMode: newValue)
         }
     }
     

@@ -2,12 +2,12 @@ import SwiftUI
 
 struct CFIPolicyGroupView: View {
     
-    let tunnelMode: CFITunnelMode
+    @AppStorage(CFIConstant.tunnelMode, store: .shared) private var tunnelMode = CFITunnelMode.rule
+    
     @StateObject private var packetTunnelManager: MPPacketTunnelManager
     @State private var isPresented = false
     
-    init(tunnelMode: CFITunnelMode, packetTunnelManager: MPPacketTunnelManager) {
-        self.tunnelMode = tunnelMode
+    init(packetTunnelManager: MPPacketTunnelManager) {
         self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
     }
     

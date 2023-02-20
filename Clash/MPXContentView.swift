@@ -9,19 +9,7 @@ struct MPXContentView: View {
         Form {
             Section {
                 CFIControlView(packetTunnelManager: packetTunnelManager)
-                LabeledContent {
-                    if let status = packetTunnelManager.status, status == .connected {
-                        CFIConnectedDurationView(packetTunnelManager: packetTunnelManager)
-                    } else {
-                        Text("--:--")
-                    }
-                } label: {
-                    Label {
-                        Text("连接时长")
-                    } icon: {
-                        MPIcon(systemName: "clock", backgroundColor: .blue)
-                    }
-                }
+                CFIConnectedDurationView(packetTunnelManager: packetTunnelManager)
             } header: {
                 Text("状态")
             }

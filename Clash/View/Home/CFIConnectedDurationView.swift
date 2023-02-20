@@ -9,14 +9,26 @@ struct CFIConnectedDurationView: View {
     }
     
     var body: some View {
-        if let connectedDate = packetTunnelManager.connectedDate {
-            TimelineView(.periodic(from: Date(), by: 1.0)) { context in
-                Text(connectedDateString(connectedDate: connectedDate, current: context.date))
-                    .foregroundColor(.secondary)
-                    .monospacedDigit()
+        LabeledContent {
+            if let status = packetTunnelManager.status, status == .connected {
+                if let connectedDate = packetTunnelManager.connectedDate {
+                    TimelineView(.periodic(from: Date(), by: 1.0)) { context in
+                        Text(connectedDateString(connectedDate: connectedDate, current: context.date))
+                            .foregroundColor(.secondary)
+                            .monospacedDigit()
+                    }
+                } else {
+                    Text("--:--")
+                }
+            } else {
+                Text("--:--")
             }
-        } else {
-            Text("--:--")
+        } label: {
+            Label {
+                Text("连接时长")
+            } icon: {
+                MPIcon(systemName: "clock", backgroundColor: .blue)
+            }
         }
     }
     

@@ -3,7 +3,6 @@ import NetworkExtension
 
 struct MPCContentView: View {
         
-    @AppStorage(CFIConstant.tunnelMode, store: .shared) private var tunnelMode  = CFITunnelMode.rule
     @AppStorage(CFIConstant.current,    store: .shared) private var current     = ""
     
     @StateObject private var packetTunnelManager    = MPPacketTunnelManager(kernel: .clash)
@@ -19,38 +18,13 @@ struct MPCContentView: View {
             }
             Section {
                 CFIControlView(packetTunnelManager: packetTunnelManager)
-                LabeledContent {
-                    if let status = packetTunnelManager.status, status == .connected {
-                        CFIConnectedDurationView(packetTunnelManager: packetTunnelManager)
-                    } else {
-                        Text("--:--")
-                    }
-                } label: {
-                    Label {
-                        Text("连接时长")
-                    } icon: {
-                        MPIcon(systemName: "clock", backgroundColor: .blue)
-                    }
-                }
+                CFIConnectedDurationView(packetTunnelManager: packetTunnelManager)
             } header: {
                 Text("状态")
             }
             Section {
-                NavigationLink {
-                    CFITunnelModeView(tunnelMode: $tunnelMode, packetTunnelManager: packetTunnelManager)
-                } label: {
-                    LabeledContent {
-                        Text(tunnelMode.name)
-                    } label: {
-                        Label {
-                            Text("代理模式")
-                        } icon: {
-                            MPIcon(systemName: "arrow.uturn.right", backgroundColor: .teal)
-                        }
-                    }
-                }
                 LabeledContent {
-                    CFIPolicyGroupView(tunnelMode: tunnelMode, packetTunnelManager: packetTunnelManager)
+                    CFIPolicyGroupView(packetTunnelManager: packetTunnelManager)
                 } label: {
                     Label {
                         Text("策略组")
@@ -61,9 +35,6 @@ struct MPCContentView: View {
             }
         }
         .formStyle(.grouped)
-        .onChange(of: tunnelMode) { newValue in
-            packetTunnelManager.set(tunnelMode: newValue)
-        }
         .onChange(of: current) { newValue in
             packetTunnelManager.set(subscribe: newValue)
         }
