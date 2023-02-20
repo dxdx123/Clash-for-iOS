@@ -14,21 +14,11 @@ struct MPCPolicyGroupView: View {
     var body: some View {
         LabeledContent {
             Button {
-                guard let status = packetTunnelManager.status, status == .connected else {
-                    MPNotification.send(title: "", subtitle: "", body: "未启动, 请启动之后查看策略组信息")
-                    return
-                }
                 isPresented.toggle()
             } label: {
-                HStack {
-                    Text("查看")
-                        .foregroundColor(.secondary)
-                    Image(systemName: "chevron.right")
-                        .font(.caption)
-                        .fontWeight(.bold)
-                        .foregroundColor(.secondary.opacity(0.5))
-                }
+                Text("查看")
             }
+            .disabled(packetTunnelManager.status != .connected)
             .sheet(isPresented: $isPresented) {
                 MPCProviderListView(tunnelMode: tunnelMode, packetTunnelManager: packetTunnelManager)
             }

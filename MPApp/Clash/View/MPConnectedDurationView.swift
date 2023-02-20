@@ -18,10 +18,10 @@ struct MPConnectedDurationView: View {
                             .monospacedDigit()
                     }
                 } else {
-                    Text("--:--")
+                    Text("00:00")
                 }
             } else {
-                Text("--:--")
+                Text("00:00")
             }
         } label: {
             Label {
