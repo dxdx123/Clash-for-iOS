@@ -18,7 +18,7 @@ struct MPAppearanceView: View {
                 Label {
                     Text("外观")
                 } icon: {
-                    MPIcon(systemName: "app.dashed", backgroundColor: .mint)
+                    Image(systemName: "app.dashed")
                 }
             }
         }

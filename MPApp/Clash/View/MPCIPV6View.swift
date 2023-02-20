@@ -22,7 +22,7 @@ struct MPCIPV6View: View {
                     }
                 }
             } icon: {
-                MPIcon(systemName: "network", backgroundColor: .purple)
+                Image(systemName: "network")
             }
         }
         .disabled(processing)

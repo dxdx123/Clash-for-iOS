@@ -45,7 +45,6 @@
 		7084FC3C29680A2200065DAF /* MPAccentColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC3B29680A2200065DAF /* MPAccentColor.swift */; };
 		708A48E1296295C50040184C /* MPCPolicyGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E0296295C50040184C /* MPCPolicyGroupView.swift */; };
 		708A48E3296299640040184C /* MPCProxyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E2296299640040184C /* MPCProxyListView.swift */; };
-		708A48E82962A4540040184C /* MPIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E72962A4540040184C /* MPIcon.swift */; };
 		708A48EA2962AA2B0040184C /* MPAppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E92962AA2B0040184C /* MPAppearanceView.swift */; };
 		708A48EC2962AD740040184C /* MPAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48EB2962AD740040184C /* MPAppearance.swift */; };
 		70B947A9295F302B006F6A38 /* Clash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947A8295F302B006F6A38 /* Clash.swift */; };
@@ -139,7 +138,6 @@
 		7084FC3B29680A2200065DAF /* MPAccentColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAccentColor.swift; sourceTree = "<group>"; };
 		708A48E0296295C50040184C /* MPCPolicyGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCPolicyGroupView.swift; sourceTree = "<group>"; };
 		708A48E2296299640040184C /* MPCProxyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCProxyListView.swift; sourceTree = "<group>"; };
-		708A48E72962A4540040184C /* MPIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPIcon.swift; sourceTree = "<group>"; };
 		708A48E92962AA2B0040184C /* MPAppearanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAppearanceView.swift; sourceTree = "<group>"; };
 		708A48EB2962AD740040184C /* MPAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAppearance.swift; sourceTree = "<group>"; };
 		70B947A8295F302B006F6A38 /* Clash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clash.swift; sourceTree = "<group>"; };
@@ -377,7 +375,6 @@
 		70C9EDC02950415F00B6995B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				708A48E72962A4540040184C /* MPIcon.swift */,
 				7061581529695E6A0005C024 /* MPFormPicker.swift */,
 				70CEB88E29A0C4D9003436C2 /* MPSettingButton.swift */,
 				70CEB88C29A0BEEF003436C2 /* MPAppVersionView.swift */,
@@ -576,7 +573,6 @@
 				70C9ED9929501D5B00B6995B /* MPApp.swift in Sources */,
 				708A48EC2962AD740040184C /* MPAppearance.swift in Sources */,
 				7000C6DA295AED790005626E /* MPCUpdatableViewModel.swift in Sources */,
-				708A48E82962A4540040184C /* MPIcon.swift in Sources */,
 				7084FC1D295ECBC900065DAF /* MPCAppMessage.swift in Sources */,
 				7000C6E4295D635F0005626E /* MPControlView.swift in Sources */,
 				7000C6D8295AED790005626E /* MPCProxyModel.swift in Sources */,

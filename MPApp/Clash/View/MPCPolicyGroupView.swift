@@ -36,7 +36,7 @@ struct MPCPolicyGroupView: View {
             Label {
                 Text("策略组")
             } icon: {
-                MPIcon(systemName: "square.3.layers.3d", backgroundColor: .teal)
+                Image(systemName: "square.3.layers.3d")
             }
         }
     }

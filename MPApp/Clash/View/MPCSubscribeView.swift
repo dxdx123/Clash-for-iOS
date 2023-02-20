@@ -29,7 +29,7 @@ struct MPCSubscribeView: View {
                 Text(title)
                     .lineLimit(1)
             } icon: {
-                MPIcon(systemName: "doc.plaintext", backgroundColor: .green)
+                Image(systemName: "doc.plaintext")
             }
         }        
     }

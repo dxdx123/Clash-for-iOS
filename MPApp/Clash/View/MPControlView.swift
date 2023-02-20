@@ -40,7 +40,7 @@ struct MPControlView: View {
             Label {
                 Text(packetTunnelManager.status.flatMap({ $0.displayString }) ?? "未安装VPN配置")
             } icon: {
-                MPIcon(systemName: "link", backgroundColor: .blue)
+                Image(systemName: "link")
             }
         }
     }

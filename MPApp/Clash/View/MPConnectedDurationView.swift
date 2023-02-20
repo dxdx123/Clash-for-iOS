@@ -27,7 +27,7 @@ struct MPConnectedDurationView: View {
             Label {
                 Text("连接时长")
             } icon: {
-                MPIcon(systemName: "clock", backgroundColor: .blue)
+                Image(systemName: "clock")
             }
         }
     }

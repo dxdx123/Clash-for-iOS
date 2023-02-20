@@ -27,7 +27,7 @@ struct MPCGeoIPView: View {
                 Label {
                     Text("GeoIP 数据库")
                 } icon: {
-                    MPIcon(systemName: "cylinder.split.1x2", backgroundColor: .black)
+                    Image(systemName: "cylinder.split.1x2")
                 }
             }
         }

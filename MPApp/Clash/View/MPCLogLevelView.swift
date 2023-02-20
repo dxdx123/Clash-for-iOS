@@ -30,7 +30,7 @@ struct MPCLogLevelView: View {
                 Label {
                     Text("日志")
                 } icon: {
-                    MPIcon(systemName: "doc.text.below.ecg", backgroundColor: .brown)
+                    Image(systemName: "doc.text.below.ecg")
                 }
             }
         }

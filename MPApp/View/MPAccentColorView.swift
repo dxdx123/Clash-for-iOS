@@ -28,7 +28,7 @@ struct MPAccentColorView: View {
                 Label {
                     Text("强调色")
                 } icon: {
-                    MPIcon(systemName: "scribble.variable", backgroundColor: .accentColor)
+                    Image(systemName: "scribble.variable")
                 }
             }            
         }
