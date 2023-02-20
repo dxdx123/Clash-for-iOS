@@ -49,11 +49,11 @@ open class MPPacketTunnelManager: ObservableObject {
 
     public final func saveToPreferences() async throws {
         let manager = NETunnelProviderManager()
-        manager.localizedDescription = "iOS-\(kernel.rawValue.uppercased())"
+        manager.localizedDescription = kernel.rawValue.capitalized
         manager.protocolConfiguration = {
             let configuration = NETunnelProviderProtocol()
             configuration.providerBundleIdentifier = self.providerBundleIdentifier
-            configuration.serverAddress = "iOS-\(kernel.rawValue.uppercased())"
+            configuration.serverAddress = kernel.rawValue.capitalized
             configuration.providerConfiguration = [:]
             configuration.excludeLocalNetworks = true
             return configuration
