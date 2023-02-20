@@ -12,24 +12,32 @@ struct MPCPolicyGroupView: View {
     }
     
     var body: some View {
-        Button {
-            guard let status = packetTunnelManager.status, status == .connected else {
-                MPNotification.send(title: "", subtitle: "", body: "未启动, 请启动之后查看策略组信息")
-                return
+        LabeledContent {
+            Button {
+                guard let status = packetTunnelManager.status, status == .connected else {
+                    MPNotification.send(title: "", subtitle: "", body: "未启动, 请启动之后查看策略组信息")
+                    return
+                }
+                isPresented.toggle()
+            } label: {
+                HStack {
+                    Text("查看")
+                        .foregroundColor(.secondary)
+                    Image(systemName: "chevron.right")
+                        .font(.caption)
+                        .fontWeight(.bold)
+                        .foregroundColor(.secondary.opacity(0.5))
+                }
             }
-            isPresented.toggle()
+            .sheet(isPresented: $isPresented) {
+                MPCProviderListView(tunnelMode: tunnelMode, packetTunnelManager: packetTunnelManager)
+            }
         } label: {
-            HStack {
-                Text("查看")
-                    .foregroundColor(.secondary)
-                Image(systemName: "chevron.right")
-                    .font(.caption)
-                    .fontWeight(.bold)
-                    .foregroundColor(.secondary.opacity(0.5))
+            Label {
+                Text("策略组")
+            } icon: {
+                MPIcon(systemName: "square.3.layers.3d", backgroundColor: .teal)
             }
-        }
-        .sheet(isPresented: $isPresented) {
-            MPCProviderListView(tunnelMode: tunnelMode, packetTunnelManager: packetTunnelManager)
         }
     }
 }

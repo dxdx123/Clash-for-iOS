@@ -23,15 +23,9 @@ struct MPCContentView: View {
                 Text("状态")
             }
             Section {
-                LabeledContent {
-                    MPCPolicyGroupView(packetTunnelManager: packetTunnelManager)
-                } label: {
-                    Label {
-                        Text("策略组")
-                    } icon: {
-                        MPIcon(systemName: "square.3.layers.3d", backgroundColor: .teal)
-                    }
-                }
+                MPCPolicyGroupView(packetTunnelManager: packetTunnelManager)
+            } header: {
+                Text("代理")
             }
         }
         .formStyle(.grouped)
