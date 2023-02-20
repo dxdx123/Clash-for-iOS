@@ -1,6 +1,6 @@
 import Foundation
 
-final class CFIGEOIPManager: ObservableObject {
+final class MPCGEOIPManager: ObservableObject {
     
     @Published var isUpdating: Bool = false
     @Published var leastUpdated: Date?
@@ -17,7 +17,7 @@ final class CFIGEOIPManager: ObservableObject {
         }
         let shouldUpdate: Bool
         if let least = leastUpdated {
-            let interval = UserDefaults.standard.string(forKey: CFIConstant.geoipDatabaseAutoUpdateInterval).flatMap(CFIGEOIPAutoUpdateInterval.init(rawValue:)) ?? .week
+            let interval = UserDefaults.standard.string(forKey: CFIConstant.geoipDatabaseAutoUpdateInterval).flatMap(MPCGEOIPAutoUpdateInterval.init(rawValue:)) ?? .week
             let day: Double
             switch interval {
             case .day:

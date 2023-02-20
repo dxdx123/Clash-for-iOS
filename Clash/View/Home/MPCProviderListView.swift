@@ -1,14 +1,14 @@
 import SwiftUI
 
-struct CFIProviderListView: View {
+struct MPCProviderListView: View {
     
     @Environment(\.dismiss) var dismiss
-    @StateObject private var providersManager = CFIProvidersManager()
+    @StateObject private var providersManager = MPCProvidersManager()
     
-    let tunnelMode: CFITunnelMode
+    let tunnelMode: MPCTunnelMode
     @StateObject private var packetTunnelManager: MPPacketTunnelManager
     
-    init(tunnelMode: CFITunnelMode, packetTunnelManager: MPPacketTunnelManager) {
+    init(tunnelMode: MPCTunnelMode, packetTunnelManager: MPPacketTunnelManager) {
         self.tunnelMode = tunnelMode
         self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
     }
@@ -49,16 +49,16 @@ struct CFIProviderListView: View {
     private struct ProviderCell: View {
         
         @StateObject private var packetTunnelManager: MPPacketTunnelManager
-        @StateObject private var provider: CFIProviderViewModel
+        @StateObject private var provider: MPCProviderViewModel
         
-        init(packetTunnelManager: MPPacketTunnelManager, provider: CFIProviderViewModel) {
+        init(packetTunnelManager: MPPacketTunnelManager, provider: MPCProviderViewModel) {
             self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
             self._provider = StateObject(wrappedValue: provider)
         }
                 
         var body: some View {
             NavigationLink {
-                CFIProxyListView(packetTunnelManager: packetTunnelManager, provider: provider)
+                MPCProxyListView(packetTunnelManager: packetTunnelManager, provider: provider)
             } label: {
                 HStack {
                     VStack(alignment: .leading, spacing: 6) {

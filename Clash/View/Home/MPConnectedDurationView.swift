@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CFIConnectedDurationView: View {
+struct MPConnectedDurationView: View {
     
     @StateObject private var packetTunnelManager: MPPacketTunnelManager
     

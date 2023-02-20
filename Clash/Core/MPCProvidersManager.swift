@@ -1,37 +1,37 @@
 import Foundation
 
-public final class CFIProvidersManager: ObservableObject {
+public final class MPCProvidersManager: ObservableObject {
     
-    @Published public var gProviderVMs: [CFIProviderViewModel] = []
-    @Published public var rProviderVMs: [CFIProviderViewModel] = []
-    @Published public var proxyVMs: [CFIProxyViewModel] = []
+    @Published public var gProviderVMs: [MPCProviderViewModel] = []
+    @Published public var rProviderVMs: [MPCProviderViewModel] = []
+    @Published public var proxyVMs: [MPCProxyViewModel] = []
     
     @Published public var isHealthChecking = false
     
-    private var vms: [String: CFIUpdatableViewModel] = [:]
+    private var vms: [String: MPCUpdatableViewModel] = [:]
         
     public init() {}
         
-    public func update(mapping:[String: CFIProxyModel]) {
-        let gProviderVMs: [CFIProviderViewModel]
-        let rProviderVMs: [CFIProviderViewModel]
-        let proxyVMs: [CFIProxyViewModel]
-        let vms: [String: CFIUpdatableViewModel]
+    public func update(mapping:[String: MPCProxyModel]) {
+        let gProviderVMs: [MPCProviderViewModel]
+        let rProviderVMs: [MPCProviderViewModel]
+        let proxyVMs: [MPCProxyViewModel]
+        let vms: [String: MPCUpdatableViewModel]
         if let global = mapping["GLOBAL"], !global.all.isEmpty {
-            let proxyVMMapping: [String: CFIProxyViewModel] = global.all.reduce(into: [String: CFIProxyViewModel]()) { result, name in
+            let proxyVMMapping: [String: MPCProxyViewModel] = global.all.reduce(into: [String: MPCProxyViewModel]()) { result, name in
                 guard let model = mapping[name] else {
                     return
                 }
-                result[name] = CFIProxyViewModel(model: model)
+                result[name] = MPCProxyViewModel(model: model)
             }
-            let rules: [CFIProxyModel] = global.all.compactMap { name in
+            let rules: [MPCProxyModel] = global.all.compactMap { name in
                 guard let model = mapping[name], model.type.isProviderType else {
                     return nil
                 }
                 return model
             }
-            let gVMs = [CFIProvidersManager.createProvider(with: global, proxyVMs: proxyVMMapping)]
-            let rVMs = rules.map { CFIProvidersManager.createProvider(with: $0, proxyVMs: proxyVMMapping) }
+            let gVMs = [MPCProvidersManager.createProvider(with: global, proxyVMs: proxyVMMapping)]
+            let rVMs = rules.map { MPCProvidersManager.createProvider(with: $0, proxyVMs: proxyVMMapping) }
             gProviderVMs = gVMs
             rProviderVMs = rVMs
             proxyVMs = global.all.compactMap { name in
@@ -41,7 +41,7 @@ public final class CFIProvidersManager: ObservableObject {
                 return vm
             }
             vms = {
-                var temp: [String: CFIUpdatableViewModel] = proxyVMMapping
+                var temp: [String: MPCUpdatableViewModel] = proxyVMMapping
                 (gVMs + rVMs).forEach { model in
                     temp[model.name] = model
                 }
@@ -59,11 +59,11 @@ public final class CFIProvidersManager: ObservableObject {
         self.vms = vms
     }
     
-    private static func createProvider(with model: CFIProxyModel, proxyVMs: [String: CFIProxyViewModel]) -> CFIProviderViewModel {
-        CFIProviderViewModel(model: model, proxies: model.all.compactMap { proxyVMs[$0] })
+    private static func createProvider(with model: MPCProxyModel, proxyVMs: [String: MPCProxyViewModel]) -> MPCProviderViewModel {
+        MPCProviderViewModel(model: model, proxies: model.all.compactMap { proxyVMs[$0] })
     }
     
-    public func patch(mapping:[String: CFIProxyModel]) {
+    public func patch(mapping:[String: MPCProxyModel]) {
         self.vms.forEach { name, vm in
             guard let model = mapping[name] else {
                 return

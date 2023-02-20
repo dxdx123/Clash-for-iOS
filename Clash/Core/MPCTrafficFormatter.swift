@@ -1,9 +1,9 @@
 import Foundation
 import SwiftUI
 
-private class CFITrafficFormatter: NumberFormatter {
+private class MPCTrafficFormatter: NumberFormatter {
     
-    static let `default` = CFITrafficFormatter()
+    static let `default` = MPCTrafficFormatter()
     
     override init() {
         super.init()
@@ -35,15 +35,15 @@ private class CFITrafficFormatter: NumberFormatter {
     }
 }
 
-enum ClashTrafficFormatterKey: EnvironmentKey {
-    static let defaultValue: NumberFormatter = CFITrafficFormatter.default
+enum MPCTrafficFormatterKey: EnvironmentKey {
+    static let defaultValue: NumberFormatter = MPCTrafficFormatter.default
 }
 
 extension EnvironmentValues {
     
     public var trafficFormatter: NumberFormatter {
-        get { self[ClashTrafficFormatterKey.self] }
-        set { self[ClashTrafficFormatterKey.self] = newValue }
+        get { self[MPCTrafficFormatterKey.self] }
+        set { self[MPCTrafficFormatterKey.self] = newValue }
     }
 }
 

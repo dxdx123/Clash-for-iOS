@@ -1,9 +1,8 @@
 import SwiftUI
 
-struct CFISettingView: View {
+struct MPSettingView: View {
     
-    @AppStorage(MPConstant.kernel)                      private var kernel      = MPKernel.clash
-    @AppStorage(CFIConstant.tunnelMode, store: .shared) private var tunnelMode  = CFITunnelMode.rule
+    @AppStorage(CFIConstant.tunnelMode, store: .shared) private var tunnelMode = MPCTunnelMode.rule
     
     @StateObject private var packetTunnelManager: MPPacketTunnelManager
     
@@ -15,13 +14,13 @@ struct CFISettingView: View {
         NavigationStack {
             Form {
                 Section {
-                    switch kernel {
+                    switch packetTunnelManager.kernel {
                     case .clash:
-                        CFITunnelModeView(tunnelMode: $tunnelMode, packetTunnelManager: packetTunnelManager)
-                        CFILogLevelView(packetTunnelManager: packetTunnelManager)
-                        CFIGeoIPView()
-                            .environmentObject(CFIGEOIPManager())
-                        CFIIPV6View(packetTunnelManager: packetTunnelManager)
+                        MPCTunnelModeView(tunnelMode: $tunnelMode, packetTunnelManager: packetTunnelManager)
+                        MPCLogLevelView(packetTunnelManager: packetTunnelManager)
+                        MPCGeoIPView()
+                            .environmentObject(MPCGEOIPManager())
+                        MPCIPV6View(packetTunnelManager: packetTunnelManager)
                     case .xray:
                         EmptyView()
                     }

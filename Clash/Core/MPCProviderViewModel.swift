@@ -1,8 +1,8 @@
 import Foundation
 
-public final class CFIProviderViewModel: CFIUpdatableViewModel, ObservableObject, Identifiable, Hashable {
+public final class MPCProviderViewModel: MPCUpdatableViewModel, ObservableObject, Identifiable, Hashable {
     
-    public static func == (lhs: CFIProviderViewModel, rhs: CFIProviderViewModel) -> Bool {
+    public static func == (lhs: MPCProviderViewModel, rhs: MPCProviderViewModel) -> Bool {
         lhs.id == rhs.id
     }
     
@@ -12,12 +12,12 @@ public final class CFIProviderViewModel: CFIUpdatableViewModel, ObservableObject
     
     public var id: ObjectIdentifier { ObjectIdentifier(self) }
     
-    private let model: CFIProxyModel
+    private let model: MPCProxyModel
     
-    public let proxies: [CFIProxyViewModel]
-    public let proxyMapping: [String: CFIProxyViewModel]
+    public let proxies: [MPCProxyViewModel]
+    public let proxyMapping: [String: MPCProxyViewModel]
     public var name: String { model.name }
-    public var type: CFIProxyModel.AdapterType { model.type }
+    public var type: MPCProxyModel.AdapterType { model.type }
     public var isHealthCheckEnable: Bool {
         model.type == .urlTest || model.type == .fallback || model.type == .loadBalance
     }
@@ -26,14 +26,14 @@ public final class CFIProviderViewModel: CFIUpdatableViewModel, ObservableObject
     @Published public var isHealthChecking: Bool = false
     @Published public var isExpanded: Bool = false
     
-    public init(model: CFIProxyModel, proxies: [CFIProxyViewModel]) {
+    public init(model: MPCProxyModel, proxies: [MPCProxyViewModel]) {
         self.model = model
         self.now = model.now
         self.proxies = proxies
         self.proxyMapping = proxies.reduce(into: [:], { $0[$1.name] = $1 })
     }
     
-    public final override func update(model: CFIProxyModel) {
+    public final override func update(model: MPCProxyModel) {
         now = model.now
     }
 }

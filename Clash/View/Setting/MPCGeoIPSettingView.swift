@@ -1,7 +1,7 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-enum CFIGEOIPAutoUpdateInterval: String, CaseIterable, Identifiable {
+enum MPCGEOIPAutoUpdateInterval: String, CaseIterable, Identifiable {
     
     var id: Self { self }
     
@@ -21,14 +21,14 @@ extension CFIConstant {
     static let geoipDatabaseAutoUpdateInterval      = "CLASH_GEOIP_DATABASE_AUTO_UPDATE_INTERVAL"
 }
 
-struct CFIGeoIPSettingView: View {
+struct MPCGeoIPSettingView: View {
     
-    @EnvironmentObject private var geoipManager: CFIGEOIPManager
+    @EnvironmentObject private var geoipManager: MPCGEOIPManager
     @Environment(\.dismiss) private var dismiss
     
     @AppStorage(CFIConstant.geoipDatabaseRemoteURLString) private var geoipDatabaseRemoteURLString: String = CFIConstant.defaultGeoIPDatabaseRemoteURLString
     @AppStorage(CFIConstant.geoipDatabaseAutoUpdate) private var geoipDatabaseAutoUpdate: Bool = true
-    @AppStorage(CFIConstant.geoipDatabaseAutoUpdateInterval) private var geoipDatabaseAutoUpdateInterval: CFIGEOIPAutoUpdateInterval = .week
+    @AppStorage(CFIConstant.geoipDatabaseAutoUpdateInterval) private var geoipDatabaseAutoUpdateInterval: MPCGEOIPAutoUpdateInterval = .week
     
     @State private var isFileImporterPresented: Bool = false
     
@@ -44,7 +44,7 @@ struct CFIGeoIPSettingView: View {
                 if geoipDatabaseAutoUpdate {
                     NavigationLink {
                         MPFormPicker(title: "更新频率", selection: $geoipDatabaseAutoUpdateInterval) {
-                            ForEach(CFIGEOIPAutoUpdateInterval.allCases) { value in
+                            ForEach(MPCGEOIPAutoUpdateInterval.allCases) { value in
                                 Text(value.name)
                             }
                         }
@@ -107,7 +107,7 @@ struct CFIGeoIPSettingView: View {
     }
 }
 
-extension CFIGEOIPAutoUpdateInterval {
+extension MPCGEOIPAutoUpdateInterval {
     
     var name: String {
         switch self {

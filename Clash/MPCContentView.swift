@@ -6,25 +6,25 @@ struct MPCContentView: View {
     @AppStorage(CFIConstant.current,    store: .shared) private var current     = ""
     
     @StateObject private var packetTunnelManager    = MPPacketTunnelManager(kernel: .clash)
-    @StateObject private var subscribeManager       = CFISubscribeManager()
-    @StateObject private var databaseManager        = CFIGEOIPManager()
+    @StateObject private var subscribeManager       = MPCSubscribeManager()
+    @StateObject private var databaseManager        = MPCGEOIPManager()
     
     var body: some View {
         Form {
             Section {
-                CFISubscribeView(current: $current, packetTunnelManager: packetTunnelManager, subscribeManager: subscribeManager)
+                MPCSubscribeView(current: $current, packetTunnelManager: packetTunnelManager, subscribeManager: subscribeManager)
             } header: {
                 Text("订阅")
             }
             Section {
-                CFIControlView(packetTunnelManager: packetTunnelManager)
-                CFIConnectedDurationView(packetTunnelManager: packetTunnelManager)
+                MPControlView(packetTunnelManager: packetTunnelManager)
+                MPConnectedDurationView(packetTunnelManager: packetTunnelManager)
             } header: {
                 Text("状态")
             }
             Section {
                 LabeledContent {
-                    CFIPolicyGroupView(packetTunnelManager: packetTunnelManager)
+                    MPCPolicyGroupView(packetTunnelManager: packetTunnelManager)
                 } label: {
                     Label {
                         Text("策略组")

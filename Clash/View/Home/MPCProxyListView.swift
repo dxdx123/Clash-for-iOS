@@ -1,12 +1,12 @@
 import SwiftUI
 
-struct CFIProxyListView: View {
+struct MPCProxyListView: View {
     
     @StateObject private var packetTunnelManager: MPPacketTunnelManager
     
-    @StateObject private var provider: CFIProviderViewModel
+    @StateObject private var provider: MPCProviderViewModel
     
-    init(packetTunnelManager: MPPacketTunnelManager, provider: CFIProviderViewModel) {
+    init(packetTunnelManager: MPPacketTunnelManager, provider: MPCProviderViewModel) {
         self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
         self._provider = StateObject(wrappedValue: provider)
     }
@@ -42,11 +42,11 @@ struct CFIProxyListView: View {
     
     private struct ProxyCell: View {
         
-        @StateObject private var proxy: CFIProxyViewModel
+        @StateObject private var proxy: MPCProxyViewModel
         
         private let isSelected: Bool
         
-        init(proxy: CFIProxyViewModel, isSelected: Bool) {
+        init(proxy: MPCProxyViewModel, isSelected: Bool) {
             self._proxy = StateObject(wrappedValue: proxy)
             self.isSelected = isSelected
         }

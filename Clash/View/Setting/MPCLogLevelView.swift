@@ -1,9 +1,9 @@
 import SwiftUI
 
-struct CFILogLevelView: View {
+struct MPCLogLevelView: View {
     
     @StateObject private var packetTunnelManager: MPPacketTunnelManager
-    @AppStorage(CFIConstant.logLevel, store: .shared) private var logLevel  = CFILogLevel.silent
+    @AppStorage(CFIConstant.logLevel, store: .shared) private var logLevel  = MPCLogLevel.silent
     
     init(packetTunnelManager: MPPacketTunnelManager) {
         self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
@@ -13,7 +13,7 @@ struct CFILogLevelView: View {
         NavigationLink {
             Form {
                 Picker(selection: $logLevel) {
-                    ForEach(CFILogLevel.allCases) { level in
+                    ForEach(MPCLogLevel.allCases) { level in
                         Text(title(for: level))
                     }
                 } label: {
@@ -39,7 +39,7 @@ struct CFILogLevelView: View {
         }
     }
     
-    private func title(for level: CFILogLevel) -> String {
+    private func title(for level: MPCLogLevel) -> String {
         switch level {
         case .debug:
             return "调试"

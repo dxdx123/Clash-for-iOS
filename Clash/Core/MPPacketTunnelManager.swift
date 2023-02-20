@@ -124,18 +124,18 @@ open class MPPacketTunnelManager: ObservableObject {
 
 extension MPPacketTunnelManager {
     
-    private func fetchProxies() async -> [String: CFIProxyModel] {
+    private func fetchProxies() async -> [String: MPCProxyModel] {
         do {
-            guard let data = try await sendProviderMessage(data: try CFIAppMessage.proxies.data()) else {
+            guard let data = try await sendProviderMessage(data: try MPCAppMessage.proxies.data()) else {
                 return [:]
             }
-            return try JSONDecoder().decode([String: CFIProxyModel].self, from: data)
+            return try JSONDecoder().decode([String: MPCProxyModel].self, from: data)
         } catch {
             return [:]
         }
     }
     
-    public func update(providersManager: CFIProvidersManager) {
+    public func update(providersManager: MPCProvidersManager) {
         guard let status = status, status == .connected else {
             return providersManager.update(mapping: [:])
         }
@@ -154,33 +154,33 @@ extension MPPacketTunnelManager {
         }
         Task(priority: .userInitiated) {
             do {
-                try await sendProviderMessage(data: try CFIAppMessage.subscribe(subscribe).data())
+                try await sendProviderMessage(data: try MPCAppMessage.subscribe(subscribe).data())
             } catch {
                 debugPrint(error.localizedDescription)
             }
         }
     }
     
-    public func set(tunnelMode: CFITunnelMode) {
+    public func set(tunnelMode: MPCTunnelMode) {
         guard let status = status, status == .connected else {
             return
         }
         Task(priority: .userInitiated) {
             do {
-                try await sendProviderMessage(data: try CFIAppMessage.mode(tunnelMode).data())
+                try await sendProviderMessage(data: try MPCAppMessage.mode(tunnelMode).data())
             } catch {
                 debugPrint(error.localizedDescription)
             }
         }
     }
     
-    public func set(logLevel level: CFILogLevel) {
+    public func set(logLevel level: MPCLogLevel) {
         guard let status = status, status == .connected else {
             return
         }
         Task(priority: .userInitiated) {
             do {
-                try await sendProviderMessage(data: try CFIAppMessage.logLevel(level).data())
+                try await sendProviderMessage(data: try MPCAppMessage.logLevel(level).data())
             } catch {
                 debugPrint(error.localizedDescription)
             }
@@ -193,7 +193,7 @@ extension MPPacketTunnelManager {
         }
         Task(priority: .userInitiated) {
             do {
-                try await sendProviderMessage(data: try CFIAppMessage.select(provider, proxy).data())
+                try await sendProviderMessage(data: try MPCAppMessage.select(provider, proxy).data())
             } catch {
                 debugPrint(error.localizedDescription)
             }
@@ -207,7 +207,7 @@ extension MPPacketTunnelManager {
         isProcessing.wrappedValue = true
         Task(priority: .userInitiated) {
             do {
-                try await sendProviderMessage(data: try CFIAppMessage.healthCheck(name).data())
+                try await sendProviderMessage(data: try MPCAppMessage.healthCheck(name).data())
             } catch {
                 debugPrint(error.localizedDescription)
             }

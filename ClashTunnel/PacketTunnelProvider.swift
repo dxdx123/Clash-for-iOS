@@ -72,7 +72,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     
     override func handleAppMessage(_ messageData: Data) async -> Data? {
         do {
-            switch try JSONDecoder().decode(CFIAppMessage.self, from: messageData) {
+            switch try JSONDecoder().decode(MPCAppMessage.self, from: messageData) {
             case .subscribe(let current):
                 try Clash.set(current: current)
                 return nil

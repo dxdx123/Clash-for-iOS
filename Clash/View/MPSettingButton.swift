@@ -15,7 +15,7 @@ struct MPSettingButton: View {
             Image(systemName: "slider.horizontal.3")
         }
         .sheet(isPresented: $isPresented) {
-            CFISettingView(packetTunnelManager: packetTunnelManager)
+            MPSettingView(packetTunnelManager: packetTunnelManager)
         }
     }
 }

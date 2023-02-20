@@ -1,8 +1,8 @@
 import SwiftUI
 
-struct CFIPolicyGroupView: View {
+struct MPCPolicyGroupView: View {
     
-    @AppStorage(CFIConstant.tunnelMode, store: .shared) private var tunnelMode = CFITunnelMode.rule
+    @AppStorage(CFIConstant.tunnelMode, store: .shared) private var tunnelMode = MPCTunnelMode.rule
     
     @StateObject private var packetTunnelManager: MPPacketTunnelManager
     @State private var isPresented = false
@@ -29,7 +29,7 @@ struct CFIPolicyGroupView: View {
             }
         }
         .sheet(isPresented: $isPresented) {
-            CFIProviderListView(tunnelMode: tunnelMode, packetTunnelManager: packetTunnelManager)
+            MPCProviderListView(tunnelMode: tunnelMode, packetTunnelManager: packetTunnelManager)
         }
     }
 }

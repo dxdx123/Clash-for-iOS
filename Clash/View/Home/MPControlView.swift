@@ -1,7 +1,7 @@
 import SwiftUI
 import NetworkExtension
 
-struct CFIControlView: View {
+struct MPControlView: View {
     
     @StateObject private var packetTunnelManager: MPPacketTunnelManager
     

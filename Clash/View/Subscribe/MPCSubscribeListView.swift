@@ -1,14 +1,14 @@
 import SwiftUI
 
-struct CFISubscribeListView: View {
+struct MPCSubscribeListView: View {
     
     @Environment(\.dismiss) private var dismiss
         
     let current: Binding<String>
     @StateObject private var packetTunnelManager: MPPacketTunnelManager
-    @StateObject private var subscribeManager: CFISubscribeManager
+    @StateObject private var subscribeManager: MPCSubscribeManager
     
-    init(current: Binding<String>, packetTunnelManager: MPPacketTunnelManager, subscribeManager: CFISubscribeManager) {
+    init(current: Binding<String>, packetTunnelManager: MPPacketTunnelManager, subscribeManager: MPCSubscribeManager) {
         self.current = current
         self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
         self._subscribeManager = StateObject(wrappedValue: subscribeManager)
@@ -21,7 +21,7 @@ struct CFISubscribeListView: View {
     @State private var subscribeURLString: String = ""
         
     @State private var isRenameAlertPresented = false
-    @State private var subscribe: CFISubscribe?
+    @State private var subscribe: MPCSubscribe?
     @State private var subscribeName: String = ""
     
     var body: some View {

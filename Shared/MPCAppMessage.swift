@@ -1,13 +1,13 @@
 import Foundation
 
-@frozen public enum CFIAppMessage: Codable {
+@frozen public enum MPCAppMessage: Codable {
     
     case subscribe(String)
-    case mode(CFITunnelMode)
+    case mode(MPCTunnelMode)
     case proxies
     case healthCheck(String)
     case select(String, String)
-    case logLevel(CFILogLevel)
+    case logLevel(MPCLogLevel)
     
     func data() throws -> Data {
         try JSONEncoder().encode(self)

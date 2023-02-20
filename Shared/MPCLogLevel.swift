@@ -1,6 +1,7 @@
 import Foundation
 
-@frozen public enum CFILogLevel: String, Hashable, Identifiable, CaseIterable, Codable {
+@frozen
+public enum MPCLogLevel: String, Hashable, Identifiable, CaseIterable, Codable {
     
     public var id: Self { self }
     

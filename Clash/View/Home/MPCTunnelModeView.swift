@@ -1,11 +1,11 @@
 import SwiftUI
 
-struct CFITunnelModeView: View {
+struct MPCTunnelModeView: View {
     
-    let tunnelMode: Binding<CFITunnelMode>
+    let tunnelMode: Binding<MPCTunnelMode>
     @StateObject private var packetTunnelManager: MPPacketTunnelManager
     
-    init(tunnelMode: Binding<CFITunnelMode>, packetTunnelManager: MPPacketTunnelManager) {
+    init(tunnelMode: Binding<MPCTunnelMode>, packetTunnelManager: MPPacketTunnelManager) {
         self.tunnelMode = tunnelMode
         self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
     }
@@ -13,7 +13,7 @@ struct CFITunnelModeView: View {
     var body: some View {
         NavigationLink {
             MPFormPicker(title: "代理模式", selection: tunnelMode) {
-                ForEach(CFITunnelMode.allCases) { mode in
+                ForEach(MPCTunnelMode.allCases) { mode in
                     makeLabel(mode: mode)
                 }
             }
@@ -34,7 +34,7 @@ struct CFITunnelModeView: View {
     }
     
     
-    private func makeLabel(mode: CFITunnelMode) -> some View {
+    private func makeLabel(mode: MPCTunnelMode) -> some View {
         let title: String
         let systemImage: String
         let backgroundColor: Color
@@ -60,7 +60,7 @@ struct CFITunnelModeView: View {
     }
 }
 
-extension CFITunnelMode {
+extension MPCTunnelMode {
     
     var name: String {
         switch self {

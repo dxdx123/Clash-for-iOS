@@ -1,12 +1,12 @@
 import SwiftUI
 
-struct CFISubscribeView: View {
+struct MPCSubscribeView: View {
     
     private let current: Binding<String>
     @StateObject private var packetTunnelManager: MPPacketTunnelManager
-    @StateObject private var subscribeManager: CFISubscribeManager
+    @StateObject private var subscribeManager: MPCSubscribeManager
     
-    init(current: Binding<String>, packetTunnelManager: MPPacketTunnelManager, subscribeManager: CFISubscribeManager) {
+    init(current: Binding<String>, packetTunnelManager: MPPacketTunnelManager, subscribeManager: MPCSubscribeManager) {
         self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
         self._subscribeManager = StateObject(wrappedValue: subscribeManager)
         self.current = current
@@ -20,7 +20,7 @@ struct CFISubscribeView: View {
                 isPresented.toggle()
             }
             .sheet(isPresented: $isPresented) {
-                CFISubscribeListView(current: current, packetTunnelManager: packetTunnelManager, subscribeManager: subscribeManager)
+                MPCSubscribeListView(current: current, packetTunnelManager: packetTunnelManager, subscribeManager: subscribeManager)
                     .presentationDetents([.medium, .large])
                     .presentationDragIndicator(.hidden)
             }

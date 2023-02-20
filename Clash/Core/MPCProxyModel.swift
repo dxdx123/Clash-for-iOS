@@ -1,6 +1,6 @@
 import Foundation
 
-public struct CFIProxyModel: Decodable {
+public struct MPCProxyModel: Decodable {
     
     public enum AdapterType: String, Decodable {
         
@@ -62,7 +62,7 @@ public struct CFIProxyModel: Decodable {
     }
 }
 
-extension CFIProxyModel.AdapterType {
+extension MPCProxyModel.AdapterType {
     
     var isProviderType: Bool {
         switch self {
@@ -83,7 +83,7 @@ extension CFIProxyModel.AdapterType {
     }
 }
 
-extension CFIProxyModel.AdapterType {
+extension MPCProxyModel.AdapterType {
     
     var name: String {
         switch self {

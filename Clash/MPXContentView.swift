@@ -3,13 +3,13 @@ import SwiftUI
 struct MPXContentView: View {
         
     @StateObject private var packetTunnelManager    = MPPacketTunnelManager(kernel: .xray)
-    @StateObject private var databaseManager        = CFIGEOIPManager()
+    @StateObject private var databaseManager        = MPCGEOIPManager()
     
     var body: some View {
         Form {
             Section {
-                CFIControlView(packetTunnelManager: packetTunnelManager)
-                CFIConnectedDurationView(packetTunnelManager: packetTunnelManager)
+                MPControlView(packetTunnelManager: packetTunnelManager)
+                MPConnectedDurationView(packetTunnelManager: packetTunnelManager)
             } header: {
                 Text("状态")
             }

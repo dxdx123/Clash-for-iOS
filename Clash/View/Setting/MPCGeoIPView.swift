@@ -1,12 +1,12 @@
 import SwiftUI
 
-struct CFIGeoIPView: View {
+struct MPCGeoIPView: View {
     
-    @EnvironmentObject private var geoipManager: CFIGEOIPManager
+    @EnvironmentObject private var geoipManager: MPCGEOIPManager
     
     var body: some View {
         NavigationLink {
-            CFIGeoIPSettingView()
+            MPCGeoIPSettingView()
         } label: {
             LabeledContent {
                 if geoipManager.isUpdating {

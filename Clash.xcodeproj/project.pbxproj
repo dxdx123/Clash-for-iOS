@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7000C6D6295AED790005626E /* CFIProvidersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6D1295AED790005626E /* CFIProvidersManager.swift */; };
-		7000C6D7295AED790005626E /* CFIProxyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6D2295AED790005626E /* CFIProxyViewModel.swift */; };
-		7000C6D8295AED790005626E /* CFIProxyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6D3295AED790005626E /* CFIProxyModel.swift */; };
-		7000C6D9295AED790005626E /* CFIProviderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6D4295AED790005626E /* CFIProviderViewModel.swift */; };
-		7000C6DA295AED790005626E /* CFIUpdatableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6D5295AED790005626E /* CFIUpdatableViewModel.swift */; };
-		7000C6DE295D5F690005626E /* CFIConnectedDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6DD295D5F690005626E /* CFIConnectedDurationView.swift */; };
-		7000C6E0295D60A50005626E /* CFITunnelModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6DF295D60A50005626E /* CFITunnelModeView.swift */; };
-		7000C6E4295D635F0005626E /* CFIControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6E3295D635F0005626E /* CFIControlView.swift */; };
+		7000C6D6295AED790005626E /* MPCProvidersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6D1295AED790005626E /* MPCProvidersManager.swift */; };
+		7000C6D7295AED790005626E /* MPCProxyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6D2295AED790005626E /* MPCProxyViewModel.swift */; };
+		7000C6D8295AED790005626E /* MPCProxyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6D3295AED790005626E /* MPCProxyModel.swift */; };
+		7000C6D9295AED790005626E /* MPCProviderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6D4295AED790005626E /* MPCProviderViewModel.swift */; };
+		7000C6DA295AED790005626E /* MPCUpdatableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6D5295AED790005626E /* MPCUpdatableViewModel.swift */; };
+		7000C6DE295D5F690005626E /* MPConnectedDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6DD295D5F690005626E /* MPConnectedDurationView.swift */; };
+		7000C6E0295D60A50005626E /* MPCTunnelModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6DF295D60A50005626E /* MPCTunnelModeView.swift */; };
+		7000C6E4295D635F0005626E /* MPControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6E3295D635F0005626E /* MPControlView.swift */; };
 		7015F0DD296C5C25003E6A7D /* ClashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7015F0DC296C5C25003E6A7D /* ClashKit */; };
-		702D9087299B2B4500B83324 /* CFIIPV6View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9086299B2B4500B83324 /* CFIIPV6View.swift */; };
+		702D9087299B2B4500B83324 /* MPCIPV6View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9086299B2B4500B83324 /* MPCIPV6View.swift */; };
 		702D908A299B58A400B83324 /* MPNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MPNotification.swift */; };
 		702D908B299B58A400B83324 /* MPNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MPNotification.swift */; };
 		702D9091299FA40600B83324 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70C9EDAC29502C6500B6995B /* NetworkExtension.framework */; };
@@ -24,26 +24,26 @@
 		702D9099299FA40600B83324 /* XrayTunnel.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 702D9090299FA40600B83324 /* XrayTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		70615814296815260005C024 /* MPAccentColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70615813296815260005C024 /* MPAccentColorView.swift */; };
 		7061581629695E6A0005C024 /* MPFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061581529695E6A0005C024 /* MPFormPicker.swift */; };
-		70615839298620F20005C024 /* CFITrafficFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70615838298620F20005C024 /* CFITrafficFormatter.swift */; };
-		7084FC1D295ECBC900065DAF /* CFIAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */; };
-		7084FC1E295ECBC900065DAF /* CFIAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */; };
-		7084FC20295ECC7400065DAF /* CFITunnelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */; };
-		7084FC21295ECC7400065DAF /* CFITunnelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */; };
-		7084FC302965872200065DAF /* CFILogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC2F2965872200065DAF /* CFILogLevel.swift */; };
-		7084FC312965872200065DAF /* CFILogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC2F2965872200065DAF /* CFILogLevel.swift */; };
-		7084FC33296587C600065DAF /* CFILogLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC32296587C600065DAF /* CFILogLevelView.swift */; };
-		7084FC362967B8AC00065DAF /* CFIGeoIPSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC352967B8AC00065DAF /* CFIGeoIPSettingView.swift */; };
-		7084FC382967DB7300065DAF /* CFIGeoIPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC372967DB7300065DAF /* CFIGeoIPView.swift */; };
-		7084FC3A2967E6FD00065DAF /* CFIGEOIPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC392967E6FD00065DAF /* CFIGEOIPManager.swift */; };
+		70615839298620F20005C024 /* MPCTrafficFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70615838298620F20005C024 /* MPCTrafficFormatter.swift */; };
+		7084FC1D295ECBC900065DAF /* MPCAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* MPCAppMessage.swift */; };
+		7084FC1E295ECBC900065DAF /* MPCAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* MPCAppMessage.swift */; };
+		7084FC20295ECC7400065DAF /* MPCTunnelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1F295ECC7400065DAF /* MPCTunnelMode.swift */; };
+		7084FC21295ECC7400065DAF /* MPCTunnelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1F295ECC7400065DAF /* MPCTunnelMode.swift */; };
+		7084FC302965872200065DAF /* MPCLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC2F2965872200065DAF /* MPCLogLevel.swift */; };
+		7084FC312965872200065DAF /* MPCLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC2F2965872200065DAF /* MPCLogLevel.swift */; };
+		7084FC33296587C600065DAF /* MPCLogLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC32296587C600065DAF /* MPCLogLevelView.swift */; };
+		7084FC362967B8AC00065DAF /* MPCGeoIPSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC352967B8AC00065DAF /* MPCGeoIPSettingView.swift */; };
+		7084FC382967DB7300065DAF /* MPCGeoIPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC372967DB7300065DAF /* MPCGeoIPView.swift */; };
+		7084FC3A2967E6FD00065DAF /* MPCGEOIPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC392967E6FD00065DAF /* MPCGEOIPManager.swift */; };
 		7084FC3C29680A2200065DAF /* MPAccentColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC3B29680A2200065DAF /* MPAccentColor.swift */; };
-		708A48E1296295C50040184C /* CFIPolicyGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E0296295C50040184C /* CFIPolicyGroupView.swift */; };
-		708A48E3296299640040184C /* CFIProxyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E2296299640040184C /* CFIProxyListView.swift */; };
+		708A48E1296295C50040184C /* MPCPolicyGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E0296295C50040184C /* MPCPolicyGroupView.swift */; };
+		708A48E3296299640040184C /* MPCProxyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E2296299640040184C /* MPCProxyListView.swift */; };
 		708A48E82962A4540040184C /* MPIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E72962A4540040184C /* MPIcon.swift */; };
 		708A48EA2962AA2B0040184C /* MPAppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E92962AA2B0040184C /* MPAppearanceView.swift */; };
 		708A48EC2962AD740040184C /* MPAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48EB2962AD740040184C /* MPAppearance.swift */; };
 		70B947A9295F302B006F6A38 /* Clash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947A8295F302B006F6A38 /* Clash.swift */; };
-		70B947AF29612F46006F6A38 /* CFISubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947AE29612F46006F6A38 /* CFISubscribeView.swift */; };
-		70B947B129613321006F6A38 /* CFISubscribeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B029613321006F6A38 /* CFISubscribeManager.swift */; };
+		70B947AF29612F46006F6A38 /* MPCSubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947AE29612F46006F6A38 /* MPCSubscribeView.swift */; };
+		70B947B129613321006F6A38 /* MPCSubscribeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B029613321006F6A38 /* MPCSubscribeManager.swift */; };
 		70B947B329613354006F6A38 /* MPAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B229613354006F6A38 /* MPAppDelegate.swift */; };
 		70C9ED9929501D5B00B6995B /* MPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED9829501D5B00B6995B /* MPApp.swift */; };
 		70C9ED9B29501D5B00B6995B /* MPCContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED9A29501D5B00B6995B /* MPCContentView.swift */; };
@@ -53,12 +53,12 @@
 		70C9EDB029502C6500B6995B /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDAF29502C6500B6995B /* PacketTunnelProvider.swift */; };
 		70C9EDB529502C6500B6995B /* ClashTunnel.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 70C9EDAA29502C6500B6995B /* ClashTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		70C9EDBE29502D3500B6995B /* MPPacketTunnelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDBD29502D3500B6995B /* MPPacketTunnelManager.swift */; };
-		70C9EDCA2950565400B6995B /* CFISettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDC92950565400B6995B /* CFISettingView.swift */; };
-		70C9EDCC295057DB00B6995B /* CFIProviderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDCB295057DB00B6995B /* CFIProviderListView.swift */; };
+		70C9EDCA2950565400B6995B /* MPSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDC92950565400B6995B /* MPSettingView.swift */; };
+		70C9EDCC295057DB00B6995B /* MPCProviderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDCB295057DB00B6995B /* MPCProviderListView.swift */; };
 		70C9EDD12951469E00B6995B /* CFIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD02951469E00B6995B /* CFIConstant.swift */; };
 		70C9EDD22951469E00B6995B /* CFIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD02951469E00B6995B /* CFIConstant.swift */; };
 		70C9EDD82951587D00B6995B /* MPResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD72951587D00B6995B /* MPResetButton.swift */; };
-		70C9EDDA2951841E00B6995B /* CFISubscribeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD92951841E00B6995B /* CFISubscribeListView.swift */; };
+		70C9EDDA2951841E00B6995B /* MPCSubscribeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD92951841E00B6995B /* MPCSubscribeListView.swift */; };
 		70CEB88529A07605003436C2 /* MPXContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB88429A07605003436C2 /* MPXContentView.swift */; };
 		70CEB88D29A0BEEF003436C2 /* MPAppVersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB88C29A0BEEF003436C2 /* MPAppVersionView.swift */; };
 		70CEB88F29A0C4D9003436C2 /* MPSettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB88E29A0C4D9003436C2 /* MPSettingButton.swift */; };
@@ -99,15 +99,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7000C6D1295AED790005626E /* CFIProvidersManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFIProvidersManager.swift; sourceTree = "<group>"; };
-		7000C6D2295AED790005626E /* CFIProxyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFIProxyViewModel.swift; sourceTree = "<group>"; };
-		7000C6D3295AED790005626E /* CFIProxyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFIProxyModel.swift; sourceTree = "<group>"; };
-		7000C6D4295AED790005626E /* CFIProviderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFIProviderViewModel.swift; sourceTree = "<group>"; };
-		7000C6D5295AED790005626E /* CFIUpdatableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFIUpdatableViewModel.swift; sourceTree = "<group>"; };
-		7000C6DD295D5F690005626E /* CFIConnectedDurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIConnectedDurationView.swift; sourceTree = "<group>"; };
-		7000C6DF295D60A50005626E /* CFITunnelModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFITunnelModeView.swift; sourceTree = "<group>"; };
-		7000C6E3295D635F0005626E /* CFIControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIControlView.swift; sourceTree = "<group>"; };
-		702D9086299B2B4500B83324 /* CFIIPV6View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIIPV6View.swift; sourceTree = "<group>"; };
+		7000C6D1295AED790005626E /* MPCProvidersManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCProvidersManager.swift; sourceTree = "<group>"; };
+		7000C6D2295AED790005626E /* MPCProxyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCProxyViewModel.swift; sourceTree = "<group>"; };
+		7000C6D3295AED790005626E /* MPCProxyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCProxyModel.swift; sourceTree = "<group>"; };
+		7000C6D4295AED790005626E /* MPCProviderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCProviderViewModel.swift; sourceTree = "<group>"; };
+		7000C6D5295AED790005626E /* MPCUpdatableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCUpdatableViewModel.swift; sourceTree = "<group>"; };
+		7000C6DD295D5F690005626E /* MPConnectedDurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPConnectedDurationView.swift; sourceTree = "<group>"; };
+		7000C6DF295D60A50005626E /* MPCTunnelModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCTunnelModeView.swift; sourceTree = "<group>"; };
+		7000C6E3295D635F0005626E /* MPControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPControlView.swift; sourceTree = "<group>"; };
+		702D9086299B2B4500B83324 /* MPCIPV6View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCIPV6View.swift; sourceTree = "<group>"; };
 		702D9088299B54FD00B83324 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		702D9089299B58A400B83324 /* MPNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPNotification.swift; sourceTree = "<group>"; };
 		702D9090299FA40600B83324 /* XrayTunnel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = XrayTunnel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,25 +116,25 @@
 		702D9096299FA40600B83324 /* XrayTunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XrayTunnel.entitlements; sourceTree = "<group>"; };
 		70615813296815260005C024 /* MPAccentColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAccentColorView.swift; sourceTree = "<group>"; };
 		7061581529695E6A0005C024 /* MPFormPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPFormPicker.swift; sourceTree = "<group>"; };
-		70615838298620F20005C024 /* CFITrafficFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFITrafficFormatter.swift; sourceTree = "<group>"; };
-		7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIAppMessage.swift; sourceTree = "<group>"; };
-		7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFITunnelMode.swift; sourceTree = "<group>"; };
+		70615838298620F20005C024 /* MPCTrafficFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCTrafficFormatter.swift; sourceTree = "<group>"; };
+		7084FC1C295ECBC900065DAF /* MPCAppMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCAppMessage.swift; sourceTree = "<group>"; };
+		7084FC1F295ECC7400065DAF /* MPCTunnelMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCTunnelMode.swift; sourceTree = "<group>"; };
 		7084FC242963FB8A00065DAF /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		7084FC252963FDE300065DAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7084FC2F2965872200065DAF /* CFILogLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFILogLevel.swift; sourceTree = "<group>"; };
-		7084FC32296587C600065DAF /* CFILogLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFILogLevelView.swift; sourceTree = "<group>"; };
-		7084FC352967B8AC00065DAF /* CFIGeoIPSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIGeoIPSettingView.swift; sourceTree = "<group>"; };
-		7084FC372967DB7300065DAF /* CFIGeoIPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIGeoIPView.swift; sourceTree = "<group>"; };
-		7084FC392967E6FD00065DAF /* CFIGEOIPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIGEOIPManager.swift; sourceTree = "<group>"; };
+		7084FC2F2965872200065DAF /* MPCLogLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCLogLevel.swift; sourceTree = "<group>"; };
+		7084FC32296587C600065DAF /* MPCLogLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCLogLevelView.swift; sourceTree = "<group>"; };
+		7084FC352967B8AC00065DAF /* MPCGeoIPSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCGeoIPSettingView.swift; sourceTree = "<group>"; };
+		7084FC372967DB7300065DAF /* MPCGeoIPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCGeoIPView.swift; sourceTree = "<group>"; };
+		7084FC392967E6FD00065DAF /* MPCGEOIPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCGEOIPManager.swift; sourceTree = "<group>"; };
 		7084FC3B29680A2200065DAF /* MPAccentColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAccentColor.swift; sourceTree = "<group>"; };
-		708A48E0296295C50040184C /* CFIPolicyGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIPolicyGroupView.swift; sourceTree = "<group>"; };
-		708A48E2296299640040184C /* CFIProxyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIProxyListView.swift; sourceTree = "<group>"; };
+		708A48E0296295C50040184C /* MPCPolicyGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCPolicyGroupView.swift; sourceTree = "<group>"; };
+		708A48E2296299640040184C /* MPCProxyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCProxyListView.swift; sourceTree = "<group>"; };
 		708A48E72962A4540040184C /* MPIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPIcon.swift; sourceTree = "<group>"; };
 		708A48E92962AA2B0040184C /* MPAppearanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAppearanceView.swift; sourceTree = "<group>"; };
 		708A48EB2962AD740040184C /* MPAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAppearance.swift; sourceTree = "<group>"; };
 		70B947A8295F302B006F6A38 /* Clash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clash.swift; sourceTree = "<group>"; };
-		70B947AE29612F46006F6A38 /* CFISubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFISubscribeView.swift; sourceTree = "<group>"; };
-		70B947B029613321006F6A38 /* CFISubscribeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFISubscribeManager.swift; sourceTree = "<group>"; };
+		70B947AE29612F46006F6A38 /* MPCSubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSubscribeView.swift; sourceTree = "<group>"; };
+		70B947B029613321006F6A38 /* MPCSubscribeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSubscribeManager.swift; sourceTree = "<group>"; };
 		70B947B229613354006F6A38 /* MPAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAppDelegate.swift; sourceTree = "<group>"; };
 		70C9ED9529501D5B00B6995B /* Clash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70C9ED9829501D5B00B6995B /* MPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPApp.swift; sourceTree = "<group>"; };
@@ -148,11 +148,11 @@
 		70C9EDB229502C6500B6995B /* ClashTunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClashTunnel.entitlements; sourceTree = "<group>"; };
 		70C9EDBD29502D3500B6995B /* MPPacketTunnelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPPacketTunnelManager.swift; sourceTree = "<group>"; };
 		70C9EDBF2950303900B6995B /* Clash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clash.entitlements; sourceTree = "<group>"; };
-		70C9EDC92950565400B6995B /* CFISettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFISettingView.swift; sourceTree = "<group>"; };
-		70C9EDCB295057DB00B6995B /* CFIProviderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIProviderListView.swift; sourceTree = "<group>"; };
+		70C9EDC92950565400B6995B /* MPSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPSettingView.swift; sourceTree = "<group>"; };
+		70C9EDCB295057DB00B6995B /* MPCProviderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCProviderListView.swift; sourceTree = "<group>"; };
 		70C9EDD02951469E00B6995B /* CFIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFIConstant.swift; sourceTree = "<group>"; };
 		70C9EDD72951587D00B6995B /* MPResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPResetButton.swift; sourceTree = "<group>"; };
-		70C9EDD92951841E00B6995B /* CFISubscribeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFISubscribeListView.swift; sourceTree = "<group>"; };
+		70C9EDD92951841E00B6995B /* MPCSubscribeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSubscribeListView.swift; sourceTree = "<group>"; };
 		70CEB88429A07605003436C2 /* MPXContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPXContentView.swift; sourceTree = "<group>"; };
 		70CEB88C29A0BEEF003436C2 /* MPAppVersionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPAppVersionView.swift; sourceTree = "<group>"; };
 		70CEB88E29A0C4D9003436C2 /* MPSettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPSettingButton.swift; sourceTree = "<group>"; };
@@ -201,14 +201,14 @@
 		70B947AA295F378C006F6A38 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				70C9EDC92950565400B6995B /* CFISettingView.swift */,
+				70C9EDC92950565400B6995B /* MPSettingView.swift */,
 				70C9EDD72951587D00B6995B /* MPResetButton.swift */,
 				708A48E92962AA2B0040184C /* MPAppearanceView.swift */,
 				70615813296815260005C024 /* MPAccentColorView.swift */,
-				7084FC32296587C600065DAF /* CFILogLevelView.swift */,
-				7084FC372967DB7300065DAF /* CFIGeoIPView.swift */,
-				7084FC352967B8AC00065DAF /* CFIGeoIPSettingView.swift */,
-				702D9086299B2B4500B83324 /* CFIIPV6View.swift */,
+				7084FC32296587C600065DAF /* MPCLogLevelView.swift */,
+				7084FC372967DB7300065DAF /* MPCGeoIPView.swift */,
+				7084FC352967B8AC00065DAF /* MPCGeoIPSettingView.swift */,
+				702D9086299B2B4500B83324 /* MPCIPV6View.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -216,13 +216,13 @@
 		70B947AB295F37AC006F6A38 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				70B947AE29612F46006F6A38 /* CFISubscribeView.swift */,
-				7000C6DF295D60A50005626E /* CFITunnelModeView.swift */,
-				7000C6E3295D635F0005626E /* CFIControlView.swift */,
-				7000C6DD295D5F690005626E /* CFIConnectedDurationView.swift */,
-				708A48E0296295C50040184C /* CFIPolicyGroupView.swift */,
-				70C9EDCB295057DB00B6995B /* CFIProviderListView.swift */,
-				708A48E2296299640040184C /* CFIProxyListView.swift */,
+				70B947AE29612F46006F6A38 /* MPCSubscribeView.swift */,
+				7000C6DF295D60A50005626E /* MPCTunnelModeView.swift */,
+				7000C6E3295D635F0005626E /* MPControlView.swift */,
+				7000C6DD295D5F690005626E /* MPConnectedDurationView.swift */,
+				708A48E0296295C50040184C /* MPCPolicyGroupView.swift */,
+				70C9EDCB295057DB00B6995B /* MPCProviderListView.swift */,
+				708A48E2296299640040184C /* MPCProxyListView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -230,7 +230,7 @@
 		70B947AD29612F22006F6A38 /* Subscribe */ = {
 			isa = PBXGroup;
 			children = (
-				70C9EDD92951841E00B6995B /* CFISubscribeListView.swift */,
+				70C9EDD92951841E00B6995B /* MPCSubscribeListView.swift */,
 			);
 			path = Subscribe;
 			sourceTree = "<group>";
@@ -310,14 +310,14 @@
 			children = (
 				70CEB89029A0C775003436C2 /* MPKernel.swift */,
 				70C9EDBD29502D3500B6995B /* MPPacketTunnelManager.swift */,
-				7000C6D1295AED790005626E /* CFIProvidersManager.swift */,
-				7000C6D5295AED790005626E /* CFIUpdatableViewModel.swift */,
-				7000C6D4295AED790005626E /* CFIProviderViewModel.swift */,
-				7000C6D2295AED790005626E /* CFIProxyViewModel.swift */,
-				7000C6D3295AED790005626E /* CFIProxyModel.swift */,
-				70B947B029613321006F6A38 /* CFISubscribeManager.swift */,
-				7084FC392967E6FD00065DAF /* CFIGEOIPManager.swift */,
-				70615838298620F20005C024 /* CFITrafficFormatter.swift */,
+				7000C6D1295AED790005626E /* MPCProvidersManager.swift */,
+				7000C6D5295AED790005626E /* MPCUpdatableViewModel.swift */,
+				7000C6D4295AED790005626E /* MPCProviderViewModel.swift */,
+				7000C6D2295AED790005626E /* MPCProxyViewModel.swift */,
+				7000C6D3295AED790005626E /* MPCProxyModel.swift */,
+				70B947B029613321006F6A38 /* MPCSubscribeManager.swift */,
+				7084FC392967E6FD00065DAF /* MPCGEOIPManager.swift */,
+				70615838298620F20005C024 /* MPCTrafficFormatter.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -341,9 +341,9 @@
 			children = (
 				70C9EDD02951469E00B6995B /* CFIConstant.swift */,
 				70CEB89229A0C7BA003436C2 /* MPConstant.swift */,
-				7084FC1C295ECBC900065DAF /* CFIAppMessage.swift */,
-				7084FC1F295ECC7400065DAF /* CFITunnelMode.swift */,
-				7084FC2F2965872200065DAF /* CFILogLevel.swift */,
+				7084FC1C295ECBC900065DAF /* MPCAppMessage.swift */,
+				7084FC1F295ECC7400065DAF /* MPCTunnelMode.swift */,
+				7084FC2F2965872200065DAF /* MPCLogLevel.swift */,
 				702D9089299B58A400B83324 /* MPNotification.swift */,
 			);
 			path = Shared;
@@ -498,45 +498,45 @@
 				70C9ED9B29501D5B00B6995B /* MPCContentView.swift in Sources */,
 				702D908A299B58A400B83324 /* MPNotification.swift in Sources */,
 				70CEB88D29A0BEEF003436C2 /* MPAppVersionView.swift in Sources */,
-				70C9EDDA2951841E00B6995B /* CFISubscribeListView.swift in Sources */,
-				7084FC20295ECC7400065DAF /* CFITunnelMode.swift in Sources */,
-				7000C6D7295AED790005626E /* CFIProxyViewModel.swift in Sources */,
-				70C9EDCC295057DB00B6995B /* CFIProviderListView.swift in Sources */,
-				7000C6E0295D60A50005626E /* CFITunnelModeView.swift in Sources */,
+				70C9EDDA2951841E00B6995B /* MPCSubscribeListView.swift in Sources */,
+				7084FC20295ECC7400065DAF /* MPCTunnelMode.swift in Sources */,
+				7000C6D7295AED790005626E /* MPCProxyViewModel.swift in Sources */,
+				70C9EDCC295057DB00B6995B /* MPCProviderListView.swift in Sources */,
+				7000C6E0295D60A50005626E /* MPCTunnelModeView.swift in Sources */,
 				70CEB88F29A0C4D9003436C2 /* MPSettingButton.swift in Sources */,
 				70C9EDD82951587D00B6995B /* MPResetButton.swift in Sources */,
 				70615814296815260005C024 /* MPAccentColorView.swift in Sources */,
 				70C9EDBE29502D3500B6995B /* MPPacketTunnelManager.swift in Sources */,
 				70CEB88529A07605003436C2 /* MPXContentView.swift in Sources */,
-				7084FC302965872200065DAF /* CFILogLevel.swift in Sources */,
-				7084FC382967DB7300065DAF /* CFIGeoIPView.swift in Sources */,
-				70B947B129613321006F6A38 /* CFISubscribeManager.swift in Sources */,
-				7000C6D6295AED790005626E /* CFIProvidersManager.swift in Sources */,
-				7084FC362967B8AC00065DAF /* CFIGeoIPSettingView.swift in Sources */,
-				70C9EDCA2950565400B6995B /* CFISettingView.swift in Sources */,
-				70B947AF29612F46006F6A38 /* CFISubscribeView.swift in Sources */,
+				7084FC302965872200065DAF /* MPCLogLevel.swift in Sources */,
+				7084FC382967DB7300065DAF /* MPCGeoIPView.swift in Sources */,
+				70B947B129613321006F6A38 /* MPCSubscribeManager.swift in Sources */,
+				7000C6D6295AED790005626E /* MPCProvidersManager.swift in Sources */,
+				7084FC362967B8AC00065DAF /* MPCGeoIPSettingView.swift in Sources */,
+				70C9EDCA2950565400B6995B /* MPSettingView.swift in Sources */,
+				70B947AF29612F46006F6A38 /* MPCSubscribeView.swift in Sources */,
 				70C9EDD12951469E00B6995B /* CFIConstant.swift in Sources */,
 				7084FC3C29680A2200065DAF /* MPAccentColor.swift in Sources */,
 				70CEB89129A0C775003436C2 /* MPKernel.swift in Sources */,
-				7084FC3A2967E6FD00065DAF /* CFIGEOIPManager.swift in Sources */,
-				7084FC33296587C600065DAF /* CFILogLevelView.swift in Sources */,
+				7084FC3A2967E6FD00065DAF /* MPCGEOIPManager.swift in Sources */,
+				7084FC33296587C600065DAF /* MPCLogLevelView.swift in Sources */,
 				70C9ED9929501D5B00B6995B /* MPApp.swift in Sources */,
 				708A48EC2962AD740040184C /* MPAppearance.swift in Sources */,
-				7000C6DA295AED790005626E /* CFIUpdatableViewModel.swift in Sources */,
+				7000C6DA295AED790005626E /* MPCUpdatableViewModel.swift in Sources */,
 				708A48E82962A4540040184C /* MPIcon.swift in Sources */,
-				7084FC1D295ECBC900065DAF /* CFIAppMessage.swift in Sources */,
-				7000C6E4295D635F0005626E /* CFIControlView.swift in Sources */,
-				7000C6D8295AED790005626E /* CFIProxyModel.swift in Sources */,
+				7084FC1D295ECBC900065DAF /* MPCAppMessage.swift in Sources */,
+				7000C6E4295D635F0005626E /* MPControlView.swift in Sources */,
+				7000C6D8295AED790005626E /* MPCProxyModel.swift in Sources */,
 				708A48EA2962AA2B0040184C /* MPAppearanceView.swift in Sources */,
-				70615839298620F20005C024 /* CFITrafficFormatter.swift in Sources */,
+				70615839298620F20005C024 /* MPCTrafficFormatter.swift in Sources */,
 				70CEB89329A0C7BA003436C2 /* MPConstant.swift in Sources */,
 				7061581629695E6A0005C024 /* MPFormPicker.swift in Sources */,
-				702D9087299B2B4500B83324 /* CFIIPV6View.swift in Sources */,
-				7000C6D9295AED790005626E /* CFIProviderViewModel.swift in Sources */,
-				7000C6DE295D5F690005626E /* CFIConnectedDurationView.swift in Sources */,
-				708A48E1296295C50040184C /* CFIPolicyGroupView.swift in Sources */,
+				702D9087299B2B4500B83324 /* MPCIPV6View.swift in Sources */,
+				7000C6D9295AED790005626E /* MPCProviderViewModel.swift in Sources */,
+				7000C6DE295D5F690005626E /* MPConnectedDurationView.swift in Sources */,
+				708A48E1296295C50040184C /* MPCPolicyGroupView.swift in Sources */,
 				70B947B329613354006F6A38 /* MPAppDelegate.swift in Sources */,
-				708A48E3296299640040184C /* CFIProxyListView.swift in Sources */,
+				708A48E3296299640040184C /* MPCProxyListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,13 +544,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7084FC312965872200065DAF /* CFILogLevel.swift in Sources */,
+				7084FC312965872200065DAF /* MPCLogLevel.swift in Sources */,
 				70C9EDB029502C6500B6995B /* PacketTunnelProvider.swift in Sources */,
 				70C9EDD22951469E00B6995B /* CFIConstant.swift in Sources */,
 				702D908B299B58A400B83324 /* MPNotification.swift in Sources */,
 				70B947A9295F302B006F6A38 /* Clash.swift in Sources */,
-				7084FC1E295ECBC900065DAF /* CFIAppMessage.swift in Sources */,
-				7084FC21295ECC7400065DAF /* CFITunnelMode.swift in Sources */,
+				7084FC1E295ECBC900065DAF /* MPCAppMessage.swift in Sources */,
+				7084FC21295ECC7400065DAF /* MPCTunnelMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

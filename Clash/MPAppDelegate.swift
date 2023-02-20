@@ -9,11 +9,11 @@ final class MPAppDelegate: NSObject, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         if !UserDefaults.standard.bool(forKey: CFIConstant.isAppHasLaunched) {
-            UserDefaults.shared.set(CFITunnelMode.rule.rawValue, forKey: CFIConstant.tunnelMode)
-            UserDefaults.shared.set(CFILogLevel.silent.rawValue, forKey: CFIConstant.logLevel)
+            UserDefaults.shared.set(MPCTunnelMode.rule.rawValue, forKey: CFIConstant.tunnelMode)
+            UserDefaults.shared.set(MPCLogLevel.silent.rawValue, forKey: CFIConstant.logLevel)
             UserDefaults.standard.set(CFIConstant.defaultGeoIPDatabaseRemoteURLString, forKey: CFIConstant.geoipDatabaseRemoteURLString)
             UserDefaults.standard.set(true, forKey: CFIConstant.geoipDatabaseAutoUpdate)
-            UserDefaults.standard.set(CFIConstant.geoipDatabaseAutoUpdateInterval, forKey: CFIGEOIPAutoUpdateInterval.week.rawValue)
+            UserDefaults.standard.set(CFIConstant.geoipDatabaseAutoUpdateInterval, forKey: MPCGEOIPAutoUpdateInterval.week.rawValue)
             UserDefaults.standard.set(MPAccentColor.system.rawValue, forKey: MPConstant.accentColor)
             UserDefaults.standard.setValue(true, forKey: CFIConstant.isAppHasLaunched)
         }

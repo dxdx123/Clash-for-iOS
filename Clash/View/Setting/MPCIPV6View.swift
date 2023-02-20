@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CFIIPV6View: View {
+struct MPCIPV6View: View {
     
     @StateObject private var packetTunnelManager: MPPacketTunnelManager
     
