@@ -5,7 +5,7 @@ struct MPApp: App {
     
     @UIApplicationDelegateAdaptor private var delegate: MPAppDelegate
     
-    @AppStorage(MPConstant.kernel)          private var kernel      = MPKernel.clash
+    @AppStorage(MPConstant.kernel)         private var kernel      = MPKernel.clash
     @AppStorage(MPConstant.accentColor)    private var accentColor = MPAccentColor.system
     
     var body: some Scene {
