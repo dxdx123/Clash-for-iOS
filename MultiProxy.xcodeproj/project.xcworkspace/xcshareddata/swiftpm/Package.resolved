@@ -3,10 +3,19 @@
     {
       "identity" : "clashkit",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/daemonomead/ClashKit.git",
+      "location" : "https://github.com/daemooon/ClashKit.git",
       "state" : {
-        "revision" : "119862b67306fe8e31d4d5b5ed5cee07402242e3",
-        "version" : "1.8.16"
+        "revision" : "c70deb57c21fdafbca845bcd771f2f51e4f3173d",
+        "version" : "1.8.17"
+      }
+    },
+    {
+      "identity" : "xraykit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/daemooon/XrayKit.git",
+      "state" : {
+        "revision" : "1a22c331933d67c966f596a0ee659c0c97333b99",
+        "version" : "0.1.1"
       }
     }
   ],

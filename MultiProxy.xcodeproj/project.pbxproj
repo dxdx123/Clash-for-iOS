@@ -15,7 +15,6 @@
 		7000C6DE295D5F690005626E /* MPConnectedDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6DD295D5F690005626E /* MPConnectedDurationView.swift */; };
 		7000C6E0295D60A50005626E /* MPCTunnelModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6DF295D60A50005626E /* MPCTunnelModeView.swift */; };
 		7000C6E4295D635F0005626E /* MPControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6E3295D635F0005626E /* MPControlView.swift */; };
-		7015F0DD296C5C25003E6A7D /* ClashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7015F0DC296C5C25003E6A7D /* ClashKit */; };
 		701811D729A32D58005E5CDB /* MPNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MPNotification.swift */; };
 		701811D929A32D6C005E5CDB /* MPCConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811D829A32D6C005E5CDB /* MPCConstant.swift */; };
 		701811DA29A32D71005E5CDB /* MPCConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811D829A32D6C005E5CDB /* MPCConstant.swift */; };
@@ -23,6 +22,7 @@
 		701811DD29A32E28005E5CDB /* MPXConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811DB29A32D7A005E5CDB /* MPXConstant.swift */; };
 		701811DF29A33057005E5CDB /* MPXSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811DE29A33057005E5CDB /* MPXSettingView.swift */; };
 		701811E129A33068005E5CDB /* MPCSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811E029A33068005E5CDB /* MPCSettingView.swift */; };
+		701811F729A4638B005E5CDB /* XrayKit in Frameworks */ = {isa = PBXBuildFile; productRef = 701811F629A4638B005E5CDB /* XrayKit */; };
 		702D9087299B2B4500B83324 /* MPCIPV6View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9086299B2B4500B83324 /* MPCIPV6View.swift */; };
 		702D908A299B58A400B83324 /* MPNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MPNotification.swift */; };
 		702D908B299B58A400B83324 /* MPNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MPNotification.swift */; };
@@ -32,6 +32,7 @@
 		70615814296815260005C024 /* MPAccentColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70615813296815260005C024 /* MPAccentColorView.swift */; };
 		7061581629695E6A0005C024 /* MPFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061581529695E6A0005C024 /* MPFormPicker.swift */; };
 		70615839298620F20005C024 /* MPCTrafficFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70615838298620F20005C024 /* MPCTrafficFormatter.swift */; };
+		7072264329A4648000A38837 /* ClashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7072264229A4648000A38837 /* ClashKit */; };
 		7084FC1D295ECBC900065DAF /* MPCAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* MPCAppMessage.swift */; };
 		7084FC1E295ECBC900065DAF /* MPCAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* MPCAppMessage.swift */; };
 		7084FC20295ECC7400065DAF /* MPCTunnelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1F295ECC7400065DAF /* MPCTunnelMode.swift */; };
@@ -172,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				702D9091299FA40600B83324 /* NetworkExtension.framework in Frameworks */,
+				701811F729A4638B005E5CDB /* XrayKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,7 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70C9EDAD29502C6500B6995B /* NetworkExtension.framework in Frameworks */,
-				7015F0DD296C5C25003E6A7D /* ClashKit in Frameworks */,
+				7072264329A4648000A38837 /* ClashKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +414,9 @@
 			dependencies = (
 			);
 			name = XrayTunnel;
+			packageProductDependencies = (
+				701811F629A4638B005E5CDB /* XrayKit */,
+			);
 			productName = XrayTunnel;
 			productReference = 702D9090299FA40600B83324 /* XrayTunnel.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -454,7 +459,7 @@
 			);
 			name = ClashTunnel;
 			packageProductDependencies = (
-				7015F0DC296C5C25003E6A7D /* ClashKit */,
+				7072264229A4648000A38837 /* ClashKit */,
 			);
 			productName = PacketTunnel;
 			productReference = 70C9EDAA29502C6500B6995B /* ClashTunnel.appex */;
@@ -490,7 +495,8 @@
 			);
 			mainGroup = 70C9ED8C29501D5B00B6995B;
 			packageReferences = (
-				7015F0DB296C5C25003E6A7D /* XCRemoteSwiftPackageReference "ClashKit" */,
+				701811F529A4638B005E5CDB /* XCRemoteSwiftPackageReference "XrayKit" */,
+				7072264129A4647F00A38837 /* XCRemoteSwiftPackageReference "ClashKit" */,
 			);
 			productRefGroup = 70C9ED9629501D5B00B6995B /* Products */;
 			projectDirPath = "";
@@ -955,7 +961,7 @@
 			repositoryURL = "https://github.com/daemonomead/ClashKit.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.8.16;
+				version = 1.8.17;
 			};
 		};
 		7015F0DE296C5D08003E6A7D /* XCRemoteSwiftPackageReference "Tun2SocksKit" */ = {
@@ -966,14 +972,25 @@
 				version = 1.0.0;
 			};
 		};
+		701811F529A4638B005E5CDB /* XCRemoteSwiftPackageReference "XrayKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daemooon/XrayKit.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.1.1;
+			};
+		};
+		7072264129A4647F00A38837 /* XCRemoteSwiftPackageReference "ClashKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daemooon/ClashKit.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.8.17;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7015F0DC296C5C25003E6A7D /* ClashKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7015F0DB296C5C25003E6A7D /* XCRemoteSwiftPackageReference "ClashKit" */;
-			productName = ClashKit;
-		};
 		7015F0E3296C5DA1003E6A7D /* ClashKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7015F0DB296C5C25003E6A7D /* XCRemoteSwiftPackageReference "ClashKit" */;
@@ -983,6 +1000,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7015F0DE296C5D08003E6A7D /* XCRemoteSwiftPackageReference "Tun2SocksKit" */;
 			productName = Tun2SocksKit;
+		};
+		701811F629A4638B005E5CDB /* XrayKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 701811F529A4638B005E5CDB /* XCRemoteSwiftPackageReference "XrayKit" */;
+			productName = XrayKit;
+		};
+		7072264229A4648000A38837 /* ClashKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7072264129A4647F00A38837 /* XCRemoteSwiftPackageReference "ClashKit" */;
+			productName = ClashKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
