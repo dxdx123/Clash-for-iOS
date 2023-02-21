@@ -1,4 +1,5 @@
 import NetworkExtension
+import XrayKit
 
 class PacketTunnelProvider: NEPacketTunnelProvider {
     
@@ -10,8 +11,47 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             settings.includedRoutes = [NEIPv4Route.default()]
             return settings
         }()
+        settings.proxySettings = {
+            let settings = NEProxySettings()
+            settings.httpEnabled = true
+            settings.httpServer = NEProxyServer(address: "127.0.0.1", port: 9090)
+            settings.httpsEnabled = true
+            settings.httpsServer = NEProxyServer(address: "127.0.0.1", port: 9090)
+            settings.matchDomains = [""]
+            return settings
+        }()
         settings.dnsSettings = NEDNSSettings(servers: ["114.114.114.114"])
         try await self.setTunnelNetworkSettings(settings)
+        do {
+            var error: NSError? = nil
+            let json: String = """
+            {
+                "log": {
+                    "loglevel": "debug",
+                    "dnsLog": true
+                },
+                "inbounds": [
+                    {
+                        "port": 9090,
+                        "listen": "127.0.0.1",
+                        "protocol": "http",
+                        "settings": {
+                            "udp": true
+                        }
+                    }
+                ],
+                "outbounds": [
+                    {
+                        "protocol": "freedom",
+                        "tag": "direct",
+                        "settings": {}
+                    }
+                ]
+            }
+            """
+            XrayRun(json, self, &error)
+            try error.flatMap { throw $0 }
+        }
     }
     
     override func stopTunnel(with reason: NEProviderStopReason) async {
@@ -20,5 +60,12 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     
     override func handleAppMessage(_ messageData: Data) async -> Data? {
         return nil
+    }
+}
+
+extension PacketTunnelProvider: XrayLoggerProtocol {
+    
+    func onLog(_ msg: String?) {
+        msg.flatMap { NSLog($0) }
     }
 }

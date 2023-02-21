@@ -33,6 +33,7 @@
 		7061581629695E6A0005C024 /* MPFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061581529695E6A0005C024 /* MPFormPicker.swift */; };
 		70615839298620F20005C024 /* MPCTrafficFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70615838298620F20005C024 /* MPCTrafficFormatter.swift */; };
 		7072264329A4648000A38837 /* ClashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7072264229A4648000A38837 /* ClashKit */; };
+		7072264529A46D1200A38837 /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7072264429A46C6100A38837 /* libresolv.9.tbd */; };
 		7084FC1D295ECBC900065DAF /* MPCAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* MPCAppMessage.swift */; };
 		7084FC1E295ECBC900065DAF /* MPCAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* MPCAppMessage.swift */; };
 		7084FC20295ECC7400065DAF /* MPCTunnelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1F295ECC7400065DAF /* MPCTunnelMode.swift */; };
@@ -127,6 +128,7 @@
 		70615813296815260005C024 /* MPAccentColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAccentColorView.swift; sourceTree = "<group>"; };
 		7061581529695E6A0005C024 /* MPFormPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPFormPicker.swift; sourceTree = "<group>"; };
 		70615838298620F20005C024 /* MPCTrafficFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCTrafficFormatter.swift; sourceTree = "<group>"; };
+		7072264429A46C6100A38837 /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
 		7084FC1C295ECBC900065DAF /* MPCAppMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCAppMessage.swift; sourceTree = "<group>"; };
 		7084FC1F295ECC7400065DAF /* MPCTunnelMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCTunnelMode.swift; sourceTree = "<group>"; };
 		7084FC242963FB8A00065DAF /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7072264529A46D1200A38837 /* libresolv.9.tbd in Frameworks */,
 				702D9091299FA40600B83324 /* NetworkExtension.framework in Frameworks */,
 				701811F729A4638B005E5CDB /* XrayKit in Frameworks */,
 			);
@@ -347,6 +350,7 @@
 		70C9EDAB29502C6500B6995B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7072264429A46C6100A38837 /* libresolv.9.tbd */,
 				70C9EDAC29502C6500B6995B /* NetworkExtension.framework */,
 			);
 			name = Frameworks;
@@ -977,7 +981,7 @@
 			repositoryURL = "https://github.com/daemooon/XrayKit.git";
 			requirement = {
 				kind = exactVersion;
-				version = 0.1.1;
+				version = 0.1.4;
 			};
 		};
 		7072264129A4647F00A38837 /* XCRemoteSwiftPackageReference "ClashKit" */ = {
