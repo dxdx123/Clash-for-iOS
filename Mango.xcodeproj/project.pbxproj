@@ -71,6 +71,12 @@
 		70CEB89329A0C7BA003436C2 /* MPConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB89229A0C7BA003436C2 /* MPConstant.swift */; };
 		70CEB89829A30C79003436C2 /* MPConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB89229A0C7BA003436C2 /* MPConstant.swift */; };
 		70CEB89929A30C79003436C2 /* MPConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB89229A0C7BA003436C2 /* MPConstant.swift */; };
+		70DE0D6829A6114B00B3E343 /* MGApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D6729A6114B00B3E343 /* MGApp.swift */; };
+		70DE0D6A29A611E100B3E343 /* MGKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D6929A611E100B3E343 /* MGKernel.swift */; };
+		70DE0D6B29A611E100B3E343 /* MGKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D6929A611E100B3E343 /* MGKernel.swift */; };
+		70DE0D6C29A611E100B3E343 /* MGKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D6929A611E100B3E343 /* MGKernel.swift */; };
+		70DE0D6E29A6155C00B3E343 /* MGPresentedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D6D29A6155C00B3E343 /* MGPresentedButton.swift */; };
+		70DE0D7029A62A5800B3E343 /* MGPacketTunnelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D6F29A62A5800B3E343 /* MGPacketTunnelManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +173,10 @@
 		70CEB88E29A0C4D9003436C2 /* MPSettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPSettingButton.swift; sourceTree = "<group>"; };
 		70CEB89029A0C775003436C2 /* MPKernel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPKernel.swift; sourceTree = "<group>"; };
 		70CEB89229A0C7BA003436C2 /* MPConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPConstant.swift; sourceTree = "<group>"; };
+		70DE0D6729A6114B00B3E343 /* MGApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGApp.swift; sourceTree = "<group>"; };
+		70DE0D6929A611E100B3E343 /* MGKernel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGKernel.swift; sourceTree = "<group>"; };
+		70DE0D6D29A6155C00B3E343 /* MGPresentedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPresentedButton.swift; sourceTree = "<group>"; };
+		70DE0D6F29A62A5800B3E343 /* MGPacketTunnelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPacketTunnelManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				70C9EDBF2950303900B6995B /* Mango.entitlements */,
+				70DE0D6729A6114B00B3E343 /* MGApp.swift */,
 				70B947B229613354006F6A38 /* MPAppDelegate.swift */,
 				70C9ED9829501D5B00B6995B /* MPApp.swift */,
 				701811CC29A32B7A005E5CDB /* Clash */,
@@ -371,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				70CEB89029A0C775003436C2 /* MPKernel.swift */,
+				70DE0D6F29A62A5800B3E343 /* MGPacketTunnelManager.swift */,
 				70C9EDBD29502D3500B6995B /* MPPacketTunnelManager.swift */,
 				708A48EB2962AD740040184C /* MPAppearance.swift */,
 				7084FC3B29680A2200065DAF /* MPAccentColor.swift */,
@@ -387,6 +399,7 @@
 				70C9EDD72951587D00B6995B /* MPResetButton.swift */,
 				708A48E92962AA2B0040184C /* MPAppearanceView.swift */,
 				70615813296815260005C024 /* MPAccentColorView.swift */,
+				70DE0D6D29A6155C00B3E343 /* MGPresentedButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -394,6 +407,7 @@
 		70C9EDCF295145DB00B6995B /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				70DE0D6929A611E100B3E343 /* MGKernel.swift */,
 				70CEB89229A0C7BA003436C2 /* MPConstant.swift */,
 				702D9089299B58A400B83324 /* MPNotification.swift */,
 				701811D529A32D1B005E5CDB /* Clash */,
@@ -548,6 +562,7 @@
 				702D9094299FA40600B83324 /* PacketTunnelProvider.swift in Sources */,
 				701811D729A32D58005E5CDB /* MPNotification.swift in Sources */,
 				701811DD29A32E28005E5CDB /* MPXConstant.swift in Sources */,
+				70DE0D6C29A611E100B3E343 /* MGKernel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,9 +596,11 @@
 				7084FC3A2967E6FD00065DAF /* MPCGEOIPManager.swift in Sources */,
 				7084FC33296587C600065DAF /* MPCLogLevelView.swift in Sources */,
 				70C9ED9929501D5B00B6995B /* MPApp.swift in Sources */,
+				70DE0D6E29A6155C00B3E343 /* MGPresentedButton.swift in Sources */,
 				708A48EC2962AD740040184C /* MPAppearance.swift in Sources */,
 				7000C6DA295AED790005626E /* MPCUpdatableViewModel.swift in Sources */,
 				7084FC1D295ECBC900065DAF /* MPCAppMessage.swift in Sources */,
+				70DE0D6A29A611E100B3E343 /* MGKernel.swift in Sources */,
 				7000C6E4295D635F0005626E /* MPControlView.swift in Sources */,
 				7000C6D8295AED790005626E /* MPCProxyModel.swift in Sources */,
 				708A48EA2962AA2B0040184C /* MPAppearanceView.swift in Sources */,
@@ -595,7 +612,9 @@
 				7000C6D9295AED790005626E /* MPCProviderViewModel.swift in Sources */,
 				7000C6DE295D5F690005626E /* MPConnectedDurationView.swift in Sources */,
 				708A48E1296295C50040184C /* MPCPolicyGroupView.swift in Sources */,
+				70DE0D6829A6114B00B3E343 /* MGApp.swift in Sources */,
 				70B947B329613354006F6A38 /* MPAppDelegate.swift in Sources */,
+				70DE0D7029A62A5800B3E343 /* MGPacketTunnelManager.swift in Sources */,
 				708A48E3296299640040184C /* MPCProxyListView.swift in Sources */,
 				701811E129A33068005E5CDB /* MPCSettingView.swift in Sources */,
 			);
@@ -607,6 +626,7 @@
 			files = (
 				7084FC312965872200065DAF /* MPCLogLevel.swift in Sources */,
 				70C9EDB029502C6500B6995B /* PacketTunnelProvider.swift in Sources */,
+				70DE0D6B29A611E100B3E343 /* MGKernel.swift in Sources */,
 				70CEB89829A30C79003436C2 /* MPConstant.swift in Sources */,
 				702D908B299B58A400B83324 /* MPNotification.swift in Sources */,
 				70B947A9295F302B006F6A38 /* Clash.swift in Sources */,

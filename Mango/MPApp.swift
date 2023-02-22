@@ -1,6 +1,6 @@
 import SwiftUI
 
-@main
+//@main
 struct MPApp: App {
     
     @UIApplicationDelegateAdaptor private var delegate: MPAppDelegate
