@@ -17,7 +17,12 @@ struct MGHomeView: View {
                 Section {
                     
                 } header: {
-                    Text("订阅")
+                    switch packetTunnelManager.kernel {
+                    case .clash:
+                        Text("订阅")
+                    case .xray:
+                        Text("配置")
+                    }
                 }
                 Section {
                     MGControlView(packetTunnelManager: packetTunnelManager)
@@ -25,10 +30,15 @@ struct MGHomeView: View {
                 } header: {
                     Text("状态")
                 }
-                Section {
-                    
-                } header: {
-                    Text("代理")
+                switch packetTunnelManager.kernel {
+                case .clash:
+                    Section {
+                        
+                    } header: {
+                        Text("代理")
+                    }
+                case .xray:
+                    EmptyView()
                 }
             }
             .toolbar {
