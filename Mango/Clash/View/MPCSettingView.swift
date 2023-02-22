@@ -23,7 +23,7 @@ struct MPCSettingView: View {
                 Text("主题")
             }
             Section {
-                MPResetButton(packetTunnelManager: packetTunnelManager)
+                MGResetButton()
             }
         }
     }

@@ -17,8 +17,8 @@ struct MPCContentView: View {
                 Text("订阅")
             }
             Section {
-                MPControlView(packetTunnelManager: packetTunnelManager)
-                MPConnectedDurationView(packetTunnelManager: packetTunnelManager)
+//                MGControlView(packetTunnelManager: packetTunnelManager)
+//                MGConnectedDurationView(packetTunnelManager: packetTunnelManager)
             } header: {
                 Text("状态")
             }

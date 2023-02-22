@@ -14,19 +14,14 @@ struct MGHomeView: View {
     var body: some View {
         NavigationStack {
             Form {
-                switch packetTunnelManager.kernel {
-                case .clash:
-                    Text("Clash")
-                case .xray:
-                    Text("Xray")
-                }
                 Section {
                     
                 } header: {
                     Text("订阅")
                 }
                 Section {
-                    
+                    MGControlView(packetTunnelManager: packetTunnelManager)
+                    MGConnectedDurationView(packetTunnelManager: packetTunnelManager)
                 } header: {
                     Text("状态")
                 }
@@ -51,6 +46,7 @@ struct MGHomeView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     MGPresentedButton {
                         MGSettingView()
+                            .environmentObject(packetTunnelManager)
                     } label: {
                         Image(systemName: "slider.horizontal.3")
                     }

@@ -1,14 +1,10 @@
 import SwiftUI
 
-struct MPResetButton: View {
+struct MGResetButton: View {
     
-    @StateObject private var packetTunnelManager: MPPacketTunnelManager
-    
+    @EnvironmentObject private var packetTunnelManager: MGPacketTunnelManager
+
     @State private var isPresented: Bool = false
-    
-    init(packetTunnelManager: MPPacketTunnelManager) {
-        self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
-    }
     
     var body: some View {
         HStack {

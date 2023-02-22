@@ -1,12 +1,12 @@
 import SwiftUI
 import NetworkExtension
 
-struct MPControlView: View {
+struct MGControlView: View {
     
-    @StateObject private var packetTunnelManager: MPPacketTunnelManager
+    @ObservedObject private var packetTunnelManager: MGPacketTunnelManager
     
-    init(packetTunnelManager: MPPacketTunnelManager) {
-        self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
+    init(packetTunnelManager: MGPacketTunnelManager) {
+        self._packetTunnelManager = ObservedObject(wrappedValue: packetTunnelManager)
     }
     
     var body: some View {

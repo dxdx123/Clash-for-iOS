@@ -2,6 +2,8 @@ import SwiftUI
 
 struct MGSettingView: View {
     
+    @EnvironmentObject private var packetTunnelManager: MGPacketTunnelManager
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -11,12 +13,7 @@ struct MGSettingView: View {
                     Text("内核")
                 }
                 Section {
-                    MGAppearanceView()
-                } header: {
-                    Text("主题")
-                }
-                Section {
-                    
+                    MGResetButton()
                 }
             }
             .navigationTitle(Text("设置"))

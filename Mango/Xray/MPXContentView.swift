@@ -7,8 +7,8 @@ struct MPXContentView: View {
     var body: some View {
         Form {
             Section {
-                MPControlView(packetTunnelManager: packetTunnelManager)
-                MPConnectedDurationView(packetTunnelManager: packetTunnelManager)
+//                MGControlView(packetTunnelManager: packetTunnelManager)
+//                MGConnectedDurationView(packetTunnelManager: packetTunnelManager)
             } header: {
                 Text("状态")
             }
