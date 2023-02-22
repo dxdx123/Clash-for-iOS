@@ -77,6 +77,9 @@
 		70DE0D6C29A611E100B3E343 /* MGKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D6929A611E100B3E343 /* MGKernel.swift */; };
 		70DE0D6E29A6155C00B3E343 /* MGPresentedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D6D29A6155C00B3E343 /* MGPresentedButton.swift */; };
 		70DE0D7029A62A5800B3E343 /* MGPacketTunnelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D6F29A62A5800B3E343 /* MGPacketTunnelManager.swift */; };
+		70DE0D7329A62C4E00B3E343 /* MGHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D7229A62C4E00B3E343 /* MGHomeView.swift */; };
+		70DE0D7529A62C7700B3E343 /* MGContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D7429A62C7700B3E343 /* MGContentView.swift */; };
+		70DE0D7829A6306100B3E343 /* MGSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D7729A6306100B3E343 /* MGSettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +180,9 @@
 		70DE0D6929A611E100B3E343 /* MGKernel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGKernel.swift; sourceTree = "<group>"; };
 		70DE0D6D29A6155C00B3E343 /* MGPresentedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPresentedButton.swift; sourceTree = "<group>"; };
 		70DE0D6F29A62A5800B3E343 /* MGPacketTunnelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPacketTunnelManager.swift; sourceTree = "<group>"; };
+		70DE0D7229A62C4E00B3E343 /* MGHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGHomeView.swift; sourceTree = "<group>"; };
+		70DE0D7429A62C7700B3E343 /* MGContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGContentView.swift; sourceTree = "<group>"; };
+		70DE0D7729A6306100B3E343 /* MGSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,11 +343,14 @@
 			children = (
 				70C9EDBF2950303900B6995B /* Mango.entitlements */,
 				70DE0D6729A6114B00B3E343 /* MGApp.swift */,
+				70DE0D7429A62C7700B3E343 /* MGContentView.swift */,
 				70B947B229613354006F6A38 /* MPAppDelegate.swift */,
 				70C9ED9829501D5B00B6995B /* MPApp.swift */,
+				70DE0D7129A62C4100B3E343 /* Home */,
+				70DE0D7629A6300100B3E343 /* Setting */,
 				701811CC29A32B7A005E5CDB /* Clash */,
 				701811CD29A32B81005E5CDB /* Xray */,
-				70C9EDC02950415F00B6995B /* View */,
+				70C9EDC02950415F00B6995B /* Common */,
 				70C9EDBA29502CF000B6995B /* Core */,
 				70C9ED9C29501D5C00B6995B /* Assets.xcassets */,
 				7084FC252963FDE300065DAF /* Info.plist */,
@@ -390,18 +399,16 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		70C9EDC02950415F00B6995B /* View */ = {
+		70C9EDC02950415F00B6995B /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				7061581529695E6A0005C024 /* MPFormPicker.swift */,
 				70CEB88E29A0C4D9003436C2 /* MPSettingButton.swift */,
 				70CEB88C29A0BEEF003436C2 /* MPAppVersionView.swift */,
 				70C9EDD72951587D00B6995B /* MPResetButton.swift */,
-				708A48E92962AA2B0040184C /* MPAppearanceView.swift */,
-				70615813296815260005C024 /* MPAccentColorView.swift */,
 				70DE0D6D29A6155C00B3E343 /* MGPresentedButton.swift */,
 			);
-			path = View;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		70C9EDCF295145DB00B6995B /* Shared */ = {
@@ -414,6 +421,24 @@
 				701811D629A32D21005E5CDB /* Xray */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		70DE0D7129A62C4100B3E343 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				70DE0D7229A62C4E00B3E343 /* MGHomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		70DE0D7629A6300100B3E343 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				70DE0D7729A6306100B3E343 /* MGSettingView.swift */,
+				708A48E92962AA2B0040184C /* MPAppearanceView.swift */,
+				70615813296815260005C024 /* MPAccentColorView.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -573,6 +598,7 @@
 				70C9ED9B29501D5B00B6995B /* MPCContentView.swift in Sources */,
 				702D908A299B58A400B83324 /* MPNotification.swift in Sources */,
 				70CEB88D29A0BEEF003436C2 /* MPAppVersionView.swift in Sources */,
+				70DE0D7329A62C4E00B3E343 /* MGHomeView.swift in Sources */,
 				70C9EDDA2951841E00B6995B /* MPCSubscribeListView.swift in Sources */,
 				7084FC20295ECC7400065DAF /* MPCTunnelMode.swift in Sources */,
 				7000C6D7295AED790005626E /* MPCProxyViewModel.swift in Sources */,
@@ -594,6 +620,7 @@
 				7084FC3C29680A2200065DAF /* MPAccentColor.swift in Sources */,
 				70CEB89129A0C775003436C2 /* MPKernel.swift in Sources */,
 				7084FC3A2967E6FD00065DAF /* MPCGEOIPManager.swift in Sources */,
+				70DE0D7829A6306100B3E343 /* MGSettingView.swift in Sources */,
 				7084FC33296587C600065DAF /* MPCLogLevelView.swift in Sources */,
 				70C9ED9929501D5B00B6995B /* MPApp.swift in Sources */,
 				70DE0D6E29A6155C00B3E343 /* MGPresentedButton.swift in Sources */,
@@ -604,6 +631,7 @@
 				7000C6E4295D635F0005626E /* MPControlView.swift in Sources */,
 				7000C6D8295AED790005626E /* MPCProxyModel.swift in Sources */,
 				708A48EA2962AA2B0040184C /* MPAppearanceView.swift in Sources */,
+				70DE0D7529A62C7700B3E343 /* MGContentView.swift in Sources */,
 				70615839298620F20005C024 /* MPCTrafficFormatter.swift in Sources */,
 				70CEB89329A0C7BA003436C2 /* MPConstant.swift in Sources */,
 				7061581629695E6A0005C024 /* MPFormPicker.swift in Sources */,

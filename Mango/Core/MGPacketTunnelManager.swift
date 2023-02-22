@@ -1,6 +1,7 @@
 import NetworkExtension
 import Combine
 
+@MainActor
 final class MGPacketTunnelManager: ObservableObject {
     
     let kernel: MGKernel
