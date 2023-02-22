@@ -147,7 +147,7 @@
 		70B947AE29612F46006F6A38 /* MPCSubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSubscribeView.swift; sourceTree = "<group>"; };
 		70B947B029613321006F6A38 /* MPCSubscribeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSubscribeManager.swift; sourceTree = "<group>"; };
 		70B947B229613354006F6A38 /* MPAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAppDelegate.swift; sourceTree = "<group>"; };
-		70C9ED9529501D5B00B6995B /* MultiProxy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiProxy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		70C9ED9529501D5B00B6995B /* Mango.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mango.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70C9ED9829501D5B00B6995B /* MPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPApp.swift; sourceTree = "<group>"; };
 		70C9ED9A29501D5B00B6995B /* MPCContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCContentView.swift; sourceTree = "<group>"; };
 		70C9ED9C29501D5C00B6995B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 		70C9EDB129502C6500B6995B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70C9EDB229502C6500B6995B /* ClashTunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClashTunnel.entitlements; sourceTree = "<group>"; };
 		70C9EDBD29502D3500B6995B /* MPPacketTunnelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPPacketTunnelManager.swift; sourceTree = "<group>"; };
-		70C9EDBF2950303900B6995B /* MPApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MPApp.entitlements; sourceTree = "<group>"; };
+		70C9EDBF2950303900B6995B /* Mango.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mango.entitlements; sourceTree = "<group>"; };
 		70C9EDCB295057DB00B6995B /* MPCProviderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCProviderListView.swift; sourceTree = "<group>"; };
 		70C9EDD72951587D00B6995B /* MPResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPResetButton.swift; sourceTree = "<group>"; };
 		70C9EDD92951841E00B6995B /* MPCSubscribeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSubscribeListView.swift; sourceTree = "<group>"; };
@@ -304,7 +304,7 @@
 				702D9088299B54FD00B83324 /* README.txt */,
 				7084FC242963FB8A00065DAF /* Config.xcconfig */,
 				70C9EDCF295145DB00B6995B /* Shared */,
-				70C9ED9729501D5B00B6995B /* MPApp */,
+				70C9ED9729501D5B00B6995B /* Mango */,
 				70C9EDAE29502C6500B6995B /* ClashTunnel */,
 				702D9092299FA40600B83324 /* XrayTunnel */,
 				70C9EDAB29502C6500B6995B /* Frameworks */,
@@ -315,17 +315,17 @@
 		70C9ED9629501D5B00B6995B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				70C9ED9529501D5B00B6995B /* MultiProxy.app */,
+				70C9ED9529501D5B00B6995B /* Mango.app */,
 				70C9EDAA29502C6500B6995B /* ClashTunnel.appex */,
 				702D9090299FA40600B83324 /* XrayTunnel.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		70C9ED9729501D5B00B6995B /* MPApp */ = {
+		70C9ED9729501D5B00B6995B /* Mango */ = {
 			isa = PBXGroup;
 			children = (
-				70C9EDBF2950303900B6995B /* MPApp.entitlements */,
+				70C9EDBF2950303900B6995B /* Mango.entitlements */,
 				70B947B229613354006F6A38 /* MPAppDelegate.swift */,
 				70C9ED9829501D5B00B6995B /* MPApp.swift */,
 				701811CC29A32B7A005E5CDB /* Clash */,
@@ -336,7 +336,7 @@
 				7084FC252963FDE300065DAF /* Info.plist */,
 				70C9ED9E29501D5C00B6995B /* Preview Content */,
 			);
-			path = MPApp;
+			path = Mango;
 			sourceTree = "<group>";
 		};
 		70C9ED9E29501D5C00B6995B /* Preview Content */ = {
@@ -425,9 +425,9 @@
 			productReference = 702D9090299FA40600B83324 /* XrayTunnel.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		70C9ED9429501D5B00B6995B /* MultiProxy */ = {
+		70C9ED9429501D5B00B6995B /* Mango */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 70C9EDA329501D5C00B6995B /* Build configuration list for PBXNativeTarget "MultiProxy" */;
+			buildConfigurationList = 70C9EDA329501D5C00B6995B /* Build configuration list for PBXNativeTarget "Mango" */;
 			buildPhases = (
 				70C9ED9129501D5B00B6995B /* Sources */,
 				70C9ED9229501D5B00B6995B /* Frameworks */,
@@ -440,11 +440,11 @@
 				70C9EDB429502C6500B6995B /* PBXTargetDependency */,
 				702D9098299FA40600B83324 /* PBXTargetDependency */,
 			);
-			name = MultiProxy;
+			name = Mango;
 			packageProductDependencies = (
 			);
 			productName = Clash;
-			productReference = 70C9ED9529501D5B00B6995B /* MultiProxy.app */;
+			productReference = 70C9ED9529501D5B00B6995B /* Mango.app */;
 			productType = "com.apple.product-type.application";
 		};
 		70C9EDA929502C6500B6995B /* ClashTunnel */ = {
@@ -490,7 +490,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 70C9ED9029501D5B00B6995B /* Build configuration list for PBXProject "MultiProxy" */;
+			buildConfigurationList = 70C9ED9029501D5B00B6995B /* Build configuration list for PBXProject "Mango" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = "zh-Hans";
 			hasScannedForEncodings = 0;
@@ -506,7 +506,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				70C9ED9429501D5B00B6995B /* MultiProxy */,
+				70C9ED9429501D5B00B6995B /* Mango */,
 				70C9EDA929502C6500B6995B /* ClashTunnel */,
 				702D908F299FA40600B83324 /* XrayTunnel */,
 			);
@@ -806,13 +806,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MPApp/MPApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Mango/Mango.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"MPApp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Mango/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MPApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MP;
+				INFOPLIST_FILE = Mango/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Mango;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -839,13 +839,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MPApp/MPApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Mango/Mango.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"MPApp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Mango/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MPApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MP;
+				INFOPLIST_FILE = Mango/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Mango;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -930,7 +930,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		70C9ED9029501D5B00B6995B /* Build configuration list for PBXProject "MultiProxy" */ = {
+		70C9ED9029501D5B00B6995B /* Build configuration list for PBXProject "Mango" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				70C9EDA129501D5C00B6995B /* Debug */,
@@ -939,7 +939,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		70C9EDA329501D5C00B6995B /* Build configuration list for PBXNativeTarget "MultiProxy" */ = {
+		70C9EDA329501D5C00B6995B /* Build configuration list for PBXNativeTarget "Mango" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				70C9EDA429501D5C00B6995B /* Debug */,

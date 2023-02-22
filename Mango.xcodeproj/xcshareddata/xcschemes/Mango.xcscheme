@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "70C9ED9429501D5B00B6995B"
-               BuildableName = "MultiProxy.app"
-               BlueprintName = "MultiProxy"
-               ReferencedContainer = "container:MultiProxy.xcodeproj">
+               BuildableName = "Mango.app"
+               BlueprintName = "Mango"
+               ReferencedContainer = "container:Mango.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "70C9ED9429501D5B00B6995B"
-            BuildableName = "MultiProxy.app"
-            BlueprintName = "MultiProxy"
-            ReferencedContainer = "container:MultiProxy.xcodeproj">
+            BuildableName = "Mango.app"
+            BlueprintName = "Mango"
+            ReferencedContainer = "container:Mango.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "70C9ED9429501D5B00B6995B"
-            BuildableName = "MultiProxy.app"
-            BlueprintName = "MultiProxy"
-            ReferencedContainer = "container:MultiProxy.xcodeproj">
+            BuildableName = "Mango.app"
+            BlueprintName = "Mango"
+            ReferencedContainer = "container:Mango.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
