@@ -34,23 +34,61 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
                     {
                         "port": 9090,
                         "listen": "127.0.0.1",
-                        "protocol": "http",
-                        "settings": {
-                            "udp": true
-                        }
+                        "protocol": "http"
                     }
                 ],
+                "routing": {
+                    "domainStrategy": "IPIfNonMatch",
+                    "rules": [
+                        {
+                            "type": "field",
+                            "domain": [
+                                "geosite:category-ads-all"
+                            ],
+                            "outboundTag": "block"
+                        },
+                        {
+                            "type": "field",
+                            "domain": [
+                                "geosite:category-games@cn"
+                            ],
+                            "outboundTag": "direct"
+                        },
+                        {
+                            "type": "field",
+                            "domain": [
+                                "geosite:cn",
+                                "geosite:private"
+                            ],
+                            "outboundTag": "direct"
+                        },
+                        {
+                            "type": "field",
+                            "ip": [
+                                "geoip:cn",
+                                "geoip:private"
+                            ],
+                            "outboundTag": "direct"
+                        }
+                    ]
+                },
                 "outbounds": [
                     {
                         "protocol": "freedom",
-                        "tag": "direct",
-                        "settings": {}
+                        "tag": "direct"
+                    },
+                    {
+                        "protocol": "blackhole",
+                        "tag": "block"
                     }
                 ]
             }
             """
             XrayRun(json, self, &error)
             try error.flatMap { throw $0 }
+        } catch {
+            NSLog("--------> \(error.localizedDescription)")
+            throw error
         }
     }
     
