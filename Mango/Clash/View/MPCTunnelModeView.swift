@@ -12,7 +12,7 @@ struct MPCTunnelModeView: View {
     
     var body: some View {
         NavigationLink {
-            MPFormPicker(title: "代理模式", selection: tunnelMode) {
+            MGFormPicker(title: "代理模式", selection: tunnelMode) {
                 ForEach(MPCTunnelMode.allCases) { mode in
                     Text(mode.name)
                 }

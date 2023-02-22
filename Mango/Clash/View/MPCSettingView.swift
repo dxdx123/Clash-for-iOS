@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MPCSettingView: View {
     
-    @AppStorage(MPConstant.Clash.tunnelMode, store: .shared) private var tunnelMode = MPCTunnelMode.rule
+    @AppStorage(MGConstant.Clash.tunnelMode, store: .shared) private var tunnelMode = MPCTunnelMode.rule
     
     let packetTunnelManager: MPPacketTunnelManager
     let geoipManager: MPCGEOIPManager
@@ -18,8 +18,7 @@ struct MPCSettingView: View {
                 Text("内核")
             }
             Section {
-                MPAppearanceView()
-                MPAccentColorView()
+                MGAppearanceView()
             } header: {
                 Text("主题")
             }

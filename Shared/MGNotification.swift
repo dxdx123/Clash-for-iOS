@@ -1,7 +1,7 @@
 import UIKit
 import UserNotifications
 
-public enum MPNotification {
+public enum MGNotification {
     
     public static func send(title: String, subtitle: String, body: String) {
         UNUserNotificationCenter.current().add(

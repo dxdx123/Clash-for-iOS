@@ -1,13 +1,14 @@
 import SwiftUI
 
-struct MPAppearanceView: View {
+struct MGAppearanceView: View {
     
-    @AppStorage(MPConstant.theme) private var appearance = MPAppearance.system
+    @Environment(\.colorScheme) var colorScheme
+    @AppStorage(MGConstant.theme) private var appearance = MGAppearance.system
     
     var body: some View {
         NavigationLink {
-            MPFormPicker(title: "外观", selection: $appearance) {
-                ForEach(MPAppearance.allCases) { appearance in
+            MGFormPicker(title: "外观", selection: $appearance) {
+                ForEach(MGAppearance.allCases) { appearance in
                     Text(appearance.name)
                 }
             }
@@ -37,7 +38,7 @@ struct MPAppearanceView: View {
     }
 }
 
-extension MPAppearance {
+extension MGAppearance {
     
     var name: String {
         switch self {

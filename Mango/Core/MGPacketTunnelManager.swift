@@ -4,6 +4,10 @@ import Combine
 @MainActor
 final class MGPacketTunnelManager: ObservableObject {
     
+    deinit {
+        print("---- MGPacketTunnelManager deinit")
+    }
+    
     let kernel: MGKernel
     
     private var cancellables: Set<AnyCancellable> = []

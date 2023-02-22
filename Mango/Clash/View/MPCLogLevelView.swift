@@ -3,7 +3,7 @@ import SwiftUI
 struct MPCLogLevelView: View {
     
     @StateObject private var packetTunnelManager: MPPacketTunnelManager
-    @AppStorage(MPConstant.Clash.logLevel, store: .shared) private var logLevel  = MPCLogLevel.silent
+    @AppStorage(MGConstant.Clash.logLevel, store: .shared) private var logLevel  = MPCLogLevel.silent
     
     init(packetTunnelManager: MPPacketTunnelManager) {
         self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)

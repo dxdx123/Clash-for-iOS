@@ -33,25 +33,25 @@ import os
         }
         
         func onTraffic(_ up: Int64, down: Int64) {
-            UserDefaults.shared.set(up, forKey: MPConstant.Clash.trafficUp)
-            UserDefaults.shared.set(down, forKey: MPConstant.Clash.trafficDown)
+            UserDefaults.shared.set(up, forKey: MGConstant.Clash.trafficUp)
+            UserDefaults.shared.set(down, forKey: MGConstant.Clash.trafficDown)
         }
     }
         
     private var current: String {
-        UserDefaults.shared.string(forKey: MPConstant.Clash.current) ?? ""
+        UserDefaults.shared.string(forKey: MGConstant.Clash.current) ?? ""
     }
     
     private static var tunnelMode: MPCTunnelMode {
-        MPCTunnelMode(rawValue: UserDefaults.shared.string(forKey: MPConstant.Clash.tunnelMode) ?? "") ?? .rule
+        MPCTunnelMode(rawValue: UserDefaults.shared.string(forKey: MGConstant.Clash.tunnelMode) ?? "") ?? .rule
     }
     
     private static var logLevel: MPCLogLevel {
-        MPCLogLevel(rawValue: UserDefaults.shared.string(forKey: MPConstant.Clash.logLevel) ?? "") ?? .silent
+        MPCLogLevel(rawValue: UserDefaults.shared.string(forKey: MGConstant.Clash.logLevel) ?? "") ?? .silent
     }
     
     private static var isIPv6Enabel: Bool {
-        UserDefaults.shared.bool(forKey: MPConstant.Clash.ipv6Enable)
+        UserDefaults.shared.bool(forKey: MGConstant.Clash.ipv6Enable)
     }
     
     private static var tunnelFileDescriptor: Int32? {
@@ -84,9 +84,9 @@ import os
             fatalError("Get tunnel file descriptor failed.")
         }
         var err: NSError? = nil
-        ClashRun(Int(fd), MPConstant.Clash.homeDirectory.path(percentEncoded: false), config, Client.shared, &err)
+        ClashRun(Int(fd), MGConstant.Clash.homeDirectory.path(percentEncoded: false), config, Client.shared, &err)
         try err.flatMap { throw $0 }
-        guard let current = UserDefaults.shared.string(forKey: MPConstant.Clash.current), !current.isEmpty else {
+        guard let current = UserDefaults.shared.string(forKey: MGConstant.Clash.current), !current.isEmpty else {
             return
         }
         try Clash.set(current: current)

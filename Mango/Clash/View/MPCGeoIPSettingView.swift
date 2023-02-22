@@ -14,7 +14,7 @@ extension UTType {
     static let mmdb = UTType(filenameExtension: "mmdb")!
 }
 
-extension MPConstant.Clash {
+extension MGConstant.Clash {
     static let defaultGeoIPDatabaseRemoteURLString  = "https://github.com/Dreamacro/maxmind-geoip/releases/latest/download/Country.mmdb"
     static let geoipDatabaseRemoteURLString         = "CLASH_GEOIP_DATABASE_REMOTE_URL_STRING"
     static let geoipDatabaseAutoUpdate              = "CLASH_GEOIP_DATABASE_AUTO_UPDATE"
@@ -26,9 +26,9 @@ struct MPCGeoIPSettingView: View {
     @EnvironmentObject private var geoipManager: MPCGEOIPManager
     @Environment(\.dismiss) private var dismiss
     
-    @AppStorage(MPConstant.Clash.geoipDatabaseRemoteURLString) private var geoipDatabaseRemoteURLString: String = MPConstant.Clash.defaultGeoIPDatabaseRemoteURLString
-    @AppStorage(MPConstant.Clash.geoipDatabaseAutoUpdate) private var geoipDatabaseAutoUpdate: Bool = true
-    @AppStorage(MPConstant.Clash.geoipDatabaseAutoUpdateInterval) private var geoipDatabaseAutoUpdateInterval: MPCGEOIPAutoUpdateInterval = .week
+    @AppStorage(MGConstant.Clash.geoipDatabaseRemoteURLString) private var geoipDatabaseRemoteURLString: String = MGConstant.Clash.defaultGeoIPDatabaseRemoteURLString
+    @AppStorage(MGConstant.Clash.geoipDatabaseAutoUpdate) private var geoipDatabaseAutoUpdate: Bool = true
+    @AppStorage(MGConstant.Clash.geoipDatabaseAutoUpdateInterval) private var geoipDatabaseAutoUpdateInterval: MPCGEOIPAutoUpdateInterval = .week
     
     @State private var isFileImporterPresented: Bool = false
     
@@ -43,7 +43,7 @@ struct MPCGeoIPSettingView: View {
                 Toggle("自动更新", isOn: $geoipDatabaseAutoUpdate)
                 if geoipDatabaseAutoUpdate {
                     NavigationLink {
-                        MPFormPicker(title: "更新频率", selection: $geoipDatabaseAutoUpdateInterval) {
+                        MGFormPicker(title: "更新频率", selection: $geoipDatabaseAutoUpdateInterval) {
                             ForEach(MPCGEOIPAutoUpdateInterval.allCases) { value in
                                 Text(value.name)
                             }
@@ -67,9 +67,9 @@ struct MPCGeoIPSettingView: View {
                     Task(priority: .medium) {
                         do {
                             try await geoipManager.update(url: url)
-                            MPNotification.send(title: "", subtitle: "", body: "GEOIP数据库更新成功")
+                            MGNotification.send(title: "", subtitle: "", body: "GEOIP数据库更新成功")
                         } catch {
-                            MPNotification.send(title: "", subtitle: "", body: "GEOIP数据库更新失败, 原因: \(error.localizedDescription)")
+                            MGNotification.send(title: "", subtitle: "", body: "GEOIP数据库更新失败, 原因: \(error.localizedDescription)")
                         }
                     }
                 } label: {
@@ -99,9 +99,9 @@ struct MPCGeoIPSettingView: View {
         .fileImporter(isPresented: $isFileImporterPresented, allowedContentTypes: [.mmdb]) { result in
             do {
                 try geoipManager.importLocalFile(from: try result.get())
-                MPNotification.send(title: "", subtitle: "", body: "GEOIP数据库导入成功")
+                MGNotification.send(title: "", subtitle: "", body: "GEOIP数据库导入成功")
             } catch {
-                MPNotification.send(title: "", subtitle: "", body: "GEOIP数据库导入失败, 原因: \(error.localizedDescription)")
+                MGNotification.send(title: "", subtitle: "", body: "GEOIP数据库导入失败, 原因: \(error.localizedDescription)")
             }
         }
     }

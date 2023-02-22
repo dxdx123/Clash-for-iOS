@@ -1,6 +1,6 @@
 import SwiftUI
 
-enum MPAppearance: String, CaseIterable, Identifiable {
+enum MGAppearance: String, CaseIterable, Identifiable {
     
     var id: Self { self }
     
@@ -9,7 +9,7 @@ enum MPAppearance: String, CaseIterable, Identifiable {
     case system
 }
 
-extension MPAppearance {
+extension MGAppearance {
     
     var userInterfaceStyle: UIUserInterfaceStyle {
         switch self {
@@ -23,6 +23,6 @@ extension MPAppearance {
     }
 }
 
-extension MPConstant {
+extension MGConstant {
     static let theme = "APP_PREFERRED_COLORSCHEME"
 }

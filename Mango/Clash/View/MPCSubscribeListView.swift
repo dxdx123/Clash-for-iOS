@@ -64,9 +64,9 @@ struct MPCSubscribeListView: View {
                             if subscribe.id == current.wrappedValue {
                                 current.wrappedValue = ""
                             }
-                            MPNotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"删除成功")
+                            MGNotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"删除成功")
                         } catch {
-                            MPNotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"删除失败, 原因: \(error.localizedDescription)")
+                            MGNotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"删除失败, 原因: \(error.localizedDescription)")
                         }
                     }
                     .disabled(subscribeManager.downloadingSubscribeIDs.contains(subscribe.id))
@@ -86,9 +86,9 @@ struct MPCSubscribeListView: View {
                                 if current.wrappedValue == subscribe.id {
                                     packetTunnelManager.set(subscribe: subscribe.id)
                                 }
-                                MPNotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"更新成功")
+                                MGNotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"更新成功")
                             } catch {
-                                MPNotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"更新失败, 原因: \(error.localizedDescription)")
+                                MGNotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"更新失败, 原因: \(error.localizedDescription)")
                             }
                         }
                     }
@@ -121,7 +121,7 @@ struct MPCSubscribeListView: View {
                     do {
                         try subscribeManager.rename(subscribe: subscribe, name: name)
                     } catch {
-                        MPNotification.send(title: "", subtitle: "", body: "重命名失败, 原因: \(error.localizedDescription)")
+                        MGNotification.send(title: "", subtitle: "", body: "重命名失败, 原因: \(error.localizedDescription)")
                     }
                 }
                 Button("取消", role: .cancel) {}
@@ -130,7 +130,7 @@ struct MPCSubscribeListView: View {
                 TextField("请输入订阅地址", text: $subscribeURLString)
                 Button("确定") {
                     guard let source = URL(string: subscribeURLString) else {
-                        return MPNotification.send(title: "", subtitle: "", body: "订阅失败, 原因: 不支持的URL")
+                        return MGNotification.send(title: "", subtitle: "", body: "订阅失败, 原因: 不支持的URL")
                     }
                     isDownloading = true
                     Task(priority: .high) {
@@ -138,12 +138,12 @@ struct MPCSubscribeListView: View {
                             try await subscribeManager.download(source: source)
                             await MainActor.run {
                                 isDownloading = false
-                                return MPNotification.send(title: "", subtitle: "", body: "订阅成功")
+                                return MGNotification.send(title: "", subtitle: "", body: "订阅成功")
                             }
                         } catch {
                             await MainActor.run {
                                 isDownloading = false
-                                MPNotification.send(title: "", subtitle: "", body: "订阅失败, 原因: \(error.localizedDescription)")
+                                MGNotification.send(title: "", subtitle: "", body: "订阅失败, 原因: \(error.localizedDescription)")
                             }
                         }
                     }

@@ -1,5 +1,5 @@
 import Foundation
 
-extension MPConstant {
+extension MGConstant {
     @frozen public enum Xray {}
 }

@@ -4,7 +4,7 @@ struct MPCIPV6View: View {
     
     @StateObject private var packetTunnelManager: MPPacketTunnelManager
     
-    @AppStorage(MPConstant.Clash.ipv6Enable, store: .shared) private var isOn  = false
+    @AppStorage(MGConstant.Clash.ipv6Enable, store: .shared) private var isOn  = false
     @State private var processing = false
     
     init(packetTunnelManager: MPPacketTunnelManager) {

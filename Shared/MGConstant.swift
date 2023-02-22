@@ -1,9 +1,9 @@
 import Foundation
 import UniformTypeIdentifiers
 
-@frozen public enum MPConstant {}
+@frozen public enum MGConstant {}
 
-extension MPConstant {
+extension MGConstant {
     public static let suiteName = "group.\(Bundle.appID)"
 }
 
@@ -18,5 +18,5 @@ extension UTType {
 }
 
 extension UserDefaults {
-    public static let shared: UserDefaults = UserDefaults(suiteName: MPConstant.suiteName)!
+    public static let shared: UserDefaults = UserDefaults(suiteName: MGConstant.suiteName)!
 }

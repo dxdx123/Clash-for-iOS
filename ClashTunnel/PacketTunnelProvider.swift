@@ -10,7 +10,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             settings.includedRoutes = [NEIPv4Route.default()]
             return settings
         }()
-        if UserDefaults.shared.bool(forKey: MPConstant.Clash.ipv6Enable){
+        if UserDefaults.shared.bool(forKey: MGConstant.Clash.ipv6Enable){
             settings.ipv6Settings = {
                 let settings = NEIPv6Settings(addresses: ["fd6e:a81b:704f:1211::1"], networkPrefixLengths: [64])
                 settings.includedRoutes = [NEIPv6Route.default()]
@@ -22,7 +22,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         do {
             try Clash.run()
         } catch {
-            MPNotification.send(title: "", subtitle: "", body: error.localizedDescription)
+            MGNotification.send(title: "", subtitle: "", body: error.localizedDescription)
             throw error
         }
     }
@@ -67,7 +67,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         @unknown default:
             return
         }
-        MPNotification.send(title: "", subtitle: "", body: message)
+        MGNotification.send(title: "", subtitle: "", body: message)
     }
     
     override func handleAppMessage(_ messageData: Data) async -> Data? {

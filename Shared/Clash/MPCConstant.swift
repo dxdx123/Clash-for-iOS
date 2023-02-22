@@ -1,10 +1,10 @@
 import Foundation
 
-extension MPConstant {
+extension MGConstant {
     @frozen public enum Clash {}
 }
 
-extension MPConstant.Clash {
+extension MGConstant.Clash {
     
     public static let tunnelMode            = "CLASH_TUNNEL_MODE"
     public static let logLevel              = "CLASH_LOGLEVEL"
@@ -16,7 +16,7 @@ extension MPConstant.Clash {
     public static let ipv6Enable            = "CLASH_IPV6_ENABLE"
 
     public static let homeDirectory: URL = {
-        guard let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: MPConstant.suiteName) else {
+        guard let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: MGConstant.suiteName) else {
             fatalError("无法加载共享文件路径")
         }
         let url = containerURL.appendingPathComponent("Library/Application Support/Clash")
@@ -33,5 +33,5 @@ extension MPConstant.Clash {
 }
 
 extension FileAttributeKey {
-    public static let extended = FileAttributeKey(rawValue: MPConstant.Clash.fileAttributeKey)
+    public static let extended = FileAttributeKey(rawValue: MGConstant.Clash.fileAttributeKey)
 }

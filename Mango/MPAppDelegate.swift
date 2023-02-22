@@ -1,21 +1,20 @@
 import UIKit
 import UserNotifications
 
-extension MPConstant {
+extension MGConstant {
     fileprivate static let isAppHasLaunched = "IS_APP_HAS_LAUNCHED"
 }
 
 final class MPAppDelegate: NSObject, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        if !UserDefaults.standard.bool(forKey: MPConstant.isAppHasLaunched) {
-            UserDefaults.shared.set(MPCTunnelMode.rule.rawValue, forKey: MPConstant.Clash.tunnelMode)
-            UserDefaults.shared.set(MPCLogLevel.silent.rawValue, forKey: MPConstant.Clash.logLevel)
-            UserDefaults.standard.set(MPConstant.Clash.defaultGeoIPDatabaseRemoteURLString, forKey: MPConstant.Clash.geoipDatabaseRemoteURLString)
-            UserDefaults.standard.set(true, forKey: MPConstant.Clash.geoipDatabaseAutoUpdate)
-            UserDefaults.standard.set(MPConstant.Clash.geoipDatabaseAutoUpdateInterval, forKey: MPCGEOIPAutoUpdateInterval.week.rawValue)
-            UserDefaults.standard.set(MPAccentColor.system.rawValue, forKey: MPConstant.accentColor)
-            UserDefaults.standard.setValue(true, forKey: MPConstant.isAppHasLaunched)
+        if !UserDefaults.standard.bool(forKey: MGConstant.isAppHasLaunched) {
+            UserDefaults.shared.set(MPCTunnelMode.rule.rawValue, forKey: MGConstant.Clash.tunnelMode)
+            UserDefaults.shared.set(MPCLogLevel.silent.rawValue, forKey: MGConstant.Clash.logLevel)
+            UserDefaults.standard.set(MGConstant.Clash.defaultGeoIPDatabaseRemoteURLString, forKey: MGConstant.Clash.geoipDatabaseRemoteURLString)
+            UserDefaults.standard.set(true, forKey: MGConstant.Clash.geoipDatabaseAutoUpdate)
+            UserDefaults.standard.set(MGConstant.Clash.geoipDatabaseAutoUpdateInterval, forKey: MPCGEOIPAutoUpdateInterval.week.rawValue)
+            UserDefaults.standard.setValue(true, forKey: MGConstant.isAppHasLaunched)
         }
         application.overrideUserInterfaceStyle()
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: { _, _ in })
@@ -34,7 +33,7 @@ extension MPAppDelegate: UNUserNotificationCenterDelegate {
 extension UIApplication {
     
     func overrideUserInterfaceStyle() {
-        let current = UserDefaults.standard.string(forKey: MPConstant.theme).flatMap(MPAppearance.init(rawValue:)) ?? .system
+        let current = UserDefaults.standard.string(forKey: MGConstant.theme).flatMap(MGAppearance.init(rawValue:)) ?? .system
         self.override(userInterfaceStyle: current.userInterfaceStyle)
     }
     

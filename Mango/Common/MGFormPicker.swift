@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MPFormPicker<SelectionValue, Content>: View where SelectionValue: Hashable, Content: View {
+struct MGFormPicker<SelectionValue, Content>: View where SelectionValue: Hashable, Content: View {
         
     @Environment(\.dismiss) private var dismiss
         
@@ -26,7 +26,6 @@ struct MPFormPicker<SelectionValue, Content>: View where SelectionValue: Hashabl
         }
         .formStyle(.grouped)
         .navigationTitle(Text(title))
-        .navigationBarTitleDisplayMode(.inline)
         .onChange(of: selection.wrappedValue) { _ in
             dismiss()
         }

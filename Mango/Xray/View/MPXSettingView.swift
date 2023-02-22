@@ -7,8 +7,7 @@ struct MPXSettingView: View {
     var body: some View {
         Form {
             Section {
-                MPAppearanceView()
-                MPAccentColorView()
+                MGAppearanceView()
             } header: {
                 Text("主题")
             }

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MPCPolicyGroupView: View {
     
-    @AppStorage(MPConstant.Clash.tunnelMode, store: .shared) private var tunnelMode = MPCTunnelMode.rule
+    @AppStorage(MGConstant.Clash.tunnelMode, store: .shared) private var tunnelMode = MPCTunnelMode.rule
     
     @StateObject private var packetTunnelManager: MPPacketTunnelManager
     @State private var isPresented = false

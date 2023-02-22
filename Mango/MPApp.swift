@@ -5,8 +5,7 @@ struct MPApp: App {
     
     @UIApplicationDelegateAdaptor private var delegate: MPAppDelegate
     
-    @AppStorage(MPConstant.kernel)         private var kernel      = MPKernel.clash
-    @AppStorage(MPConstant.accentColor)    private var accentColor = MPAccentColor.system
+    @AppStorage(MGConstant.kernel) private var kernel = MPKernel.clash
     
     var body: some Scene {
         WindowGroup {
@@ -15,10 +14,8 @@ struct MPApp: App {
                     switch kernel {
                     case .clash:
                         MPCContentView()
-                            .tint(accentColor.tint)
                     case .xray:
                         MPXContentView()
-                            .tint(accentColor.tint)
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)

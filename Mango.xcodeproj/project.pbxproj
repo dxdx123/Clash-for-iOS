@@ -15,7 +15,7 @@
 		7000C6DE295D5F690005626E /* MPConnectedDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6DD295D5F690005626E /* MPConnectedDurationView.swift */; };
 		7000C6E0295D60A50005626E /* MPCTunnelModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6DF295D60A50005626E /* MPCTunnelModeView.swift */; };
 		7000C6E4295D635F0005626E /* MPControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6E3295D635F0005626E /* MPControlView.swift */; };
-		701811D729A32D58005E5CDB /* MPNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MPNotification.swift */; };
+		701811D729A32D58005E5CDB /* MGNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MGNotification.swift */; };
 		701811D929A32D6C005E5CDB /* MPCConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811D829A32D6C005E5CDB /* MPCConstant.swift */; };
 		701811DA29A32D71005E5CDB /* MPCConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811D829A32D6C005E5CDB /* MPCConstant.swift */; };
 		701811DC29A32D7A005E5CDB /* MPXConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811DB29A32D7A005E5CDB /* MPXConstant.swift */; };
@@ -24,13 +24,12 @@
 		701811E129A33068005E5CDB /* MPCSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811E029A33068005E5CDB /* MPCSettingView.swift */; };
 		701811F729A4638B005E5CDB /* XrayKit in Frameworks */ = {isa = PBXBuildFile; productRef = 701811F629A4638B005E5CDB /* XrayKit */; };
 		702D9087299B2B4500B83324 /* MPCIPV6View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9086299B2B4500B83324 /* MPCIPV6View.swift */; };
-		702D908A299B58A400B83324 /* MPNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MPNotification.swift */; };
-		702D908B299B58A400B83324 /* MPNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MPNotification.swift */; };
+		702D908A299B58A400B83324 /* MGNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MGNotification.swift */; };
+		702D908B299B58A400B83324 /* MGNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MGNotification.swift */; };
 		702D9091299FA40600B83324 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70C9EDAC29502C6500B6995B /* NetworkExtension.framework */; };
 		702D9094299FA40600B83324 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9093299FA40600B83324 /* PacketTunnelProvider.swift */; };
 		702D9099299FA40600B83324 /* XrayTunnel.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 702D9090299FA40600B83324 /* XrayTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		70615814296815260005C024 /* MPAccentColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70615813296815260005C024 /* MPAccentColorView.swift */; };
-		7061581629695E6A0005C024 /* MPFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061581529695E6A0005C024 /* MPFormPicker.swift */; };
+		7061581629695E6A0005C024 /* MGFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061581529695E6A0005C024 /* MGFormPicker.swift */; };
 		70615839298620F20005C024 /* MPCTrafficFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70615838298620F20005C024 /* MPCTrafficFormatter.swift */; };
 		7072264329A4648000A38837 /* ClashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7072264229A4648000A38837 /* ClashKit */; };
 		7072264529A46D1200A38837 /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7072264429A46C6100A38837 /* libresolv.9.tbd */; };
@@ -44,11 +43,10 @@
 		7084FC362967B8AC00065DAF /* MPCGeoIPSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC352967B8AC00065DAF /* MPCGeoIPSettingView.swift */; };
 		7084FC382967DB7300065DAF /* MPCGeoIPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC372967DB7300065DAF /* MPCGeoIPView.swift */; };
 		7084FC3A2967E6FD00065DAF /* MPCGEOIPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC392967E6FD00065DAF /* MPCGEOIPManager.swift */; };
-		7084FC3C29680A2200065DAF /* MPAccentColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC3B29680A2200065DAF /* MPAccentColor.swift */; };
 		708A48E1296295C50040184C /* MPCPolicyGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E0296295C50040184C /* MPCPolicyGroupView.swift */; };
 		708A48E3296299640040184C /* MPCProxyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E2296299640040184C /* MPCProxyListView.swift */; };
-		708A48EA2962AA2B0040184C /* MPAppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E92962AA2B0040184C /* MPAppearanceView.swift */; };
-		708A48EC2962AD740040184C /* MPAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48EB2962AD740040184C /* MPAppearance.swift */; };
+		708A48EA2962AA2B0040184C /* MGAppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E92962AA2B0040184C /* MGAppearanceView.swift */; };
+		708A48EC2962AD740040184C /* MGAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48EB2962AD740040184C /* MGAppearance.swift */; };
 		70B947A9295F302B006F6A38 /* Clash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947A8295F302B006F6A38 /* Clash.swift */; };
 		70B947AF29612F46006F6A38 /* MPCSubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947AE29612F46006F6A38 /* MPCSubscribeView.swift */; };
 		70B947B129613321006F6A38 /* MPCSubscribeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B029613321006F6A38 /* MPCSubscribeManager.swift */; };
@@ -68,9 +66,9 @@
 		70CEB88D29A0BEEF003436C2 /* MPAppVersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB88C29A0BEEF003436C2 /* MPAppVersionView.swift */; };
 		70CEB88F29A0C4D9003436C2 /* MPSettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB88E29A0C4D9003436C2 /* MPSettingButton.swift */; };
 		70CEB89129A0C775003436C2 /* MPKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB89029A0C775003436C2 /* MPKernel.swift */; };
-		70CEB89329A0C7BA003436C2 /* MPConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB89229A0C7BA003436C2 /* MPConstant.swift */; };
-		70CEB89829A30C79003436C2 /* MPConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB89229A0C7BA003436C2 /* MPConstant.swift */; };
-		70CEB89929A30C79003436C2 /* MPConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB89229A0C7BA003436C2 /* MPConstant.swift */; };
+		70CEB89329A0C7BA003436C2 /* MGConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB89229A0C7BA003436C2 /* MGConstant.swift */; };
+		70CEB89829A30C79003436C2 /* MGConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB89229A0C7BA003436C2 /* MGConstant.swift */; };
+		70CEB89929A30C79003436C2 /* MGConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB89229A0C7BA003436C2 /* MGConstant.swift */; };
 		70DE0D6829A6114B00B3E343 /* MGApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D6729A6114B00B3E343 /* MGApp.swift */; };
 		70DE0D6A29A611E100B3E343 /* MGKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D6929A611E100B3E343 /* MGKernel.swift */; };
 		70DE0D6B29A611E100B3E343 /* MGKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D6929A611E100B3E343 /* MGKernel.swift */; };
@@ -129,13 +127,12 @@
 		701811E029A33068005E5CDB /* MPCSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSettingView.swift; sourceTree = "<group>"; };
 		702D9086299B2B4500B83324 /* MPCIPV6View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCIPV6View.swift; sourceTree = "<group>"; };
 		702D9088299B54FD00B83324 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		702D9089299B58A400B83324 /* MPNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPNotification.swift; sourceTree = "<group>"; };
+		702D9089299B58A400B83324 /* MGNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGNotification.swift; sourceTree = "<group>"; };
 		702D9090299FA40600B83324 /* XrayTunnel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = XrayTunnel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		702D9093299FA40600B83324 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
 		702D9095299FA40600B83324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		702D9096299FA40600B83324 /* XrayTunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XrayTunnel.entitlements; sourceTree = "<group>"; };
-		70615813296815260005C024 /* MPAccentColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAccentColorView.swift; sourceTree = "<group>"; };
-		7061581529695E6A0005C024 /* MPFormPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPFormPicker.swift; sourceTree = "<group>"; };
+		7061581529695E6A0005C024 /* MGFormPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGFormPicker.swift; sourceTree = "<group>"; };
 		70615838298620F20005C024 /* MPCTrafficFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCTrafficFormatter.swift; sourceTree = "<group>"; };
 		7072264429A46C6100A38837 /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
 		7084FC1C295ECBC900065DAF /* MPCAppMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCAppMessage.swift; sourceTree = "<group>"; };
@@ -147,11 +144,10 @@
 		7084FC352967B8AC00065DAF /* MPCGeoIPSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCGeoIPSettingView.swift; sourceTree = "<group>"; };
 		7084FC372967DB7300065DAF /* MPCGeoIPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCGeoIPView.swift; sourceTree = "<group>"; };
 		7084FC392967E6FD00065DAF /* MPCGEOIPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCGEOIPManager.swift; sourceTree = "<group>"; };
-		7084FC3B29680A2200065DAF /* MPAccentColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAccentColor.swift; sourceTree = "<group>"; };
 		708A48E0296295C50040184C /* MPCPolicyGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCPolicyGroupView.swift; sourceTree = "<group>"; };
 		708A48E2296299640040184C /* MPCProxyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCProxyListView.swift; sourceTree = "<group>"; };
-		708A48E92962AA2B0040184C /* MPAppearanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAppearanceView.swift; sourceTree = "<group>"; };
-		708A48EB2962AD740040184C /* MPAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAppearance.swift; sourceTree = "<group>"; };
+		708A48E92962AA2B0040184C /* MGAppearanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGAppearanceView.swift; sourceTree = "<group>"; };
+		708A48EB2962AD740040184C /* MGAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGAppearance.swift; sourceTree = "<group>"; };
 		70B947A8295F302B006F6A38 /* Clash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clash.swift; sourceTree = "<group>"; };
 		70B947AE29612F46006F6A38 /* MPCSubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSubscribeView.swift; sourceTree = "<group>"; };
 		70B947B029613321006F6A38 /* MPCSubscribeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSubscribeManager.swift; sourceTree = "<group>"; };
@@ -175,7 +171,7 @@
 		70CEB88C29A0BEEF003436C2 /* MPAppVersionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPAppVersionView.swift; sourceTree = "<group>"; };
 		70CEB88E29A0C4D9003436C2 /* MPSettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPSettingButton.swift; sourceTree = "<group>"; };
 		70CEB89029A0C775003436C2 /* MPKernel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPKernel.swift; sourceTree = "<group>"; };
-		70CEB89229A0C7BA003436C2 /* MPConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPConstant.swift; sourceTree = "<group>"; };
+		70CEB89229A0C7BA003436C2 /* MGConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConstant.swift; sourceTree = "<group>"; };
 		70DE0D6729A6114B00B3E343 /* MGApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGApp.swift; sourceTree = "<group>"; };
 		70DE0D6929A611E100B3E343 /* MGKernel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGKernel.swift; sourceTree = "<group>"; };
 		70DE0D6D29A6155C00B3E343 /* MGPresentedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPresentedButton.swift; sourceTree = "<group>"; };
@@ -393,8 +389,7 @@
 				70CEB89029A0C775003436C2 /* MPKernel.swift */,
 				70DE0D6F29A62A5800B3E343 /* MGPacketTunnelManager.swift */,
 				70C9EDBD29502D3500B6995B /* MPPacketTunnelManager.swift */,
-				708A48EB2962AD740040184C /* MPAppearance.swift */,
-				7084FC3B29680A2200065DAF /* MPAccentColor.swift */,
+				708A48EB2962AD740040184C /* MGAppearance.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -402,7 +397,7 @@
 		70C9EDC02950415F00B6995B /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				7061581529695E6A0005C024 /* MPFormPicker.swift */,
+				7061581529695E6A0005C024 /* MGFormPicker.swift */,
 				70CEB88E29A0C4D9003436C2 /* MPSettingButton.swift */,
 				70CEB88C29A0BEEF003436C2 /* MPAppVersionView.swift */,
 				70C9EDD72951587D00B6995B /* MPResetButton.swift */,
@@ -415,8 +410,8 @@
 			isa = PBXGroup;
 			children = (
 				70DE0D6929A611E100B3E343 /* MGKernel.swift */,
-				70CEB89229A0C7BA003436C2 /* MPConstant.swift */,
-				702D9089299B58A400B83324 /* MPNotification.swift */,
+				70CEB89229A0C7BA003436C2 /* MGConstant.swift */,
+				702D9089299B58A400B83324 /* MGNotification.swift */,
 				701811D529A32D1B005E5CDB /* Clash */,
 				701811D629A32D21005E5CDB /* Xray */,
 			);
@@ -435,8 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				70DE0D7729A6306100B3E343 /* MGSettingView.swift */,
-				708A48E92962AA2B0040184C /* MPAppearanceView.swift */,
-				70615813296815260005C024 /* MPAccentColorView.swift */,
+				708A48E92962AA2B0040184C /* MGAppearanceView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -583,9 +577,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70CEB89929A30C79003436C2 /* MPConstant.swift in Sources */,
+				70CEB89929A30C79003436C2 /* MGConstant.swift in Sources */,
 				702D9094299FA40600B83324 /* PacketTunnelProvider.swift in Sources */,
-				701811D729A32D58005E5CDB /* MPNotification.swift in Sources */,
+				701811D729A32D58005E5CDB /* MGNotification.swift in Sources */,
 				701811DD29A32E28005E5CDB /* MPXConstant.swift in Sources */,
 				70DE0D6C29A611E100B3E343 /* MGKernel.swift in Sources */,
 			);
@@ -596,7 +590,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70C9ED9B29501D5B00B6995B /* MPCContentView.swift in Sources */,
-				702D908A299B58A400B83324 /* MPNotification.swift in Sources */,
+				702D908A299B58A400B83324 /* MGNotification.swift in Sources */,
 				70CEB88D29A0BEEF003436C2 /* MPAppVersionView.swift in Sources */,
 				70DE0D7329A62C4E00B3E343 /* MGHomeView.swift in Sources */,
 				70C9EDDA2951841E00B6995B /* MPCSubscribeListView.swift in Sources */,
@@ -606,7 +600,6 @@
 				7000C6E0295D60A50005626E /* MPCTunnelModeView.swift in Sources */,
 				70CEB88F29A0C4D9003436C2 /* MPSettingButton.swift in Sources */,
 				70C9EDD82951587D00B6995B /* MPResetButton.swift in Sources */,
-				70615814296815260005C024 /* MPAccentColorView.swift in Sources */,
 				70C9EDBE29502D3500B6995B /* MPPacketTunnelManager.swift in Sources */,
 				70CEB88529A07605003436C2 /* MPXContentView.swift in Sources */,
 				7084FC302965872200065DAF /* MPCLogLevel.swift in Sources */,
@@ -617,24 +610,23 @@
 				7084FC362967B8AC00065DAF /* MPCGeoIPSettingView.swift in Sources */,
 				70B947AF29612F46006F6A38 /* MPCSubscribeView.swift in Sources */,
 				701811DF29A33057005E5CDB /* MPXSettingView.swift in Sources */,
-				7084FC3C29680A2200065DAF /* MPAccentColor.swift in Sources */,
 				70CEB89129A0C775003436C2 /* MPKernel.swift in Sources */,
 				7084FC3A2967E6FD00065DAF /* MPCGEOIPManager.swift in Sources */,
 				70DE0D7829A6306100B3E343 /* MGSettingView.swift in Sources */,
 				7084FC33296587C600065DAF /* MPCLogLevelView.swift in Sources */,
 				70C9ED9929501D5B00B6995B /* MPApp.swift in Sources */,
 				70DE0D6E29A6155C00B3E343 /* MGPresentedButton.swift in Sources */,
-				708A48EC2962AD740040184C /* MPAppearance.swift in Sources */,
+				708A48EC2962AD740040184C /* MGAppearance.swift in Sources */,
 				7000C6DA295AED790005626E /* MPCUpdatableViewModel.swift in Sources */,
 				7084FC1D295ECBC900065DAF /* MPCAppMessage.swift in Sources */,
 				70DE0D6A29A611E100B3E343 /* MGKernel.swift in Sources */,
 				7000C6E4295D635F0005626E /* MPControlView.swift in Sources */,
 				7000C6D8295AED790005626E /* MPCProxyModel.swift in Sources */,
-				708A48EA2962AA2B0040184C /* MPAppearanceView.swift in Sources */,
+				708A48EA2962AA2B0040184C /* MGAppearanceView.swift in Sources */,
 				70DE0D7529A62C7700B3E343 /* MGContentView.swift in Sources */,
 				70615839298620F20005C024 /* MPCTrafficFormatter.swift in Sources */,
-				70CEB89329A0C7BA003436C2 /* MPConstant.swift in Sources */,
-				7061581629695E6A0005C024 /* MPFormPicker.swift in Sources */,
+				70CEB89329A0C7BA003436C2 /* MGConstant.swift in Sources */,
+				7061581629695E6A0005C024 /* MGFormPicker.swift in Sources */,
 				701811DC29A32D7A005E5CDB /* MPXConstant.swift in Sources */,
 				702D9087299B2B4500B83324 /* MPCIPV6View.swift in Sources */,
 				7000C6D9295AED790005626E /* MPCProviderViewModel.swift in Sources */,
@@ -655,8 +647,8 @@
 				7084FC312965872200065DAF /* MPCLogLevel.swift in Sources */,
 				70C9EDB029502C6500B6995B /* PacketTunnelProvider.swift in Sources */,
 				70DE0D6B29A611E100B3E343 /* MGKernel.swift in Sources */,
-				70CEB89829A30C79003436C2 /* MPConstant.swift in Sources */,
-				702D908B299B58A400B83324 /* MPNotification.swift in Sources */,
+				70CEB89829A30C79003436C2 /* MGConstant.swift in Sources */,
+				702D908B299B58A400B83324 /* MGNotification.swift in Sources */,
 				70B947A9295F302B006F6A38 /* Clash.swift in Sources */,
 				7084FC1E295ECBC900065DAF /* MPCAppMessage.swift in Sources */,
 				701811DA29A32D71005E5CDB /* MPCConstant.swift in Sources */,

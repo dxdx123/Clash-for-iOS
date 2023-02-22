@@ -1,6 +1,6 @@
 import Foundation
 
-extension MPConstant {
+extension MGConstant {
     static let kernel = "KERNEL"
 }
 
