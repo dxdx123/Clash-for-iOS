@@ -4,9 +4,9 @@ struct MGProxyListView: View {
     
     let packetTunnelManager: MGPacketTunnelManager
     
-    @ObservedObject private var provider: MPCProviderViewModel
+    @ObservedObject private var provider: MGProviderViewModel
     
-    init(packetTunnelManager: MGPacketTunnelManager, provider: MPCProviderViewModel) {
+    init(packetTunnelManager: MGPacketTunnelManager, provider: MGProviderViewModel) {
         self.packetTunnelManager = packetTunnelManager
         self._provider = ObservedObject(wrappedValue: provider)
     }
@@ -41,11 +41,11 @@ struct MGProxyListView: View {
     
     private struct ProxyCell: View {
         
-        @ObservedObject private var proxy: MPCProxyViewModel
+        @ObservedObject private var proxy: MGProxyViewModel
         
         private let isSelected: Bool
         
-        init(proxy: MPCProxyViewModel, isSelected: Bool) {
+        init(proxy: MGProxyViewModel, isSelected: Bool) {
             self._proxy = ObservedObject(wrappedValue: proxy)
             self.isSelected = isSelected
         }

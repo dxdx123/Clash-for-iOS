@@ -1,23 +1,23 @@
 import Foundation
 
-public final class MPCProxyViewModel: MPCUpdatableViewModel, ObservableObject, Identifiable {
+public final class MGProxyViewModel: MGUpdatableViewModel, ObservableObject, Identifiable {
     
     public var id: ObjectIdentifier { ObjectIdentifier(self) }
     
-    private let model: MPCProxyModel
+    private let model: MGProxyModel
     
     public var name: String { model.name }
-    public var type: MPCProxyModel.AdapterType { model.type }
+    public var type: MGProxyModel.AdapterType { model.type }
     public var udp: Bool { model.udp }
     
-    @Published public var histories: [MPCProxyModel.Delay]
+    @Published public var histories: [MGProxyModel.Delay]
     
-    public init(model: MPCProxyModel) {
+    public init(model: MGProxyModel) {
         self.model = model
         self.histories = model.histories
     }
     
-    public final override func update(model: MPCProxyModel) {
+    public final override func update(model: MGProxyModel) {
         histories = model.histories
     }
     

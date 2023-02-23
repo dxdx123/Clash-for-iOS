@@ -124,18 +124,18 @@ open class MPPacketTunnelManager: ObservableObject {
 
 extension MPPacketTunnelManager {
     
-    private func fetchProxies() async -> [String: MPCProxyModel] {
+    private func fetchProxies() async -> [String: MGProxyModel] {
         do {
             guard let data = try await sendProviderMessage(data: try MPCAppMessage.proxies.data()) else {
                 return [:]
             }
-            return try JSONDecoder().decode([String: MPCProxyModel].self, from: data)
+            return try JSONDecoder().decode([String: MGProxyModel].self, from: data)
         } catch {
             return [:]
         }
     }
     
-    public func update(providersManager: MPCProvidersManager) {
+    public func update(providersManager: MGProvidersManager) {
         guard let status = status, status == .connected else {
             return providersManager.update(mapping: [:])
         }

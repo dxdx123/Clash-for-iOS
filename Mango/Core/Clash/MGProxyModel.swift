@@ -1,6 +1,6 @@
 import Foundation
 
-public struct MPCProxyModel: Decodable {
+public struct MGProxyModel: Decodable {
     
     public enum AdapterType: String, Decodable {
         
@@ -62,7 +62,7 @@ public struct MPCProxyModel: Decodable {
     }
 }
 
-extension MPCProxyModel.AdapterType {
+extension MGProxyModel.AdapterType {
     
     var isProviderType: Bool {
         switch self {
@@ -83,7 +83,7 @@ extension MPCProxyModel.AdapterType {
     }
 }
 
-extension MPCProxyModel.AdapterType {
+extension MGProxyModel.AdapterType {
     
     var name: String {
         switch self {

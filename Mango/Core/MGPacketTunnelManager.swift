@@ -146,18 +146,18 @@ extension MGKernel {
     @MainActor
     enum Clash {
         
-        private static func fetchProxies(manager: MGPacketTunnelManager) async -> [String: MPCProxyModel] {
+        private static func fetchProxies(manager: MGPacketTunnelManager) async -> [String: MGProxyModel] {
             do {
                 guard let data = try await manager.sendProviderMessage(data: try MPCAppMessage.proxies.data()) else {
                     return [:]
                 }
-                return try JSONDecoder().decode([String: MPCProxyModel].self, from: data)
+                return try JSONDecoder().decode([String: MGProxyModel].self, from: data)
             } catch {
                 return [:]
             }
         }
         
-        static func update(manager: MGPacketTunnelManager, providersManager: MPCProvidersManager) {
+        static func update(manager: MGPacketTunnelManager, providersManager: MGProvidersManager) {
             guard let status = manager.status, status == .connected else {
                 return providersManager.update(mapping: [:])
             }

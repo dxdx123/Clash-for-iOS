@@ -6,7 +6,7 @@ struct MGProviderListView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @StateObject private var providersManager = MPCProvidersManager()
+    @StateObject private var providersManager = MGProvidersManager()
     
     @ObservedObject private var packetTunnelManager: MGPacketTunnelManager
     
@@ -50,9 +50,9 @@ struct MGProviderListView: View {
         
         let packetTunnelManager: MGPacketTunnelManager
         
-        @ObservedObject private var provider: MPCProviderViewModel
+        @ObservedObject private var provider: MGProviderViewModel
         
-        init(packetTunnelManager: MGPacketTunnelManager, provider: MPCProviderViewModel) {
+        init(packetTunnelManager: MGPacketTunnelManager, provider: MGProviderViewModel) {
             self.packetTunnelManager = packetTunnelManager
             self._provider = ObservedObject(wrappedValue: provider)
         }
