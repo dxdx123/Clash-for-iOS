@@ -1,16 +1,12 @@
 import SwiftUI
 
-struct MGGeoIPView: View {
+struct MGGEOIPView: View {
     
-    @StateObject private var geoipManager: MPCGEOIPManager
-    
-    init(geoipManager: MPCGEOIPManager) {
-        self._geoipManager = StateObject(wrappedValue: geoipManager)
-    }
+    @EnvironmentObject private var geoipManager: MGGEOIPManager
     
     var body: some View {
         NavigationLink {
-            MPCGeoIPSettingView()
+            MGGeoIPSettingView()
                 .environmentObject(geoipManager)
         } label: {
             LabeledContent {
@@ -25,7 +21,7 @@ struct MGGeoIPView: View {
                 }
             } label: {
                 Label {
-                    Text("GeoIP 数据库")
+                    Text("GEOIP 数据库")
                 } icon: {
                     Image(systemName: "cylinder.split.1x2")
                 }

@@ -13,7 +13,6 @@ final class MPAppDelegate: NSObject, UIApplicationDelegate {
             UserDefaults.shared.set(MGLogLevel.silent.rawValue, forKey: MGConstant.Clash.logLevel)
             UserDefaults.standard.set(MGConstant.Clash.defaultGeoIPDatabaseRemoteURLString, forKey: MGConstant.Clash.geoipDatabaseRemoteURLString)
             UserDefaults.standard.set(true, forKey: MGConstant.Clash.geoipDatabaseAutoUpdate)
-            UserDefaults.standard.set(MGConstant.Clash.geoipDatabaseAutoUpdateInterval, forKey: MGGEOIPAutoUpdateInterval.week.rawValue)
             UserDefaults.standard.setValue(true, forKey: MGConstant.isAppHasLaunched)
         }
         application.overrideUserInterfaceStyle()

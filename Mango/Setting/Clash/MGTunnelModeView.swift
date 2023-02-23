@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MPCTunnelModeView: View {
+struct MGTunnelModeView: View {
     
     @EnvironmentObject private var packetTunnelManager: MGPacketTunnelManager
     

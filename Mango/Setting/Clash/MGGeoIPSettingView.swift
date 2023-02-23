@@ -1,15 +1,6 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-enum MGGEOIPAutoUpdateInterval: String, CaseIterable, Identifiable {
-    
-    var id: Self { self }
-    
-    case day
-    case week
-    case month
-}
-
 extension UTType {
     static let mmdb = UTType(filenameExtension: "mmdb")!
 }
@@ -18,17 +9,15 @@ extension MGConstant.Clash {
     static let defaultGeoIPDatabaseRemoteURLString  = "https://github.com/Dreamacro/maxmind-geoip/releases/latest/download/Country.mmdb"
     static let geoipDatabaseRemoteURLString         = "CLASH_GEOIP_DATABASE_REMOTE_URL_STRING"
     static let geoipDatabaseAutoUpdate              = "CLASH_GEOIP_DATABASE_AUTO_UPDATE"
-    static let geoipDatabaseAutoUpdateInterval      = "CLASH_GEOIP_DATABASE_AUTO_UPDATE_INTERVAL"
 }
 
-struct MPCGeoIPSettingView: View {
+struct MGGeoIPSettingView: View {
     
-    @EnvironmentObject private var geoipManager: MPCGEOIPManager
+    @EnvironmentObject private var geoipManager: MGGEOIPManager
     @Environment(\.dismiss) private var dismiss
     
     @AppStorage(MGConstant.Clash.geoipDatabaseRemoteURLString) private var geoipDatabaseRemoteURLString: String = MGConstant.Clash.defaultGeoIPDatabaseRemoteURLString
     @AppStorage(MGConstant.Clash.geoipDatabaseAutoUpdate) private var geoipDatabaseAutoUpdate: Bool = true
-    @AppStorage(MGConstant.Clash.geoipDatabaseAutoUpdateInterval) private var geoipDatabaseAutoUpdateInterval: MGGEOIPAutoUpdateInterval = .week
     
     @State private var isFileImporterPresented: Bool = false
     
@@ -41,21 +30,6 @@ struct MPCGeoIPSettingView: View {
                     Text("地址")
                 }
                 Toggle("自动更新", isOn: $geoipDatabaseAutoUpdate)
-                if geoipDatabaseAutoUpdate {
-                    NavigationLink {
-                        MGFormPicker(title: "更新频率", selection: $geoipDatabaseAutoUpdateInterval) {
-                            ForEach(MGGEOIPAutoUpdateInterval.allCases) { value in
-                                Text(value.name)
-                            }
-                        }
-                    } label: {
-                        LabeledContent {
-                            Text(geoipDatabaseAutoUpdateInterval.name)
-                        } label: {
-                            Text("更新频率")
-                        }
-                    }
-                }
             }
             .disabled(geoipManager.isUpdating)
             
@@ -83,8 +57,7 @@ struct MPCGeoIPSettingView: View {
             .disabled(geoipManager.isUpdating)
         }
         .formStyle(.grouped)
-        .navigationTitle(Text("GeoIP 数据库"))
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle(Text("GEOIP 数据库"))
         .toolbar {
             if geoipManager.isUpdating {
                 ProgressView()
@@ -103,20 +76,6 @@ struct MPCGeoIPSettingView: View {
             } catch {
                 MGNotification.send(title: "", subtitle: "", body: "GEOIP数据库导入失败, 原因: \(error.localizedDescription)")
             }
-        }
-    }
-}
-
-extension MGGEOIPAutoUpdateInterval {
-    
-    var name: String {
-        switch self {
-        case .day:
-            return "每天"
-        case .week:
-            return "每周"
-        case .month:
-            return "每月"
         }
     }
 }

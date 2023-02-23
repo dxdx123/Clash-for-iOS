@@ -13,7 +13,7 @@
 		7000C6D9295AED790005626E /* MGProviderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6D4295AED790005626E /* MGProviderViewModel.swift */; };
 		7000C6DA295AED790005626E /* MGUpdatableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6D5295AED790005626E /* MGUpdatableViewModel.swift */; };
 		7000C6DE295D5F690005626E /* MGConnectedDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6DD295D5F690005626E /* MGConnectedDurationView.swift */; };
-		7000C6E0295D60A50005626E /* MPCTunnelModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6DF295D60A50005626E /* MPCTunnelModeView.swift */; };
+		7000C6E0295D60A50005626E /* MGTunnelModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6DF295D60A50005626E /* MGTunnelModeView.swift */; };
 		7000C6E4295D635F0005626E /* MGControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6E3295D635F0005626E /* MGControlView.swift */; };
 		701811D729A32D58005E5CDB /* MGNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MGNotification.swift */; };
 		701811D929A32D6C005E5CDB /* MPCConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811D829A32D6C005E5CDB /* MPCConstant.swift */; };
@@ -37,9 +37,9 @@
 		7084FC302965872200065DAF /* MGLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC2F2965872200065DAF /* MGLogLevel.swift */; };
 		7084FC312965872200065DAF /* MGLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC2F2965872200065DAF /* MGLogLevel.swift */; };
 		7084FC33296587C600065DAF /* MGLogLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC32296587C600065DAF /* MGLogLevelView.swift */; };
-		7084FC362967B8AC00065DAF /* MPCGeoIPSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC352967B8AC00065DAF /* MPCGeoIPSettingView.swift */; };
-		7084FC382967DB7300065DAF /* MGGeoIPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC372967DB7300065DAF /* MGGeoIPView.swift */; };
-		7084FC3A2967E6FD00065DAF /* MPCGEOIPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC392967E6FD00065DAF /* MPCGEOIPManager.swift */; };
+		7084FC362967B8AC00065DAF /* MGGeoIPSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC352967B8AC00065DAF /* MGGeoIPSettingView.swift */; };
+		7084FC382967DB7300065DAF /* MGGEOIPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC372967DB7300065DAF /* MGGEOIPView.swift */; };
+		7084FC3A2967E6FD00065DAF /* MGGEOIPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC392967E6FD00065DAF /* MGGEOIPManager.swift */; };
 		708A48E1296295C50040184C /* MGPolicyGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E0296295C50040184C /* MGPolicyGroupView.swift */; };
 		708A48E3296299640040184C /* MGProxyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E2296299640040184C /* MGProxyListView.swift */; };
 		708A48EA2962AA2B0040184C /* MGAppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E92962AA2B0040184C /* MGAppearanceView.swift */; };
@@ -111,7 +111,7 @@
 		7000C6D4295AED790005626E /* MGProviderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGProviderViewModel.swift; sourceTree = "<group>"; };
 		7000C6D5295AED790005626E /* MGUpdatableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGUpdatableViewModel.swift; sourceTree = "<group>"; };
 		7000C6DD295D5F690005626E /* MGConnectedDurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConnectedDurationView.swift; sourceTree = "<group>"; };
-		7000C6DF295D60A50005626E /* MPCTunnelModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCTunnelModeView.swift; sourceTree = "<group>"; };
+		7000C6DF295D60A50005626E /* MGTunnelModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTunnelModeView.swift; sourceTree = "<group>"; };
 		7000C6E3295D635F0005626E /* MGControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGControlView.swift; sourceTree = "<group>"; };
 		701811D829A32D6C005E5CDB /* MPCConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCConstant.swift; sourceTree = "<group>"; };
 		701811DB29A32D7A005E5CDB /* MPXConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPXConstant.swift; sourceTree = "<group>"; };
@@ -130,9 +130,9 @@
 		7084FC252963FDE300065DAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7084FC2F2965872200065DAF /* MGLogLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGLogLevel.swift; sourceTree = "<group>"; };
 		7084FC32296587C600065DAF /* MGLogLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGLogLevelView.swift; sourceTree = "<group>"; };
-		7084FC352967B8AC00065DAF /* MPCGeoIPSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCGeoIPSettingView.swift; sourceTree = "<group>"; };
-		7084FC372967DB7300065DAF /* MGGeoIPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGGeoIPView.swift; sourceTree = "<group>"; };
-		7084FC392967E6FD00065DAF /* MPCGEOIPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCGEOIPManager.swift; sourceTree = "<group>"; };
+		7084FC352967B8AC00065DAF /* MGGeoIPSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGGeoIPSettingView.swift; sourceTree = "<group>"; };
+		7084FC372967DB7300065DAF /* MGGEOIPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGGEOIPView.swift; sourceTree = "<group>"; };
+		7084FC392967E6FD00065DAF /* MGGEOIPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGGEOIPManager.swift; sourceTree = "<group>"; };
 		708A48E0296295C50040184C /* MGPolicyGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPolicyGroupView.swift; sourceTree = "<group>"; };
 		708A48E2296299640040184C /* MGProxyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGProxyListView.swift; sourceTree = "<group>"; };
 		708A48E92962AA2B0040184C /* MGAppearanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGAppearanceView.swift; sourceTree = "<group>"; };
@@ -237,7 +237,7 @@
 		7074B14629A72B1E00CBB919 /* Clash */ = {
 			isa = PBXGroup;
 			children = (
-				7084FC392967E6FD00065DAF /* MPCGEOIPManager.swift */,
+				7084FC392967E6FD00065DAF /* MGGEOIPManager.swift */,
 				7000C6D1295AED790005626E /* MGProvidersManager.swift */,
 				7000C6D5295AED790005626E /* MGUpdatableViewModel.swift */,
 				7000C6D4295AED790005626E /* MGProviderViewModel.swift */,
@@ -250,10 +250,10 @@
 		7074B14729A72CAE00CBB919 /* Clash */ = {
 			isa = PBXGroup;
 			children = (
-				7000C6DF295D60A50005626E /* MPCTunnelModeView.swift */,
+				7000C6DF295D60A50005626E /* MGTunnelModeView.swift */,
 				7084FC32296587C600065DAF /* MGLogLevelView.swift */,
-				7084FC372967DB7300065DAF /* MGGeoIPView.swift */,
-				7084FC352967B8AC00065DAF /* MPCGeoIPSettingView.swift */,
+				7084FC372967DB7300065DAF /* MGGEOIPView.swift */,
+				7084FC352967B8AC00065DAF /* MGGeoIPSettingView.swift */,
 				702D9086299B2B4500B83324 /* MGIPV6View.swift */,
 			);
 			path = Clash;
@@ -547,18 +547,18 @@
 				7084FC20295ECC7400065DAF /* MGTunnelMode.swift in Sources */,
 				7000C6D7295AED790005626E /* MGProxyViewModel.swift in Sources */,
 				70C9EDCC295057DB00B6995B /* MGProviderListView.swift in Sources */,
-				7000C6E0295D60A50005626E /* MPCTunnelModeView.swift in Sources */,
+				7000C6E0295D60A50005626E /* MGTunnelModeView.swift in Sources */,
 				70CEB88F29A0C4D9003436C2 /* MPSettingButton.swift in Sources */,
 				70C9EDD82951587D00B6995B /* MGResetView.swift in Sources */,
 				7084FC302965872200065DAF /* MGLogLevel.swift in Sources */,
-				7084FC382967DB7300065DAF /* MGGeoIPView.swift in Sources */,
+				7084FC382967DB7300065DAF /* MGGEOIPView.swift in Sources */,
 				70B947B129613321006F6A38 /* MGSubscribeManager.swift in Sources */,
 				701811D929A32D6C005E5CDB /* MPCConstant.swift in Sources */,
 				7000C6D6295AED790005626E /* MGProvidersManager.swift in Sources */,
-				7084FC362967B8AC00065DAF /* MPCGeoIPSettingView.swift in Sources */,
+				7084FC362967B8AC00065DAF /* MGGeoIPSettingView.swift in Sources */,
 				70B947AF29612F46006F6A38 /* MGSubscribeView.swift in Sources */,
 				70CEB89129A0C775003436C2 /* MPKernel.swift in Sources */,
-				7084FC3A2967E6FD00065DAF /* MPCGEOIPManager.swift in Sources */,
+				7084FC3A2967E6FD00065DAF /* MGGEOIPManager.swift in Sources */,
 				70DE0D7829A6306100B3E343 /* MGSettingView.swift in Sources */,
 				7084FC33296587C600065DAF /* MGLogLevelView.swift in Sources */,
 				70DE0D6E29A6155C00B3E343 /* MGPresentedButton.swift in Sources */,

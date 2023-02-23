@@ -10,8 +10,9 @@ struct MGSettingView: View {
                 Section {
                     switch delegate.packetTunnelManager.kernel {
                     case .clash:
-                        MPCTunnelModeView()
+                        MGTunnelModeView()
                         MGLogLevelView()
+                        MGGEOIPView()
                         MGIPV6View()
                     case .xray:
                         EmptyView()

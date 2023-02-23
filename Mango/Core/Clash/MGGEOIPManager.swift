@@ -1,6 +1,6 @@
 import Foundation
 
-final class MPCGEOIPManager: ObservableObject {
+final class MGGEOIPManager: ObservableObject {
     
     @Published var isUpdating: Bool = false
     @Published var leastUpdated: Date?
@@ -17,17 +17,7 @@ final class MPCGEOIPManager: ObservableObject {
         }
         let shouldUpdate: Bool
         if let least = leastUpdated {
-            let interval = UserDefaults.standard.string(forKey: MGConstant.Clash.geoipDatabaseAutoUpdateInterval).flatMap(MGGEOIPAutoUpdateInterval.init(rawValue:)) ?? .week
-            let day: Double
-            switch interval {
-            case .day:
-                day = 1
-            case .week:
-                day = 7
-            case .month:
-                day = 30
-            }
-            shouldUpdate = abs(least.distance(to: Date())) > day * 24 * 60 * 60
+            shouldUpdate = abs(least.distance(to: Date())) > 30 * 24 * 60 * 60
         } else {
             shouldUpdate = true
         }

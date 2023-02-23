@@ -9,7 +9,7 @@ final class MGAppDelegate: NSObject, ObservableObject, UIApplicationDelegate, UN
     
     @Published var packetTunnelManager: MGPacketTunnelManager
     @Published var subscribeManager: MGSubscribeManager
-    
+        
     override init() {
         let kernel: MGKernel
         if let temp = UserDefaults.standard.string(forKey: MGKernel.storeKey).flatMap(MGKernel.init(rawValue:)) {
@@ -58,6 +58,7 @@ struct MGApp: App {
         WindowGroup {
             MGContentView(kernel: $kernel)
                 .environmentObject(delegate)
+                .environmentObject(MGGEOIPManager())
                 .onChange(of: kernel) { newValue in
                     let packetTunnelManager = MGPacketTunnelManager(kernel: newValue)
                     Task(priority: .high) {
