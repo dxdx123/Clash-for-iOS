@@ -1,10 +1,11 @@
 import SwiftUI
+import UserNotifications
 
 extension MGKernel {
     static let storeKey = "MANGO_KERNEL"
 }
 
-final class MGAppDelegate: NSObject, ObservableObject, UIApplicationDelegate {
+final class MGAppDelegate: NSObject, ObservableObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
     @Published var packetTunnelManager: MGPacketTunnelManager
     
@@ -23,6 +24,12 @@ final class MGAppDelegate: NSObject, ObservableObject, UIApplicationDelegate {
         }
     }
     
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: { _, _ in })
+        UNUserNotificationCenter.current().delegate = self
+        return true
+    }
+    
     func prepare(packetTunnelManager: MGPacketTunnelManager) {
         Task(priority: .high) {
             await packetTunnelManager.prepare()
@@ -30,6 +37,10 @@ final class MGAppDelegate: NSObject, ObservableObject, UIApplicationDelegate {
                 self.packetTunnelManager = packetTunnelManager
             }
         }
+    }
+    
+    func userNotificationCenter(_: UNUserNotificationCenter, willPresent _: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner])
     }
 }
 
