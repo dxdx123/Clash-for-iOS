@@ -113,7 +113,12 @@ final class MGSubscribeManager: ObservableObject {
             await MainActor.run {
                 _ = self.downloadingSubscribeIDs.insert(subscribe.id)
             }
-            let data = try await URLSession.shared.data(for: URLRequest(url: subscribe.extend.source)).0
+            let request: URLRequest = {
+                var temp = URLRequest(url: subscribe.extend.source)
+                temp.allHTTPHeaderFields = ["User-Agent": "\(kernel.rawValue.capitalized)/\(Bundle.appVersion)"]
+                return temp
+            }()
+            let data = try await URLSession.shared.data(for: request).0
             let target = MGConstant.Clash.homeDirectory.appending(path: "\(subscribe.id).\(kernel.fileExtension)")
             try data.write(to: target)
             let extend = MGSubscribe.Extend(
