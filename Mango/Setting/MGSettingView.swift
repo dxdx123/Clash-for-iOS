@@ -13,7 +13,7 @@ struct MGSettingView: View {
                     Text("内核")
                 }
                 Section {
-                    MGResetButton()
+                    MGResetView()
                 }
             }
             .navigationTitle(Text("设置"))

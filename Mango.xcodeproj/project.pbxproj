@@ -60,7 +60,7 @@
 		70C9EDB529502C6500B6995B /* ClashTunnel.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 70C9EDAA29502C6500B6995B /* ClashTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		70C9EDBE29502D3500B6995B /* MPPacketTunnelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDBD29502D3500B6995B /* MPPacketTunnelManager.swift */; };
 		70C9EDCC295057DB00B6995B /* MPCProviderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDCB295057DB00B6995B /* MPCProviderListView.swift */; };
-		70C9EDD82951587D00B6995B /* MGResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD72951587D00B6995B /* MGResetButton.swift */; };
+		70C9EDD82951587D00B6995B /* MGResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD72951587D00B6995B /* MGResetView.swift */; };
 		70C9EDDA2951841E00B6995B /* MPCSubscribeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD92951841E00B6995B /* MPCSubscribeListView.swift */; };
 		70CEB88529A07605003436C2 /* MPXContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB88429A07605003436C2 /* MPXContentView.swift */; };
 		70CEB88D29A0BEEF003436C2 /* MPAppVersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB88C29A0BEEF003436C2 /* MPAppVersionView.swift */; };
@@ -165,7 +165,7 @@
 		70C9EDBD29502D3500B6995B /* MPPacketTunnelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPPacketTunnelManager.swift; sourceTree = "<group>"; };
 		70C9EDBF2950303900B6995B /* Mango.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mango.entitlements; sourceTree = "<group>"; };
 		70C9EDCB295057DB00B6995B /* MPCProviderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCProviderListView.swift; sourceTree = "<group>"; };
-		70C9EDD72951587D00B6995B /* MGResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGResetButton.swift; sourceTree = "<group>"; };
+		70C9EDD72951587D00B6995B /* MGResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGResetView.swift; sourceTree = "<group>"; };
 		70C9EDD92951841E00B6995B /* MPCSubscribeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSubscribeListView.swift; sourceTree = "<group>"; };
 		70CEB88429A07605003436C2 /* MPXContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPXContentView.swift; sourceTree = "<group>"; };
 		70CEB88C29A0BEEF003436C2 /* MPAppVersionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPAppVersionView.swift; sourceTree = "<group>"; };
@@ -430,7 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				70DE0D7729A6306100B3E343 /* MGSettingView.swift */,
-				70C9EDD72951587D00B6995B /* MGResetButton.swift */,
+				70C9EDD72951587D00B6995B /* MGResetView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -599,7 +599,7 @@
 				70C9EDCC295057DB00B6995B /* MPCProviderListView.swift in Sources */,
 				7000C6E0295D60A50005626E /* MPCTunnelModeView.swift in Sources */,
 				70CEB88F29A0C4D9003436C2 /* MPSettingButton.swift in Sources */,
-				70C9EDD82951587D00B6995B /* MGResetButton.swift in Sources */,
+				70C9EDD82951587D00B6995B /* MGResetView.swift in Sources */,
 				70C9EDBE29502D3500B6995B /* MPPacketTunnelManager.swift in Sources */,
 				70CEB88529A07605003436C2 /* MPXContentView.swift in Sources */,
 				7084FC302965872200065DAF /* MPCLogLevel.swift in Sources */,

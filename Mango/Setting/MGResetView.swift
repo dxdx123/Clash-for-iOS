@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MGResetButton: View {
+struct MGResetView: View {
     
     @EnvironmentObject private var packetTunnelManager: MGPacketTunnelManager
 
