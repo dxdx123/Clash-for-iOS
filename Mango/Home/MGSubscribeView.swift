@@ -3,12 +3,10 @@ import SwiftUI
 struct MGSubscribeView: View {
     
     let current: Binding<String>
-    let packetTunnelManager: MGPacketTunnelManager
-    @ObservedObject private var subscribeManager: MGPacketTunnelManager
+    @ObservedObject private var subscribeManager: MPCSubscribeManager
     
-    init(current: Binding<String>, packetTunnelManager: MGPacketTunnelManager, subscribeManager: MGPacketTunnelManager) {
+    init(current: Binding<String>, subscribeManager: MPCSubscribeManager) {
         self.current = current
-        self.packetTunnelManager = packetTunnelManager
         self._subscribeManager = ObservedObject(wrappedValue: subscribeManager)
     }
     
@@ -20,10 +18,9 @@ struct MGSubscribeView: View {
                 isPresented.toggle()
             }
             .sheet(isPresented: $isPresented) {
-//                MPCSubscribeListView(current: current, packetTunnelManager: packetTunnelManager, subscribeManager: subscribeManager)
-//                    .presentationDetents([.medium, .large])
-//                    .presentationDragIndicator(.hidden)
-                Text("PLACEHOLDER")
+                MPCSubscribeListView(current: current, subscribeManager: subscribeManager)
+                    .presentationDetents([.medium, .large])
+                    .presentationDragIndicator(.hidden)
             }
         } label: {
             Label {
@@ -36,10 +33,9 @@ struct MGSubscribeView: View {
     }
     
     private var title: String {
-        return "SDF"
-//        guard let subscribe = subscribeManager.subscribes.first(where: { $0.id == current.wrappedValue }) else {
-//            return "默认"
-//        }
-//        return subscribe.extend.alias
+        guard let subscribe = subscribeManager.subscribes.first(where: { $0.id == current.wrappedValue }) else {
+            return "默认"
+        }
+        return subscribe.extend.alias
     }
 }

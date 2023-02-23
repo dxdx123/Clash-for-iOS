@@ -2,16 +2,15 @@ import SwiftUI
 
 struct MPCSubscribeListView: View {
     
+    @EnvironmentObject private var delegate: MGAppDelegate
     @Environment(\.dismiss) private var dismiss
         
     let current: Binding<String>
-    @StateObject private var packetTunnelManager: MPPacketTunnelManager
-    @StateObject private var subscribeManager: MPCSubscribeManager
+    @ObservedObject private var subscribeManager: MPCSubscribeManager
     
-    init(current: Binding<String>, packetTunnelManager: MPPacketTunnelManager, subscribeManager: MPCSubscribeManager) {
+    init(current: Binding<String>, subscribeManager: MPCSubscribeManager) {
         self.current = current
-        self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
-        self._subscribeManager = StateObject(wrappedValue: subscribeManager)
+        self._subscribeManager = ObservedObject(wrappedValue: subscribeManager)
     }
     
     @State private var isDownloading = false
@@ -84,7 +83,7 @@ struct MPCSubscribeListView: View {
                             do {
                                 try await subscribeManager.update(subscribe: subscribe)
                                 if current.wrappedValue == subscribe.id {
-                                    packetTunnelManager.set(subscribe: subscribe.id)
+//                                    delegate.packetTunnelManager.set(subscribe: subscribe.id)
                                 }
                                 MGNotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"更新成功")
                             } catch {

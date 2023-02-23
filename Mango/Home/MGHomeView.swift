@@ -6,31 +6,32 @@ struct MGHomeView: View {
     
     let kernel: Binding<MGKernel>
     
+    private let current: Binding<String>
+    
+    init(kernel: Binding<MGKernel>) {
+        self.kernel = kernel
+        let storeKey = "\(kernel.wrappedValue.rawValue.uppercased())_CURRENT"
+        self.current = Binding(get: {
+            UserDefaults.shared.string(forKey: storeKey) ?? ""
+        }, set: { newValue in
+            UserDefaults.shared.set(newValue, forKey: storeKey)
+        })
+    }
+    
     var body: some View {
         NavigationStack {
             Form {
                 Section {
-//                    MGSubscribeView(current: .constant(""), packetTunnelManager: packetTunnelManager, subscribeManager: subscribeManager)
-                } header: {
-                    switch delegate.packetTunnelManager.kernel {
-                    case .clash:
-                        Text("订阅")
-                    case .xray:
-                        Text("配置")
-                    }
+                    MGSubscribeView(current: current, subscribeManager: delegate.subscribeManager)
                 }
                 Section {
                     MGControlView(packetTunnelManager: delegate.packetTunnelManager)
                     MGConnectedDurationView(packetTunnelManager: delegate.packetTunnelManager)
-                } header: {
-                    Text("状态")
                 }
                 switch delegate.packetTunnelManager.kernel {
                 case .clash:
                     Section {
                         
-                    } header: {
-                        Text("代理")
                     }
                 case .xray:
                     EmptyView()
