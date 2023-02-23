@@ -24,7 +24,10 @@ final class MGPacketTunnelManager: ObservableObject {
     
     init(kernel: MGKernel) {
         self.kernel = kernel
-        self.reload()
+    }
+    
+    func prepare() async {
+        manager = await self.loadTunnelProviderManager()
         NotificationCenter.default
             .publisher(for: .NEVPNConfigurationChange, object: nil)
             .receive(on: DispatchQueue.main)
