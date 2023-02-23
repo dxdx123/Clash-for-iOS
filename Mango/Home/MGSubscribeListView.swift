@@ -82,8 +82,13 @@ struct MGSubscribeListView: View {
                         Task(priority: .userInitiated) {
                             do {
                                 try await subscribeManager.update(subscribe: subscribe)
-                                if current.wrappedValue == subscribe.id {
-//                                    delegate.packetTunnelManager.set(subscribe: subscribe.id)
+                                switch delegate.packetTunnelManager.kernel {
+                                case .clash:
+                                    if current.wrappedValue == subscribe.id {
+                                        MGKernel.Clash.set(manager: delegate.packetTunnelManager, subscribe: subscribe.id)
+                                    }
+                                case .xray:
+                                    break
                                 }
                                 MGNotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"更新成功")
                             } catch {
