@@ -37,10 +37,6 @@ import os
             UserDefaults.shared.set(down, forKey: MGConstant.Clash.trafficDown)
         }
     }
-        
-    private var current: String {
-        UserDefaults.shared.string(forKey: MGConstant.Clash.current) ?? ""
-    }
     
     private static var tunnelMode: MGTunnelMode {
         MGTunnelMode(rawValue: UserDefaults.shared.string(forKey: MGConstant.Clash.tunnelMode) ?? "") ?? .rule
@@ -86,7 +82,7 @@ import os
         var err: NSError? = nil
         ClashRun(Int(fd), MGConstant.Clash.homeDirectory.path(percentEncoded: false), config, Client.shared, &err)
         try err.flatMap { throw $0 }
-        guard let current = UserDefaults.shared.string(forKey: MGConstant.Clash.current), !current.isEmpty else {
+        guard let current = UserDefaults.shared.string(forKey: "\(MGKernel.clash.rawValue.uppercased())_CURRENT"), !current.isEmpty else {
             return
         }
         try Clash.set(current: current)
