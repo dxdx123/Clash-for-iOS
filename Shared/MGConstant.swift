@@ -11,6 +11,9 @@ extension Bundle {
     public static var appID: String {
         Bundle.main.infoDictionary?["APP_ID"] as! String
     }
+    public static var appVersion: String {
+        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+    }
 }
 
 extension UTType {

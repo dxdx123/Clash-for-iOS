@@ -1,14 +1,14 @@
 import SwiftUI
 
-struct MPCSubscribeListView: View {
+struct MGSubscribeListView: View {
     
     @EnvironmentObject private var delegate: MGAppDelegate
     @Environment(\.dismiss) private var dismiss
         
     let current: Binding<String>
-    @ObservedObject private var subscribeManager: MPCSubscribeManager
+    @ObservedObject private var subscribeManager: MGSubscribeManager
     
-    init(current: Binding<String>, subscribeManager: MPCSubscribeManager) {
+    init(current: Binding<String>, subscribeManager: MGSubscribeManager) {
         self.current = current
         self._subscribeManager = ObservedObject(wrappedValue: subscribeManager)
     }
@@ -20,7 +20,7 @@ struct MPCSubscribeListView: View {
     @State private var subscribeURLString: String = ""
         
     @State private var isRenameAlertPresented = false
-    @State private var subscribe: MPCSubscribe?
+    @State private var subscribe: MGSubscribe?
     @State private var subscribeName: String = ""
     
     var body: some View {
@@ -95,7 +95,7 @@ struct MPCSubscribeListView: View {
                     .disabled(subscribeManager.downloadingSubscribeIDs.contains(subscribe.id))
                 }
             }
-            .navigationTitle(Text("订阅管理"))
+            .navigationTitle(Text("配置管理"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 if isDownloading {
@@ -111,7 +111,7 @@ struct MPCSubscribeListView: View {
                 }
             }
             .alert("重命名", isPresented: $isRenameAlertPresented, presenting: subscribe) { subscribe in
-                TextField("请输入订阅名称", text: $subscribeName)
+                TextField("请输入配置名称", text: $subscribeName)
                 Button("确定") {
                     let name = subscribeName.trimmingCharacters(in: .whitespacesAndNewlines)
                     guard !(name == subscribe.extend.alias || name.isEmpty) else {
@@ -125,11 +125,11 @@ struct MPCSubscribeListView: View {
                 }
                 Button("取消", role: .cancel) {}
             }
-            .alert("订阅", isPresented: $isDownloadAlertPresented) {
-                TextField("请输入订阅地址", text: $subscribeURLString)
+            .alert("下载配置", isPresented: $isDownloadAlertPresented) {
+                TextField("请输入配置地址", text: $subscribeURLString)
                 Button("确定") {
                     guard let source = URL(string: subscribeURLString) else {
-                        return MGNotification.send(title: "", subtitle: "", body: "订阅失败, 原因: 不支持的URL")
+                        return MGNotification.send(title: "", subtitle: "", body: "下载失败, 原因: 不支持的URL")
                     }
                     isDownloading = true
                     Task(priority: .high) {
@@ -137,12 +137,12 @@ struct MPCSubscribeListView: View {
                             try await subscribeManager.download(source: source)
                             await MainActor.run {
                                 isDownloading = false
-                                return MGNotification.send(title: "", subtitle: "", body: "订阅成功")
+                                return MGNotification.send(title: "", subtitle: "", body: "下载成功")
                             }
                         } catch {
                             await MainActor.run {
                                 isDownloading = false
-                                MGNotification.send(title: "", subtitle: "", body: "订阅失败, 原因: \(error.localizedDescription)")
+                                MGNotification.send(title: "", subtitle: "", body: "下载失败, 原因: \(error.localizedDescription)")
                             }
                         }
                     }

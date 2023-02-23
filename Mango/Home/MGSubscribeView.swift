@@ -3,9 +3,9 @@ import SwiftUI
 struct MGSubscribeView: View {
     
     let current: Binding<String>
-    @ObservedObject private var subscribeManager: MPCSubscribeManager
+    @ObservedObject private var subscribeManager: MGSubscribeManager
     
-    init(current: Binding<String>, subscribeManager: MPCSubscribeManager) {
+    init(current: Binding<String>, subscribeManager: MGSubscribeManager) {
         self.current = current
         self._subscribeManager = ObservedObject(wrappedValue: subscribeManager)
     }
@@ -18,7 +18,7 @@ struct MGSubscribeView: View {
                 isPresented.toggle()
             }
             .sheet(isPresented: $isPresented) {
-                MPCSubscribeListView(current: current, subscribeManager: subscribeManager)
+                MGSubscribeListView(current: current, subscribeManager: subscribeManager)
                     .presentationDetents([.medium, .large])
                     .presentationDragIndicator(.hidden)
             }

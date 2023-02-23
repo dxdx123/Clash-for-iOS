@@ -1,6 +1,6 @@
 import Foundation
 
-struct MPCSubscribe: Identifiable {
+struct MGSubscribe: Identifiable {
     struct Extend: Codable {
         let alias: String
         let source: URL
@@ -11,13 +11,13 @@ struct MPCSubscribe: Identifiable {
     let extend: Extend
 }
 
-final class MPCSubscribeManager: ObservableObject {
+final class MGSubscribeManager: ObservableObject {
     
     deinit {
         print("CFISubscribeManager deinit")
     }
     
-    @Published var subscribes: [MPCSubscribe] = []
+    @Published var subscribes: [MGSubscribe] = []
     @Published var downloadingSubscribeIDs: Set<String> = []
     
     let kernel: MGKernel
@@ -31,16 +31,16 @@ final class MPCSubscribeManager: ObservableObject {
         self.subscribes = self.fetchSubscribes()
     }
     
-    private func fetchSubscribes() -> [MPCSubscribe] {
+    private func fetchSubscribes() -> [MGSubscribe] {
         do {
-            let children = try FileManager.default.contentsOfDirectory(at: MGConstant.Clash.homeDirectory, includingPropertiesForKeys: nil)
+            let children = try FileManager.default.contentsOfDirectory(at: kernel.homeDirectory, includingPropertiesForKeys: nil)
             return children.compactMap(load(from:)).sorted(by: { $0.creationDate < $1.creationDate })
         } catch {
             return []
         }
     }
     
-    private func load(from url: URL) -> MPCSubscribe? {
+    private func load(from url: URL) -> MGSubscribe? {
         do {
             guard let uuid = UUID(uuidString: url.deletingPathExtension().lastPathComponent) else {
                 return nil
@@ -51,28 +51,28 @@ final class MPCSubscribeManager: ObservableObject {
                   let data = extends[MGConstant.Clash.extendAttributeKey] else {
                 return nil
             }
-            return MPCSubscribe(
+            return MGSubscribe(
                 id: uuid.uuidString,
                 creationDate: creationDate,
-                extend: try JSONDecoder().decode(MPCSubscribe.Extend.self, from: data)
+                extend: try JSONDecoder().decode(MGSubscribe.Extend.self, from: data)
             )
         } catch {
             return nil
         }
     }
     
-    func delete(subscribe: MPCSubscribe) throws {
+    func delete(subscribe: MGSubscribe) throws {
         do {
-            try FileManager.default.removeItem(at: MGConstant.Clash.homeDirectory.appending(path: "\(subscribe.id).yaml"))
+            try FileManager.default.removeItem(at: MGConstant.Clash.homeDirectory.appending(path: "\(subscribe.id).\(kernel.fileExtension)"))
         } catch {
             debugPrint(error.localizedDescription)
         }
         self.subscribes = self.fetchSubscribes()
     }
     
-    func rename(subscribe: MPCSubscribe, name: String) throws {
-        let target = MGConstant.Clash.homeDirectory.appending(path: "\(subscribe.id).yaml")
-        let extend = MPCSubscribe.Extend(
+    func rename(subscribe: MGSubscribe, name: String) throws {
+        let target = MGConstant.Clash.homeDirectory.appending(path: "\(subscribe.id).\(kernel.fileExtension)")
+        let extend = MGSubscribe.Extend(
             alias: name,
             source: subscribe.extend.source,
             leastUpdated: subscribe.extend.leastUpdated
@@ -88,13 +88,13 @@ final class MPCSubscribeManager: ObservableObject {
         let id = UUID().uuidString
         let request: URLRequest = {
             var temp = URLRequest(url: source)
-            temp.allHTTPHeaderFields = ["User-Agent": "Clash"]
+            temp.allHTTPHeaderFields = ["User-Agent": "\(kernel.rawValue.capitalized)/\(Bundle.appVersion)"]
             return temp
         }()
         let data = try await URLSession.shared.data(for: request).0
-        let target = MGConstant.Clash.homeDirectory.appending(path: "\(id).yaml")
+        let target = MGConstant.Clash.homeDirectory.appending(path: "\(id).\(kernel.fileExtension)")
         try data.write(to: target)
-        let extend = MPCSubscribe.Extend(
+        let extend = MGSubscribe.Extend(
             alias: id,
             source: source,
             leastUpdated: Date()
@@ -108,15 +108,15 @@ final class MPCSubscribeManager: ObservableObject {
         }
     }
     
-    func update(subscribe: MPCSubscribe) async throws {
+    func update(subscribe: MGSubscribe) async throws {
         do {
             await MainActor.run {
                 _ = self.downloadingSubscribeIDs.insert(subscribe.id)
             }
             let data = try await URLSession.shared.data(for: URLRequest(url: subscribe.extend.source)).0
-            let target = MGConstant.Clash.homeDirectory.appending(path: "\(subscribe.id).yaml")
+            let target = MGConstant.Clash.homeDirectory.appending(path: "\(subscribe.id).\(kernel.fileExtension)")
             try data.write(to: target)
-            let extend = MPCSubscribe.Extend(
+            let extend = MGSubscribe.Extend(
                 alias: subscribe.extend.alias,
                 source: subscribe.extend.source,
                 leastUpdated: Date()

@@ -8,7 +8,7 @@ extension MGKernel {
 final class MGAppDelegate: NSObject, ObservableObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
     @Published var packetTunnelManager: MGPacketTunnelManager
-    @Published var subscribeManager: MPCSubscribeManager
+    @Published var subscribeManager: MGSubscribeManager
     
     override init() {
         let kernel: MGKernel
@@ -19,7 +19,7 @@ final class MGAppDelegate: NSObject, ObservableObject, UIApplicationDelegate, UN
             UserDefaults.standard.set(kernel.rawValue, forKey: MGKernel.storeKey)
         }
         self.packetTunnelManager = MGPacketTunnelManager(kernel: kernel)
-        self.subscribeManager = MPCSubscribeManager(kernel: kernel)
+        self.subscribeManager = MGSubscribeManager(kernel: kernel)
         super.init()
         Task(priority: .high) {
             await packetTunnelManager.prepare()
@@ -66,7 +66,7 @@ struct MGApp: App {
                             delegate.packetTunnelManager = packetTunnelManager
                         }
                     }
-                    delegate.subscribeManager = MPCSubscribeManager(kernel: newValue)
+                    delegate.subscribeManager = MGSubscribeManager(kernel: newValue)
                 }
         }
     }
