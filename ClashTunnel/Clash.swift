@@ -16,7 +16,7 @@ import os
         }
         
         func onLog(_ level: String?, payload: String?) {
-            guard let level = level.flatMap(MPCLogLevel.init(rawValue:)),
+            guard let level = level.flatMap(MGLogLevel.init(rawValue:)),
                   let payload = payload, !payload.isEmpty else {
                 return
             }
@@ -42,12 +42,12 @@ import os
         UserDefaults.shared.string(forKey: MGConstant.Clash.current) ?? ""
     }
     
-    private static var tunnelMode: MPCTunnelMode {
-        MPCTunnelMode(rawValue: UserDefaults.shared.string(forKey: MGConstant.Clash.tunnelMode) ?? "") ?? .rule
+    private static var tunnelMode: MGTunnelMode {
+        MGTunnelMode(rawValue: UserDefaults.shared.string(forKey: MGConstant.Clash.tunnelMode) ?? "") ?? .rule
     }
     
-    private static var logLevel: MPCLogLevel {
-        MPCLogLevel(rawValue: UserDefaults.shared.string(forKey: MGConstant.Clash.logLevel) ?? "") ?? .silent
+    private static var logLevel: MGLogLevel {
+        MGLogLevel(rawValue: UserDefaults.shared.string(forKey: MGConstant.Clash.logLevel) ?? "") ?? .silent
     }
     
     private static var isIPv6Enabel: Bool {
@@ -104,11 +104,11 @@ import os
         ClashSetSelect(provider, proxy)
     }
     
-    static func set(logLevel: MPCLogLevel) {
+    static func set(logLevel: MGLogLevel) {
         ClashSetLogLevel(logLevel.rawValue)
     }
     
-    static func set(tunnelMode mode: MPCTunnelMode) {
+    static func set(tunnelMode mode: MGTunnelMode) {
         ClashSetTunnelMode(mode.rawValue)
     }
     

@@ -1,6 +1,6 @@
 import Foundation
 
-@frozen public enum MPCTunnelMode: String, Hashable, Identifiable, CaseIterable, Codable {
+@frozen public enum MGTunnelMode: String, Hashable, Identifiable, CaseIterable, Codable {
     
     public var id: Self { self }
     

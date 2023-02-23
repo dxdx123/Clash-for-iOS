@@ -2,24 +2,20 @@ import SwiftUI
 
 struct MPCTunnelModeView: View {
     
-    let tunnelMode: Binding<MPCTunnelMode>
-    @StateObject private var packetTunnelManager: MPPacketTunnelManager
+    @EnvironmentObject private var packetTunnelManager: MGPacketTunnelManager
     
-    init(tunnelMode: Binding<MPCTunnelMode>, packetTunnelManager: MPPacketTunnelManager) {
-        self.tunnelMode = tunnelMode
-        self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
-    }
+    @AppStorage(MGConstant.Clash.tunnelMode, store: .shared) private var tunnelMode = MGTunnelMode.rule
     
     var body: some View {
         NavigationLink {
-            MGFormPicker(title: "代理模式", selection: tunnelMode) {
-                ForEach(MPCTunnelMode.allCases) { mode in
+            MGFormPicker(title: "代理模式", selection: $tunnelMode) {
+                ForEach(MGTunnelMode.allCases) { mode in
                     Text(mode.name)
                 }
             }
         } label: {
             LabeledContent {
-                Text(tunnelMode.wrappedValue.name)
+                Text(tunnelMode.name)
             } label: {
                 Label {
                     Text("代理模式")
@@ -28,13 +24,13 @@ struct MPCTunnelModeView: View {
                 }
             }
         }
-        .onChange(of: tunnelMode.wrappedValue) { newValue in
-            packetTunnelManager.set(tunnelMode: newValue)
+        .onChange(of: tunnelMode) { newValue in
+            MGKernel.Clash.set(manager: packetTunnelManager, tunnelMode: newValue)
         }
     }
 }
 
-extension MPCTunnelMode {
+extension MGTunnelMode {
     
     var name: String {
         switch self {

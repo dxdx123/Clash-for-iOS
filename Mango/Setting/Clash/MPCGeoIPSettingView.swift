@@ -1,7 +1,7 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-enum MPCGEOIPAutoUpdateInterval: String, CaseIterable, Identifiable {
+enum MGGEOIPAutoUpdateInterval: String, CaseIterable, Identifiable {
     
     var id: Self { self }
     
@@ -28,7 +28,7 @@ struct MPCGeoIPSettingView: View {
     
     @AppStorage(MGConstant.Clash.geoipDatabaseRemoteURLString) private var geoipDatabaseRemoteURLString: String = MGConstant.Clash.defaultGeoIPDatabaseRemoteURLString
     @AppStorage(MGConstant.Clash.geoipDatabaseAutoUpdate) private var geoipDatabaseAutoUpdate: Bool = true
-    @AppStorage(MGConstant.Clash.geoipDatabaseAutoUpdateInterval) private var geoipDatabaseAutoUpdateInterval: MPCGEOIPAutoUpdateInterval = .week
+    @AppStorage(MGConstant.Clash.geoipDatabaseAutoUpdateInterval) private var geoipDatabaseAutoUpdateInterval: MGGEOIPAutoUpdateInterval = .week
     
     @State private var isFileImporterPresented: Bool = false
     
@@ -44,7 +44,7 @@ struct MPCGeoIPSettingView: View {
                 if geoipDatabaseAutoUpdate {
                     NavigationLink {
                         MGFormPicker(title: "更新频率", selection: $geoipDatabaseAutoUpdateInterval) {
-                            ForEach(MPCGEOIPAutoUpdateInterval.allCases) { value in
+                            ForEach(MGGEOIPAutoUpdateInterval.allCases) { value in
                                 Text(value.name)
                             }
                         }
@@ -107,7 +107,7 @@ struct MPCGeoIPSettingView: View {
     }
 }
 
-extension MPCGEOIPAutoUpdateInterval {
+extension MGGEOIPAutoUpdateInterval {
     
     var name: String {
         switch self {

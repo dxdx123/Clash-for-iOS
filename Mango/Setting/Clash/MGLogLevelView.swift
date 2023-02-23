@@ -1,19 +1,15 @@
 import SwiftUI
 
-struct MPCLogLevelView: View {
+struct MGLogLevelView: View {
     
-    @StateObject private var packetTunnelManager: MPPacketTunnelManager
-    @AppStorage(MGConstant.Clash.logLevel, store: .shared) private var logLevel  = MPCLogLevel.silent
-    
-    init(packetTunnelManager: MPPacketTunnelManager) {
-        self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
-    }
+    @EnvironmentObject private var packetTunnelManager: MGPacketTunnelManager
+    @AppStorage(MGConstant.Clash.logLevel, store: .shared) private var logLevel  = MGLogLevel.silent
     
     var body: some View {
         NavigationLink {
             Form {
                 Picker(selection: $logLevel) {
-                    ForEach(MPCLogLevel.allCases) { level in
+                    ForEach(MGLogLevel.allCases) { level in
                         Text(title(for: level))
                     }
                 } label: {
@@ -22,7 +18,6 @@ struct MPCLogLevelView: View {
                 .pickerStyle(.inline)
             }
             .navigationTitle(Text("日志"))
-            .navigationBarTitleDisplayMode(.inline)
         } label: {
             LabeledContent {
                 Text(title(for: logLevel))
@@ -35,11 +30,11 @@ struct MPCLogLevelView: View {
             }
         }
         .onChange(of: logLevel) { newValue in
-            packetTunnelManager.set(logLevel: newValue)
+            MGKernel.Clash.set(manager: packetTunnelManager, logLevel: newValue)
         }
     }
     
-    private func title(for level: MPCLogLevel) -> String {
+    private func title(for level: MGLogLevel) -> String {
         switch level {
         case .debug:
             return "调试"

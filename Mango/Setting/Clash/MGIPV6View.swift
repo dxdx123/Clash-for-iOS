@@ -1,15 +1,12 @@
 import SwiftUI
 
-struct MPCIPV6View: View {
+struct MGIPV6View: View {
     
-    @StateObject private var packetTunnelManager: MPPacketTunnelManager
+    @EnvironmentObject private var packetTunnelManager: MGPacketTunnelManager
     
     @AppStorage(MGConstant.Clash.ipv6Enable, store: .shared) private var isOn  = false
-    @State private var processing = false
     
-    init(packetTunnelManager: MPPacketTunnelManager) {
-        self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
-    }
+    @State private var processing = false
     
     var body: some View {
         Toggle(isOn: $isOn) {

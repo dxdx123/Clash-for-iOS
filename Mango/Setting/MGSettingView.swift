@@ -8,15 +8,22 @@ struct MGSettingView: View {
         NavigationStack {
             Form {
                 Section {
-                    
+                    switch delegate.packetTunnelManager.kernel {
+                    case .clash:
+                        MPCTunnelModeView()
+                        MGLogLevelView()
+                        MGIPV6View()
+                    case .xray:
+                        EmptyView()
+                    }
                 } header: {
                     Text("内核")
                 }
                 Section {
                     MGResetView()
-                        .environmentObject(delegate.packetTunnelManager)
                 }
             }
+            .environmentObject(delegate.packetTunnelManager)
             .navigationTitle(Text("设置"))
             .safeAreaInset(edge: .bottom) {
                 Text(Bundle.appVersion)

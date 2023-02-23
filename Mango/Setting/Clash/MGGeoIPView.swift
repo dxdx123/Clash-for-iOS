@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MPCGeoIPView: View {
+struct MGGeoIPView: View {
     
     @StateObject private var geoipManager: MPCGEOIPManager
     

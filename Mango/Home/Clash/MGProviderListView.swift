@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MGProviderListView: View {
     
-    @AppStorage(MGConstant.Clash.tunnelMode, store: .shared) private var tunnelMode = MPCTunnelMode.rule
+    @AppStorage(MGConstant.Clash.tunnelMode, store: .shared) private var tunnelMode = MGTunnelMode.rule
     
     @Environment(\.dismiss) var dismiss
     

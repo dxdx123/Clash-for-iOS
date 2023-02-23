@@ -148,7 +148,7 @@ extension MGKernel {
         
         private static func fetchProxies(manager: MGPacketTunnelManager) async -> [String: MGProxyModel] {
             do {
-                guard let data = try await manager.sendProviderMessage(data: try MPCAppMessage.proxies.data()) else {
+                guard let data = try await manager.sendProviderMessage(data: try MGAppMessage.proxies.data()) else {
                     return [:]
                 }
                 return try JSONDecoder().decode([String: MGProxyModel].self, from: data)
@@ -176,33 +176,33 @@ extension MGKernel {
             }
             Task(priority: .userInitiated) {
                 do {
-                    try await manager.sendProviderMessage(data: try MPCAppMessage.subscribe(subscribe).data())
+                    try await manager.sendProviderMessage(data: try MGAppMessage.subscribe(subscribe).data())
                 } catch {
                     debugPrint(error.localizedDescription)
                 }
             }
         }
         
-        static func set(manager: MGPacketTunnelManager, tunnelMode: MPCTunnelMode) {
+        static func set(manager: MGPacketTunnelManager, tunnelMode: MGTunnelMode) {
             guard let status = manager.status, status == .connected else {
                 return
             }
             Task(priority: .userInitiated) {
                 do {
-                    try await manager.sendProviderMessage(data: try MPCAppMessage.mode(tunnelMode).data())
+                    try await manager.sendProviderMessage(data: try MGAppMessage.mode(tunnelMode).data())
                 } catch {
                     debugPrint(error.localizedDescription)
                 }
             }
         }
         
-        static func set(manager: MGPacketTunnelManager, logLevel level: MPCLogLevel) {
+        static func set(manager: MGPacketTunnelManager, logLevel level: MGLogLevel) {
             guard let status = manager.status, status == .connected else {
                 return
             }
             Task(priority: .userInitiated) {
                 do {
-                    try await manager.sendProviderMessage(data: try MPCAppMessage.logLevel(level).data())
+                    try await manager.sendProviderMessage(data: try MGAppMessage.logLevel(level).data())
                 } catch {
                     debugPrint(error.localizedDescription)
                 }
@@ -215,7 +215,7 @@ extension MGKernel {
             }
             Task(priority: .userInitiated) {
                 do {
-                    try await manager.sendProviderMessage(data: try MPCAppMessage.select(provider, proxy).data())
+                    try await manager.sendProviderMessage(data: try MGAppMessage.select(provider, proxy).data())
                 } catch {
                     debugPrint(error.localizedDescription)
                 }
@@ -229,7 +229,7 @@ extension MGKernel {
             isProcessing.wrappedValue = true
             Task(priority: .userInitiated) {
                 do {
-                    try await manager.sendProviderMessage(data: try MPCAppMessage.healthCheck(name).data())
+                    try await manager.sendProviderMessage(data: try MGAppMessage.healthCheck(name).data())
                 } catch {
                     debugPrint(error.localizedDescription)
                 }

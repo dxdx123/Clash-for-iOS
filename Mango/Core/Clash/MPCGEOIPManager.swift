@@ -17,7 +17,7 @@ final class MPCGEOIPManager: ObservableObject {
         }
         let shouldUpdate: Bool
         if let least = leastUpdated {
-            let interval = UserDefaults.standard.string(forKey: MGConstant.Clash.geoipDatabaseAutoUpdateInterval).flatMap(MPCGEOIPAutoUpdateInterval.init(rawValue:)) ?? .week
+            let interval = UserDefaults.standard.string(forKey: MGConstant.Clash.geoipDatabaseAutoUpdateInterval).flatMap(MGGEOIPAutoUpdateInterval.init(rawValue:)) ?? .week
             let day: Double
             switch interval {
             case .day:
