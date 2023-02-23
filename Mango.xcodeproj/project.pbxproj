@@ -286,9 +286,10 @@
 				70B947B229613354006F6A38 /* MGAppDelegate.swift */,
 				70DE0D6729A6114B00B3E343 /* MGApp.swift */,
 				70DE0D7429A62C7700B3E343 /* MGContentView.swift */,
+				7061581529695E6A0005C024 /* MGFormPicker.swift */,
+				70DE0D6D29A6155C00B3E343 /* MGPresentedButton.swift */,
 				70DE0D7129A62C4100B3E343 /* Home */,
 				70DE0D7629A6300100B3E343 /* Setting */,
-				70C9EDC02950415F00B6995B /* Common */,
 				70C9EDBA29502CF000B6995B /* Core */,
 				70C9ED9C29501D5C00B6995B /* Assets.xcassets */,
 				7084FC252963FDE300065DAF /* Info.plist */,
@@ -334,15 +335,6 @@
 				7074B14629A72B1E00CBB919 /* Clash */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		70C9EDC02950415F00B6995B /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				7061581529695E6A0005C024 /* MGFormPicker.swift */,
-				70DE0D6D29A6155C00B3E343 /* MGPresentedButton.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		70C9EDCF295145DB00B6995B /* Shared */ = {

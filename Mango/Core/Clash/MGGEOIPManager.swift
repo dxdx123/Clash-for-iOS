@@ -5,7 +5,7 @@ final class MGGEOIPManager: ObservableObject {
     @Published var isUpdating: Bool = false
     @Published var leastUpdated: Date?
     
-    private let fileURL = MGConstant.Clash.homeDirectory.appendingPathComponent("Country.mmdb")
+    private let fileURL = MGKernel.clash.homeDirectory.appendingPathComponent("Country.mmdb")
     
     init() {
         refresh()
@@ -53,7 +53,7 @@ final class MGGEOIPManager: ObservableObject {
             isUpdating = true
         }
         do {
-            let destinationURL = MGConstant.Clash.homeDirectory.appendingPathComponent("Country.mmdb")
+            let destinationURL = MGKernel.clash.homeDirectory.appendingPathComponent("Country.mmdb")
             let tempURL = try await URLSession.shared.download(from: url, delegate: nil).0
             if FileManager.default.fileExists(atPath: destinationURL.path(percentEncoded: false)) {
                 try FileManager.default.removeItem(at: destinationURL)
@@ -79,7 +79,7 @@ final class MGGEOIPManager: ObservableObject {
         defer {
             url.stopAccessingSecurityScopedResource()
         }
-        let destinationURL = MGConstant.Clash.homeDirectory.appendingPathComponent("Country.mmdb")
+        let destinationURL = MGKernel.clash.homeDirectory.appendingPathComponent("Country.mmdb")
         if FileManager.default.fileExists(atPath: destinationURL.path(percentEncoded: false)) {
             try FileManager.default.removeItem(at: destinationURL)
         }
