@@ -138,3 +138,105 @@ fileprivate extension MGKernel {
         }
     }
 }
+
+import SwiftUI
+
+extension MGKernel {
+    
+    @MainActor
+    enum Clash {
+        
+        private static func fetchProxies(manager: MGPacketTunnelManager) async -> [String: MPCProxyModel] {
+            do {
+                guard let data = try await manager.sendProviderMessage(data: try MPCAppMessage.proxies.data()) else {
+                    return [:]
+                }
+                return try JSONDecoder().decode([String: MPCProxyModel].self, from: data)
+            } catch {
+                return [:]
+            }
+        }
+        
+        static func update(manager: MGPacketTunnelManager, providersManager: MPCProvidersManager) {
+            guard let status = manager.status, status == .connected else {
+                return providersManager.update(mapping: [:])
+            }
+            Task(priority: .userInitiated) {
+                if providersManager.proxyVMs.isEmpty {
+                    providersManager.update(mapping: await fetchProxies(manager: manager))
+                } else {
+                    providersManager.patch(mapping: await fetchProxies(manager: manager))
+                }
+            }
+        }
+        
+        static func set(manager: MGPacketTunnelManager, subscribe: String) {
+            guard let status = manager.status, status == .connected else {
+                return
+            }
+            Task(priority: .userInitiated) {
+                do {
+                    try await manager.sendProviderMessage(data: try MPCAppMessage.subscribe(subscribe).data())
+                } catch {
+                    debugPrint(error.localizedDescription)
+                }
+            }
+        }
+        
+        static func set(manager: MGPacketTunnelManager, tunnelMode: MPCTunnelMode) {
+            guard let status = manager.status, status == .connected else {
+                return
+            }
+            Task(priority: .userInitiated) {
+                do {
+                    try await manager.sendProviderMessage(data: try MPCAppMessage.mode(tunnelMode).data())
+                } catch {
+                    debugPrint(error.localizedDescription)
+                }
+            }
+        }
+        
+        static func set(manager: MGPacketTunnelManager, logLevel level: MPCLogLevel) {
+            guard let status = manager.status, status == .connected else {
+                return
+            }
+            Task(priority: .userInitiated) {
+                do {
+                    try await manager.sendProviderMessage(data: try MPCAppMessage.logLevel(level).data())
+                } catch {
+                    debugPrint(error.localizedDescription)
+                }
+            }
+        }
+        
+        static func set(manager: MGPacketTunnelManager, provider: String, selected proxy: String) {
+            guard let status = manager.status, status == .connected else {
+                return
+            }
+            Task(priority: .userInitiated) {
+                do {
+                    try await manager.sendProviderMessage(data: try MPCAppMessage.select(provider, proxy).data())
+                } catch {
+                    debugPrint(error.localizedDescription)
+                }
+            }
+        }
+        
+        static func healthCheck(manager: MGPacketTunnelManager, name: String, isProcessing: Binding<Bool>) {
+            guard let status = manager.status, status == .connected else {
+                return
+            }
+            isProcessing.wrappedValue = true
+            Task(priority: .userInitiated) {
+                do {
+                    try await manager.sendProviderMessage(data: try MPCAppMessage.healthCheck(name).data())
+                } catch {
+                    debugPrint(error.localizedDescription)
+                }
+                await MainActor.run {
+                    isProcessing.wrappedValue = false
+                }
+            }
+        }
+    }
+}

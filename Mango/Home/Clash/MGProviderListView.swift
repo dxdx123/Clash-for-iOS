@@ -1,16 +1,17 @@
 import SwiftUI
 
-struct MPCProviderListView: View {
+struct MGProviderListView: View {
+    
+    @AppStorage(MGConstant.Clash.tunnelMode, store: .shared) private var tunnelMode = MPCTunnelMode.rule
     
     @Environment(\.dismiss) var dismiss
+    
     @StateObject private var providersManager = MPCProvidersManager()
     
-    let tunnelMode: MPCTunnelMode
-    @StateObject private var packetTunnelManager: MPPacketTunnelManager
+    @ObservedObject private var packetTunnelManager: MGPacketTunnelManager
     
-    init(tunnelMode: MPCTunnelMode, packetTunnelManager: MPPacketTunnelManager) {
-        self.tunnelMode = tunnelMode
-        self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
+    init(packetTunnelManager: MGPacketTunnelManager) {
+        self._packetTunnelManager = ObservedObject(wrappedValue: packetTunnelManager)
     }
         
     var body: some View {
@@ -30,7 +31,6 @@ struct MPCProviderListView: View {
                 }
             }
             .navigationTitle(Text("策略组"))
-            .navigationBarTitleDisplayMode(.inline)
             .onChange(of: packetTunnelManager.status) { status in
                 guard status != .connected else {
                     return
@@ -38,27 +38,28 @@ struct MPCProviderListView: View {
                 dismiss()
             }
             .onAppear {
-                packetTunnelManager.update(providersManager: providersManager)
+                MGKernel.Clash.update(manager: packetTunnelManager, providersManager: providersManager)
             }
             .onReceive(Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()) { _ in
-                packetTunnelManager.update(providersManager: providersManager)
+                MGKernel.Clash.update(manager: packetTunnelManager, providersManager: providersManager)
             }
         }
     }
     
     private struct ProviderCell: View {
         
-        @StateObject private var packetTunnelManager: MPPacketTunnelManager
-        @StateObject private var provider: MPCProviderViewModel
+        let packetTunnelManager: MGPacketTunnelManager
         
-        init(packetTunnelManager: MPPacketTunnelManager, provider: MPCProviderViewModel) {
-            self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
-            self._provider = StateObject(wrappedValue: provider)
+        @ObservedObject private var provider: MPCProviderViewModel
+        
+        init(packetTunnelManager: MGPacketTunnelManager, provider: MPCProviderViewModel) {
+            self.packetTunnelManager = packetTunnelManager
+            self._provider = ObservedObject(wrappedValue: provider)
         }
                 
         var body: some View {
             NavigationLink {
-                MPCProxyListView(packetTunnelManager: packetTunnelManager, provider: provider)
+                MGProxyListView(packetTunnelManager: packetTunnelManager, provider: provider)
             } label: {
                 HStack {
                     VStack(alignment: .leading, spacing: 6) {

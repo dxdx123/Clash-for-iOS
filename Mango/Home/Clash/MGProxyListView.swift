@@ -1,14 +1,14 @@
 import SwiftUI
 
-struct MPCProxyListView: View {
+struct MGProxyListView: View {
     
-    @StateObject private var packetTunnelManager: MPPacketTunnelManager
+    let packetTunnelManager: MGPacketTunnelManager
     
-    @StateObject private var provider: MPCProviderViewModel
+    @ObservedObject private var provider: MPCProviderViewModel
     
-    init(packetTunnelManager: MPPacketTunnelManager, provider: MPCProviderViewModel) {
-        self._packetTunnelManager = StateObject(wrappedValue: packetTunnelManager)
-        self._provider = StateObject(wrappedValue: provider)
+    init(packetTunnelManager: MGPacketTunnelManager, provider: MPCProviderViewModel) {
+        self.packetTunnelManager = packetTunnelManager
+        self._provider = ObservedObject(wrappedValue: provider)
     }
     
     var body: some View {
@@ -19,19 +19,18 @@ struct MPCProxyListView: View {
                     guard provider.type == .selector else {
                         return
                     }
-                    packetTunnelManager.set(provider: provider.name, selected: proxy.name)
+                    MGKernel.Clash.set(manager: packetTunnelManager, provider: provider.name, selected: proxy.name)
                     provider.now = proxy.name
                 }
         }
         .navigationTitle(Text(provider.name))
-        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             if provider.isHealthCheckEnable {
                 if provider.isHealthChecking {
                     ProgressView()
                 } else {
                     Button {
-                        packetTunnelManager.healthCheck(name: provider.name, isProcessing: $provider.isHealthChecking)
+                        MGKernel.Clash.healthCheck(manager: packetTunnelManager, name: provider.name, isProcessing: $provider.isHealthChecking)
                     } label: {
                         Image(systemName: "speedometer")
                     }
@@ -42,12 +41,12 @@ struct MPCProxyListView: View {
     
     private struct ProxyCell: View {
         
-        @StateObject private var proxy: MPCProxyViewModel
+        @ObservedObject private var proxy: MPCProxyViewModel
         
         private let isSelected: Bool
         
         init(proxy: MPCProxyViewModel, isSelected: Bool) {
-            self._proxy = StateObject(wrappedValue: proxy)
+            self._proxy = ObservedObject(wrappedValue: proxy)
             self.isSelected = isSelected
         }
         

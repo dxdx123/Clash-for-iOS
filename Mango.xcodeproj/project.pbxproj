@@ -43,8 +43,8 @@
 		7084FC362967B8AC00065DAF /* MPCGeoIPSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC352967B8AC00065DAF /* MPCGeoIPSettingView.swift */; };
 		7084FC382967DB7300065DAF /* MPCGeoIPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC372967DB7300065DAF /* MPCGeoIPView.swift */; };
 		7084FC3A2967E6FD00065DAF /* MPCGEOIPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC392967E6FD00065DAF /* MPCGEOIPManager.swift */; };
-		708A48E1296295C50040184C /* MPCPolicyGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E0296295C50040184C /* MPCPolicyGroupView.swift */; };
-		708A48E3296299640040184C /* MPCProxyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E2296299640040184C /* MPCProxyListView.swift */; };
+		708A48E1296295C50040184C /* MGPolicyGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E0296295C50040184C /* MGPolicyGroupView.swift */; };
+		708A48E3296299640040184C /* MGProxyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E2296299640040184C /* MGProxyListView.swift */; };
 		708A48EA2962AA2B0040184C /* MGAppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E92962AA2B0040184C /* MGAppearanceView.swift */; };
 		708A48EC2962AD740040184C /* MGAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48EB2962AD740040184C /* MGAppearance.swift */; };
 		70B947A9295F302B006F6A38 /* Clash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947A8295F302B006F6A38 /* Clash.swift */; };
@@ -59,11 +59,10 @@
 		70C9EDB029502C6500B6995B /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDAF29502C6500B6995B /* PacketTunnelProvider.swift */; };
 		70C9EDB529502C6500B6995B /* ClashTunnel.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 70C9EDAA29502C6500B6995B /* ClashTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		70C9EDBE29502D3500B6995B /* MPPacketTunnelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDBD29502D3500B6995B /* MPPacketTunnelManager.swift */; };
-		70C9EDCC295057DB00B6995B /* MPCProviderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDCB295057DB00B6995B /* MPCProviderListView.swift */; };
+		70C9EDCC295057DB00B6995B /* MGProviderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDCB295057DB00B6995B /* MGProviderListView.swift */; };
 		70C9EDD82951587D00B6995B /* MGResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD72951587D00B6995B /* MGResetView.swift */; };
 		70C9EDDA2951841E00B6995B /* MGSubscribeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9EDD92951841E00B6995B /* MGSubscribeListView.swift */; };
 		70CEB88529A07605003436C2 /* MPXContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB88429A07605003436C2 /* MPXContentView.swift */; };
-		70CEB88D29A0BEEF003436C2 /* MPAppVersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB88C29A0BEEF003436C2 /* MPAppVersionView.swift */; };
 		70CEB88F29A0C4D9003436C2 /* MPSettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB88E29A0C4D9003436C2 /* MPSettingButton.swift */; };
 		70CEB89129A0C775003436C2 /* MPKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB89029A0C775003436C2 /* MPKernel.swift */; };
 		70CEB89329A0C7BA003436C2 /* MGConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB89229A0C7BA003436C2 /* MGConstant.swift */; };
@@ -144,8 +143,8 @@
 		7084FC352967B8AC00065DAF /* MPCGeoIPSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCGeoIPSettingView.swift; sourceTree = "<group>"; };
 		7084FC372967DB7300065DAF /* MPCGeoIPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCGeoIPView.swift; sourceTree = "<group>"; };
 		7084FC392967E6FD00065DAF /* MPCGEOIPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCGEOIPManager.swift; sourceTree = "<group>"; };
-		708A48E0296295C50040184C /* MPCPolicyGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCPolicyGroupView.swift; sourceTree = "<group>"; };
-		708A48E2296299640040184C /* MPCProxyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCProxyListView.swift; sourceTree = "<group>"; };
+		708A48E0296295C50040184C /* MGPolicyGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPolicyGroupView.swift; sourceTree = "<group>"; };
+		708A48E2296299640040184C /* MGProxyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGProxyListView.swift; sourceTree = "<group>"; };
 		708A48E92962AA2B0040184C /* MGAppearanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGAppearanceView.swift; sourceTree = "<group>"; };
 		708A48EB2962AD740040184C /* MGAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGAppearance.swift; sourceTree = "<group>"; };
 		70B947A8295F302B006F6A38 /* Clash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clash.swift; sourceTree = "<group>"; };
@@ -164,11 +163,10 @@
 		70C9EDB229502C6500B6995B /* ClashTunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClashTunnel.entitlements; sourceTree = "<group>"; };
 		70C9EDBD29502D3500B6995B /* MPPacketTunnelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPPacketTunnelManager.swift; sourceTree = "<group>"; };
 		70C9EDBF2950303900B6995B /* Mango.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mango.entitlements; sourceTree = "<group>"; };
-		70C9EDCB295057DB00B6995B /* MPCProviderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCProviderListView.swift; sourceTree = "<group>"; };
+		70C9EDCB295057DB00B6995B /* MGProviderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGProviderListView.swift; sourceTree = "<group>"; };
 		70C9EDD72951587D00B6995B /* MGResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGResetView.swift; sourceTree = "<group>"; };
 		70C9EDD92951841E00B6995B /* MGSubscribeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSubscribeListView.swift; sourceTree = "<group>"; };
 		70CEB88429A07605003436C2 /* MPXContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPXContentView.swift; sourceTree = "<group>"; };
-		70CEB88C29A0BEEF003436C2 /* MPAppVersionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPAppVersionView.swift; sourceTree = "<group>"; };
 		70CEB88E29A0C4D9003436C2 /* MPSettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPSettingButton.swift; sourceTree = "<group>"; };
 		70CEB89029A0C775003436C2 /* MPKernel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPKernel.swift; sourceTree = "<group>"; };
 		70CEB89229A0C7BA003436C2 /* MGConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConstant.swift; sourceTree = "<group>"; };
@@ -289,13 +287,20 @@
 			path = XrayTunnel;
 			sourceTree = "<group>";
 		};
+		7074B14529A7207B00CBB919 /* Clash */ = {
+			isa = PBXGroup;
+			children = (
+				708A48E0296295C50040184C /* MGPolicyGroupView.swift */,
+				70C9EDCB295057DB00B6995B /* MGProviderListView.swift */,
+				708A48E2296299640040184C /* MGProxyListView.swift */,
+			);
+			path = Clash;
+			sourceTree = "<group>";
+		};
 		70B947AB295F37AC006F6A38 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				7000C6DF295D60A50005626E /* MPCTunnelModeView.swift */,
-				708A48E0296295C50040184C /* MPCPolicyGroupView.swift */,
-				70C9EDCB295057DB00B6995B /* MPCProviderListView.swift */,
-				708A48E2296299640040184C /* MPCProxyListView.swift */,
 				7084FC32296587C600065DAF /* MPCLogLevelView.swift */,
 				7084FC372967DB7300065DAF /* MPCGeoIPView.swift */,
 				7084FC352967B8AC00065DAF /* MPCGeoIPSettingView.swift */,
@@ -396,7 +401,6 @@
 			children = (
 				7061581529695E6A0005C024 /* MGFormPicker.swift */,
 				70CEB88E29A0C4D9003436C2 /* MPSettingButton.swift */,
-				70CEB88C29A0BEEF003436C2 /* MPAppVersionView.swift */,
 				70DE0D6D29A6155C00B3E343 /* MGPresentedButton.swift */,
 			);
 			path = Common;
@@ -422,6 +426,7 @@
 				7000C6DD295D5F690005626E /* MGConnectedDurationView.swift */,
 				70B947AE29612F46006F6A38 /* MGSubscribeView.swift */,
 				70C9EDD92951841E00B6995B /* MGSubscribeListView.swift */,
+				7074B14529A7207B00CBB919 /* Clash */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -591,12 +596,11 @@
 			files = (
 				70C9ED9B29501D5B00B6995B /* MPCContentView.swift in Sources */,
 				702D908A299B58A400B83324 /* MGNotification.swift in Sources */,
-				70CEB88D29A0BEEF003436C2 /* MPAppVersionView.swift in Sources */,
 				70DE0D7329A62C4E00B3E343 /* MGHomeView.swift in Sources */,
 				70C9EDDA2951841E00B6995B /* MGSubscribeListView.swift in Sources */,
 				7084FC20295ECC7400065DAF /* MPCTunnelMode.swift in Sources */,
 				7000C6D7295AED790005626E /* MPCProxyViewModel.swift in Sources */,
-				70C9EDCC295057DB00B6995B /* MPCProviderListView.swift in Sources */,
+				70C9EDCC295057DB00B6995B /* MGProviderListView.swift in Sources */,
 				7000C6E0295D60A50005626E /* MPCTunnelModeView.swift in Sources */,
 				70CEB88F29A0C4D9003436C2 /* MPSettingButton.swift in Sources */,
 				70C9EDD82951587D00B6995B /* MGResetView.swift in Sources */,
@@ -631,11 +635,11 @@
 				702D9087299B2B4500B83324 /* MPCIPV6View.swift in Sources */,
 				7000C6D9295AED790005626E /* MPCProviderViewModel.swift in Sources */,
 				7000C6DE295D5F690005626E /* MGConnectedDurationView.swift in Sources */,
-				708A48E1296295C50040184C /* MPCPolicyGroupView.swift in Sources */,
+				708A48E1296295C50040184C /* MGPolicyGroupView.swift in Sources */,
 				70DE0D6829A6114B00B3E343 /* MGApp.swift in Sources */,
 				70B947B329613354006F6A38 /* MPAppDelegate.swift in Sources */,
 				70DE0D7029A62A5800B3E343 /* MGPacketTunnelManager.swift in Sources */,
-				708A48E3296299640040184C /* MPCProxyListView.swift in Sources */,
+				708A48E3296299640040184C /* MGProxyListView.swift in Sources */,
 				701811E129A33068005E5CDB /* MPCSettingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

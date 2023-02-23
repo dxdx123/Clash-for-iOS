@@ -23,7 +23,7 @@ import NetworkExtension
 //                Text("状态")
 //            }
 //            Section {
-//                MPCPolicyGroupView(packetTunnelManager: packetTunnelManager)
+//                MGPolicyGroupView(packetTunnelManager: packetTunnelManager)
 //            } header: {
 //                Text("代理")
 //            }

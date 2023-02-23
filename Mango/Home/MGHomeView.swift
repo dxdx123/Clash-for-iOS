@@ -28,13 +28,8 @@ struct MGHomeView: View {
                     MGControlView(packetTunnelManager: delegate.packetTunnelManager)
                     MGConnectedDurationView(packetTunnelManager: delegate.packetTunnelManager)
                 }
-                switch delegate.packetTunnelManager.kernel {
-                case .clash:
-                    Section {
-                        
-                    }
-                case .xray:
-                    EmptyView()
+                Section {
+                    MGPolicyGroupView(packetTunnelManager: delegate.packetTunnelManager)
                 }
             }
             .toolbar {
