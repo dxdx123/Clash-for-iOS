@@ -21,6 +21,11 @@ struct MGSettingView: View {
                     Text("内核")
                 }
                 Section {
+                    MGAppearanceView()
+                } header: {
+                    Text("主题")
+                }
+                Section {
                     MGResetView()
                 }
             }

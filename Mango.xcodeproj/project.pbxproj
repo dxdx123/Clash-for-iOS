@@ -331,7 +331,6 @@
 				70DE0D6F29A62A5800B3E343 /* MGPacketTunnelManager.swift */,
 				70B947B029613321006F6A38 /* MGSubscribeManager.swift */,
 				708A48EB2962AD740040184C /* MGAppearance.swift */,
-				708A48E92962AA2B0040184C /* MGAppearanceView.swift */,
 				7074B14629A72B1E00CBB919 /* Clash */,
 			);
 			path = Core;
@@ -375,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				70DE0D7729A6306100B3E343 /* MGSettingView.swift */,
+				708A48E92962AA2B0040184C /* MGAppearanceView.swift */,
 				70C9EDD72951587D00B6995B /* MGResetView.swift */,
 				7074B14729A72CAE00CBB919 /* Clash */,
 			);
