@@ -20,7 +20,10 @@ final class MPCSubscribeManager: ObservableObject {
     @Published var subscribes: [MPCSubscribe] = []
     @Published var downloadingSubscribeIDs: Set<String> = []
     
-    init() {
+    let kernel: MGKernel
+    
+    init(kernel: MGKernel) {
+        self.kernel = kernel
         self.subscribes = self.fetchSubscribes()
     }
     

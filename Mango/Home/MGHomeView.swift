@@ -2,22 +2,17 @@ import SwiftUI
 
 struct MGHomeView: View {
     
+    @EnvironmentObject private var delegate: MGAppDelegate
+    
     let kernel: Binding<MGKernel>
-    
-    @ObservedObject private var packetTunnelManager: MGPacketTunnelManager
-    
-    init(kernel: Binding<MGKernel>, packetTunnelManager: MGPacketTunnelManager) {
-        self.kernel = kernel
-        self._packetTunnelManager = ObservedObject(wrappedValue: packetTunnelManager)
-    }
     
     var body: some View {
         NavigationStack {
             Form {
                 Section {
-                    
+//                    MGSubscribeView(current: .constant(""), packetTunnelManager: packetTunnelManager, subscribeManager: subscribeManager)
                 } header: {
-                    switch packetTunnelManager.kernel {
+                    switch delegate.packetTunnelManager.kernel {
                     case .clash:
                         Text("订阅")
                     case .xray:
@@ -25,12 +20,12 @@ struct MGHomeView: View {
                     }
                 }
                 Section {
-                    MGControlView(packetTunnelManager: packetTunnelManager)
-                    MGConnectedDurationView(packetTunnelManager: packetTunnelManager)
+                    MGControlView(packetTunnelManager: delegate.packetTunnelManager)
+                    MGConnectedDurationView(packetTunnelManager: delegate.packetTunnelManager)
                 } header: {
                     Text("状态")
                 }
-                switch packetTunnelManager.kernel {
+                switch delegate.packetTunnelManager.kernel {
                 case .clash:
                     Section {
                         
@@ -56,7 +51,6 @@ struct MGHomeView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     MGPresentedButton {
                         MGSettingView()
-                            .environmentObject(packetTunnelManager)
                     } label: {
                         Image(systemName: "slider.horizontal.3")
                     }

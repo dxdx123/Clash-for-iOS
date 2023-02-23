@@ -13,9 +13,12 @@ struct MPApp: App {
                 Group {
                     switch kernel {
                     case .clash:
-                        MPCContentView()
+                        EmptyView()
+//                        MPCContentView()
                     case .xray:
-                        MPXContentView()
+                        EmptyView()
+
+//                        MPXContentView()
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)

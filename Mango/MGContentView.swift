@@ -7,6 +7,6 @@ struct MGContentView: View {
     let kernel: Binding<MGKernel>
         
     var body: some View {
-        MGHomeView(kernel: kernel, packetTunnelManager: delegate.packetTunnelManager)
+        MGHomeView(kernel: kernel)
     }
 }

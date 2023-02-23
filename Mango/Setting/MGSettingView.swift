@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MGSettingView: View {
     
-    @EnvironmentObject private var packetTunnelManager: MGPacketTunnelManager
+    @EnvironmentObject private var delegate: MGAppDelegate
     
     var body: some View {
         NavigationStack {
@@ -14,6 +14,7 @@ struct MGSettingView: View {
                 }
                 Section {
                     MGResetView()
+                        .environmentObject(delegate.packetTunnelManager)
                 }
             }
             .navigationTitle(Text("设置"))

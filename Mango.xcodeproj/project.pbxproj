@@ -48,7 +48,7 @@
 		708A48EA2962AA2B0040184C /* MGAppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E92962AA2B0040184C /* MGAppearanceView.swift */; };
 		708A48EC2962AD740040184C /* MGAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48EB2962AD740040184C /* MGAppearance.swift */; };
 		70B947A9295F302B006F6A38 /* Clash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947A8295F302B006F6A38 /* Clash.swift */; };
-		70B947AF29612F46006F6A38 /* MPCSubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947AE29612F46006F6A38 /* MPCSubscribeView.swift */; };
+		70B947AF29612F46006F6A38 /* MGSubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947AE29612F46006F6A38 /* MGSubscribeView.swift */; };
 		70B947B129613321006F6A38 /* MPCSubscribeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B029613321006F6A38 /* MPCSubscribeManager.swift */; };
 		70B947B329613354006F6A38 /* MPAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B229613354006F6A38 /* MPAppDelegate.swift */; };
 		70C9ED9929501D5B00B6995B /* MPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9ED9829501D5B00B6995B /* MPApp.swift */; };
@@ -149,7 +149,7 @@
 		708A48E92962AA2B0040184C /* MGAppearanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGAppearanceView.swift; sourceTree = "<group>"; };
 		708A48EB2962AD740040184C /* MGAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGAppearance.swift; sourceTree = "<group>"; };
 		70B947A8295F302B006F6A38 /* Clash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clash.swift; sourceTree = "<group>"; };
-		70B947AE29612F46006F6A38 /* MPCSubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSubscribeView.swift; sourceTree = "<group>"; };
+		70B947AE29612F46006F6A38 /* MGSubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSubscribeView.swift; sourceTree = "<group>"; };
 		70B947B029613321006F6A38 /* MPCSubscribeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSubscribeManager.swift; sourceTree = "<group>"; };
 		70B947B229613354006F6A38 /* MPAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPAppDelegate.swift; sourceTree = "<group>"; };
 		70C9ED9529501D5B00B6995B /* Mango.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mango.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -293,7 +293,6 @@
 		70B947AB295F37AC006F6A38 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				70B947AE29612F46006F6A38 /* MPCSubscribeView.swift */,
 				7000C6DF295D60A50005626E /* MPCTunnelModeView.swift */,
 				708A48E0296295C50040184C /* MPCPolicyGroupView.swift */,
 				70C9EDCB295057DB00B6995B /* MPCProviderListView.swift */,
@@ -422,6 +421,7 @@
 				70DE0D7229A62C4E00B3E343 /* MGHomeView.swift */,
 				7000C6E3295D635F0005626E /* MGControlView.swift */,
 				7000C6DD295D5F690005626E /* MGConnectedDurationView.swift */,
+				70B947AE29612F46006F6A38 /* MGSubscribeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -608,7 +608,7 @@
 				701811D929A32D6C005E5CDB /* MPCConstant.swift in Sources */,
 				7000C6D6295AED790005626E /* MPCProvidersManager.swift in Sources */,
 				7084FC362967B8AC00065DAF /* MPCGeoIPSettingView.swift in Sources */,
-				70B947AF29612F46006F6A38 /* MPCSubscribeView.swift in Sources */,
+				70B947AF29612F46006F6A38 /* MGSubscribeView.swift in Sources */,
 				701811DF29A33057005E5CDB /* MPXSettingView.swift in Sources */,
 				70CEB89129A0C775003436C2 /* MPKernel.swift in Sources */,
 				7084FC3A2967E6FD00065DAF /* MPCGEOIPManager.swift in Sources */,
