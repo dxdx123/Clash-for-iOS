@@ -52,6 +52,14 @@ struct MGHomeView: View {
                     }
                 }
             }
+            .onChange(of: current.wrappedValue) { newValue in
+                switch kernel.wrappedValue {
+                case .clash:
+                    MGKernel.Clash.set(manager: delegate.packetTunnelManager, subscribe: newValue)
+                case .xray:
+                    break
+                }
+            }
         }
     }
 }
