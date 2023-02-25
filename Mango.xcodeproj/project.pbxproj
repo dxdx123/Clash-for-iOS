@@ -28,8 +28,9 @@
 		702D9094299FA40600B83324 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9093299FA40600B83324 /* PacketTunnelProvider.swift */; };
 		702D9099299FA40600B83324 /* XrayTunnel.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 702D9090299FA40600B83324 /* XrayTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7061581629695E6A0005C024 /* MGFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061581529695E6A0005C024 /* MGFormPicker.swift */; };
+		706FF87A29A8D9E300E72CA2 /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7072264429A46C6100A38837 /* libresolv.9.tbd */; };
+		706FF87D29A8DA8E00E72CA2 /* Tun2SocksKit in Frameworks */ = {isa = PBXBuildFile; productRef = 706FF87C29A8DA8E00E72CA2 /* Tun2SocksKit */; };
 		7072264329A4648000A38837 /* ClashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7072264229A4648000A38837 /* ClashKit */; };
-		7072264529A46D1200A38837 /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7072264429A46C6100A38837 /* libresolv.9.tbd */; };
 		7084FC1D295ECBC900065DAF /* MGAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* MGAppMessage.swift */; };
 		7084FC1E295ECBC900065DAF /* MGAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* MGAppMessage.swift */; };
 		7084FC20295ECC7400065DAF /* MGTunnelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1F295ECC7400065DAF /* MGTunnelMode.swift */; };
@@ -66,7 +67,6 @@
 		70DE0D6E29A6155C00B3E343 /* MGPresentedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D6D29A6155C00B3E343 /* MGPresentedButton.swift */; };
 		70DE0D7029A62A5800B3E343 /* MGPacketTunnelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D6F29A62A5800B3E343 /* MGPacketTunnelManager.swift */; };
 		70DE0D7329A62C4E00B3E343 /* MGHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D7229A62C4E00B3E343 /* MGHomeView.swift */; };
-		70DE0D7529A62C7700B3E343 /* MGContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D7429A62C7700B3E343 /* MGContentView.swift */; };
 		70DE0D7829A6306100B3E343 /* MGSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D7729A6306100B3E343 /* MGSettingView.swift */; };
 /* End PBXBuildFile section */
 
@@ -157,7 +157,6 @@
 		70DE0D6D29A6155C00B3E343 /* MGPresentedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPresentedButton.swift; sourceTree = "<group>"; };
 		70DE0D6F29A62A5800B3E343 /* MGPacketTunnelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPacketTunnelManager.swift; sourceTree = "<group>"; };
 		70DE0D7229A62C4E00B3E343 /* MGHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGHomeView.swift; sourceTree = "<group>"; };
-		70DE0D7429A62C7700B3E343 /* MGContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGContentView.swift; sourceTree = "<group>"; };
 		70DE0D7729A6306100B3E343 /* MGSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,7 +165,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7072264529A46D1200A38837 /* libresolv.9.tbd in Frameworks */,
+				706FF87D29A8DA8E00E72CA2 /* Tun2SocksKit in Frameworks */,
+				706FF87A29A8D9E300E72CA2 /* libresolv.9.tbd in Frameworks */,
 				702D9091299FA40600B83324 /* NetworkExtension.framework in Frameworks */,
 				701811F729A4638B005E5CDB /* XrayKit in Frameworks */,
 			);
@@ -285,7 +285,6 @@
 				70C9EDBF2950303900B6995B /* Mango.entitlements */,
 				70B947B229613354006F6A38 /* MGAppDelegate.swift */,
 				70DE0D6729A6114B00B3E343 /* MGApp.swift */,
-				70DE0D7429A62C7700B3E343 /* MGContentView.swift */,
 				7061581529695E6A0005C024 /* MGFormPicker.swift */,
 				70DE0D6D29A6155C00B3E343 /* MGPresentedButton.swift */,
 				70DE0D7129A62C4100B3E343 /* Home */,
@@ -391,6 +390,7 @@
 			name = XrayTunnel;
 			packageProductDependencies = (
 				701811F629A4638B005E5CDB /* XrayKit */,
+				706FF87C29A8DA8E00E72CA2 /* Tun2SocksKit */,
 			);
 			productName = XrayTunnel;
 			productReference = 702D9090299FA40600B83324 /* XrayTunnel.appex */;
@@ -472,6 +472,7 @@
 			packageReferences = (
 				701811F529A4638B005E5CDB /* XCRemoteSwiftPackageReference "XrayKit" */,
 				7072264129A4647F00A38837 /* XCRemoteSwiftPackageReference "ClashKit" */,
+				706FF87B29A8DA8E00E72CA2 /* XCRemoteSwiftPackageReference "Tun2SocksKit" */,
 			);
 			productRefGroup = 70C9ED9629501D5B00B6995B /* Products */;
 			projectDirPath = "";
@@ -489,6 +490,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				706FF87929A8D0D900E72CA2 /* geosite.dat in Resources */,
+				706FF87829A8D0D900E72CA2 /* geoip.dat in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,7 +556,6 @@
 				7000C6E4295D635F0005626E /* MGControlView.swift in Sources */,
 				7000C6D8295AED790005626E /* MGProxyModel.swift in Sources */,
 				708A48EA2962AA2B0040184C /* MGAppearanceView.swift in Sources */,
-				70DE0D7529A62C7700B3E343 /* MGContentView.swift in Sources */,
 				70CEB89329A0C7BA003436C2 /* MGConstant.swift in Sources */,
 				7061581629695E6A0005C024 /* MGFormPicker.swift in Sources */,
 				701811DC29A32D7A005E5CDB /* MGConstant+Xray.swift in Sources */,
@@ -949,7 +951,15 @@
 			repositoryURL = "https://github.com/daemooon/XrayKit.git";
 			requirement = {
 				kind = exactVersion;
-				version = 0.1.4;
+				version = 0.1.11;
+			};
+		};
+		706FF87B29A8DA8E00E72CA2 /* XCRemoteSwiftPackageReference "Tun2SocksKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daemooon/Tun2SocksKit.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.3.0;
 			};
 		};
 		7072264129A4647F00A38837 /* XCRemoteSwiftPackageReference "ClashKit" */ = {
@@ -977,6 +987,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 701811F529A4638B005E5CDB /* XCRemoteSwiftPackageReference "XrayKit" */;
 			productName = XrayKit;
+		};
+		706FF87C29A8DA8E00E72CA2 /* Tun2SocksKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 706FF87B29A8DA8E00E72CA2 /* XCRemoteSwiftPackageReference "Tun2SocksKit" */;
+			productName = Tun2SocksKit;
 		};
 		7072264229A4648000A38837 /* ClashKit */ = {
 			isa = XCSwiftPackageProductDependency;

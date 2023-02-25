@@ -2,13 +2,13 @@ import SwiftUI
 
 struct MGSettingView: View {
     
-    @EnvironmentObject private var delegate: MGAppDelegate
+    @EnvironmentObject private var tunnel: MGPacketTunnelManager
     
     var body: some View {
         NavigationStack {
             Form {
                 Section {
-                    switch delegate.packetTunnelManager.kernel {
+                    switch tunnel.kernel {
                     case .clash:
                         MGTunnelModeView()
                         MGLogLevelView()
@@ -29,7 +29,7 @@ struct MGSettingView: View {
                     MGResetView()
                 }
             }
-            .environmentObject(delegate.packetTunnelManager)
+            .environmentObject(tunnel)
             .navigationTitle(Text("设置"))
             .safeAreaInset(edge: .bottom) {
                 Text(Bundle.appVersion)

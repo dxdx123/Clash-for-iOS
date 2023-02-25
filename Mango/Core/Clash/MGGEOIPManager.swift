@@ -12,7 +12,10 @@ final class MGGEOIPManager: ObservableObject {
     }
     
     func checkAndUpdateIfNeeded() {
-        guard UserDefaults.standard.bool(forKey: MGConstant.Clash.geoipDatabaseAutoUpdate) else {
+        guard UserDefaults.standard.bool(forKey: MGConstant.Clash.geoipDatabaseAutoUpdate), !isUpdating else {
+            return
+        }
+        guard FileManager.default.fileExists(atPath: fileURL.path(percentEncoded: false)) else {
             return
         }
         let shouldUpdate: Bool

@@ -3,11 +3,11 @@ import SwiftUI
 struct MGSubscribeView: View {
     
     let current: Binding<String>
-    @ObservedObject private var subscribeManager: MGSubscribeManager
+    @EnvironmentObject private var tunnel: MGPacketTunnelManager
+    @EnvironmentObject private var subscribe: MGSubscribeManager
     
-    init(current: Binding<String>, subscribeManager: MGSubscribeManager) {
+    init(current: Binding<String>) {
         self.current = current
-        self._subscribeManager = ObservedObject(wrappedValue: subscribeManager)
     }
     
     @State private var isPresented = false
@@ -18,7 +18,7 @@ struct MGSubscribeView: View {
                 isPresented.toggle()
             }
             .sheet(isPresented: $isPresented) {
-                MGSubscribeListView(current: current, subscribeManager: subscribeManager)
+                MGSubscribeListView(current: current)
                     .presentationDetents([.medium, .large])
                     .presentationDragIndicator(.hidden)
             }
@@ -33,7 +33,7 @@ struct MGSubscribeView: View {
     }
     
     private var title: String {
-        guard let subscribe = subscribeManager.subscribes.first(where: { $0.id == current.wrappedValue }) else {
+        guard let subscribe = subscribe.subscribes.first(where: { $0.id == current.wrappedValue }) else {
             return "默认"
         }
         return subscribe.extend.alias

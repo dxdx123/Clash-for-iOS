@@ -24,7 +24,15 @@ final class MGSubscribeManager: ObservableObject {
     
     init(kernel: MGKernel) {
         self.kernel = kernel
-        self.subscribes = self.fetchSubscribes()
+    }
+    
+    func prepare() async {
+        Task(priority: .userInitiated) {
+            let subscribes = self.fetchSubscribes()
+            await MainActor.run {
+                self.subscribes = subscribes
+            }
+        }
     }
     
     func reload() {

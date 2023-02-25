@@ -2,54 +2,53 @@ import SwiftUI
 
 struct MGSubscribeListView: View {
     
-    @EnvironmentObject private var delegate: MGAppDelegate
     @Environment(\.dismiss) private var dismiss
-        
-    let current: Binding<String>
-    @ObservedObject private var subscribeManager: MGSubscribeManager
     
-    init(current: Binding<String>, subscribeManager: MGSubscribeManager) {
-        self.current = current
-        self._subscribeManager = ObservedObject(wrappedValue: subscribeManager)
-    }
+    @EnvironmentObject private var tunnel: MGPacketTunnelManager
+    @EnvironmentObject private var subscribe: MGSubscribeManager
     
     @State private var isDownloading = false
-            
     
     @State private var isDownloadAlertPresented: Bool = false
     @State private var subscribeURLString: String = ""
         
     @State private var isRenameAlertPresented = false
-    @State private var subscribe: MGSubscribe?
+    @State private var subscribeItem: MGSubscribe?
     @State private var subscribeName: String = ""
+    
+    let current: Binding<String>
+    
+    init(current: Binding<String>) {
+        self.current = current
+    }
     
     var body: some View {
         NavigationStack {
-            List(subscribeManager.subscribes) { subscribe in
+            List(subscribe.subscribes) { item in
                 Button {
-                    guard current.wrappedValue != subscribe.id else {
+                    guard current.wrappedValue != item.id else {
                         return
                     }
-                    current.wrappedValue = subscribe.id
+                    current.wrappedValue = item.id
                     dismiss()
                 } label: {
                     HStack(alignment: .center, spacing: 8) {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(subscribe.extend.alias)
+                            Text(item.extend.alias)
                                 .lineLimit(1)
                                 .foregroundColor(.primary)
                                 .fontWeight(.medium)
-                            Text(subscribe.extend.leastUpdated.formatted(.relative(presentation: .named)))
+                            Text(item.extend.leastUpdated.formatted(.relative(presentation: .named)))
                                 .lineLimit(1)
                                 .foregroundColor(.secondary)
                                 .font(.callout)
                                 .fontWeight(.light)
                         }
                         Spacer()
-                        if subscribeManager.downloadingSubscribeIDs.contains(subscribe.id) {
+                        if subscribe.downloadingSubscribeIDs.contains(item.id) {
                             ProgressView()
                         }
-                        if current.wrappedValue == subscribe.id {
+                        if current.wrappedValue == item.id {
                             Image(systemName: "checkmark")
                                 .foregroundColor(.accentColor)
                                 .fontWeight(.medium)
@@ -59,45 +58,45 @@ struct MGSubscribeListView: View {
                 .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                     Button("删除", role: .destructive) {
                         do {
-                            try subscribeManager.delete(subscribe: subscribe)
-                            if subscribe.id == current.wrappedValue {
+                            try subscribe.delete(subscribe: item)
+                            if item.id == current.wrappedValue {
                                 current.wrappedValue = ""
                             }
-                            MGNotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"删除成功")
+                            MGNotification.send(title: "", subtitle: "", body: "\"\(item.extend.alias)\"删除成功")
                         } catch {
-                            MGNotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"删除失败, 原因: \(error.localizedDescription)")
+                            MGNotification.send(title: "", subtitle: "", body: "\"\(item.extend.alias)\"删除失败, 原因: \(error.localizedDescription)")
                         }
                     }
-                    .disabled(subscribeManager.downloadingSubscribeIDs.contains(subscribe.id))
+                    .disabled(subscribe.downloadingSubscribeIDs.contains(item.id))
                     
                     Button("重命名") {
-                        self.subscribeName = subscribe.extend.alias
-                        self.subscribe = subscribe
+                        self.subscribeName = item.extend.alias
+                        self.subscribeItem = item
                         self.isRenameAlertPresented.toggle()
                     }
                     .tint(.yellow)
-                    .disabled(subscribeManager.downloadingSubscribeIDs.contains(subscribe.id))
+                    .disabled(subscribe.downloadingSubscribeIDs.contains(item.id))
                     
                     Button("更新") {
                         Task(priority: .userInitiated) {
                             do {
-                                try await subscribeManager.update(subscribe: subscribe)
-                                switch delegate.packetTunnelManager.kernel {
+                                try await subscribe.update(subscribe: item)
+                                switch tunnel.kernel {
                                 case .clash:
-                                    if current.wrappedValue == subscribe.id {
-                                        MGKernel.Clash.set(manager: delegate.packetTunnelManager, subscribe: subscribe.id)
+                                    if current.wrappedValue == item.id {
+                                        MGKernel.Clash.set(manager: tunnel, subscribe: item.id)
                                     }
                                 case .xray:
                                     break
                                 }
-                                MGNotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"更新成功")
+                                MGNotification.send(title: "", subtitle: "", body: "\"\(item.extend.alias)\"更新成功")
                             } catch {
-                                MGNotification.send(title: "", subtitle: "", body: "\"\(subscribe.extend.alias)\"更新失败, 原因: \(error.localizedDescription)")
+                                MGNotification.send(title: "", subtitle: "", body: "\"\(item.extend.alias)\"更新失败, 原因: \(error.localizedDescription)")
                             }
                         }
                     }
                     .tint(.green)
-                    .disabled(subscribeManager.downloadingSubscribeIDs.contains(subscribe.id))
+                    .disabled(subscribe.downloadingSubscribeIDs.contains(item.id))
                 }
             }
             .navigationTitle(Text("配置管理"))
@@ -115,15 +114,15 @@ struct MGSubscribeListView: View {
                     }
                 }
             }
-            .alert("重命名", isPresented: $isRenameAlertPresented, presenting: subscribe) { subscribe in
+            .alert("重命名", isPresented: $isRenameAlertPresented, presenting: subscribeItem) { item in
                 TextField("请输入配置名称", text: $subscribeName)
                 Button("确定") {
                     let name = subscribeName.trimmingCharacters(in: .whitespacesAndNewlines)
-                    guard !(name == subscribe.extend.alias || name.isEmpty) else {
+                    guard !(name == item.extend.alias || name.isEmpty) else {
                         return
                     }
                     do {
-                        try subscribeManager.rename(subscribe: subscribe, name: name)
+                        try subscribe.rename(subscribe: item, name: name)
                     } catch {
                         MGNotification.send(title: "", subtitle: "", body: "重命名失败, 原因: \(error.localizedDescription)")
                     }
@@ -139,7 +138,7 @@ struct MGSubscribeListView: View {
                     isDownloading = true
                     Task(priority: .high) {
                         do {
-                            try await subscribeManager.download(source: source)
+                            try await subscribe.download(source: source)
                             await MainActor.run {
                                 isDownloading = false
                                 return MGNotification.send(title: "", subtitle: "", body: "下载成功")

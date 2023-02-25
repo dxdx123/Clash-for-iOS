@@ -7,17 +7,11 @@ struct MGLogLevelView: View {
     
     var body: some View {
         NavigationLink {
-            Form {
-                Picker(selection: $logLevel) {
-                    ForEach(MGLogLevel.allCases) { level in
-                        Text(title(for: level))
-                    }
-                } label: {
-                    EmptyView()
+            MGFormPicker(title: "日志", selection: $logLevel) {
+                ForEach(MGLogLevel.allCases) { level in
+                    Text(title(for: level))
                 }
-                .pickerStyle(.inline)
             }
-            .navigationTitle(Text("日志"))
         } label: {
             LabeledContent {
                 Text(title(for: logLevel))
