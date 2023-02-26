@@ -6,7 +6,8 @@ extension MGKernel {
 
 struct MGHomeView: View {
     
-    @AppStorage(MGKernel.storeKey) private var kernel = MGKernel.clash
+    @Environment(\.colorScheme)     private var colorScheme
+    @AppStorage(MGKernel.storeKey)  private var kernel = MGKernel.clash
     
     @StateObject private var viewModel = MGHomeViewModel()
     
@@ -41,7 +42,7 @@ struct MGHomeView: View {
                     .environmentObject(managers.subscribe)
                 } else {
                     ZStack {
-                        Color.clear
+                        LoadingBackgroundColor()
                         ProgressView()
                             .controlSize(.large)
                     }
@@ -107,6 +108,15 @@ struct MGHomeView: View {
             return "订阅"
         case .xray:
             return "配置"
+        }
+    }
+    
+    private func LoadingBackgroundColor() -> Color {
+        switch colorScheme {
+        case .light:
+            return Color(uiColor: .systemGroupedBackground)
+        default:
+            return Color.clear
         }
     }
 }
