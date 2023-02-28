@@ -18,7 +18,7 @@
                BlueprintIdentifier = "70C9EDA929502C6500B6995B"
                BuildableName = "ClashTunnel.appex"
                BlueprintName = "ClashTunnel"
-               ReferencedContainer = "container:Clash.xcodeproj">
+               ReferencedContainer = "container:Mango.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -30,9 +30,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "70C9ED9429501D5B00B6995B"
-               BuildableName = "MultiProxy.app"
-               BlueprintName = "MultiProxy"
-               ReferencedContainer = "container:Clash.xcodeproj">
+               BuildableName = "Mango.app"
+               BlueprintName = "Mango"
+               ReferencedContainer = "container:Mango.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "70C9ED9429501D5B00B6995B"
-            BuildableName = "MultiProxy.app"
-            BlueprintName = "MultiProxy"
-            ReferencedContainer = "container:Clash.xcodeproj">
+            BuildableName = "Mango.app"
+            BlueprintName = "Mango"
+            ReferencedContainer = "container:Mango.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -81,9 +81,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "70C9ED9429501D5B00B6995B"
-            BuildableName = "MultiProxy.app"
-            BlueprintName = "MultiProxy"
-            ReferencedContainer = "container:Clash.xcodeproj">
+            BuildableName = "Mango.app"
+            BlueprintName = "Mango"
+            ReferencedContainer = "container:Mango.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

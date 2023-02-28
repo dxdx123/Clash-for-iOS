@@ -20,7 +20,6 @@
 		701811DA29A32D71005E5CDB /* MGConstant+Clash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811D829A32D6C005E5CDB /* MGConstant+Clash.swift */; };
 		701811DC29A32D7A005E5CDB /* MGConstant+Xray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811DB29A32D7A005E5CDB /* MGConstant+Xray.swift */; };
 		701811DD29A32E28005E5CDB /* MGConstant+Xray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811DB29A32D7A005E5CDB /* MGConstant+Xray.swift */; };
-		701811F729A4638B005E5CDB /* XrayKit in Frameworks */ = {isa = PBXBuildFile; productRef = 701811F629A4638B005E5CDB /* XrayKit */; };
 		702D9087299B2B4500B83324 /* MGIPV6View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9086299B2B4500B83324 /* MGIPV6View.swift */; };
 		702D908A299B58A400B83324 /* MGNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MGNotification.swift */; };
 		702D908B299B58A400B83324 /* MGNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MGNotification.swift */; };
@@ -28,8 +27,8 @@
 		702D9094299FA40600B83324 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9093299FA40600B83324 /* PacketTunnelProvider.swift */; };
 		702D9099299FA40600B83324 /* XrayTunnel.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 702D9090299FA40600B83324 /* XrayTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7061581629695E6A0005C024 /* MGFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061581529695E6A0005C024 /* MGFormPicker.swift */; };
+		7069DFE629ACD08D0012C435 /* XrayKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7069DFE529ACD08D0012C435 /* XrayKit */; };
 		706FF87A29A8D9E300E72CA2 /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7072264429A46C6100A38837 /* libresolv.9.tbd */; };
-		706FF87D29A8DA8E00E72CA2 /* Tun2SocksKit in Frameworks */ = {isa = PBXBuildFile; productRef = 706FF87C29A8DA8E00E72CA2 /* Tun2SocksKit */; };
 		7072264329A4648000A38837 /* ClashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7072264229A4648000A38837 /* ClashKit */; };
 		7084FC1D295ECBC900065DAF /* MGAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* MGAppMessage.swift */; };
 		7084FC1E295ECBC900065DAF /* MGAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* MGAppMessage.swift */; };
@@ -165,10 +164,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				706FF87D29A8DA8E00E72CA2 /* Tun2SocksKit in Frameworks */,
 				706FF87A29A8D9E300E72CA2 /* libresolv.9.tbd in Frameworks */,
 				702D9091299FA40600B83324 /* NetworkExtension.framework in Frameworks */,
-				701811F729A4638B005E5CDB /* XrayKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7069DFE629ACD08D0012C435 /* XrayKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,8 +387,6 @@
 			);
 			name = XrayTunnel;
 			packageProductDependencies = (
-				701811F629A4638B005E5CDB /* XrayKit */,
-				706FF87C29A8DA8E00E72CA2 /* Tun2SocksKit */,
 			);
 			productName = XrayTunnel;
 			productReference = 702D9090299FA40600B83324 /* XrayTunnel.appex */;
@@ -413,6 +409,7 @@
 			);
 			name = Mango;
 			packageProductDependencies = (
+				7069DFE529ACD08D0012C435 /* XrayKit */,
 			);
 			productName = Clash;
 			productReference = 70C9ED9529501D5B00B6995B /* Mango.app */;
@@ -470,9 +467,8 @@
 			);
 			mainGroup = 70C9ED8C29501D5B00B6995B;
 			packageReferences = (
-				701811F529A4638B005E5CDB /* XCRemoteSwiftPackageReference "XrayKit" */,
 				7072264129A4647F00A38837 /* XCRemoteSwiftPackageReference "ClashKit" */,
-				706FF87B29A8DA8E00E72CA2 /* XCRemoteSwiftPackageReference "Tun2SocksKit" */,
+				7069DFE429ACD08D0012C435 /* XCRemoteSwiftPackageReference "XrayKit" */,
 			);
 			productRefGroup = 70C9ED9629501D5B00B6995B /* Products */;
 			projectDirPath = "";
@@ -490,8 +486,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				706FF87929A8D0D900E72CA2 /* geosite.dat in Resources */,
-				706FF87829A8D0D900E72CA2 /* geoip.dat in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,6 +618,10 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XrayTunnel",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_ID}.${TUNNEL_BUNDLE_SUFFIX_XRAY}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -645,6 +643,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XrayTunnel",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_ID}.${TUNNEL_BUNDLE_SUFFIX_XRAY}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -946,20 +948,12 @@
 				version = 1.0.0;
 			};
 		};
-		701811F529A4638B005E5CDB /* XCRemoteSwiftPackageReference "XrayKit" */ = {
+		7069DFE429ACD08D0012C435 /* XCRemoteSwiftPackageReference "XrayKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/daemooon/XrayKit.git";
 			requirement = {
 				kind = exactVersion;
-				version = 0.1.11;
-			};
-		};
-		706FF87B29A8DA8E00E72CA2 /* XCRemoteSwiftPackageReference "Tun2SocksKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/daemooon/Tun2SocksKit.git";
-			requirement = {
-				kind = exactVersion;
-				version = 1.3.0;
+				version = 0.1.14;
 			};
 		};
 		7072264129A4647F00A38837 /* XCRemoteSwiftPackageReference "ClashKit" */ = {
@@ -983,15 +977,10 @@
 			package = 7015F0DE296C5D08003E6A7D /* XCRemoteSwiftPackageReference "Tun2SocksKit" */;
 			productName = Tun2SocksKit;
 		};
-		701811F629A4638B005E5CDB /* XrayKit */ = {
+		7069DFE529ACD08D0012C435 /* XrayKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 701811F529A4638B005E5CDB /* XCRemoteSwiftPackageReference "XrayKit" */;
+			package = 7069DFE429ACD08D0012C435 /* XCRemoteSwiftPackageReference "XrayKit" */;
 			productName = XrayKit;
-		};
-		706FF87C29A8DA8E00E72CA2 /* Tun2SocksKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 706FF87B29A8DA8E00E72CA2 /* XCRemoteSwiftPackageReference "Tun2SocksKit" */;
-			productName = Tun2SocksKit;
 		};
 		7072264229A4648000A38837 /* ClashKit */ = {
 			isa = XCSwiftPackageProductDependency;

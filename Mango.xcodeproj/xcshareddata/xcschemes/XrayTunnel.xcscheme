@@ -18,7 +18,7 @@
                BlueprintIdentifier = "702D908F299FA40600B83324"
                BuildableName = "XrayTunnel.appex"
                BlueprintName = "XrayTunnel"
-               ReferencedContainer = "container:Clash.xcodeproj">
+               ReferencedContainer = "container:Mango.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -30,9 +30,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "70C9ED9429501D5B00B6995B"
-               BuildableName = "MultiProxy.app"
-               BlueprintName = "MultiProxy"
-               ReferencedContainer = "container:Clash.xcodeproj">
+               BuildableName = "Mango.app"
+               BlueprintName = "Mango"
+               ReferencedContainer = "container:Mango.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "70C9ED9429501D5B00B6995B"
-            BuildableName = "MultiProxy.app"
-            BlueprintName = "MultiProxy"
-            ReferencedContainer = "container:Clash.xcodeproj">
+            BuildableName = "Mango.app"
+            BlueprintName = "Mango"
+            ReferencedContainer = "container:Mango.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -81,9 +81,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "70C9ED9429501D5B00B6995B"
-            BuildableName = "MultiProxy.app"
-            BlueprintName = "MultiProxy"
-            ReferencedContainer = "container:Clash.xcodeproj">
+            BuildableName = "Mango.app"
+            BlueprintName = "Mango"
+            ReferencedContainer = "container:Mango.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
