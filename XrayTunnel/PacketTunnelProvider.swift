@@ -1,7 +1,7 @@
 import NetworkExtension
 import XrayKit
 
-@_silgen_name("start_tun2socks") private func tun2socks(_ fd: Int32, _ config: UnsafePointer<CChar>!)
+//@_silgen_name("start_tun2socks") private func tun2socks(_ fd: Int32, _ config: UnsafePointer<CChar>!)
 
 class PacketTunnelProvider: NEPacketTunnelProvider {
     
@@ -103,15 +103,15 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             """
             XrayRun(json, self, &error)
             try error.flatMap { throw $0 }
-            DispatchQueue.global(qos: .userInitiated).async {
-                guard let fd = self.tunnelFileDescriptor else {
-                    fatalError()
-                }
-                guard let file = Bundle.main.path(forResource: "main", ofType: "yml") else {
-                    fatalError()
-                }
-                tun2socks(fd, file)
-            }
+//            DispatchQueue.global(qos: .userInitiated).async {
+//                guard let fd = self.tunnelFileDescriptor else {
+//                    fatalError()
+//                }
+//                guard let file = Bundle.main.path(forResource: "main", ofType: "yml") else {
+//                    fatalError()
+//                }
+//                tun2socks(fd, file)
+//            }
         } catch {
             NSLog("--------> \(error.localizedDescription)")
             throw error
