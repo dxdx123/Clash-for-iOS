@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 struct MGSubscribe: Identifiable {
     struct Extend: Codable {
@@ -21,9 +22,16 @@ final class MGSubscribeManager: ObservableObject {
     @Published var downloadingSubscribeIDs: Set<String> = []
     
     let kernel: MGKernel
+    let current: Binding<String>
     
     init(kernel: MGKernel) {
         self.kernel = kernel
+        let key = "\(kernel.rawValue.uppercased())_CURRENT"
+        self.current = Binding(get: {
+            UserDefaults.shared.string(forKey: key) ?? ""
+        }, set: { newValue in
+            UserDefaults.shared.set(newValue, forKey: key)
+        })
     }
     
     func prepare() async {

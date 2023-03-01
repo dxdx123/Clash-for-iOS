@@ -14,12 +14,17 @@ struct MGHomeView: View {
     var body: some View {
         NavigationStack {
             Group {
-                if let managers = viewModel.managers {
+                if let managers = viewModel.managers, !viewModel.isProcessing {
                     Form {
                         Section {
-                            MGSubscribeView(current: $viewModel.current)
+                            MGSubscribeView(current: managers.subscribe.current)
                         } header: {
-                            Text(titleOfSubscribe(for: kernel))
+                            switch kernel {
+                            case .clash:
+                                Text("订阅")
+                            case .xray:
+                                Text("配置")
+                            }
                         }
                         Section {
                             MGControlView(packetTunnelManager: managers.tunnel)
@@ -27,19 +32,24 @@ struct MGHomeView: View {
                         } header: {
                             Text("状态")
                         }
-                        Section {
-                            switch kernel {
-                            case .clash:
+                        if kernel == .clash {
+                            Section {
                                 MGPolicyGroupView(packetTunnelManager: managers.tunnel)
-                            case .xray:
-                                Text("XRAY")
+                            } header: {
+                                Text("代理")
                             }
-                        } header: {
-                            Text("代理")
                         }
                     }
                     .environmentObject(managers.tunnel)
                     .environmentObject(managers.subscribe)
+                    .onChange(of: managers.subscribe.current.wrappedValue) { newValue in
+                        switch kernel {
+                        case .clash:
+                            MGKernel.Clash.set(manager: managers.tunnel, subscribe: newValue)
+                        case .xray:
+                            break
+                        }
+                    }
                 } else {
                     ZStack {
                         LoadingBackgroundColor()
@@ -78,18 +88,6 @@ struct MGHomeView: View {
             .onChange(of: kernel) { newValue in
                 self.viewModel.switch(to: newValue)
             }
-            .onChange(of: viewModel.current) { newValue in
-                viewModel.saveCurrent(for: kernel)
-                guard let managers = viewModel.managers else {
-                    return
-                }
-                switch kernel {
-                case .clash:
-                    MGKernel.Clash.set(manager: managers.tunnel, subscribe: newValue)
-                case .xray:
-                    break
-                }
-            }
         }
         .onAppear {
             self.viewModel.switch(to: self.kernel)
@@ -99,15 +97,6 @@ struct MGHomeView: View {
             case .xray:
                 break
             }
-        }
-    }
-    
-    private func titleOfSubscribe(for kernel: MGKernel) -> String {
-        switch kernel {
-        case .clash:
-            return "订阅"
-        case .xray:
-            return "配置"
         }
     }
     
@@ -131,7 +120,7 @@ class MGHomeViewModel: ObservableObject {
     
     let geoip = MGGEOIPManager()
 
-    @Published var current: String = ""
+    @Published var isProcessing = false
     @Published private(set) var managers: Managers?
     
     private func currentConfigStoreKey(of kernel: MGKernel) -> String {
@@ -140,9 +129,9 @@ class MGHomeViewModel: ObservableObject {
     
     func `switch`(to kernel: MGKernel) {
         self.managers = nil
-        self.current = ""
         let tunnel = MGPacketTunnelManager(kernel: kernel)
         let subscribe = MGSubscribeManager(kernel: kernel)
+        self.isProcessing = true
         Task(priority: .high) {
             await tunnel.prepare()
             await subscribe.prepare()
@@ -150,13 +139,9 @@ class MGHomeViewModel: ObservableObject {
                 try await Task.sleep(for: .milliseconds(150))
             } catch {}
             await MainActor.run {
-                self.current = UserDefaults.shared.string(forKey: self.currentConfigStoreKey(of: kernel)) ?? ""
                 self.managers = Managers(tunnel: tunnel, subscribe: subscribe)
+                self.isProcessing = false
             }
         }
-    }
-    
-    func saveCurrent(for kernel: MGKernel) {
-        UserDefaults.shared.set(current, forKey: self.currentConfigStoreKey(of: kernel))
     }
 }
