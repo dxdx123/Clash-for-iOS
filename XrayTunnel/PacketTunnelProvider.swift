@@ -14,7 +14,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     }
     
     override func startTunnel(options: [String : NSObject]? = nil) async throws {
-        XraySetAsset(MGKernel.xray.homeDirectory.path(percentEncoded: false), nil)        
+        XraySetAsset(MGKernel.xray.assetDirectory.path(percentEncoded: false), nil)
         let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "254.1.1.1")
         settings.mtu = 9000
         settings.ipv4Settings = {
@@ -24,85 +24,13 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         }()
         settings.dnsSettings = NEDNSSettings(servers: ["8.8.8.8", "114.114.114.114"])
         try await self.setTunnelNetworkSettings(settings)
+        guard let id = UserDefaults.shared.string(forKey: "\(MGKernel.xray.rawValue.uppercased())_CURRENT"), !id.isEmpty else {
+            return
+        }
         do {
+            let config = try String(contentsOfFile: MGKernel.xray.configDirectory.appending(component: "\(id).json").path(percentEncoded: false))
             var error: NSError? = nil
-            let json: String = """
-            {
-                "log": {
-                    "loglevel": "debug"
-                },
-                "routing": {
-                    "domainStrategy": "IPIfNonMatch",
-                    "rules": [
-                        {
-                            "type": "field",
-                            "domain": [
-                                "geosite:category-ads-all"
-                            ],
-                            "outboundTag": "block"
-                        },
-                        {
-                            "type": "field",
-                            "domain": [
-                                "geosite:category-games@cn"
-                            ],
-                            "outboundTag": "direct"
-                        },
-                        {
-                            "type": "field",
-                            "domain": [
-                                "geosite:geolocation-!cn"
-                            ],
-                            "outboundTag": "proxy"
-                        },
-                        {
-                            "type": "field",
-                            "domain": [
-                                "geosite:cn",
-                                "geosite:private"
-                            ],
-                            "outboundTag": "direct"
-                        },
-                        {
-                            "type": "field",
-                            "ip": [
-                                "geoip:cn",
-                                "geoip:private"
-                            ],
-                            "outboundTag": "direct"
-                        }
-                    ]
-                },
-                "inbounds": [
-                    {
-                        "listen": "[::1]",
-                        "port": 7890,
-                        "protocol": "socks",
-                        "settings": {
-                            "udp": true
-                        },
-                        "sniffing": {
-                            "enabled": true,
-                            "destOverride": [
-                                "http",
-                                "tls"
-                            ]
-                        }
-                    }
-                ],
-                "outbounds": [
-                    {
-                        "protocol": "freedom",
-                        "tag": "direct"
-                    },
-                    {
-                        "protocol": "blackhole",
-                        "tag": "block"
-                    }
-                ]
-            }
-            """
-            XrayRun(json, self, &error)
+            XrayRun(config, self, &error)
             try error.flatMap { throw $0 }
             DispatchQueue.global(qos: .userInitiated).async {
                 guard let fd = self.tunnelFileDescriptor else {
@@ -112,21 +40,11 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
                     fatalError()
                 }
                 hev_socks5_tunnel_main(path, fd)
-                
             }
         } catch {
-            NSLog("--------> \(error.localizedDescription)")
             throw error
         }
     }
-    
-//    override func stopTunnel(with reason: NEProviderStopReason) async {
-//
-//    }
-//
-//    override func handleAppMessage(_ messageData: Data) async -> Data? {
-//        return nil
-//    }
 }
 
 extension PacketTunnelProvider: XrayLoggerProtocol {

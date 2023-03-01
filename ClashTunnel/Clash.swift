@@ -80,7 +80,7 @@ import os
             fatalError("Get tunnel file descriptor failed.")
         }
         var err: NSError? = nil
-        ClashRun(Int(fd), MGKernel.clash.homeDirectory.path(percentEncoded: false), config, Client.shared, &err)
+        ClashRun(Int(fd), MGKernel.clash.configDirectory.path(percentEncoded: false), config, Client.shared, &err)
         try err.flatMap { throw $0 }
         guard let current = UserDefaults.shared.string(forKey: "\(MGKernel.clash.rawValue.uppercased())_CURRENT"), !current.isEmpty else {
             return

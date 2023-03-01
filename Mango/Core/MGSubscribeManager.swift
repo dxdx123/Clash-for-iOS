@@ -49,7 +49,7 @@ final class MGSubscribeManager: ObservableObject {
     
     private func fetchSubscribes() -> [MGSubscribe] {
         do {
-            let children = try FileManager.default.contentsOfDirectory(at: kernel.homeDirectory, includingPropertiesForKeys: nil)
+            let children = try FileManager.default.contentsOfDirectory(at: kernel.configDirectory, includingPropertiesForKeys: nil)
             return children.compactMap(load(from:)).sorted(by: { $0.creationDate < $1.creationDate })
         } catch {
             return []
@@ -79,7 +79,7 @@ final class MGSubscribeManager: ObservableObject {
     
     func delete(subscribe: MGSubscribe) throws {
         do {
-            try FileManager.default.removeItem(at: kernel.homeDirectory.appending(path: "\(subscribe.id).\(kernel.fileExtension)"))
+            try FileManager.default.removeItem(at: kernel.configDirectory.appending(path: "\(subscribe.id).\(kernel.fileExtension)"))
         } catch {
             debugPrint(error.localizedDescription)
         }
@@ -87,7 +87,7 @@ final class MGSubscribeManager: ObservableObject {
     }
     
     func rename(subscribe: MGSubscribe, name: String) throws {
-        let target = kernel.homeDirectory.appending(path: "\(subscribe.id).\(kernel.fileExtension)")
+        let target = kernel.configDirectory.appending(path: "\(subscribe.id).\(kernel.fileExtension)")
         let extend = MGSubscribe.Extend(
             alias: name,
             source: subscribe.extend.source,
@@ -108,7 +108,7 @@ final class MGSubscribeManager: ObservableObject {
             return temp
         }()
         let data = try await URLSession.shared.data(for: request).0
-        let target = kernel.homeDirectory.appending(path: "\(id).\(kernel.fileExtension)")
+        let target = kernel.configDirectory.appending(path: "\(id).\(kernel.fileExtension)")
         try data.write(to: target)
         let extend = MGSubscribe.Extend(
             alias: id,
@@ -135,7 +135,7 @@ final class MGSubscribeManager: ObservableObject {
                 return temp
             }()
             let data = try await URLSession.shared.data(for: request).0
-            let target = kernel.homeDirectory.appending(path: "\(subscribe.id).\(kernel.fileExtension)")
+            let target = kernel.configDirectory.appending(path: "\(subscribe.id).\(kernel.fileExtension)")
             try data.write(to: target)
             let extend = MGSubscribe.Extend(
                 alias: subscribe.extend.alias,
