@@ -29,6 +29,7 @@
 		7069E00C29ADE79C0012C435 /* XrayKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7069E00B29ADE79C0012C435 /* XrayKit */; };
 		7069E01F29ADEAA30012C435 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9093299FA40600B83324 /* PacketTunnelProvider.swift */; };
 		7069E02029ADEABF0012C435 /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7072264429A46C6100A38837 /* libresolv.9.tbd */; };
+		7069E06B29AF16D20012C435 /* Tun2SocksKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7069E06A29AF16D20012C435 /* Tun2SocksKit */; };
 		7072264329A4648000A38837 /* ClashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7072264229A4648000A38837 /* ClashKit */; };
 		7084FC1D295ECBC900065DAF /* MGAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* MGAppMessage.swift */; };
 		7084FC1E295ECBC900065DAF /* MGAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* MGAppMessage.swift */; };
@@ -174,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7069E06B29AF16D20012C435 /* Tun2SocksKit in Frameworks */,
 				7069E00C29ADE79C0012C435 /* XrayKit in Frameworks */,
 				7069E02029ADEABF0012C435 /* libresolv.9.tbd in Frameworks */,
 				702D9091299FA40600B83324 /* NetworkExtension.framework in Frameworks */,
@@ -398,6 +400,7 @@
 			name = XrayTunnel;
 			packageProductDependencies = (
 				7069E00B29ADE79C0012C435 /* XrayKit */,
+				7069E06A29AF16D20012C435 /* Tun2SocksKit */,
 			);
 			productName = XrayTunnel;
 			productReference = 702D9090299FA40600B83324 /* XrayTunnel.appex */;
@@ -478,6 +481,7 @@
 			packageReferences = (
 				7072264129A4647F00A38837 /* XCRemoteSwiftPackageReference "ClashKit" */,
 				7069E00A29ADE79C0012C435 /* XCRemoteSwiftPackageReference "XrayKit" */,
+				7069E06929AF16D20012C435 /* XCRemoteSwiftPackageReference "Tun2SocksKit" */,
 			);
 			productRefGroup = 70C9ED9629501D5B00B6995B /* Products */;
 			projectDirPath = "";
@@ -938,7 +942,15 @@
 			repositoryURL = "https://github.com/daemooon/XrayKit.git";
 			requirement = {
 				kind = exactVersion;
-				version = 0.1.14;
+				version = 0.1.16;
+			};
+		};
+		7069E06929AF16D20012C435 /* XCRemoteSwiftPackageReference "Tun2SocksKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daemooon/Tun2SocksKit.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.0.1;
 			};
 		};
 		7072264129A4647F00A38837 /* XCRemoteSwiftPackageReference "ClashKit" */ = {
@@ -956,6 +968,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7069E00A29ADE79C0012C435 /* XCRemoteSwiftPackageReference "XrayKit" */;
 			productName = XrayKit;
+		};
+		7069E06A29AF16D20012C435 /* Tun2SocksKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7069E06929AF16D20012C435 /* XCRemoteSwiftPackageReference "Tun2SocksKit" */;
+			productName = Tun2SocksKit;
 		};
 		7072264229A4648000A38837 /* ClashKit */ = {
 			isa = XCSwiftPackageProductDependency;

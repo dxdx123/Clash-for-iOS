@@ -1,7 +1,7 @@
 import NetworkExtension
 import XrayKit
 
-//@_silgen_name("start_tun2socks") private func tun2socks(_ fd: Int32, _ config: UnsafePointer<CChar>!)
+@_silgen_name("hev_socks5_tunnel_main") private func hev_socks5_tunnel_main( _ configFilePath: UnsafePointer<CChar>!, _ fd: Int32)
 
 class PacketTunnelProvider: NEPacketTunnelProvider {
     
@@ -14,6 +14,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     }
     
     override func startTunnel(options: [String : NSObject]? = nil) async throws {
+        XraySetAsset(MGKernel.xray.homeDirectory.path(percentEncoded: false), nil)        
         let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "254.1.1.1")
         settings.mtu = 9000
         settings.ipv4Settings = {
@@ -103,15 +104,16 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             """
             XrayRun(json, self, &error)
             try error.flatMap { throw $0 }
-//            DispatchQueue.global(qos: .userInitiated).async {
-//                guard let fd = self.tunnelFileDescriptor else {
-//                    fatalError()
-//                }
-//                guard let file = Bundle.main.path(forResource: "main", ofType: "yml") else {
-//                    fatalError()
-//                }
-//                tun2socks(fd, file)
-//            }
+            DispatchQueue.global(qos: .userInitiated).async {
+                guard let fd = self.tunnelFileDescriptor else {
+                    fatalError()
+                }
+                guard let path = Bundle.main.path(forResource: "main", ofType: "yml") else {
+                    fatalError()
+                }
+                hev_socks5_tunnel_main(path, fd)
+                
+            }
         } catch {
             NSLog("--------> \(error.localizedDescription)")
             throw error
