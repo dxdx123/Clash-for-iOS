@@ -1,17 +1,8 @@
 import NetworkExtension
 import XrayKit
-
-@_silgen_name("hev_socks5_tunnel_main") private func hev_socks5_tunnel_main( _ configFilePath: UnsafePointer<CChar>!, _ fd: Int32)
+import TunnelKit
 
 class PacketTunnelProvider: NEPacketTunnelProvider {
-    
-    private var tunnelFileDescriptor: Int32? {
-        var buf = Array<CChar>(repeating: 0, count: Int(IFNAMSIZ))
-        return (1...1024).first {
-            var len = socklen_t(buf.count)
-            return getsockopt($0, 2, 2, &buf, &len) == 0 && String(cString: buf).hasPrefix("utun")
-        }
-    }
     
     override func startTunnel(options: [String : NSObject]? = nil) async throws {
         XraySetAsset(MGKernel.xray.assetDirectory.path(percentEncoded: false), nil)
@@ -32,15 +23,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             var error: NSError? = nil
             XrayRun(config, self, &error)
             try error.flatMap { throw $0 }
-            DispatchQueue.global(qos: .userInitiated).async {
-                guard let fd = self.tunnelFileDescriptor else {
-                    fatalError()
-                }
-                guard let path = Bundle.main.path(forResource: "main", ofType: "yml") else {
-                    fatalError()
-                }
-                hev_socks5_tunnel_main(path, fd)
-            }
+            try Tunnel.start(port: 9090)
         } catch {
             throw error
         }
