@@ -14,7 +14,7 @@ struct MGGEOAssetView: View {
             Label {
                 Text("GEO 资源")
             } icon: {
-                Image(systemName: "tray")
+                Image(systemName: "cylinder.split.1x2")
             }
         }
     }
