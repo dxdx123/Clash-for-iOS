@@ -3,7 +3,7 @@ import SwiftUI
 struct MGLogLevelView: View {
     
     @EnvironmentObject private var packetTunnelManager: MGPacketTunnelManager
-    @AppStorage(MGConstant.Clash.logLevel, store: .shared) private var logLevel  = MGLogLevel.silent
+    @AppStorage(MGConstant.logLevel, store: .shared) private var logLevel  = MGLogLevel.silent
     
     var body: some View {
         NavigationLink {
@@ -24,7 +24,15 @@ struct MGLogLevelView: View {
             }
         }
         .onChange(of: logLevel) { newValue in
-            MGKernel.Clash.set(manager: packetTunnelManager, logLevel: newValue)
+            guard let kernel = UserDefaults.shared.string(forKey: MGKernel.storeKey).flatMap(MGKernel.init(rawValue:)) else {
+                return
+            }
+            switch kernel {
+            case .clash:
+                MGKernel.Clash.set(manager: packetTunnelManager, logLevel: newValue)
+            case .xray:
+                break
+            }
         }
     }
     
@@ -39,7 +47,7 @@ struct MGLogLevelView: View {
         case .error:
             return "错误"
         case .silent:
-            return "静默"
+            return "关闭"
         }
     }
 }

@@ -8,10 +8,14 @@ struct MGSettingView: View {
         NavigationStack {
             Form {
                 Section {
+                    MGLogLevelView()
+                } header: {
+                    Text("日志")
+                }
+                Section {
                     switch tunnel.kernel {
                     case .clash:
                         MGTunnelModeView()
-                        MGLogLevelView()
                         MGGEOIPView()
                         MGIPV6View()
                     case .xray:

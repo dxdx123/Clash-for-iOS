@@ -7,7 +7,6 @@ extension MGConstant {
 extension MGConstant.Clash {
     
     public static let tunnelMode            = "CLASH_TUNNEL_MODE"
-    public static let logLevel              = "CLASH_LOGLEVEL"
     public static let extendAttributeKey    = "CLASH"
     public static let fileAttributeKey      = "NSFileExtendedAttributes"
     public static let trafficUp             = "CLASH_TRAFFIC_UP"

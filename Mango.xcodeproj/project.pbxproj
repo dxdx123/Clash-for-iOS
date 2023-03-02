@@ -53,6 +53,8 @@
 		708B37FA29B036C500E24312 /* Tun2SocksKit in Frameworks */ = {isa = PBXBuildFile; productRef = 708B37F929B036C500E24312 /* Tun2SocksKit */; };
 		708B37FC29B03E6400E24312 /* MGPacketTunnelProvide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B37FB29B03E6400E24312 /* MGPacketTunnelProvide.swift */; };
 		708B37FD29B0407100E24312 /* MGNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MGNotification.swift */; };
+		708B37FE29B06A5C00E24312 /* MGLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC2F2965872200065DAF /* MGLogLevel.swift */; };
+		708B380029B06EB600E24312 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B37FF29B06EB600E24312 /* Configuration.swift */; };
 		70B947A9295F302B006F6A38 /* Clash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947A8295F302B006F6A38 /* Clash.swift */; };
 		70B947AF29612F46006F6A38 /* MGSubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947AE29612F46006F6A38 /* MGSubscribeView.swift */; };
 		70B947B129613321006F6A38 /* MGSubscribeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B029613321006F6A38 /* MGSubscribeManager.swift */; };
@@ -201,6 +203,7 @@
 		708B37DD29B034BD00E24312 /* TunnelKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TunnelKit.h; sourceTree = "<group>"; };
 		708B37F429B0358C00E24312 /* Tunnel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tunnel.swift; sourceTree = "<group>"; };
 		708B37FB29B03E6400E24312 /* MGPacketTunnelProvide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPacketTunnelProvide.swift; sourceTree = "<group>"; };
+		708B37FF29B06EB600E24312 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		70B947A8295F302B006F6A38 /* Clash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clash.swift; sourceTree = "<group>"; };
 		70B947AE29612F46006F6A38 /* MGSubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSubscribeView.swift; sourceTree = "<group>"; };
 		70B947B029613321006F6A38 /* MGSubscribeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSubscribeManager.swift; sourceTree = "<group>"; };
@@ -273,7 +276,6 @@
 				701811D829A32D6C005E5CDB /* MGConstant+Clash.swift */,
 				7084FC1C295ECBC900065DAF /* MGAppMessage.swift */,
 				7084FC1F295ECC7400065DAF /* MGTunnelMode.swift */,
-				7084FC2F2965872200065DAF /* MGLogLevel.swift */,
 			);
 			path = Clash;
 			sourceTree = "<group>";
@@ -289,6 +291,7 @@
 		702D9092299FA40600B83324 /* XrayTunnel */ = {
 			isa = PBXGroup;
 			children = (
+				708B37FF29B06EB600E24312 /* Configuration.swift */,
 				702D9093299FA40600B83324 /* PacketTunnelProvider.swift */,
 				702D9095299FA40600B83324 /* Info.plist */,
 				702D9096299FA40600B83324 /* XrayTunnel.entitlements */,
@@ -323,7 +326,6 @@
 			isa = PBXGroup;
 			children = (
 				7000C6DF295D60A50005626E /* MGTunnelModeView.swift */,
-				7084FC32296587C600065DAF /* MGLogLevelView.swift */,
 				7084FC372967DB7300065DAF /* MGGEOIPView.swift */,
 				7084FC352967B8AC00065DAF /* MGGeoIPSettingView.swift */,
 				702D9086299B2B4500B83324 /* MGIPV6View.swift */,
@@ -430,6 +432,7 @@
 				70DE0D6929A611E100B3E343 /* MGKernel.swift */,
 				70CEB89229A0C7BA003436C2 /* MGConstant.swift */,
 				702D9089299B58A400B83324 /* MGNotification.swift */,
+				7084FC2F2965872200065DAF /* MGLogLevel.swift */,
 				701811D529A32D1B005E5CDB /* Clash */,
 				701811D629A32D21005E5CDB /* Xray */,
 			);
@@ -453,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				70DE0D7729A6306100B3E343 /* MGSettingView.swift */,
+				7084FC32296587C600065DAF /* MGLogLevelView.swift */,
 				708A48E92962AA2B0040184C /* MGAppearanceView.swift */,
 				70C9EDD72951587D00B6995B /* MGResetView.swift */,
 				7074B14729A72CAE00CBB919 /* Clash */,
@@ -651,6 +655,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				708B380029B06EB600E24312 /* Configuration.swift in Sources */,
+				708B37FE29B06A5C00E24312 /* MGLogLevel.swift in Sources */,
 				7069E01F29ADEAA30012C435 /* PacketTunnelProvider.swift in Sources */,
 				70CEB89929A30C79003436C2 /* MGConstant.swift in Sources */,
 				701811DD29A32E28005E5CDB /* MGConstant+Xray.swift in Sources */,

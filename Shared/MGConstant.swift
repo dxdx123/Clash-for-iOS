@@ -5,6 +5,8 @@ import UniformTypeIdentifiers
 
 extension MGConstant {
     public static let suiteName = "group.\(Bundle.appID)"
+    public static let logLevel  = "LOGLEVEL"
+
 }
 
 extension Bundle {

@@ -43,7 +43,7 @@ import os
     }
     
     private static var logLevel: MGLogLevel {
-        MGLogLevel(rawValue: UserDefaults.shared.string(forKey: MGConstant.Clash.logLevel) ?? "") ?? .silent
+        MGLogLevel(rawValue: UserDefaults.shared.string(forKey: MGConstant.logLevel) ?? "") ?? .silent
     }
     
     private static var isIPv6Enabel: Bool {
