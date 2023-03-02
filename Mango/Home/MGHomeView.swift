@@ -42,14 +42,6 @@ struct MGHomeView: View {
                     }
                     .environmentObject(managers.tunnel)
                     .environmentObject(managers.subscribe)
-                    .onChange(of: managers.subscribe.current.wrappedValue) { newValue in
-                        switch kernel {
-                        case .clash:
-                            MGKernel.Clash.set(manager: managers.tunnel, subscribe: newValue)
-                        case .xray:
-                            break
-                        }
-                    }
                 } else {
                     ZStack {
                         LoadingBackgroundColor()

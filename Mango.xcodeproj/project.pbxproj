@@ -15,14 +15,12 @@
 		7000C6DE295D5F690005626E /* MGConnectedDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6DD295D5F690005626E /* MGConnectedDurationView.swift */; };
 		7000C6E0295D60A50005626E /* MGTunnelModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6DF295D60A50005626E /* MGTunnelModeView.swift */; };
 		7000C6E4295D635F0005626E /* MGControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000C6E3295D635F0005626E /* MGControlView.swift */; };
-		701811D729A32D58005E5CDB /* MGNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MGNotification.swift */; };
 		701811D929A32D6C005E5CDB /* MGConstant+Clash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811D829A32D6C005E5CDB /* MGConstant+Clash.swift */; };
 		701811DA29A32D71005E5CDB /* MGConstant+Clash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811D829A32D6C005E5CDB /* MGConstant+Clash.swift */; };
 		701811DC29A32D7A005E5CDB /* MGConstant+Xray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811DB29A32D7A005E5CDB /* MGConstant+Xray.swift */; };
 		701811DD29A32E28005E5CDB /* MGConstant+Xray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811DB29A32D7A005E5CDB /* MGConstant+Xray.swift */; };
 		702D9087299B2B4500B83324 /* MGIPV6View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9086299B2B4500B83324 /* MGIPV6View.swift */; };
 		702D908A299B58A400B83324 /* MGNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MGNotification.swift */; };
-		702D908B299B58A400B83324 /* MGNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MGNotification.swift */; };
 		702D9091299FA40600B83324 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70C9EDAC29502C6500B6995B /* NetworkExtension.framework */; };
 		702D9099299FA40600B83324 /* XrayTunnel.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 702D9090299FA40600B83324 /* XrayTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7061581629695E6A0005C024 /* MGFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061581529695E6A0005C024 /* MGFormPicker.swift */; };
@@ -53,6 +51,8 @@
 		708B37F029B034F000E24312 /* TunnelKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 708B37DB29B034BD00E24312 /* TunnelKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		708B37F529B0358C00E24312 /* Tunnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B37F429B0358C00E24312 /* Tunnel.swift */; };
 		708B37FA29B036C500E24312 /* Tun2SocksKit in Frameworks */ = {isa = PBXBuildFile; productRef = 708B37F929B036C500E24312 /* Tun2SocksKit */; };
+		708B37FC29B03E6400E24312 /* MGPacketTunnelProvide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B37FB29B03E6400E24312 /* MGPacketTunnelProvide.swift */; };
+		708B37FD29B0407100E24312 /* MGNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MGNotification.swift */; };
 		70B947A9295F302B006F6A38 /* Clash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947A8295F302B006F6A38 /* Clash.swift */; };
 		70B947AF29612F46006F6A38 /* MGSubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947AE29612F46006F6A38 /* MGSubscribeView.swift */; };
 		70B947B129613321006F6A38 /* MGSubscribeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B029613321006F6A38 /* MGSubscribeManager.swift */; };
@@ -200,6 +200,7 @@
 		708B37DB29B034BD00E24312 /* TunnelKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TunnelKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		708B37DD29B034BD00E24312 /* TunnelKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TunnelKit.h; sourceTree = "<group>"; };
 		708B37F429B0358C00E24312 /* Tunnel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tunnel.swift; sourceTree = "<group>"; };
+		708B37FB29B03E6400E24312 /* MGPacketTunnelProvide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPacketTunnelProvide.swift; sourceTree = "<group>"; };
 		70B947A8295F302B006F6A38 /* Clash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clash.swift; sourceTree = "<group>"; };
 		70B947AE29612F46006F6A38 /* MGSubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSubscribeView.swift; sourceTree = "<group>"; };
 		70B947B029613321006F6A38 /* MGSubscribeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSubscribeManager.swift; sourceTree = "<group>"; };
@@ -335,6 +336,7 @@
 			children = (
 				708B37DD29B034BD00E24312 /* TunnelKit.h */,
 				708B37F429B0358C00E24312 /* Tunnel.swift */,
+				708B37FB29B03E6400E24312 /* MGPacketTunnelProvide.swift */,
 			);
 			path = TunnelKit;
 			sourceTree = "<group>";
@@ -651,7 +653,6 @@
 			files = (
 				7069E01F29ADEAA30012C435 /* PacketTunnelProvider.swift in Sources */,
 				70CEB89929A30C79003436C2 /* MGConstant.swift in Sources */,
-				701811D729A32D58005E5CDB /* MGNotification.swift in Sources */,
 				701811DD29A32E28005E5CDB /* MGConstant+Xray.swift in Sources */,
 				70DE0D6C29A611E100B3E343 /* MGKernel.swift in Sources */,
 			);
@@ -662,6 +663,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				708B37F529B0358C00E24312 /* Tunnel.swift in Sources */,
+				708B37FC29B03E6400E24312 /* MGPacketTunnelProvide.swift in Sources */,
+				708B37FD29B0407100E24312 /* MGNotification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,7 +720,6 @@
 				70C9EDB029502C6500B6995B /* PacketTunnelProvider.swift in Sources */,
 				70DE0D6B29A611E100B3E343 /* MGKernel.swift in Sources */,
 				70CEB89829A30C79003436C2 /* MGConstant.swift in Sources */,
-				702D908B299B58A400B83324 /* MGNotification.swift in Sources */,
 				70B947A9295F302B006F6A38 /* Clash.swift in Sources */,
 				7084FC1E295ECBC900065DAF /* MGAppMessage.swift in Sources */,
 				701811DA29A32D71005E5CDB /* MGConstant+Clash.swift in Sources */,

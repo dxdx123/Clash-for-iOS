@@ -30,6 +30,12 @@ struct MGSubscribeListView: View {
                         return
                     }
                     current.wrappedValue = item.id
+                    switch tunnel.kernel {
+                    case .clash:
+                        MGKernel.Clash.set(manager: tunnel, subscribe: item.id)
+                    case .xray:
+                        break
+                    }
                     dismiss()
                 } label: {
                     HStack(alignment: .center, spacing: 8) {
