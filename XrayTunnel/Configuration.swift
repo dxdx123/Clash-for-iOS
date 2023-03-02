@@ -13,12 +13,12 @@ struct Configuration {
     }
     
     mutating func `override`(log level: MGLogLevel) {
-        var config: [String: Any] = [:]
-        config["access"]    = level == .silent ? "none" : ""
-        config["error"]     = level == .silent ? "none" : ""
-        config["loglevel"]  = level == .silent ? "none" : level.rawValue
-        config["dnsLog"]    = level == .silent ? false  : true
-        self.json["log"] = config
+        var log: [String: Any] = [:]
+        log["access"]    = level == .silent ? "none" : ""
+        log["error"]     = level == .silent ? "none" : ""
+        log["loglevel"]  = level == .silent ? "none" : level.rawValue
+        log["dnsLog"]    = level == .silent ? false  : true
+        self.json["log"] = log
     }
     
     mutating func `override`(inbound port: Int) {
