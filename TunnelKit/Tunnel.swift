@@ -66,11 +66,7 @@ public enum Tunnel {
         let config = """
         tunnel:
           mtu: 9000
-          ipv4:
-            address: 198.18.0.1
-            gateway: 198.18.0.1
-            prefix: 16
-
+        
         socks5:
           port: \(port)
           address: ::1
