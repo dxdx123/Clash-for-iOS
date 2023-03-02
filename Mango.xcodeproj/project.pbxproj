@@ -57,6 +57,8 @@
 		708B380029B06EB600E24312 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B37FF29B06EB600E24312 /* Configuration.swift */; };
 		708B380329B0937600E24312 /* MGSniffingSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B380229B0937600E24312 /* MGSniffingSettingView.swift */; };
 		708B380429B0A32F00E24312 /* MGConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB89229A0C7BA003436C2 /* MGConstant.swift */; };
+		708B380629B0AA4200E24312 /* MGGEOAssetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B380529B0AA4200E24312 /* MGGEOAssetViewModel.swift */; };
+		708B380829B0AA6200E24312 /* MGGEOAssetSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B380729B0AA6200E24312 /* MGGEOAssetSettingView.swift */; };
 		70B947A9295F302B006F6A38 /* Clash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947A8295F302B006F6A38 /* Clash.swift */; };
 		70B947AF29612F46006F6A38 /* MGSubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947AE29612F46006F6A38 /* MGSubscribeView.swift */; };
 		70B947B129613321006F6A38 /* MGSubscribeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B029613321006F6A38 /* MGSubscribeManager.swift */; };
@@ -207,6 +209,8 @@
 		708B37FB29B03E6400E24312 /* MGPacketTunnelProvide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPacketTunnelProvide.swift; sourceTree = "<group>"; };
 		708B37FF29B06EB600E24312 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		708B380229B0937600E24312 /* MGSniffingSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSniffingSettingView.swift; sourceTree = "<group>"; };
+		708B380529B0AA4200E24312 /* MGGEOAssetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGGEOAssetViewModel.swift; sourceTree = "<group>"; };
+		708B380729B0AA6200E24312 /* MGGEOAssetSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGGEOAssetSettingView.swift; sourceTree = "<group>"; };
 		70B947A8295F302B006F6A38 /* Clash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clash.swift; sourceTree = "<group>"; };
 		70B947AE29612F46006F6A38 /* MGSubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSubscribeView.swift; sourceTree = "<group>"; };
 		70B947B029613321006F6A38 /* MGSubscribeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSubscribeManager.swift; sourceTree = "<group>"; };
@@ -349,6 +353,15 @@
 			isa = PBXGroup;
 			children = (
 				708B380229B0937600E24312 /* MGSniffingSettingView.swift */,
+				708B380729B0AA6200E24312 /* MGGEOAssetSettingView.swift */,
+			);
+			path = Xray;
+			sourceTree = "<group>";
+		};
+		708B380929B0AA9600E24312 /* Xray */ = {
+			isa = PBXGroup;
+			children = (
+				708B380529B0AA4200E24312 /* MGGEOAssetViewModel.swift */,
 			);
 			path = Xray;
 			sourceTree = "<group>";
@@ -432,6 +445,7 @@
 				70B947B029613321006F6A38 /* MGSubscribeManager.swift */,
 				708A48EB2962AD740040184C /* MGAppearance.swift */,
 				7074B14629A72B1E00CBB919 /* Clash */,
+				708B380929B0AA9600E24312 /* Xray */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -712,6 +726,7 @@
 				70DE0D6E29A6155C00B3E343 /* MGPresentedButton.swift in Sources */,
 				708A48EC2962AD740040184C /* MGAppearance.swift in Sources */,
 				7000C6DA295AED790005626E /* MGUpdatableViewModel.swift in Sources */,
+				708B380629B0AA4200E24312 /* MGGEOAssetViewModel.swift in Sources */,
 				7084FC1D295ECBC900065DAF /* MGAppMessage.swift in Sources */,
 				70DE0D6A29A611E100B3E343 /* MGKernel.swift in Sources */,
 				7000C6E4295D635F0005626E /* MGControlView.swift in Sources */,
@@ -728,6 +743,7 @@
 				70B947B329613354006F6A38 /* MGAppDelegate.swift in Sources */,
 				708B380329B0937600E24312 /* MGSniffingSettingView.swift in Sources */,
 				70DE0D7029A62A5800B3E343 /* MGPacketTunnelManager.swift in Sources */,
+				708B380829B0AA6200E24312 /* MGGEOAssetSettingView.swift in Sources */,
 				708A48E3296299640040184C /* MGProxyListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

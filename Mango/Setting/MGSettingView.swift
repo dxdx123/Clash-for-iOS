@@ -9,8 +9,9 @@ struct MGSettingView: View {
             Form {
                 Section {
                     MGLogLevelView()
+                    MGIPV6View()
                 } header: {
-                    Text("日志")
+                    Text("通用")
                 }
                 Section {
                     switch tunnel.kernel {
@@ -21,7 +22,6 @@ struct MGSettingView: View {
                         MGSniffingEntranceView()
                         MGGEOAssetView()
                     }
-                    MGIPV6View()
                 } header: {
                     Text("内核")
                 }
@@ -39,30 +39,5 @@ struct MGSettingView: View {
                     .monospacedDigit()
             }
         }
-    }
-}
-
-struct MGGEOAssetView: View {
-    
-    var body: some View {
-        NavigationLink {
-            MGGEOAssetSettingView()
-        } label: {
-            Label {
-                Text("GEO 资源")
-            } icon: {
-                Image(systemName: "tray")
-            }
-        }
-    }
-}
-
-struct MGGEOAssetSettingView: View {
-    
-    var body: some View {
-        Form {
-            
-        }
-        .navigationTitle(Text("GEO 资源"))
     }
 }
