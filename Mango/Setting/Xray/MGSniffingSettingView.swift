@@ -11,7 +11,7 @@ struct MGSniffingEntranceView: View {
             LabeledContent {
                 Text(enable ? "打开" : "关闭")
             } label: {
-                Label("流量探测", systemImage: "network")
+                Label("流量探测", systemImage: "magnifyingglass")
             }
         }
     }

@@ -484,8 +484,8 @@
 				708A48E92962AA2B0040184C /* MGAppearanceView.swift */,
 				702D9086299B2B4500B83324 /* MGIPV6View.swift */,
 				70C9EDD72951587D00B6995B /* MGResetView.swift */,
-				708B380129B0936C00E24312 /* Xray */,
 				7074B14729A72CAE00CBB919 /* Clash */,
+				708B380129B0936C00E24312 /* Xray */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
