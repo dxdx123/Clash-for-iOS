@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "clashkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/daemooon/ClashKit.git",
+      "state" : {
+        "revision" : "c70deb57c21fdafbca845bcd771f2f51e4f3173d",
+        "version" : "1.8.17"
+      }
+    },
+    {
+      "identity" : "tun2sockskit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/daemooon/Tun2SocksKit.git",
+      "state" : {
+        "revision" : "1ba953c9c9f1c99e9170dc719c9fa312a1cd918c",
+        "version" : "2.0.2"
+      }
+    },
+    {
+      "identity" : "xraykit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/daemooon/XrayKit.git",
+      "state" : {
+        "revision" : "c72d958ec84165184ad78f95618344ef4c46ee6b",
+        "version" : "0.1.18"
+      }
+    }
+  ],
+  "version" : 2
+}
