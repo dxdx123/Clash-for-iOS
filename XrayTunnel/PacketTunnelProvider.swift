@@ -13,12 +13,14 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
             fatalError()
         }
         XraySetAsset(MGKernel.xray.assetDirectory.path(percentEncoded: false), nil)
+        let port = XrayGetAvailablePort("tcp", "[::1]:0")
         var config = try Configuration(id: id)
-        config.override(level: self.logLevel)
+        config.override(log: self.logLevel)
+        config.override(inbound: port)
         var error: NSError? = nil
         XrayRun(try config.asJSONString(), self, &error)
         try error.flatMap { throw $0 }
-        try Tunnel.start(port: 9090)
+        try Tunnel.start(port: port)
     }
 
     func onLog(_ msg: String?) {

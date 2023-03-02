@@ -55,6 +55,7 @@
 		708B37FD29B0407100E24312 /* MGNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MGNotification.swift */; };
 		708B37FE29B06A5C00E24312 /* MGLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC2F2965872200065DAF /* MGLogLevel.swift */; };
 		708B380029B06EB600E24312 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B37FF29B06EB600E24312 /* Configuration.swift */; };
+		708B380329B0937600E24312 /* MGSniffingSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B380229B0937600E24312 /* MGSniffingSettingView.swift */; };
 		70B947A9295F302B006F6A38 /* Clash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947A8295F302B006F6A38 /* Clash.swift */; };
 		70B947AF29612F46006F6A38 /* MGSubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947AE29612F46006F6A38 /* MGSubscribeView.swift */; };
 		70B947B129613321006F6A38 /* MGSubscribeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B029613321006F6A38 /* MGSubscribeManager.swift */; };
@@ -204,6 +205,7 @@
 		708B37F429B0358C00E24312 /* Tunnel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tunnel.swift; sourceTree = "<group>"; };
 		708B37FB29B03E6400E24312 /* MGPacketTunnelProvide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPacketTunnelProvide.swift; sourceTree = "<group>"; };
 		708B37FF29B06EB600E24312 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		708B380229B0937600E24312 /* MGSniffingSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSniffingSettingView.swift; sourceTree = "<group>"; };
 		70B947A8295F302B006F6A38 /* Clash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clash.swift; sourceTree = "<group>"; };
 		70B947AE29612F46006F6A38 /* MGSubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSubscribeView.swift; sourceTree = "<group>"; };
 		70B947B029613321006F6A38 /* MGSubscribeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSubscribeManager.swift; sourceTree = "<group>"; };
@@ -343,6 +345,14 @@
 			path = TunnelKit;
 			sourceTree = "<group>";
 		};
+		708B380129B0936C00E24312 /* Xray */ = {
+			isa = PBXGroup;
+			children = (
+				708B380229B0937600E24312 /* MGSniffingSettingView.swift */,
+			);
+			path = Xray;
+			sourceTree = "<group>";
+		};
 		70C9ED8C29501D5B00B6995B = {
 			isa = PBXGroup;
 			children = (
@@ -459,6 +469,7 @@
 				7084FC32296587C600065DAF /* MGLogLevelView.swift */,
 				708A48E92962AA2B0040184C /* MGAppearanceView.swift */,
 				70C9EDD72951587D00B6995B /* MGResetView.swift */,
+				708B380129B0936C00E24312 /* Xray */,
 				7074B14729A72CAE00CBB919 /* Clash */,
 			);
 			path = Setting;
@@ -713,6 +724,7 @@
 				708A48E1296295C50040184C /* MGPolicyGroupView.swift in Sources */,
 				70DE0D6829A6114B00B3E343 /* MGApp.swift in Sources */,
 				70B947B329613354006F6A38 /* MGAppDelegate.swift in Sources */,
+				708B380329B0937600E24312 /* MGSniffingSettingView.swift in Sources */,
 				70DE0D7029A62A5800B3E343 /* MGPacketTunnelManager.swift in Sources */,
 				708A48E3296299640040184C /* MGProxyListView.swift in Sources */,
 			);
@@ -1167,7 +1179,7 @@
 			repositoryURL = "https://github.com/daemooon/XrayKit.git";
 			requirement = {
 				kind = exactVersion;
-				version = 0.1.16;
+				version = 0.1.18;
 			};
 		};
 		7072264129A4647F00A38837 /* XCRemoteSwiftPackageReference "ClashKit" */ = {

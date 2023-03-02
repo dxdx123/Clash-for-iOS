@@ -12,13 +12,50 @@ struct Configuration {
         self.json = json
     }
     
-    mutating func `override`(level: MGLogLevel) {
+    mutating func `override`(log level: MGLogLevel) {
         var config: [String: Any] = [:]
         config["access"]    = level == .silent ? "none" : ""
         config["error"]     = level == .silent ? "none" : ""
         config["loglevel"]  = level == .silent ? "none" : level.rawValue
         config["dnsLog"]    = level == .silent ? false  : true
         self.json["log"] = config
+    }
+    
+    mutating func `override`(inbound port: Int) {
+        var inbound: [String: Any] = [:]
+        inbound["listen"] = "[::1]"
+        inbound["port"] = port
+        inbound["protocol"] = "socks"
+        inbound["settings"] = ["udp" : true]
+        inbound["tag"] = "socks-in"
+        inbound["sniffing"] = {
+            var sniffing: [String: Any] = [:]
+            sniffing["enabled"] = UserDefaults.shared.bool(forKey: MGConstant.Xray.sniffingEnable)
+            sniffing["destOverride"] = {
+                var list: [String] = []
+                if UserDefaults.shared.bool(forKey: MGConstant.Xray.sniffingDestOverrideHTTP) {
+                    list.append("http")
+                }
+                if UserDefaults.shared.bool(forKey: MGConstant.Xray.sniffingDestOverrideTLS) {
+                    list.append("tls")
+                }
+                if UserDefaults.shared.bool(forKey: MGConstant.Xray.sniffingDestOverrideQUIC) {
+                    list.append("quic")
+                }
+                if UserDefaults.shared.bool(forKey: MGConstant.Xray.sniffingDestOverrideFAKEDNS) {
+                    list.append("fakedns")
+                }
+                if list.count == 4 {
+                    list = ["fakedns+others"]
+                }
+                return list
+            }()
+            sniffing["metadataOnly"] = false
+            sniffing["domainsExcluded"] = []
+            sniffing["routeOnly"] = false
+            return sniffing
+        }()
+        self.json["inbounds"] = [inbound]
     }
     
     func asJSONString() throws -> String {

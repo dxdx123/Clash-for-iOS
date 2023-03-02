@@ -19,15 +19,17 @@ struct MGSettingView: View {
                         MGGEOIPView()
                         MGIPV6View()
                     case .xray:
-                        EmptyView()
+                        MGSniffingEntranceView()
                     }
                 } header: {
                     Text("内核")
                 }
-                Section {
-                    MGAppearanceView()
-                } header: {
-                    Text("主题")
+                if tunnel.kernel == .xray {
+                    Section {
+                        
+                    } header: {
+                        Text("流量探测")
+                    }
                 }
                 Section {
                     MGResetView()
