@@ -4,7 +4,7 @@ struct MGIPV6View: View {
     
     @EnvironmentObject private var packetTunnelManager: MGPacketTunnelManager
     
-    @AppStorage(MGConstant.Clash.ipv6Enable, store: .shared) private var isOn  = false
+    @AppStorage(MGConstant.ipv6Enable, store: .shared) private var isOn  = false
     
     @State private var processing = false
     

@@ -11,7 +11,6 @@ extension MGConstant.Clash {
     public static let fileAttributeKey      = "NSFileExtendedAttributes"
     public static let trafficUp             = "CLASH_TRAFFIC_UP"
     public static let trafficDown           = "CLASH_TRAFFIC_DOWN"
-    public static let ipv6Enable            = "CLASH_IPV6_ENABLE"
 }
 
 extension FileAttributeKey {

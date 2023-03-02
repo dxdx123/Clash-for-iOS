@@ -3,10 +3,6 @@ import TunnelKit
 
 class PacketTunnelProvider: MGPacketTunnelProvider {
     
-    override var isIPv6Enable: Bool {
-        UserDefaults.shared.bool(forKey: MGConstant.Clash.ipv6Enable)
-    }
-    
     override var dnsServers: [String] { ["127.0.0.1"] }
     
     override func onTunnelStartCompleted(with settings: NEPacketTunnelNetworkSettings) async throws {

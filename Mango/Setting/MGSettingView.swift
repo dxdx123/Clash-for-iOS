@@ -17,19 +17,13 @@ struct MGSettingView: View {
                     case .clash:
                         MGTunnelModeView()
                         MGGEOIPView()
-                        MGIPV6View()
                     case .xray:
                         MGSniffingEntranceView()
+                        MGGEOAssetView()
                     }
+                    MGIPV6View()
                 } header: {
                     Text("内核")
-                }
-                if tunnel.kernel == .xray {
-                    Section {
-                        
-                    } header: {
-                        Text("流量探测")
-                    }
                 }
                 Section {
                     MGResetView()
@@ -45,5 +39,30 @@ struct MGSettingView: View {
                     .monospacedDigit()
             }
         }
+    }
+}
+
+struct MGGEOAssetView: View {
+    
+    var body: some View {
+        NavigationLink {
+            MGGEOAssetSettingView()
+        } label: {
+            Label {
+                Text("GEO 资源")
+            } icon: {
+                Image(systemName: "tray")
+            }
+        }
+    }
+}
+
+struct MGGEOAssetSettingView: View {
+    
+    var body: some View {
+        Form {
+            
+        }
+        .navigationTitle(Text("GEO 资源"))
     }
 }

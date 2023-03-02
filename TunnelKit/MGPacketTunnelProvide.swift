@@ -3,7 +3,9 @@ import NetworkExtension
 open class MGPacketTunnelProvider: NEPacketTunnelProvider {
     
     open var isIPv4Enable: Bool { true }
-    open var isIPv6Enable: Bool { false }
+    open var isIPv6Enable: Bool {
+        UserDefaults.shared.bool(forKey: MGConstant.ipv6Enable)
+    }
     open var dnsServers: [String] { ["8.8.8.8", "114.114.114.114"] }
     
     public final override func startTunnel(options: [String : NSObject]? = nil) async throws {

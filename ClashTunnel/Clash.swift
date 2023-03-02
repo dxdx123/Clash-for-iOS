@@ -47,7 +47,7 @@ import os
     }
     
     private static var isIPv6Enabel: Bool {
-        UserDefaults.shared.bool(forKey: MGConstant.Clash.ipv6Enable)
+        UserDefaults.shared.bool(forKey: MGConstant.ipv6Enable)
     }
     
     private static var tunnelFileDescriptor: Int32? {

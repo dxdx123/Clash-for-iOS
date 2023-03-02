@@ -4,9 +4,9 @@ import UniformTypeIdentifiers
 @frozen public enum MGConstant {}
 
 extension MGConstant {
-    public static let suiteName = "group.\(Bundle.appID)"
-    public static let logLevel  = "LOGLEVEL"
-
+    public static let suiteName     = "group.\(Bundle.appID)"
+    public static let logLevel      = "LOGL_EVEL"
+    public static let ipv6Enable    = "IPV6_ENABLE"
 }
 
 extension Bundle {
