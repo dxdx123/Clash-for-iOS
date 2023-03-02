@@ -8,7 +8,7 @@ open class MGPacketTunnelProvider: NEPacketTunnelProvider {
     
     public final override func startTunnel(options: [String : NSObject]? = nil) async throws {
         let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "254.1.1.1")
-        settings.mtu = 1500
+        settings.mtu = 9000
         
         settings.ipv4Settings = {
             guard self.isIPv4Enable else {
