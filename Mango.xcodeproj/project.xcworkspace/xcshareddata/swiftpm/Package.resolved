@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/daemooon/Tun2SocksKit.git",
       "state" : {
-        "revision" : "1ba953c9c9f1c99e9170dc719c9fa312a1cd918c",
-        "version" : "2.0.2"
+        "revision" : "f29e175736304a86dbcffc8f10cc2eb8c84a8914",
+        "version" : "2.1.0"
       }
     },
     {

@@ -1,7 +1,5 @@
 import Foundation
-
-@_silgen_name("hev_socks5_tunnel_main")
-private func hev_socks5_tunnel_main( _ configFilePath: UnsafePointer<CChar>!, _ fd: Int32) -> Int
+import Tun2SocksKit
 
 public enum Tunnel {
     
@@ -87,7 +85,9 @@ public enum Tunnel {
             guard let fd = self.tunnelFileDescriptor else {
                 fatalError()
             }
-            NSLog("HEV_SOCKS5_TUNNEL_MAIN: \(hev_socks5_tunnel_main(file.path(percentEncoded: false), fd))")
+            DispatchQueue.global(qos: .userInitiated).async {
+                NSLog("HEV_SOCKS5_TUNNEL_MAIN: \(Socks5Tunnel.run(withFileDescriptor: fd, configFilePath: file.path(percentEncoded: false)))")
+            }
         }
     }
 }

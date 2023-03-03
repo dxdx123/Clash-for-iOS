@@ -20,7 +20,7 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
         var error: NSError? = nil
         XrayRun(try config.asJSONString(), self, &error)
         try error.flatMap { throw $0 }
-        try Tunnel.start(port: port)
+        try Tunnel.start(port: port)        
     }
 
     func onLog(_ msg: String?) {
