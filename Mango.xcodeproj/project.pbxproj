@@ -1197,7 +1197,7 @@
 			repositoryURL = "https://github.com/daemooon/XrayKit.git";
 			requirement = {
 				kind = exactVersion;
-				version = 0.1.18;
+				version = 0.1.20;
 			};
 		};
 		7072264129A4647F00A38837 /* XCRemoteSwiftPackageReference "ClashKit" */ = {
