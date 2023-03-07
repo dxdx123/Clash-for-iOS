@@ -2,10 +2,8 @@ import NetworkExtension
 import XrayKit
 import TunnelKit
 
-class PacketTunnelProvider: MGPacketTunnelProvider {
-    
-    let logger = MangoLogger(subsystem: "ABCD", category: "KSDJFLKSF")
-    
+class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
+        
     private var logLevel: MGLogLevel {
         MGLogLevel(rawValue: UserDefaults.shared.string(forKey: MGConstant.logLevel) ?? "") ?? .silent
     }
@@ -15,14 +13,53 @@ class PacketTunnelProvider: MGPacketTunnelProvider {
             fatalError()
         }
         XraySetAsset(MGKernel.xray.assetDirectory.path(percentEncoded: false), nil)
-        let port = XrayGetAvailablePort("tcp", "[::1]:0")
-        var config = try Configuration(id: id)
-        config.override(log: self.logLevel)
-        config.override(inbound: port)
+        let port = XrayGetAvailablePort()
+        let base = """
+        {
+            "log": {
+                "loglevel": "debug"
+            },
+            "inbounds": [
+                {
+                    "listen": "[::1]",
+                    "protocol": "socks",
+                    "settings": {
+                        "udp": true,
+                        "auth": "noauth"
+                    },
+                    "tag": "socks-in",
+                    "port": \(port)
+                }
+            ],
+            "outbounds": [
+                {
+                    "protocol": "freedom",
+                    "tag": "direct"
+                }
+            ]
+        }
+        """
         var error: NSError? = nil
-        XrayRun(try config.asJSONString(), &error)
+        XrayRun(
+            base,
+            MGKernel.xray.configDirectory.appending(component: "\(id).json").path(percentEncoded: false),
+            self,
+            &error
+        )
         try error.flatMap { throw $0 }
-        try Tunnel.start(port: port)        
+        try Tunnel.start(port: port)
+    }
+    
+    func onAccessLog(_ message: String?) {
+        message.flatMap { NSLog($0) }
+    }
+    
+    func onDNSLog(_ message: String?) {
+        message.flatMap { NSLog($0) }
+    }
+    
+    func onGeneralMessage(_ severity: String?, p1 message: String?) {
+        message.flatMap { NSLog($0) }
     }
 }
 
