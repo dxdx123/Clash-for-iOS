@@ -1,6 +1,5 @@
 import NetworkExtension
 import XrayKit
-import TunnelKit
 
 class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
         

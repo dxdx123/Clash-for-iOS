@@ -1,5 +1,4 @@
 import NetworkExtension
-import TunnelKit
 
 class PacketTunnelProvider: MGPacketTunnelProvider {
     
