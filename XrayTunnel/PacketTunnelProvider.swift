@@ -57,7 +57,7 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
         message.flatMap { NSLog($0) }
     }
     
-    func onGeneralMessage(_ severity: String?, p1 message: String?) {
+    func onGeneralMessage(_ severity: String?, message: String?) {
         message.flatMap { NSLog($0) }
     }
 }
