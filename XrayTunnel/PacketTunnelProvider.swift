@@ -55,9 +55,13 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
         try Tunnel.start(port: port)
     }
     
-    func onAccessLog(_ message: String?) {}
+    func onAccessLog(_ message: String?) {
+        message.flatMap { logger.log("\($0, privacy: .public)") }
+    }
     
-    func onDNSLog(_ message: String?) {}
+    func onDNSLog(_ message: String?) {
+        message.flatMap { logger.log("\($0, privacy: .public)") }
+    }
     
     func onGeneralMessage(_ severity: String?, message: String?) {
         let level = severity.flatMap({ MGLogLevel(rawValue: $0.lowercased()) }) ?? .silent
