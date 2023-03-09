@@ -19,7 +19,9 @@ extension Bundle {
 }
 
 extension UTType {
-    public static let yaml: UTType = UTType(__UTTypeYAML.identifier)!
+    public static let toml  : UTType = UTType(filenameExtension: "toml")!
+    public static let mmdb  : UTType = UTType(filenameExtension: "mmdb")!
+    public static let dat   : UTType = UTType(filenameExtension: "dat")!
 }
 
 extension UserDefaults {

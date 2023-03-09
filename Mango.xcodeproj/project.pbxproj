@@ -27,6 +27,12 @@
 		7069E00C29ADE79C0012C435 /* XrayKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7069E00B29ADE79C0012C435 /* XrayKit */; };
 		7069E01F29ADEAA30012C435 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9093299FA40600B83324 /* PacketTunnelProvider.swift */; };
 		7069E02029ADEABF0012C435 /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7072264429A46C6100A38837 /* libresolv.9.tbd */; };
+		706DB6B929B9DFBC002F22C7 /* MGSubscriptionFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6B829B9DFBC002F22C7 /* MGSubscriptionFormat.swift */; };
+		706DB6BB29B9DFCE002F22C7 /* MGSubscriptionLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6BA29B9DFCE002F22C7 /* MGSubscriptionLocation.swift */; };
+		706DB6BD29B9DFE3002F22C7 /* MGSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6BC29B9DFE3002F22C7 /* MGSubscription.swift */; };
+		706DB6BF29B9DFF2002F22C7 /* MGAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6BE29B9DFF2002F22C7 /* MGAttributes.swift */; };
+		706DB6C129B9E006002F22C7 /* MGSubscriptionDownloadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6C029B9E006002F22C7 /* MGSubscriptionDownloadViewModel.swift */; };
+		706DB6C329B9E04B002F22C7 /* MGSubscriptionDownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6C229B9E04B002F22C7 /* MGSubscriptionDownloadView.swift */; };
 		7072264329A4648000A38837 /* ClashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7072264229A4648000A38837 /* ClashKit */; };
 		7084FC1D295ECBC900065DAF /* MGAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* MGAppMessage.swift */; };
 		7084FC1E295ECBC900065DAF /* MGAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* MGAppMessage.swift */; };
@@ -159,6 +165,12 @@
 		702D9095299FA40600B83324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		702D9096299FA40600B83324 /* XrayTunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XrayTunnel.entitlements; sourceTree = "<group>"; };
 		7061581529695E6A0005C024 /* MGFormPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGFormPicker.swift; sourceTree = "<group>"; };
+		706DB6B829B9DFBC002F22C7 /* MGSubscriptionFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSubscriptionFormat.swift; sourceTree = "<group>"; };
+		706DB6BA29B9DFCE002F22C7 /* MGSubscriptionLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSubscriptionLocation.swift; sourceTree = "<group>"; };
+		706DB6BC29B9DFE3002F22C7 /* MGSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSubscription.swift; sourceTree = "<group>"; };
+		706DB6BE29B9DFF2002F22C7 /* MGAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGAttributes.swift; sourceTree = "<group>"; };
+		706DB6C029B9E006002F22C7 /* MGSubscriptionDownloadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSubscriptionDownloadViewModel.swift; sourceTree = "<group>"; };
+		706DB6C229B9E04B002F22C7 /* MGSubscriptionDownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSubscriptionDownloadView.swift; sourceTree = "<group>"; };
 		7072264429A46C6100A38837 /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
 		7084FC1C295ECBC900065DAF /* MGAppMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGAppMessage.swift; sourceTree = "<group>"; };
 		7084FC1F295ECC7400065DAF /* MGTunnelMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTunnelMode.swift; sourceTree = "<group>"; };
@@ -264,6 +276,19 @@
 			path = XrayTunnel;
 			sourceTree = "<group>";
 		};
+		706DB6B729B9DFAB002F22C7 /* Subscribe */ = {
+			isa = PBXGroup;
+			children = (
+				706DB6B829B9DFBC002F22C7 /* MGSubscriptionFormat.swift */,
+				706DB6BA29B9DFCE002F22C7 /* MGSubscriptionLocation.swift */,
+				706DB6BC29B9DFE3002F22C7 /* MGSubscription.swift */,
+				706DB6BE29B9DFF2002F22C7 /* MGAttributes.swift */,
+				706DB6C029B9E006002F22C7 /* MGSubscriptionDownloadViewModel.swift */,
+				706DB6C229B9E04B002F22C7 /* MGSubscriptionDownloadView.swift */,
+			);
+			path = Subscribe;
+			sourceTree = "<group>";
+		};
 		7074B14529A7207B00CBB919 /* Clash */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +382,7 @@
 				7061581529695E6A0005C024 /* MGFormPicker.swift */,
 				70DE0D6D29A6155C00B3E343 /* MGPresentedButton.swift */,
 				70DE0D7129A62C4100B3E343 /* Home */,
+				706DB6B729B9DFAB002F22C7 /* Subscribe */,
 				70DE0D7629A6300100B3E343 /* Setting */,
 				70C9EDBA29502CF000B6995B /* Core */,
 				70C9ED9C29501D5C00B6995B /* Assets.xcassets */,
@@ -608,6 +634,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				702D908A299B58A400B83324 /* MGNotification.swift in Sources */,
+				706DB6BB29B9DFCE002F22C7 /* MGSubscriptionLocation.swift in Sources */,
 				70DE0D7329A62C4E00B3E343 /* MGHomeView.swift in Sources */,
 				70C9EDDA2951841E00B6995B /* MGSubscribeListView.swift in Sources */,
 				7084FC20295ECC7400065DAF /* MGTunnelMode.swift in Sources */,
@@ -621,6 +648,7 @@
 				701811D929A32D6C005E5CDB /* MGConstant+Clash.swift in Sources */,
 				7000C6D6295AED790005626E /* MGProvidersManager.swift in Sources */,
 				7084FC362967B8AC00065DAF /* MGGeoIPSettingView.swift in Sources */,
+				706DB6BD29B9DFE3002F22C7 /* MGSubscription.swift in Sources */,
 				70B947AF29612F46006F6A38 /* MGSubscribeView.swift in Sources */,
 				7084FC3A2967E6FD00065DAF /* MGGEOIPManager.swift in Sources */,
 				70DE0D7829A6306100B3E343 /* MGSettingView.swift in Sources */,
@@ -628,7 +656,9 @@
 				70DE0D6E29A6155C00B3E343 /* MGPresentedButton.swift in Sources */,
 				708A48EC2962AD740040184C /* MGAppearance.swift in Sources */,
 				7000C6DA295AED790005626E /* MGUpdatableViewModel.swift in Sources */,
+				706DB6B929B9DFBC002F22C7 /* MGSubscriptionFormat.swift in Sources */,
 				708B380629B0AA4200E24312 /* MGGEOAssetViewModel.swift in Sources */,
+				706DB6C329B9E04B002F22C7 /* MGSubscriptionDownloadView.swift in Sources */,
 				7084FC1D295ECBC900065DAF /* MGAppMessage.swift in Sources */,
 				70DE0D6A29A611E100B3E343 /* MGKernel.swift in Sources */,
 				7000C6E4295D635F0005626E /* MGControlView.swift in Sources */,
@@ -636,10 +666,12 @@
 				708A48EA2962AA2B0040184C /* MGAppearanceView.swift in Sources */,
 				70CEB89329A0C7BA003436C2 /* MGConstant.swift in Sources */,
 				7061581629695E6A0005C024 /* MGFormPicker.swift in Sources */,
+				706DB6C129B9E006002F22C7 /* MGSubscriptionDownloadViewModel.swift in Sources */,
 				701811DC29A32D7A005E5CDB /* MGConstant+Xray.swift in Sources */,
 				702D9087299B2B4500B83324 /* MGIPV6View.swift in Sources */,
 				7000C6D9295AED790005626E /* MGProviderViewModel.swift in Sources */,
 				7000C6DE295D5F690005626E /* MGConnectedDurationView.swift in Sources */,
+				706DB6BF29B9DFF2002F22C7 /* MGAttributes.swift in Sources */,
 				708A48E1296295C50040184C /* MGPolicyGroupView.swift in Sources */,
 				70DE0D6829A6114B00B3E343 /* MGApp.swift in Sources */,
 				70B947B329613354006F6A38 /* MGAppDelegate.swift in Sources */,

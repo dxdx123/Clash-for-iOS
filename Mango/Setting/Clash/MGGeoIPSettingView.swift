@@ -1,9 +1,4 @@
 import SwiftUI
-import UniformTypeIdentifiers
-
-extension UTType {
-    static let mmdb = UTType(filenameExtension: "mmdb")!
-}
 
 extension MGConstant.Clash {
     static let defaultGeoIPDatabaseRemoteURLString  = "https://github.com/Dreamacro/maxmind-geoip/releases/latest/download/Country.mmdb"

@@ -1,9 +1,4 @@
 import SwiftUI
-import UniformTypeIdentifiers
-
-extension UTType {
-    static let dat = UTType(filenameExtension: "dat")!
-}
 
 struct MGGEOAssetView: View {
     
