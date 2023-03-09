@@ -1,7 +1,10 @@
 import NetworkExtension
 import XrayKit
+import os
 
 class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
+    
+    private let logger = Logger(subsystem: "com.Arror.Mango.XrayTunnel", category: "core")
         
     private var logLevel: MGLogLevel {
         MGLogLevel(rawValue: UserDefaults.shared.string(forKey: MGConstant.logLevel) ?? "") ?? .silent
@@ -16,7 +19,10 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
         let base = """
         {
             "log": {
-                "loglevel": "debug"
+                "access": "none",
+                "error": "none",
+                "loglevel": "none",
+                "dnsLog": false
             },
             "inbounds": [
                 {
@@ -49,54 +55,26 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
         try Tunnel.start(port: port)
     }
     
-    func onAccessLog(_ message: String?) {
-        message.flatMap { NSLog($0) }
-    }
+    func onAccessLog(_ message: String?) {}
     
-    func onDNSLog(_ message: String?) {
-        message.flatMap { NSLog($0) }
-    }
+    func onDNSLog(_ message: String?) {}
     
     func onGeneralMessage(_ severity: String?, message: String?) {
-        message.flatMap { NSLog($0) }
-    }
-}
-
-
-import os
-
-public final class MangoLogger {
-    
-    private let logger: Logger
-    
-    public init(subsystem: String, category: String) {
-        self.logger = Logger(subsystem: subsystem, category: category)
-        self.hijack(fileDescriptor: FileHandle.standardOutput.fileDescriptor)
-        self.hijack(fileDescriptor: FileHandle.standardError.fileDescriptor)
-    }
-    
-    public func log(_ message: String) {
-        self.logger.log("\(message, privacy: .public)")
-    }
-    
-    private func hijack(fileDescriptor: Int32) {
-        var rw = Array<Int32>(repeating: 0, count: 2)
-        setbuf(fdopen(fileDescriptor, "w"), nil)
-        pipe(&rw)
-        dup2(rw[1], fileDescriptor)
-        let fileHandle = FileHandle(fileDescriptor: rw[0])
-        fileHandle.waitForDataInBackgroundAndNotify()
-        fileHandle.readabilityHandler = { handler in
-            let data = handler.availableData
-            guard !data.isEmpty, let string = String(data: data, encoding: .utf8) else {
-                return
-            }
-            string.components(separatedBy: CharacterSet(arrayLiteral: "\n")).forEach { value in
-                guard !value.isEmpty else {
-                    return
-                }
-                self.log(value)
-            }
+        let level = severity.flatMap({ MGLogLevel(rawValue: $0.lowercased()) }) ?? .silent
+        guard level >= logLevel, let message = message, !message.isEmpty else {
+            return
+        }
+        switch level {
+        case .debug:
+            logger.debug("\(message, privacy: .public)")
+        case .info:
+            logger.info("\(message, privacy: .public)")
+        case .warning:
+            logger.warning("\(message, privacy: .public)")
+        case .error:
+            logger.error("\(message, privacy: .public)")
+        case .silent:
+            break
         }
     }
 }
