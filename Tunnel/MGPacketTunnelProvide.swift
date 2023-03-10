@@ -30,7 +30,12 @@ open class MGPacketTunnelProvider: NEPacketTunnelProvider {
         }()
         settings.dnsSettings = NEDNSSettings(servers: self.dnsServers)
         try await self.setTunnelNetworkSettings(settings)
-        try await self.onTunnelStartCompleted(with: settings)
+        do {
+            try await self.onTunnelStartCompleted(with: settings)
+        } catch {
+            MGNotification.send(title: "", subtitle: "", body: error.localizedDescription)
+            throw error
+        }
     }
     
     open func onTunnelStartCompleted(with settings: NEPacketTunnelNetworkSettings) async throws {}

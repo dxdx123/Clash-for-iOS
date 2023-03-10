@@ -4,7 +4,7 @@ import os
 
 class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
     
-    private let logger = Logger(subsystem: "com.Arror.Mango.XrayTunnel", category: "core")
+    private let logger = Logger(subsystem: "com.Arror.Mango.XrayTunnel", category: "Core")
         
     private var logLevel: MGLogLevel {
         MGLogLevel(rawValue: UserDefaults.shared.string(forKey: MGConstant.logLevel) ?? "") ?? .silent
@@ -14,6 +14,14 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
         guard let id = UserDefaults.shared.string(forKey: "\(MGKernel.xray.rawValue.uppercased())_CURRENT"), !id.isEmpty else {
             fatalError()
         }
+        let folderURL = MGKernel.xray.configDirectory.appending(component: id)
+        let folderAttributes = try FileManager.default.attributesOfItem(atPath: folderURL.path(percentEncoded: false))
+        guard let mapping = folderAttributes[MGConfiguration.key] as? [String: Data],
+              let data = mapping[MGConfiguration.Attributes.key] else {
+            fatalError()
+        }
+        let attributes = try JSONDecoder().decode(MGConfiguration.Attributes.self, from: data)
+        let fileURL = folderURL.appending(component: "config.\(attributes.format.rawValue)")
         XraySetAsset(MGKernel.xray.assetDirectory.path(percentEncoded: false), nil)
         let port = XrayGetAvailablePort()
         let base = """
@@ -45,12 +53,7 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
         }
         """
         var error: NSError? = nil
-        XrayRun(
-            base,
-            MGKernel.xray.configDirectory.appending(component: "\(id).json").path(percentEncoded: false),
-            self,
-            &error
-        )
+        XrayRun(base, fileURL.path(percentEncoded: false), self, &error)
         try error.flatMap { throw $0 }
         try Tunnel.start(port: port)
     }

@@ -32,7 +32,7 @@ struct MGConfigurationView: View {
     
     private var title: String {
         guard let configuration = configurationListManager.configurations.first(where: { $0.id == current }) else {
-            return "默认"
+            return "未选择"
         }
         return configuration.attributes.alias
     }

@@ -1,23 +1,23 @@
 import Foundation
 
-struct MGConfiguration: Identifiable {
+public struct MGConfiguration: Identifiable {
     
-    static let key = FileAttributeKey("NSFileExtendedAttributes")
+    public static let key = FileAttributeKey("NSFileExtendedAttributes")
     
-    let id: String
-    let creationDate: Date
-    let attributes: Attributes
+    public let id: String
+    public let creationDate: Date
+    public let attributes: Attributes
 }
 
 extension MGConfiguration {
     
-    struct Attributes: Codable {
+    public struct Attributes: Codable {
         
-        static let key = "Configuration.Attributes"
+        public static let key = "Configuration.Attributes"
         
-        let alias: String
-        let source: URL
-        let leastUpdated: Date
-        let format: MGConfigurationFormat
+        public let alias: String
+        public let source: URL
+        public let leastUpdated: Date
+        public let format: MGConfigurationFormat
     }
 }
