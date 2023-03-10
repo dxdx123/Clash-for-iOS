@@ -22,7 +22,6 @@ final class MGConfigurationDownloadViewModel: ObservableObject {
             case .remote:
                 try await processRemote()
             }
-            try await Task.sleep(for: .seconds(2))
             err = nil
         } catch {
             err = error
@@ -65,7 +64,8 @@ final class MGConfigurationDownloadViewModel: ObservableObject {
         let attributes = MGConfiguration.Attributes(
             alias: name.trimmingCharacters(in: .whitespacesAndNewlines),
             source: sourceURL,
-            leastUpdated: Date()
+            leastUpdated: Date(),
+            format: self.format
         )
         try FileManager.default.createDirectory(
             at: folderURL,
@@ -74,7 +74,7 @@ final class MGConfigurationDownloadViewModel: ObservableObject {
                 MGConfiguration.key: [MGConfiguration.Attributes.key: try JSONEncoder().encode(attributes)]
             ]
         )
-        let destinationURL = folderURL.appending(component: "config.\(format.rawValue)")
+        let destinationURL = folderURL.appending(component: "config.\(self.format.rawValue)")
         try FileManager.default.copyItem(at: fileURL, to: destinationURL)
     }
 }

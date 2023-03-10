@@ -2,7 +2,7 @@ import Foundation
 
 struct MGConfiguration: Identifiable {
     
-    static let key = FileAttributeKey("com.Arror.Mango")
+    static let key = FileAttributeKey("NSFileExtendedAttributes")
     
     let id: String
     let creationDate: Date
@@ -18,5 +18,6 @@ extension MGConfiguration {
         let alias: String
         let source: URL
         let leastUpdated: Date
+        let format: MGConfigurationFormat
     }
 }

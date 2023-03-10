@@ -32,6 +32,9 @@
 		706DB6BD29B9DFE3002F22C7 /* MGConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6BC29B9DFE3002F22C7 /* MGConfiguration.swift */; };
 		706DB6C129B9E006002F22C7 /* MGConfigurationDownloadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6C029B9E006002F22C7 /* MGConfigurationDownloadViewModel.swift */; };
 		706DB6C329B9E04B002F22C7 /* MGConfigurationDownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6C229B9E04B002F22C7 /* MGConfigurationDownloadView.swift */; };
+		706DB6C729BAC4C7002F22C7 /* MGConfigurationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6C629BAC4C7002F22C7 /* MGConfigurationListView.swift */; };
+		706DB6C929BACC14002F22C7 /* MGConfigurationListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6C829BACC14002F22C7 /* MGConfigurationListManager.swift */; };
+		706DB6CB29BAE954002F22C7 /* MGConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6CA29BAE954002F22C7 /* MGConfigurationView.swift */; };
 		7072264329A4648000A38837 /* ClashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7072264229A4648000A38837 /* ClashKit */; };
 		7084FC1D295ECBC900065DAF /* MGAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* MGAppMessage.swift */; };
 		7084FC1E295ECBC900065DAF /* MGAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* MGAppMessage.swift */; };
@@ -169,6 +172,9 @@
 		706DB6BC29B9DFE3002F22C7 /* MGConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConfiguration.swift; sourceTree = "<group>"; };
 		706DB6C029B9E006002F22C7 /* MGConfigurationDownloadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConfigurationDownloadViewModel.swift; sourceTree = "<group>"; };
 		706DB6C229B9E04B002F22C7 /* MGConfigurationDownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConfigurationDownloadView.swift; sourceTree = "<group>"; };
+		706DB6C629BAC4C7002F22C7 /* MGConfigurationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConfigurationListView.swift; sourceTree = "<group>"; };
+		706DB6C829BACC14002F22C7 /* MGConfigurationListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConfigurationListManager.swift; sourceTree = "<group>"; };
+		706DB6CA29BAE954002F22C7 /* MGConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConfigurationView.swift; sourceTree = "<group>"; };
 		7072264429A46C6100A38837 /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
 		7084FC1C295ECBC900065DAF /* MGAppMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGAppMessage.swift; sourceTree = "<group>"; };
 		7084FC1F295ECC7400065DAF /* MGTunnelMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTunnelMode.swift; sourceTree = "<group>"; };
@@ -280,6 +286,7 @@
 				706DB6B829B9DFBC002F22C7 /* MGConfigurationFormat.swift */,
 				706DB6BA29B9DFCE002F22C7 /* MGConfigurationLocation.swift */,
 				706DB6BC29B9DFE3002F22C7 /* MGConfiguration.swift */,
+				706DB6C529BAC4AE002F22C7 /* List */,
 				706DB6C429BAC457002F22C7 /* Download */,
 			);
 			path = Subscribe;
@@ -292,6 +299,15 @@
 				706DB6C229B9E04B002F22C7 /* MGConfigurationDownloadView.swift */,
 			);
 			path = Download;
+			sourceTree = "<group>";
+		};
+		706DB6C529BAC4AE002F22C7 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				706DB6C629BAC4C7002F22C7 /* MGConfigurationListView.swift */,
+				706DB6C829BACC14002F22C7 /* MGConfigurationListManager.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 		7074B14529A7207B00CBB919 /* Clash */ = {
@@ -458,6 +474,7 @@
 				7000C6DD295D5F690005626E /* MGConnectedDurationView.swift */,
 				70B947AE29612F46006F6A38 /* MGSubscribeView.swift */,
 				70C9EDD92951841E00B6995B /* MGSubscribeListView.swift */,
+				706DB6CA29BAE954002F22C7 /* MGConfigurationView.swift */,
 				7074B14529A7207B00CBB919 /* Clash */,
 			);
 			path = Home;
@@ -639,6 +656,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				702D908A299B58A400B83324 /* MGNotification.swift in Sources */,
+				706DB6C929BACC14002F22C7 /* MGConfigurationListManager.swift in Sources */,
 				706DB6BB29B9DFCE002F22C7 /* MGConfigurationLocation.swift in Sources */,
 				70DE0D7329A62C4E00B3E343 /* MGHomeView.swift in Sources */,
 				70C9EDDA2951841E00B6995B /* MGSubscribeListView.swift in Sources */,
@@ -648,6 +666,7 @@
 				7000C6E0295D60A50005626E /* MGTunnelModeView.swift in Sources */,
 				70C9EDD82951587D00B6995B /* MGResetView.swift in Sources */,
 				7084FC302965872200065DAF /* MGLogLevel.swift in Sources */,
+				706DB6CB29BAE954002F22C7 /* MGConfigurationView.swift in Sources */,
 				7084FC382967DB7300065DAF /* MGGEOIPView.swift in Sources */,
 				70B947B129613321006F6A38 /* MGSubscribeManager.swift in Sources */,
 				701811D929A32D6C005E5CDB /* MGConstant+Clash.swift in Sources */,
@@ -667,6 +686,7 @@
 				7084FC1D295ECBC900065DAF /* MGAppMessage.swift in Sources */,
 				70DE0D6A29A611E100B3E343 /* MGKernel.swift in Sources */,
 				7000C6E4295D635F0005626E /* MGControlView.swift in Sources */,
+				706DB6C729BAC4C7002F22C7 /* MGConfigurationListView.swift in Sources */,
 				7000C6D8295AED790005626E /* MGProxyModel.swift in Sources */,
 				708A48EA2962AA2B0040184C /* MGAppearanceView.swift in Sources */,
 				70CEB89329A0C7BA003436C2 /* MGConstant.swift in Sources */,

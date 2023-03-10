@@ -2,7 +2,7 @@ import Foundation
 import UniformTypeIdentifiers
 
 @frozen
-public enum MGConfigurationFormat: String, CaseIterable, Identifiable {
+public enum MGConfigurationFormat: String, CaseIterable, Identifiable, Codable {
     
     public var id: Self { self }
     

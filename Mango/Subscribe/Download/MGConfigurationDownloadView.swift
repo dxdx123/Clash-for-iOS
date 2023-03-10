@@ -2,6 +2,10 @@ import SwiftUI
 
 struct MGConfigurationDownloadView: View {
     
+    @Environment(\.dismiss) private var dismiss
+    
+    @EnvironmentObject private var configurationListManager: MGConfigurationListManager
+    
     @StateObject private var vm = MGConfigurationDownloadViewModel()
     
     @State private var isFileImporterPresented: Bool = false
@@ -47,6 +51,10 @@ struct MGConfigurationDownloadView: View {
                         Task(priority: .userInitiated) {
                             do {
                                 try await vm.process()
+                                await MainActor.run {
+                                    configurationListManager.reload()
+                                    dismiss()
+                                }
                             } catch {
                                 await MainActor.run {
                                     MGNotification.send(title:"", subtitle: "", body: error.localizedDescription)
