@@ -71,16 +71,19 @@ struct MGConfigurationDownloadView: View {
                     .disabled(isButtonDisbale)
                 }
             }
-            .navigationTitle(Text("添加配置"))
             .navigationBarTitleDisplayMode(.inline)
             .interactiveDismissDisabled(vm.isProcessing)
-            .toolbarTitleMenu {
-                Picker(selection: $vm.location) {
-                    ForEach(MGConfigurationLocation.allCases) { location in
-                        Text(location.description)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Picker(selection: $vm.location) {
+                        ForEach(MGConfigurationLocation.allCases) { location in
+                            Text(location.description)
+                        }
+                    } label: {
+                        EmptyView()
                     }
-                } label: {
-                    EmptyView()
+                    .fixedSize()
+                    .pickerStyle(.segmented)
                 }
             }
             .fileImporter(isPresented: $isFileImporterPresented, allowedContentTypes: MGConfigurationFormat.allCases.map(\.uniformTypeType)) { result in
