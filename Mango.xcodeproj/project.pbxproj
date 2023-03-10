@@ -280,10 +280,18 @@
 				706DB6B829B9DFBC002F22C7 /* MGConfigurationFormat.swift */,
 				706DB6BA29B9DFCE002F22C7 /* MGConfigurationLocation.swift */,
 				706DB6BC29B9DFE3002F22C7 /* MGConfiguration.swift */,
+				706DB6C429BAC457002F22C7 /* Download */,
+			);
+			path = Subscribe;
+			sourceTree = "<group>";
+		};
+		706DB6C429BAC457002F22C7 /* Download */ = {
+			isa = PBXGroup;
+			children = (
 				706DB6C029B9E006002F22C7 /* MGConfigurationDownloadViewModel.swift */,
 				706DB6C229B9E04B002F22C7 /* MGConfigurationDownloadView.swift */,
 			);
-			path = Subscribe;
+			path = Download;
 			sourceTree = "<group>";
 		};
 		7074B14529A7207B00CBB919 /* Clash */ = {

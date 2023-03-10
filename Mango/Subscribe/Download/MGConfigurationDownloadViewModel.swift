@@ -48,14 +48,7 @@ final class MGConfigurationDownloadViewModel: ObservableObject {
         guard let url = URL(string: urlString.trimmingCharacters(in: .whitespacesAndNewlines)) else {
             throw NSError.newError("配置地址不合法")
         }
-        let request: URLRequest = {
-            var temp = URLRequest(url: url)
-            if let kernel = UserDefaults.standard.string(forKey: MGKernel.storeKey) {
-                temp.allHTTPHeaderFields = ["User-Agent": "\(kernel.lowercased().capitalized)/\(Bundle.appVersion)"]
-            }
-            return temp
-        }()
-        let tempURL = try await URLSession.shared.download(for: request, delegate: nil).0
+        let tempURL = try await URLSession.shared.download(from: url).0
         defer {
             do {
                 try FileManager.default.removeItem(at: tempURL)
