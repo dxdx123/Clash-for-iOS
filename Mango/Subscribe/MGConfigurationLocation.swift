@@ -1,7 +1,7 @@
 import Foundation
 
 @frozen
-public enum MGSubscriptionLocation: String, CaseIterable, Identifiable, CustomStringConvertible {
+public enum MGConfigurationLocation: String, CaseIterable, Identifiable, CustomStringConvertible {
     
     public var id: Self { self }
     

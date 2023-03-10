@@ -1,8 +1,8 @@
 import SwiftUI
 
-struct MGSubscriptionDownloadView: View {
+struct MGConfigurationDownloadView: View {
     
-    @StateObject private var vm = MGSubscriptionDownloadViewModel(directoryURL: .applicationDirectory, supportedFormats: [.yaml])
+    @StateObject private var vm = MGConfigurationDownloadViewModel()
     
     @State private var isFileImporterPresented: Bool = false
     
@@ -28,7 +28,7 @@ struct MGSubscriptionDownloadView: View {
                             .fixedSize()
                         case .remote:
                             Picker(selection: $vm.format) {
-                                ForEach(vm.supportedFormats) { format in
+                                ForEach(MGConfigurationFormat.allCases) { format in
                                     Text(format.rawValue.uppercased())
                                 }
                             } label: {
@@ -40,7 +40,7 @@ struct MGSubscriptionDownloadView: View {
                 } header: {
                     Text(addressTitle)
                 } footer: {
-                    Text("配置文件支持的格式：\(vm.supportedFormats.map({ $0.rawValue.uppercased() }).joined(separator: "、"))")
+                    Text("配置文件支持的格式：\(MGConfigurationFormat.allCases.map({ $0.rawValue.uppercased() }).joined(separator: "、"))")
                 }
                 Section {
                     Button {
@@ -68,14 +68,14 @@ struct MGSubscriptionDownloadView: View {
             .interactiveDismissDisabled(vm.isProcessing)
             .toolbarTitleMenu {
                 Picker(selection: $vm.location) {
-                    ForEach(MGSubscriptionLocation.allCases) { location in
+                    ForEach(MGConfigurationLocation.allCases) { location in
                         Text(location.description)
                     }
                 } label: {
                     EmptyView()
                 }
             }
-            .fileImporter(isPresented: $isFileImporterPresented, allowedContentTypes: vm.supportedFormats.map(\.uniformTypeType)) { result in
+            .fileImporter(isPresented: $isFileImporterPresented, allowedContentTypes: MGConfigurationFormat.allCases.map(\.uniformTypeType)) { result in
                 switch result {
                 case .success(let success):
                     vm.urlString = success.path(percentEncoded: false)

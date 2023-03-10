@@ -1,24 +1,14 @@
 import Foundation
 
-final class MGSubscriptionDownloadViewModel: ObservableObject {
+final class MGConfigurationDownloadViewModel: ObservableObject {
     
-    @Published var location:   MGSubscriptionLocation = .remote
-    @Published var format:     MGSubscriptionFormat
+    @Published var location:   MGConfigurationLocation   = .remote
+    @Published var format:     MGConfigurationFormat     = .json
     
     @Published var name:       String = ""
     @Published var urlString:  String = ""
     
     @Published var isProcessing: Bool = false
-    
-    private let directoryURL: URL
-    
-    let supportedFormats: [MGSubscriptionFormat]
-    
-    init(directoryURL: URL, supportedFormats: [MGSubscriptionFormat]) {
-        self.directoryURL = directoryURL
-        self.supportedFormats = supportedFormats
-        self.format = supportedFormats[0]
-    }
     
     func process() async throws {
         await MainActor.run {
@@ -78,8 +68,8 @@ final class MGSubscriptionDownloadViewModel: ObservableObject {
     
     private func save(sourceURL: URL, fileURL: URL) throws {
         let id = UUID()
-        let folderURL = self.directoryURL.appending(component: "\(id.uuidString)")
-        let attributes = MGAttributes(
+        let folderURL = MGKernel.xray.configDirectory.appending(component: "\(id.uuidString)")
+        let attributes = MGConfiguration.Attributes(
             alias: name.trimmingCharacters(in: .whitespacesAndNewlines),
             source: sourceURL,
             leastUpdated: Date()
@@ -88,10 +78,10 @@ final class MGSubscriptionDownloadViewModel: ObservableObject {
             at: folderURL,
             withIntermediateDirectories: true,
             attributes: [
-                MGSubscription.key: [MGAttributes.key: try JSONEncoder().encode(attributes)]
+                MGConfiguration.key: [MGConfiguration.Attributes.key: try JSONEncoder().encode(attributes)]
             ]
         )
-        let destinationURL = directoryURL.appending(component: "config.\(format.rawValue)")
+        let destinationURL = folderURL.appending(component: "config.\(format.rawValue)")
         try FileManager.default.copyItem(at: fileURL, to: destinationURL)
     }
 }
