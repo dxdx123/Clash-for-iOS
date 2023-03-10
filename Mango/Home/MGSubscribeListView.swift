@@ -30,13 +30,17 @@ struct MGSubscribeListView: View {
                         return
                     }
                     current.wrappedValue = item.id
-                    switch tunnel.kernel {
-                    case .clash:
-                        MGKernel.Clash.set(manager: tunnel, subscribe: item.id)
-                    case .xray:
-                        break
-                    }
                     dismiss()
+                    guard let status = tunnel.status, status == .connected else {
+                        return
+                    }
+                    tunnel.stop()
+                    Task(priority: .userInitiated) {
+                        do {
+                            try await Task.sleep(for: .milliseconds(500))
+                            try await tunnel.start()
+                        } catch {}
+                    }
                 } label: {
                     HStack(alignment: .center, spacing: 8) {
                         VStack(alignment: .leading, spacing: 4) {

@@ -27,6 +27,16 @@
 		7069E00C29ADE79C0012C435 /* XrayKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7069E00B29ADE79C0012C435 /* XrayKit */; };
 		7069E01F29ADEAA30012C435 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9093299FA40600B83324 /* PacketTunnelProvider.swift */; };
 		7069E02029ADEABF0012C435 /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7072264429A46C6100A38837 /* libresolv.9.tbd */; };
+		706DB6B929B9DFBC002F22C7 /* MGConfigurationFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6B829B9DFBC002F22C7 /* MGConfigurationFormat.swift */; };
+		706DB6BB29B9DFCE002F22C7 /* MGConfigurationLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6BA29B9DFCE002F22C7 /* MGConfigurationLocation.swift */; };
+		706DB6BD29B9DFE3002F22C7 /* MGConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6BC29B9DFE3002F22C7 /* MGConfiguration.swift */; };
+		706DB6C129B9E006002F22C7 /* MGConfigurationDownloadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6C029B9E006002F22C7 /* MGConfigurationDownloadViewModel.swift */; };
+		706DB6C329B9E04B002F22C7 /* MGConfigurationDownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6C229B9E04B002F22C7 /* MGConfigurationDownloadView.swift */; };
+		706DB6C729BAC4C7002F22C7 /* MGConfigurationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6C629BAC4C7002F22C7 /* MGConfigurationListView.swift */; };
+		706DB6C929BACC14002F22C7 /* MGConfigurationListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6C829BACC14002F22C7 /* MGConfigurationListManager.swift */; };
+		706DB6CB29BAE954002F22C7 /* MGConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6CA29BAE954002F22C7 /* MGConfigurationView.swift */; };
+		706DB6CC29BAEE38002F22C7 /* MGConfigurationFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6B829B9DFBC002F22C7 /* MGConfigurationFormat.swift */; };
+		706DB6CD29BAEE38002F22C7 /* MGConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6BC29B9DFE3002F22C7 /* MGConfiguration.swift */; };
 		7072264329A4648000A38837 /* ClashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7072264229A4648000A38837 /* ClashKit */; };
 		7084FC1D295ECBC900065DAF /* MGAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* MGAppMessage.swift */; };
 		7084FC1E295ECBC900065DAF /* MGAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* MGAppMessage.swift */; };
@@ -42,23 +52,16 @@
 		708A48E3296299640040184C /* MGProxyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E2296299640040184C /* MGProxyListView.swift */; };
 		708A48EA2962AA2B0040184C /* MGAppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E92962AA2B0040184C /* MGAppearanceView.swift */; };
 		708A48EC2962AD740040184C /* MGAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48EB2962AD740040184C /* MGAppearance.swift */; };
-		708B37DE29B034BD00E24312 /* TunnelKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 708B37DD29B034BD00E24312 /* TunnelKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		708B37E129B034BD00E24312 /* TunnelKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B37DB29B034BD00E24312 /* TunnelKit.framework */; };
-		708B37E229B034BD00E24312 /* TunnelKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 708B37DB29B034BD00E24312 /* TunnelKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		708B37EA29B034EA00E24312 /* TunnelKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B37DB29B034BD00E24312 /* TunnelKit.framework */; };
-		708B37EB29B034EA00E24312 /* TunnelKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 708B37DB29B034BD00E24312 /* TunnelKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		708B37EF29B034F000E24312 /* TunnelKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B37DB29B034BD00E24312 /* TunnelKit.framework */; };
-		708B37F029B034F000E24312 /* TunnelKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 708B37DB29B034BD00E24312 /* TunnelKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		708B37F529B0358C00E24312 /* Tunnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B37F429B0358C00E24312 /* Tunnel.swift */; };
-		708B37FA29B036C500E24312 /* Tun2SocksKit in Frameworks */ = {isa = PBXBuildFile; productRef = 708B37F929B036C500E24312 /* Tun2SocksKit */; };
-		708B37FC29B03E6400E24312 /* MGPacketTunnelProvide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B37FB29B03E6400E24312 /* MGPacketTunnelProvide.swift */; };
-		708B37FD29B0407100E24312 /* MGNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MGNotification.swift */; };
 		708B37FE29B06A5C00E24312 /* MGLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC2F2965872200065DAF /* MGLogLevel.swift */; };
-		708B380029B06EB600E24312 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B37FF29B06EB600E24312 /* Configuration.swift */; };
 		708B380329B0937600E24312 /* MGSniffingSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B380229B0937600E24312 /* MGSniffingSettingView.swift */; };
-		708B380429B0A32F00E24312 /* MGConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CEB89229A0C7BA003436C2 /* MGConstant.swift */; };
 		708B380629B0AA4200E24312 /* MGGEOAssetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B380529B0AA4200E24312 /* MGGEOAssetViewModel.swift */; };
 		708B380829B0AA6200E24312 /* MGGEOAssetSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B380729B0AA6200E24312 /* MGGEOAssetSettingView.swift */; };
+		708B385B29B81CEB00E24312 /* Tun2SocksKit in Frameworks */ = {isa = PBXBuildFile; productRef = 708B385A29B81CEB00E24312 /* Tun2SocksKit */; };
+		708B385D29B81D3D00E24312 /* MGPacketTunnelProvide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B37FB29B03E6400E24312 /* MGPacketTunnelProvide.swift */; };
+		708B385E29B81D3E00E24312 /* Tunnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B37F429B0358C00E24312 /* Tunnel.swift */; };
+		708B385F29B81D3E00E24312 /* MGPacketTunnelProvide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B37FB29B03E6400E24312 /* MGPacketTunnelProvide.swift */; };
+		708B386029B81DDA00E24312 /* MGNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MGNotification.swift */; };
+		708B386129B81DDB00E24312 /* MGNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MGNotification.swift */; };
 		70B947A9295F302B006F6A38 /* Clash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947A8295F302B006F6A38 /* Clash.swift */; };
 		70B947AF29612F46006F6A38 /* MGSubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947AE29612F46006F6A38 /* MGSubscribeView.swift */; };
 		70B947B129613321006F6A38 /* MGSubscribeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B029613321006F6A38 /* MGSubscribeManager.swift */; };
@@ -92,27 +95,6 @@
 			remoteGlobalIDString = 702D908F299FA40600B83324;
 			remoteInfo = XrayTunnel;
 		};
-		708B37E629B034D400E24312 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 70C9ED8D29501D5B00B6995B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 708B37DA29B034BD00E24312;
-			remoteInfo = TunnelKit;
-		};
-		708B37E829B034D800E24312 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 70C9ED8D29501D5B00B6995B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 708B37DA29B034BD00E24312;
-			remoteInfo = TunnelKit;
-		};
-		708B37F129B034F000E24312 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 70C9ED8D29501D5B00B6995B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 708B37DA29B034BD00E24312;
-			remoteInfo = TunnelKit;
-		};
 		70C9EDB329502C6500B6995B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 70C9ED8D29501D5B00B6995B /* Project object */;
@@ -129,7 +111,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				708B37E229B034BD00E24312 /* TunnelKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,7 +121,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				708B37EB29B034EA00E24312 /* TunnelKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,7 +131,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				708B37F029B034F000E24312 /* TunnelKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,6 +168,14 @@
 		702D9095299FA40600B83324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		702D9096299FA40600B83324 /* XrayTunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XrayTunnel.entitlements; sourceTree = "<group>"; };
 		7061581529695E6A0005C024 /* MGFormPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGFormPicker.swift; sourceTree = "<group>"; };
+		706DB6B829B9DFBC002F22C7 /* MGConfigurationFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConfigurationFormat.swift; sourceTree = "<group>"; };
+		706DB6BA29B9DFCE002F22C7 /* MGConfigurationLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConfigurationLocation.swift; sourceTree = "<group>"; };
+		706DB6BC29B9DFE3002F22C7 /* MGConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConfiguration.swift; sourceTree = "<group>"; };
+		706DB6C029B9E006002F22C7 /* MGConfigurationDownloadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConfigurationDownloadViewModel.swift; sourceTree = "<group>"; };
+		706DB6C229B9E04B002F22C7 /* MGConfigurationDownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConfigurationDownloadView.swift; sourceTree = "<group>"; };
+		706DB6C629BAC4C7002F22C7 /* MGConfigurationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConfigurationListView.swift; sourceTree = "<group>"; };
+		706DB6C829BACC14002F22C7 /* MGConfigurationListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConfigurationListManager.swift; sourceTree = "<group>"; };
+		706DB6CA29BAE954002F22C7 /* MGConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConfigurationView.swift; sourceTree = "<group>"; };
 		7072264429A46C6100A38837 /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
 		7084FC1C295ECBC900065DAF /* MGAppMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGAppMessage.swift; sourceTree = "<group>"; };
 		7084FC1F295ECC7400065DAF /* MGTunnelMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTunnelMode.swift; sourceTree = "<group>"; };
@@ -203,11 +190,8 @@
 		708A48E2296299640040184C /* MGProxyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGProxyListView.swift; sourceTree = "<group>"; };
 		708A48E92962AA2B0040184C /* MGAppearanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGAppearanceView.swift; sourceTree = "<group>"; };
 		708A48EB2962AD740040184C /* MGAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGAppearance.swift; sourceTree = "<group>"; };
-		708B37DB29B034BD00E24312 /* TunnelKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TunnelKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		708B37DD29B034BD00E24312 /* TunnelKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TunnelKit.h; sourceTree = "<group>"; };
 		708B37F429B0358C00E24312 /* Tunnel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tunnel.swift; sourceTree = "<group>"; };
 		708B37FB29B03E6400E24312 /* MGPacketTunnelProvide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPacketTunnelProvide.swift; sourceTree = "<group>"; };
-		708B37FF29B06EB600E24312 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		708B380229B0937600E24312 /* MGSniffingSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSniffingSettingView.swift; sourceTree = "<group>"; };
 		708B380529B0AA4200E24312 /* MGGEOAssetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGGEOAssetViewModel.swift; sourceTree = "<group>"; };
 		708B380729B0AA6200E24312 /* MGGEOAssetSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGGEOAssetSettingView.swift; sourceTree = "<group>"; };
@@ -241,18 +225,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				708B37EA29B034EA00E24312 /* TunnelKit.framework in Frameworks */,
 				7069E00C29ADE79C0012C435 /* XrayKit in Frameworks */,
 				7069E02029ADEABF0012C435 /* libresolv.9.tbd in Frameworks */,
+				708B385B29B81CEB00E24312 /* Tun2SocksKit in Frameworks */,
 				702D9091299FA40600B83324 /* NetworkExtension.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		708B37D829B034BD00E24312 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				708B37FA29B036C500E24312 /* Tun2SocksKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +236,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				708B37E129B034BD00E24312 /* TunnelKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,7 +245,6 @@
 			files = (
 				70C9EDAD29502C6500B6995B /* NetworkExtension.framework in Frameworks */,
 				7072264329A4648000A38837 /* ClashKit in Frameworks */,
-				708B37EF29B034F000E24312 /* TunnelKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,12 +272,41 @@
 		702D9092299FA40600B83324 /* XrayTunnel */ = {
 			isa = PBXGroup;
 			children = (
-				708B37FF29B06EB600E24312 /* Configuration.swift */,
 				702D9093299FA40600B83324 /* PacketTunnelProvider.swift */,
 				702D9095299FA40600B83324 /* Info.plist */,
 				702D9096299FA40600B83324 /* XrayTunnel.entitlements */,
 			);
 			path = XrayTunnel;
+			sourceTree = "<group>";
+		};
+		706DB6B729B9DFAB002F22C7 /* Subscribe */ = {
+			isa = PBXGroup;
+			children = (
+				706DB6BC29B9DFE3002F22C7 /* MGConfiguration.swift */,
+				706DB6B829B9DFBC002F22C7 /* MGConfigurationFormat.swift */,
+				706DB6BA29B9DFCE002F22C7 /* MGConfigurationLocation.swift */,
+				706DB6C529BAC4AE002F22C7 /* List */,
+				706DB6C429BAC457002F22C7 /* Download */,
+			);
+			path = Subscribe;
+			sourceTree = "<group>";
+		};
+		706DB6C429BAC457002F22C7 /* Download */ = {
+			isa = PBXGroup;
+			children = (
+				706DB6C029B9E006002F22C7 /* MGConfigurationDownloadViewModel.swift */,
+				706DB6C229B9E04B002F22C7 /* MGConfigurationDownloadView.swift */,
+			);
+			path = Download;
+			sourceTree = "<group>";
+		};
+		706DB6C529BAC4AE002F22C7 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				706DB6C629BAC4C7002F22C7 /* MGConfigurationListView.swift */,
+				706DB6C829BACC14002F22C7 /* MGConfigurationListManager.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 		7074B14529A7207B00CBB919 /* Clash */ = {
@@ -339,14 +342,13 @@
 			path = Clash;
 			sourceTree = "<group>";
 		};
-		708B37DC29B034BD00E24312 /* TunnelKit */ = {
+		708B37DC29B034BD00E24312 /* Tunnel */ = {
 			isa = PBXGroup;
 			children = (
-				708B37DD29B034BD00E24312 /* TunnelKit.h */,
 				708B37F429B0358C00E24312 /* Tunnel.swift */,
 				708B37FB29B03E6400E24312 /* MGPacketTunnelProvide.swift */,
 			);
-			path = TunnelKit;
+			path = Tunnel;
 			sourceTree = "<group>";
 		};
 		708B380129B0936C00E24312 /* Xray */ = {
@@ -373,7 +375,7 @@
 				7084FC242963FB8A00065DAF /* Config.xcconfig */,
 				70C9EDCF295145DB00B6995B /* Shared */,
 				70C9ED9729501D5B00B6995B /* Mango */,
-				708B37DC29B034BD00E24312 /* TunnelKit */,
+				708B37DC29B034BD00E24312 /* Tunnel */,
 				70C9EDAE29502C6500B6995B /* ClashTunnel */,
 				702D9092299FA40600B83324 /* XrayTunnel */,
 				70C9EDAB29502C6500B6995B /* Frameworks */,
@@ -387,7 +389,6 @@
 				70C9ED9529501D5B00B6995B /* Mango.app */,
 				70C9EDAA29502C6500B6995B /* ClashTunnel.appex */,
 				702D9090299FA40600B83324 /* XrayTunnel.appex */,
-				708B37DB29B034BD00E24312 /* TunnelKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -401,6 +402,7 @@
 				7061581529695E6A0005C024 /* MGFormPicker.swift */,
 				70DE0D6D29A6155C00B3E343 /* MGPresentedButton.swift */,
 				70DE0D7129A62C4100B3E343 /* Home */,
+				706DB6B729B9DFAB002F22C7 /* Subscribe */,
 				70DE0D7629A6300100B3E343 /* Setting */,
 				70C9EDBA29502CF000B6995B /* Core */,
 				70C9ED9C29501D5C00B6995B /* Assets.xcassets */,
@@ -471,6 +473,7 @@
 				7000C6DD295D5F690005626E /* MGConnectedDurationView.swift */,
 				70B947AE29612F46006F6A38 /* MGSubscribeView.swift */,
 				70C9EDD92951841E00B6995B /* MGSubscribeListView.swift */,
+				706DB6CA29BAE954002F22C7 /* MGConfigurationView.swift */,
 				7074B14529A7207B00CBB919 /* Clash */,
 			);
 			path = Home;
@@ -492,17 +495,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		708B37D629B034BD00E24312 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				708B37DE29B034BD00E24312 /* TunnelKit.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		702D908F299FA40600B83324 /* XrayTunnel */ = {
 			isa = PBXNativeTarget;
@@ -516,36 +508,15 @@
 			buildRules = (
 			);
 			dependencies = (
-				708B37E929B034D800E24312 /* PBXTargetDependency */,
 			);
 			name = XrayTunnel;
 			packageProductDependencies = (
 				7069E00B29ADE79C0012C435 /* XrayKit */,
+				708B385A29B81CEB00E24312 /* Tun2SocksKit */,
 			);
 			productName = XrayTunnel;
 			productReference = 702D9090299FA40600B83324 /* XrayTunnel.appex */;
 			productType = "com.apple.product-type.app-extension";
-		};
-		708B37DA29B034BD00E24312 /* TunnelKit */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 708B37E329B034BD00E24312 /* Build configuration list for PBXNativeTarget "TunnelKit" */;
-			buildPhases = (
-				708B37D629B034BD00E24312 /* Headers */,
-				708B37D729B034BD00E24312 /* Sources */,
-				708B37D829B034BD00E24312 /* Frameworks */,
-				708B37D929B034BD00E24312 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = TunnelKit;
-			packageProductDependencies = (
-				708B37F929B036C500E24312 /* Tun2SocksKit */,
-			);
-			productName = TunnelKit;
-			productReference = 708B37DB29B034BD00E24312 /* TunnelKit.framework */;
-			productType = "com.apple.product-type.framework";
 		};
 		70C9ED9429501D5B00B6995B /* Mango */ = {
 			isa = PBXNativeTarget;
@@ -582,8 +553,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				708B37E729B034D400E24312 /* PBXTargetDependency */,
-				708B37F229B034F000E24312 /* PBXTargetDependency */,
 			);
 			name = ClashTunnel;
 			packageProductDependencies = (
@@ -605,10 +574,6 @@
 				TargetAttributes = {
 					702D908F299FA40600B83324 = {
 						CreatedOnToolsVersion = 14.1;
-					};
-					708B37DA29B034BD00E24312 = {
-						CreatedOnToolsVersion = 14.1;
-						LastSwiftMigration = 1410;
 					};
 					70C9ED9429501D5B00B6995B = {
 						CreatedOnToolsVersion = 14.1;
@@ -636,7 +601,6 @@
 			projectRoot = "";
 			targets = (
 				70C9ED9429501D5B00B6995B /* Mango */,
-				708B37DA29B034BD00E24312 /* TunnelKit */,
 				70C9EDA929502C6500B6995B /* ClashTunnel */,
 				702D908F299FA40600B83324 /* XrayTunnel */,
 			);
@@ -645,13 +609,6 @@
 
 /* Begin PBXResourcesBuildPhase section */
 		702D908E299FA40600B83324 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		708B37D929B034BD00E24312 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -681,23 +638,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				708B380029B06EB600E24312 /* Configuration.swift in Sources */,
+				708B385F29B81D3E00E24312 /* MGPacketTunnelProvide.swift in Sources */,
 				708B37FE29B06A5C00E24312 /* MGLogLevel.swift in Sources */,
 				7069E01F29ADEAA30012C435 /* PacketTunnelProvider.swift in Sources */,
 				70CEB89929A30C79003436C2 /* MGConstant.swift in Sources */,
+				706DB6CD29BAEE38002F22C7 /* MGConfiguration.swift in Sources */,
 				701811DD29A32E28005E5CDB /* MGConstant+Xray.swift in Sources */,
 				70DE0D6C29A611E100B3E343 /* MGKernel.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		708B37D729B034BD00E24312 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				708B37F529B0358C00E24312 /* Tunnel.swift in Sources */,
-				708B380429B0A32F00E24312 /* MGConstant.swift in Sources */,
-				708B37FC29B03E6400E24312 /* MGPacketTunnelProvide.swift in Sources */,
-				708B37FD29B0407100E24312 /* MGNotification.swift in Sources */,
+				708B385E29B81D3E00E24312 /* Tunnel.swift in Sources */,
+				706DB6CC29BAEE38002F22C7 /* MGConfigurationFormat.swift in Sources */,
+				708B386129B81DDB00E24312 /* MGNotification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,6 +656,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				702D908A299B58A400B83324 /* MGNotification.swift in Sources */,
+				706DB6C929BACC14002F22C7 /* MGConfigurationListManager.swift in Sources */,
+				706DB6BB29B9DFCE002F22C7 /* MGConfigurationLocation.swift in Sources */,
 				70DE0D7329A62C4E00B3E343 /* MGHomeView.swift in Sources */,
 				70C9EDDA2951841E00B6995B /* MGSubscribeListView.swift in Sources */,
 				7084FC20295ECC7400065DAF /* MGTunnelMode.swift in Sources */,
@@ -714,11 +666,13 @@
 				7000C6E0295D60A50005626E /* MGTunnelModeView.swift in Sources */,
 				70C9EDD82951587D00B6995B /* MGResetView.swift in Sources */,
 				7084FC302965872200065DAF /* MGLogLevel.swift in Sources */,
+				706DB6CB29BAE954002F22C7 /* MGConfigurationView.swift in Sources */,
 				7084FC382967DB7300065DAF /* MGGEOIPView.swift in Sources */,
 				70B947B129613321006F6A38 /* MGSubscribeManager.swift in Sources */,
 				701811D929A32D6C005E5CDB /* MGConstant+Clash.swift in Sources */,
 				7000C6D6295AED790005626E /* MGProvidersManager.swift in Sources */,
 				7084FC362967B8AC00065DAF /* MGGeoIPSettingView.swift in Sources */,
+				706DB6BD29B9DFE3002F22C7 /* MGConfiguration.swift in Sources */,
 				70B947AF29612F46006F6A38 /* MGSubscribeView.swift in Sources */,
 				7084FC3A2967E6FD00065DAF /* MGGEOIPManager.swift in Sources */,
 				70DE0D7829A6306100B3E343 /* MGSettingView.swift in Sources */,
@@ -726,14 +680,18 @@
 				70DE0D6E29A6155C00B3E343 /* MGPresentedButton.swift in Sources */,
 				708A48EC2962AD740040184C /* MGAppearance.swift in Sources */,
 				7000C6DA295AED790005626E /* MGUpdatableViewModel.swift in Sources */,
+				706DB6B929B9DFBC002F22C7 /* MGConfigurationFormat.swift in Sources */,
 				708B380629B0AA4200E24312 /* MGGEOAssetViewModel.swift in Sources */,
+				706DB6C329B9E04B002F22C7 /* MGConfigurationDownloadView.swift in Sources */,
 				7084FC1D295ECBC900065DAF /* MGAppMessage.swift in Sources */,
 				70DE0D6A29A611E100B3E343 /* MGKernel.swift in Sources */,
 				7000C6E4295D635F0005626E /* MGControlView.swift in Sources */,
+				706DB6C729BAC4C7002F22C7 /* MGConfigurationListView.swift in Sources */,
 				7000C6D8295AED790005626E /* MGProxyModel.swift in Sources */,
 				708A48EA2962AA2B0040184C /* MGAppearanceView.swift in Sources */,
 				70CEB89329A0C7BA003436C2 /* MGConstant.swift in Sources */,
 				7061581629695E6A0005C024 /* MGFormPicker.swift in Sources */,
+				706DB6C129B9E006002F22C7 /* MGConfigurationDownloadViewModel.swift in Sources */,
 				701811DC29A32D7A005E5CDB /* MGConstant+Xray.swift in Sources */,
 				702D9087299B2B4500B83324 /* MGIPV6View.swift in Sources */,
 				7000C6D9295AED790005626E /* MGProviderViewModel.swift in Sources */,
@@ -758,7 +716,9 @@
 				70CEB89829A30C79003436C2 /* MGConstant.swift in Sources */,
 				70B947A9295F302B006F6A38 /* Clash.swift in Sources */,
 				7084FC1E295ECBC900065DAF /* MGAppMessage.swift in Sources */,
+				708B385D29B81D3D00E24312 /* MGPacketTunnelProvide.swift in Sources */,
 				701811DA29A32D71005E5CDB /* MGConstant+Clash.swift in Sources */,
+				708B386029B81DDA00E24312 /* MGNotification.swift in Sources */,
 				7084FC21295ECC7400065DAF /* MGTunnelMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -770,21 +730,6 @@
 			isa = PBXTargetDependency;
 			target = 702D908F299FA40600B83324 /* XrayTunnel */;
 			targetProxy = 702D9097299FA40600B83324 /* PBXContainerItemProxy */;
-		};
-		708B37E729B034D400E24312 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 708B37DA29B034BD00E24312 /* TunnelKit */;
-			targetProxy = 708B37E629B034D400E24312 /* PBXContainerItemProxy */;
-		};
-		708B37E929B034D800E24312 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 708B37DA29B034BD00E24312 /* TunnelKit */;
-			targetProxy = 708B37E829B034D800E24312 /* PBXContainerItemProxy */;
-		};
-		708B37F229B034F000E24312 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 708B37DA29B034BD00E24312 /* TunnelKit */;
-			targetProxy = 708B37F129B034F000E24312 /* PBXContainerItemProxy */;
 		};
 		70C9EDB429502C6500B6995B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -843,67 +788,6 @@
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		708B37E429B034BD00E24312 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Arror.TunnelKit;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		708B37E529B034BD00E24312 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Arror.TunnelKit;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -1153,15 +1037,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		708B37E329B034BD00E24312 /* Build configuration list for PBXNativeTarget "TunnelKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				708B37E429B034BD00E24312 /* Debug */,
-				708B37E529B034BD00E24312 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		70C9ED9029501D5B00B6995B /* Build configuration list for PBXProject "Mango" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1197,7 +1072,7 @@
 			repositoryURL = "https://github.com/daemooon/XrayKit.git";
 			requirement = {
 				kind = exactVersion;
-				version = 0.1.18;
+				version = 0.1.30;
 			};
 		};
 		7072264129A4647F00A38837 /* XCRemoteSwiftPackageReference "ClashKit" */ = {
@@ -1213,7 +1088,7 @@
 			repositoryURL = "https://github.com/daemooon/Tun2SocksKit.git";
 			requirement = {
 				kind = exactVersion;
-				version = 2.0.2;
+				version = 2.1.6;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1229,7 +1104,7 @@
 			package = 7072264129A4647F00A38837 /* XCRemoteSwiftPackageReference "ClashKit" */;
 			productName = ClashKit;
 		};
-		708B37F929B036C500E24312 /* Tun2SocksKit */ = {
+		708B385A29B81CEB00E24312 /* Tun2SocksKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 708B37F829B036C500E24312 /* XCRemoteSwiftPackageReference "Tun2SocksKit" */;
 			productName = Tun2SocksKit;

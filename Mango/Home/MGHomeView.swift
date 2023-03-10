@@ -16,13 +16,17 @@ struct MGHomeView: View {
             Group {
                 if let managers = viewModel.managers, !viewModel.isProcessing {
                     Form {
-                        Section {
-                            MGSubscribeView(current: managers.subscribe.current)
-                        } header: {
-                            switch kernel {
-                            case .clash:
+                        switch kernel {
+                        case .clash:
+                            Section {
+                                MGSubscribeView(current: managers.subscribe.current)
+                            } header: {
                                 Text("订阅")
-                            case .xray:
+                            }
+                        case .xray:
+                            Section {
+                                MGConfigurationView()
+                            } header: {
                                 Text("配置")
                             }
                         }
