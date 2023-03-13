@@ -30,12 +30,6 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
         let port = XrayGetAvailablePort()
         let base = """
         {
-            "log": {
-                "access": "none",
-                "error": "none",
-                "loglevel": "none",
-                "dnsLog": false
-            },
             "inbounds": [
                 {
                     "listen": "[::1]",
@@ -46,12 +40,6 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
                     },
                     "tag": "socks-in",
                     "port": \(port)
-                }
-            ],
-            "outbounds": [
-                {
-                    "protocol": "freedom",
-                    "tag": "direct"
                 }
             ]
         }
