@@ -22,6 +22,10 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
         }
         let attributes = try JSONDecoder().decode(MGConfiguration.Attributes.self, from: data)
         let fileURL = folderURL.appending(component: "config.\(attributes.format.rawValue)")
+        XraySetAccessLogEnable(false)
+        XraySetDNSLogEnable(false)
+        XraySetErrorLogSeverity(4)
+        XraySetLogger(self)
         XraySetAsset(MGKernel.xray.assetDirectory.path(percentEncoded: false), nil)
         let port = XrayGetAvailablePort()
         let base = """
@@ -53,7 +57,7 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
         }
         """
         var error: NSError? = nil
-        XrayRun(base, fileURL.path(percentEncoded: false), self, &error)
+        XrayRun(base, fileURL.path(percentEncoded: false), &error)
         try error.flatMap { throw $0 }
         try Tunnel.start(port: port)
     }
@@ -68,7 +72,7 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
     
     func onGeneralMessage(_ severity: String?, message: String?) {
         let level = severity.flatMap({ MGLogLevel(rawValue: $0.lowercased()) }) ?? .silent
-        guard level >= logLevel, let message = message, !message.isEmpty else {
+        guard let message = message, !message.isEmpty else {
             return
         }
         switch level {
