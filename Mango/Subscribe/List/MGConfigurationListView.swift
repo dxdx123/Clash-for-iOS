@@ -101,7 +101,7 @@ struct MGConfigurationListView: View {
                 }
             }
             .sheet(isPresented: $isDownloadViewPresented) {
-                MGConfigurationDownloadView()
+                MGConfigurationLoadView()
             }
         }
     }

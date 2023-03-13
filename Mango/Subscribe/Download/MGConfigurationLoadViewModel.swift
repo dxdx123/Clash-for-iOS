@@ -1,6 +1,6 @@
 import Foundation
 
-final class MGConfigurationDownloadViewModel: ObservableObject {
+final class MGConfigurationLoadViewModel: ObservableObject {
     
     @Published var location:   MGConfigurationLocation   = .remote
     @Published var format:     MGConfigurationFormat     = .json

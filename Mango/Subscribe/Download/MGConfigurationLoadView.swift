@@ -1,12 +1,12 @@
 import SwiftUI
 
-struct MGConfigurationDownloadView: View {
+struct MGConfigurationLoadView: View {
     
     @Environment(\.dismiss) private var dismiss
     
     @EnvironmentObject private var configurationListManager: MGConfigurationListManager
     
-    @StateObject private var vm = MGConfigurationDownloadViewModel()
+    @StateObject private var vm = MGConfigurationLoadViewModel()
     
     @State private var isFileImporterPresented: Bool = false
     
