@@ -26,7 +26,6 @@
 		7061581629695E6A0005C024 /* MGFormPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061581529695E6A0005C024 /* MGFormPicker.swift */; };
 		7069E00C29ADE79C0012C435 /* XrayKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7069E00B29ADE79C0012C435 /* XrayKit */; };
 		7069E01F29ADEAA30012C435 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9093299FA40600B83324 /* PacketTunnelProvider.swift */; };
-		7069E02029ADEABF0012C435 /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7072264429A46C6100A38837 /* libresolv.9.tbd */; };
 		706DB6B929B9DFBC002F22C7 /* MGConfigurationFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6B829B9DFBC002F22C7 /* MGConfigurationFormat.swift */; };
 		706DB6BB29B9DFCE002F22C7 /* MGConfigurationLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6BA29B9DFCE002F22C7 /* MGConfigurationLocation.swift */; };
 		706DB6BD29B9DFE3002F22C7 /* MGConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6BC29B9DFE3002F22C7 /* MGConfiguration.swift */; };
@@ -37,6 +36,7 @@
 		706DB6CB29BAE954002F22C7 /* MGConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6CA29BAE954002F22C7 /* MGConfigurationView.swift */; };
 		706DB6CC29BAEE38002F22C7 /* MGConfigurationFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6B829B9DFBC002F22C7 /* MGConfigurationFormat.swift */; };
 		706DB6CD29BAEE38002F22C7 /* MGConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706DB6BC29B9DFE3002F22C7 /* MGConfiguration.swift */; };
+		706DB6CF29BEDF0B002F22C7 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 706DB6CE29BEDEFC002F22C7 /* libresolv.tbd */; };
 		7072264329A4648000A38837 /* ClashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7072264229A4648000A38837 /* ClashKit */; };
 		7084FC1D295ECBC900065DAF /* MGAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* MGAppMessage.swift */; };
 		7084FC1E295ECBC900065DAF /* MGAppMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC1C295ECBC900065DAF /* MGAppMessage.swift */; };
@@ -176,7 +176,7 @@
 		706DB6C629BAC4C7002F22C7 /* MGConfigurationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConfigurationListView.swift; sourceTree = "<group>"; };
 		706DB6C829BACC14002F22C7 /* MGConfigurationListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConfigurationListManager.swift; sourceTree = "<group>"; };
 		706DB6CA29BAE954002F22C7 /* MGConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConfigurationView.swift; sourceTree = "<group>"; };
-		7072264429A46C6100A38837 /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
+		706DB6CE29BEDEFC002F22C7 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		7084FC1C295ECBC900065DAF /* MGAppMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGAppMessage.swift; sourceTree = "<group>"; };
 		7084FC1F295ECC7400065DAF /* MGTunnelMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGTunnelMode.swift; sourceTree = "<group>"; };
 		7084FC242963FB8A00065DAF /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -225,8 +225,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				706DB6CF29BEDF0B002F22C7 /* libresolv.tbd in Frameworks */,
 				7069E00C29ADE79C0012C435 /* XrayKit in Frameworks */,
-				7069E02029ADEABF0012C435 /* libresolv.9.tbd in Frameworks */,
 				708B385B29B81CEB00E24312 /* Tun2SocksKit in Frameworks */,
 				702D9091299FA40600B83324 /* NetworkExtension.framework in Frameworks */,
 			);
@@ -423,7 +423,7 @@
 		70C9EDAB29502C6500B6995B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7072264429A46C6100A38837 /* libresolv.9.tbd */,
+				706DB6CE29BEDEFC002F22C7 /* libresolv.tbd */,
 				70C9EDAC29502C6500B6995B /* NetworkExtension.framework */,
 			);
 			name = Frameworks;
@@ -1072,7 +1072,7 @@
 			repositoryURL = "https://github.com/daemooon/XrayKit.git";
 			requirement = {
 				kind = exactVersion;
-				version = 0.1.30;
+				version = 0.1.33;
 			};
 		};
 		7072264129A4647F00A38837 /* XCRemoteSwiftPackageReference "ClashKit" */ = {
