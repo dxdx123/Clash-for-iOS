@@ -28,24 +28,20 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
         XraySetLogger(self)
         XraySetAsset(MGKernel.xray.assetDirectory.path(percentEncoded: false), nil)
         let port = XrayGetAvailablePort()
-        let base = """
+        let inbound = """
         {
-            "inbounds": [
-                {
-                    "listen": "[::1]",
-                    "protocol": "socks",
-                    "settings": {
-                        "udp": true,
-                        "auth": "noauth"
-                    },
-                    "tag": "socks-in",
-                    "port": \(port)
-                }
-            ]
+            "listen": "[::1]",
+            "protocol": "socks",
+            "settings": {
+                "udp": true,
+                "auth": "noauth"
+            },
+            "tag": "socks-in",
+            "port": \(port)
         }
         """
         var error: NSError? = nil
-        XrayRun(base, fileURL.path(percentEncoded: false), &error)
+        XrayRun(inbound, fileURL.path(percentEncoded: false), &error)
         try error.flatMap { throw $0 }
         try Tunnel.start(port: port)
     }
