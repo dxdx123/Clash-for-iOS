@@ -25,9 +25,7 @@ public enum Tunnel {
         let file = cache.appending(component: "\(UUID().uuidString).yml", directoryHint: .notDirectory)
         try config.write(to: file, atomically: true, encoding: .utf8)
         DispatchQueue.global(qos: .userInitiated).async {
-            DispatchQueue.global(qos: .userInitiated).async {
-                NSLog("HEV_SOCKS5_TUNNEL_MAIN: \(Socks5Tunnel.run(withConfig: file.path(percentEncoded: false)))")
-            }
+            NSLog("HEV_SOCKS5_TUNNEL_MAIN: \(Socks5Tunnel.run(withConfig: file.path(percentEncoded: false)))")
         }
     }
 }
