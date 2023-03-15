@@ -28,6 +28,7 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
         XraySetLogger(self)
         XraySetAsset(MGKernel.xray.assetDirectory.path(percentEncoded: false), nil)
         let port = XrayGetAvailablePort()
+        let sniffing = MGSniffingModel.current
         let inbound = """
         {
             "listen": "[::1]",
@@ -37,9 +38,17 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
                 "auth": "noauth"
             },
             "tag": "socks-in",
-            "port": \(port)
+            "port": \(port),
+            "sniffing": {
+                "enabled": \(sniffing.enabled ? "true" : "false"),
+                "destOverride": [\(sniffing.destOverrideString)],
+                "metadataOnly": \(sniffing.metadataOnly ? "true" : "false"),
+                "domainsExcluded": [\(sniffing.domainsExcludedString)],
+                "routeOnly": \(sniffing.routeOnly ? "true" : "false")
+            }
         }
         """
+        NSLog(inbound)
         var error: NSError? = nil
         XrayRun(inbound, fileURL.path(percentEncoded: false), &error)
         try error.flatMap { throw $0 }
@@ -71,5 +80,32 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
         case .silent:
             break
         }
+    }
+}
+
+extension MGSniffingModel {
+    
+    var domainsExcludedString: String {
+        return self.excludedDomains.map({ "\"\($0)\"" }).joined(separator: ", ")
+    }
+    
+    var destOverrideString: String {
+        var temp: [String] = []
+        if self.httpEnabled {
+            temp.append("http")
+        }
+        if self.tlsEnabled {
+            temp.append("tls")
+        }
+        if self.quicEnabled {
+            temp.append("quic")
+        }
+        if self.fakednsEnabled {
+            temp.append("fakedns")
+        }
+        if temp.count == 4 {
+            temp = ["fakedns+others"]
+        }
+        return temp.map({ "\"\($0)\"" }).joined(separator: ", ")
     }
 }

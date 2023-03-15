@@ -62,6 +62,10 @@
 		708B385F29B81D3E00E24312 /* MGPacketTunnelProvide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B37FB29B03E6400E24312 /* MGPacketTunnelProvide.swift */; };
 		708B386029B81DDA00E24312 /* MGNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MGNotification.swift */; };
 		708B386129B81DDB00E24312 /* MGNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MGNotification.swift */; };
+		70B89C1B29C17C06003DA577 /* MGSniffingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B89C1A29C17C06003DA577 /* MGSniffingViewModel.swift */; };
+		70B89C1E29C17C29003DA577 /* MGSniffingEntranceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B89C1D29C17C29003DA577 /* MGSniffingEntranceView.swift */; };
+		70B89C2029C17EE2003DA577 /* MGSniffingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B89C1F29C17EE2003DA577 /* MGSniffingModel.swift */; };
+		70B89C2129C17EE2003DA577 /* MGSniffingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B89C1F29C17EE2003DA577 /* MGSniffingModel.swift */; };
 		70B947A9295F302B006F6A38 /* Clash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947A8295F302B006F6A38 /* Clash.swift */; };
 		70B947AF29612F46006F6A38 /* MGSubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947AE29612F46006F6A38 /* MGSubscribeView.swift */; };
 		70B947B129613321006F6A38 /* MGSubscribeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B029613321006F6A38 /* MGSubscribeManager.swift */; };
@@ -195,6 +199,9 @@
 		708B380229B0937600E24312 /* MGSniffingSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSniffingSettingView.swift; sourceTree = "<group>"; };
 		708B380529B0AA4200E24312 /* MGGEOAssetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGGEOAssetViewModel.swift; sourceTree = "<group>"; };
 		708B380729B0AA6200E24312 /* MGGEOAssetSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGGEOAssetSettingView.swift; sourceTree = "<group>"; };
+		70B89C1A29C17C06003DA577 /* MGSniffingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSniffingViewModel.swift; sourceTree = "<group>"; };
+		70B89C1D29C17C29003DA577 /* MGSniffingEntranceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSniffingEntranceView.swift; sourceTree = "<group>"; };
+		70B89C1F29C17EE2003DA577 /* MGSniffingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSniffingModel.swift; sourceTree = "<group>"; };
 		70B947A8295F302B006F6A38 /* Clash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clash.swift; sourceTree = "<group>"; };
 		70B947AE29612F46006F6A38 /* MGSubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSubscribeView.swift; sourceTree = "<group>"; };
 		70B947B029613321006F6A38 /* MGSubscribeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSubscribeManager.swift; sourceTree = "<group>"; };
@@ -354,7 +361,7 @@
 		708B380129B0936C00E24312 /* Xray */ = {
 			isa = PBXGroup;
 			children = (
-				708B380229B0937600E24312 /* MGSniffingSettingView.swift */,
+				70B89C1929C17BEC003DA577 /* Sniffing */,
 				708B380729B0AA6200E24312 /* MGGEOAssetSettingView.swift */,
 			);
 			path = Xray;
@@ -366,6 +373,17 @@
 				708B380529B0AA4200E24312 /* MGGEOAssetViewModel.swift */,
 			);
 			path = Xray;
+			sourceTree = "<group>";
+		};
+		70B89C1929C17BEC003DA577 /* Sniffing */ = {
+			isa = PBXGroup;
+			children = (
+				70B89C1F29C17EE2003DA577 /* MGSniffingModel.swift */,
+				70B89C1A29C17C06003DA577 /* MGSniffingViewModel.swift */,
+				70B89C1D29C17C29003DA577 /* MGSniffingEntranceView.swift */,
+				708B380229B0937600E24312 /* MGSniffingSettingView.swift */,
+			);
+			path = Sniffing;
 			sourceTree = "<group>";
 		};
 		70C9ED8C29501D5B00B6995B = {
@@ -642,6 +660,7 @@
 				708B37FE29B06A5C00E24312 /* MGLogLevel.swift in Sources */,
 				7069E01F29ADEAA30012C435 /* PacketTunnelProvider.swift in Sources */,
 				70CEB89929A30C79003436C2 /* MGConstant.swift in Sources */,
+				70B89C2129C17EE2003DA577 /* MGSniffingModel.swift in Sources */,
 				706DB6CD29BAEE38002F22C7 /* MGConfiguration.swift in Sources */,
 				701811DD29A32E28005E5CDB /* MGConstant+Xray.swift in Sources */,
 				70DE0D6C29A611E100B3E343 /* MGKernel.swift in Sources */,
@@ -665,6 +684,7 @@
 				70C9EDCC295057DB00B6995B /* MGProviderListView.swift in Sources */,
 				7000C6E0295D60A50005626E /* MGTunnelModeView.swift in Sources */,
 				70C9EDD82951587D00B6995B /* MGResetView.swift in Sources */,
+				70B89C1E29C17C29003DA577 /* MGSniffingEntranceView.swift in Sources */,
 				7084FC302965872200065DAF /* MGLogLevel.swift in Sources */,
 				706DB6CB29BAE954002F22C7 /* MGConfigurationView.swift in Sources */,
 				7084FC382967DB7300065DAF /* MGGEOIPView.swift in Sources */,
@@ -680,6 +700,7 @@
 				70DE0D6E29A6155C00B3E343 /* MGPresentedButton.swift in Sources */,
 				708A48EC2962AD740040184C /* MGAppearance.swift in Sources */,
 				7000C6DA295AED790005626E /* MGUpdatableViewModel.swift in Sources */,
+				70B89C2029C17EE2003DA577 /* MGSniffingModel.swift in Sources */,
 				706DB6B929B9DFBC002F22C7 /* MGConfigurationFormat.swift in Sources */,
 				708B380629B0AA4200E24312 /* MGGEOAssetViewModel.swift in Sources */,
 				706DB6C329B9E04B002F22C7 /* MGConfigurationLoadView.swift in Sources */,
@@ -702,6 +723,7 @@
 				708B380329B0937600E24312 /* MGSniffingSettingView.swift in Sources */,
 				70DE0D7029A62A5800B3E343 /* MGPacketTunnelManager.swift in Sources */,
 				708B380829B0AA6200E24312 /* MGGEOAssetSettingView.swift in Sources */,
+				70B89C1B29C17C06003DA577 /* MGSniffingViewModel.swift in Sources */,
 				708A48E3296299640040184C /* MGProxyListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
