@@ -49,8 +49,6 @@
 		7084FC3A2967E6FD00065DAF /* MGGEOIPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC392967E6FD00065DAF /* MGGEOIPManager.swift */; };
 		708A48E1296295C50040184C /* MGPolicyGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E0296295C50040184C /* MGPolicyGroupView.swift */; };
 		708A48E3296299640040184C /* MGProxyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E2296299640040184C /* MGProxyListView.swift */; };
-		708A48EA2962AA2B0040184C /* MGAppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48E92962AA2B0040184C /* MGAppearanceView.swift */; };
-		708A48EC2962AD740040184C /* MGAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A48EB2962AD740040184C /* MGAppearance.swift */; };
 		708B37FE29B06A5C00E24312 /* MGLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7084FC2F2965872200065DAF /* MGLogLevel.swift */; };
 		708B380329B0937600E24312 /* MGSniffingSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B380229B0937600E24312 /* MGSniffingSettingView.swift */; };
 		708B380629B0AA4200E24312 /* MGAssetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B380529B0AA4200E24312 /* MGAssetViewModel.swift */; };
@@ -203,8 +201,6 @@
 		7084FC392967E6FD00065DAF /* MGGEOIPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGGEOIPManager.swift; sourceTree = "<group>"; };
 		708A48E0296295C50040184C /* MGPolicyGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPolicyGroupView.swift; sourceTree = "<group>"; };
 		708A48E2296299640040184C /* MGProxyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGProxyListView.swift; sourceTree = "<group>"; };
-		708A48E92962AA2B0040184C /* MGAppearanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGAppearanceView.swift; sourceTree = "<group>"; };
-		708A48EB2962AD740040184C /* MGAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGAppearance.swift; sourceTree = "<group>"; };
 		708B37F429B0358C00E24312 /* Tunnel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tunnel.swift; sourceTree = "<group>"; };
 		708B37FB29B03E6400E24312 /* MGPacketTunnelProvide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPacketTunnelProvide.swift; sourceTree = "<group>"; };
 		708B380229B0937600E24312 /* MGSniffingSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSniffingSettingView.swift; sourceTree = "<group>"; };
@@ -510,7 +506,6 @@
 			children = (
 				70DE0D6F29A62A5800B3E343 /* MGPacketTunnelManager.swift */,
 				70B947B029613321006F6A38 /* MGSubscribeManager.swift */,
-				708A48EB2962AD740040184C /* MGAppearance.swift */,
 				7074B14629A72B1E00CBB919 /* Clash */,
 			);
 			path = Core;
@@ -548,7 +543,6 @@
 			children = (
 				70DE0D7729A6306100B3E343 /* MGSettingView.swift */,
 				7084FC32296587C600065DAF /* MGLogLevelView.swift */,
-				708A48E92962AA2B0040184C /* MGAppearanceView.swift */,
 				70C9EDD72951587D00B6995B /* MGResetView.swift */,
 				70B89C3129C1A8F9003DA577 /* Network */,
 				7074B14729A72CAE00CBB919 /* Clash */,
@@ -751,7 +745,6 @@
 				70DE0D7829A6306100B3E343 /* MGSettingView.swift in Sources */,
 				7084FC33296587C600065DAF /* MGLogLevelView.swift in Sources */,
 				70DE0D6E29A6155C00B3E343 /* MGPresentedButton.swift in Sources */,
-				708A48EC2962AD740040184C /* MGAppearance.swift in Sources */,
 				7000C6DA295AED790005626E /* MGUpdatableViewModel.swift in Sources */,
 				70B89C3629C1A9C6003DA577 /* MGNetworkViewModel.swift in Sources */,
 				70B89C2029C17EE2003DA577 /* MGSniffingModel.swift in Sources */,
@@ -764,7 +757,6 @@
 				70B89C3829C1AA94003DA577 /* MGNetworkEntranceView.swift in Sources */,
 				706DB6C729BAC4C7002F22C7 /* MGConfigurationListView.swift in Sources */,
 				7000C6D8295AED790005626E /* MGProxyModel.swift in Sources */,
-				708A48EA2962AA2B0040184C /* MGAppearanceView.swift in Sources */,
 				70CEB89329A0C7BA003436C2 /* MGConstant.swift in Sources */,
 				70B89C2429C1984A003DA577 /* MGDataSizeFormatter.swift in Sources */,
 				7061581629695E6A0005C024 /* MGFormPicker.swift in Sources */,
