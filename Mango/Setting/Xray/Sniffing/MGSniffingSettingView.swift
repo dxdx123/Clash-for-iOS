@@ -2,7 +2,8 @@ import SwiftUI
 
 struct MGSniffingSettingView: View {
     
-    @ObservedObject private var sniffingViewModel: MGSniffingViewModel
+    @EnvironmentObject  private var packetTunnelManager:    MGPacketTunnelManager
+    @ObservedObject     private var sniffingViewModel:      MGSniffingViewModel
     
     init(sniffingViewModel: MGSniffingViewModel) {
         self._sniffingViewModel = ObservedObject(initialValue: sniffingViewModel)
@@ -69,7 +70,7 @@ struct MGSniffingSettingView: View {
             } header: {
                 Text("排除域名")
             } footer: {
-                Text("如果流量探测结果在这个列表中时，将不会重置目标地址")
+                Text("如果流量嗅探结果在这个列表中时，将不会重置目标地址")
             }
             Section {
                 Toggle("仅使用元数据", isOn: $sniffingViewModel.metadataOnly)
@@ -82,7 +83,19 @@ struct MGSniffingSettingView: View {
                 Text("将嗅探得到的域名仅用于路由，代理目标地址仍为 IP")
             }
         }
-        .onDisappear(perform: sniffingViewModel.save)
+        .onDisappear {
+            self.sniffingViewModel.save {
+                packetTunnelManager.stop()
+                Task(priority: .userInitiated) {
+                    do {
+                        try await Task.sleep(for: .milliseconds(500))
+                        try await packetTunnelManager.start()
+                    } catch {
+                        debugPrint(error.localizedDescription)
+                    }
+                }
+            }
+        }
         .navigationTitle(Text("流量嗅探"))
     }
 }

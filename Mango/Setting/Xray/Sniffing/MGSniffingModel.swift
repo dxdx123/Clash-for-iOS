@@ -4,7 +4,7 @@ extension MGConstant.Xray {
     public static let sniffing: String = "XRAY_SNIFFIN_DATA"
 }
 
-public struct MGSniffingModel: Codable {
+public struct MGSniffingModel: Codable, Equatable {
     
     public let enabled: Bool
     public let httpEnabled: Bool

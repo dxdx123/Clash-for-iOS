@@ -13,6 +13,8 @@ final class MGSniffingViewModel: ObservableObject {
     
     @Published var domain: String = ""
     
+    private var current: MGSniffingModel
+    
     init() {
         let model               = MGSniffingModel.current
         self.enabled            = model.enabled
@@ -23,6 +25,7 @@ final class MGSniffingViewModel: ObservableObject {
         self.metadataOnly       = model.metadataOnly
         self.routeOnly          = model.routeOnly
         self.excludedDomains    = model.excludedDomains
+        self.current = model
     }
     
     static func setupDefaultSettingsIfNeeded() {
@@ -54,7 +57,7 @@ final class MGSniffingViewModel: ObservableObject {
         self.excludedDomains.removeAll(where: { $0 == domain })
     }
     
-    func save() {
+    func save(updated: () -> Void) {
         do {
             let model = MGSniffingModel(
                 enabled: self.enabled,
@@ -66,7 +69,12 @@ final class MGSniffingViewModel: ObservableObject {
                 routeOnly: self.routeOnly,
                 excludedDomains: self.excludedDomains
             )
+            guard model != self.current else {
+                return
+            }
             UserDefaults.shared.set(try JSONEncoder().encode(model), forKey: MGConstant.Xray.sniffing)
+            self.current = model
+            updated()
         } catch {
             fatalError(error.localizedDescription)
         }
