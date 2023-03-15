@@ -17,16 +17,12 @@ struct MGLogSettingView: View {
                         Text(severity.displayTitle)
                     }
                 } label: {
-                    Text("等级")
+                    Text("错误日志")
                 }
-            } header: {
-                Text("错误日志")
             }
             Section {
-                Toggle("访问", isOn: $logViewModel.accessLogEnabled)
-                Toggle("DNS 查询", isOn: $logViewModel.dnsLogEnabled)
-            } header: {
-                Text("其他日志")
+                Toggle("访问日志", isOn: $logViewModel.accessLogEnabled)
+                Toggle("DNS 查询日志", isOn: $logViewModel.dnsLogEnabled)
             }
         }
         .navigationTitle(Text("日志"))

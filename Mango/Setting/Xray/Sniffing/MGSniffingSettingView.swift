@@ -36,9 +36,7 @@ struct MGSniffingSettingView: View {
     var body: some View {
         List {
             Section {
-                Toggle("启用", isOn: $sniffingViewModel.enabled)
-            } header: {
-                Text("状态")
+                Toggle("状态", isOn: $sniffingViewModel.enabled)
             }
             Section {
                 HStack {
