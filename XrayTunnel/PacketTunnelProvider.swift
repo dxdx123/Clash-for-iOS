@@ -22,33 +22,15 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
         }
         let attributes = try JSONDecoder().decode(MGConfiguration.Attributes.self, from: data)
         let fileURL = folderURL.appending(component: "config.\(attributes.format.rawValue)")
+        let log = MGLogModel.current
         XraySetLogger(self)
-        MGLogModel.current.applySettingToXrayCore()
+        XraySetAccessLogEnable(log.accessLogEnabled)
+        XraySetDNSLogEnable(log.dnsLogEnabled)
+        XraySetErrorLogSeverity(log.errorLogSeverity.rawValue)
         XraySetAsset(MGKernel.xray.assetDirectory.path(percentEncoded: false), nil)
         let port = XrayGetAvailablePort()
-        let sniffing = MGSniffingModel.current
-        let inbound = """
-        {
-            "listen": "[::1]",
-            "protocol": "socks",
-            "settings": {
-                "udp": true,
-                "auth": "noauth"
-            },
-            "tag": "socks-in",
-            "port": \(port),
-            "sniffing": {
-                "enabled": \(sniffing.enabled ? "true" : "false"),
-                "destOverride": [\(sniffing.destOverrideString)],
-                "metadataOnly": \(sniffing.metadataOnly ? "true" : "false"),
-                "domainsExcluded": [\(sniffing.domainsExcludedString)],
-                "routeOnly": \(sniffing.routeOnly ? "true" : "false")
-            }
-        }
-        """
-        NSLog(inbound)
         var error: NSError? = nil
-        XrayRun(inbound, fileURL.path(percentEncoded: false), &error)
+        XrayRun(MGSniffingModel.current.generateInboudJSONString(with: port), fileURL.path(percentEncoded: false), &error)
         try error.flatMap { throw $0 }
         try Tunnel.start(port: port)
     }
@@ -83,11 +65,33 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
 
 extension MGSniffingModel {
     
-    var domainsExcludedString: String {
+    func generateInboudJSONString(with port: Int) -> String {
+        return """
+        {
+            "listen": "[::1]",
+            "protocol": "socks",
+            "settings": {
+                "udp": true,
+                "auth": "noauth"
+            },
+            "tag": "socks-in",
+            "port": \(port),
+            "sniffing": {
+                "enabled": \(self.enabled ? "true" : "false"),
+                "destOverride": [\(self.destOverrideString)],
+                "metadataOnly": \(self.metadataOnly ? "true" : "false"),
+                "domainsExcluded": [\(self.domainsExcludedString)],
+                "routeOnly": \(self.routeOnly ? "true" : "false")
+            }
+        }
+        """
+    }
+    
+    private var domainsExcludedString: String {
         return self.excludedDomains.map({ "\"\($0)\"" }).joined(separator: ", ")
     }
     
-    var destOverrideString: String {
+    private var destOverrideString: String {
         var temp: [String] = []
         if self.httpEnabled {
             temp.append("http")
@@ -105,14 +109,5 @@ extension MGSniffingModel {
             temp = ["fakedns+others"]
         }
         return temp.map({ "\"\($0)\"" }).joined(separator: ", ")
-    }
-}
-
-extension MGLogModel {
-    
-    func applySettingToXrayCore() {
-        XraySetAccessLogEnable(self.accessLogEnabled)
-        XraySetDNSLogEnable(self.dnsLogEnabled)
-        XraySetErrorLogSeverity(self.errorLogSeverity.rawValue)
     }
 }
