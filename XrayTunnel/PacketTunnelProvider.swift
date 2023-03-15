@@ -10,7 +10,7 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
         MGLogLevel(rawValue: UserDefaults.shared.string(forKey: MGConstant.logLevel) ?? "") ?? .silent
     }
     
-    override func onTunnelStartCompleted(with settings: NEPacketTunnelNetworkSettings) async throws {
+    override func onTunnelStartCompleted(with settings: NEPacketTunnelNetworkSettings, network: MGNetworkModel) async throws {
         guard let id = UserDefaults.shared.string(forKey: "\(MGKernel.xray.rawValue.uppercased())_CURRENT"), !id.isEmpty else {
             fatalError()
         }

@@ -9,11 +9,11 @@ struct MGSettingView: View {
             Form {
                 Section {
                     if tunnel.kernel == .clash {
-                        MGLogLevelView()                        
+                        MGLogLevelView()
                     }
-                    MGIPV6View()
+                    MGNetworkEntranceView()
                 } header: {
-                    Text("通用")
+                    Text("系统")
                 }
                 Section {
                     switch tunnel.kernel {

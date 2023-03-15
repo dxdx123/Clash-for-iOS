@@ -19,7 +19,6 @@
 		701811DA29A32D71005E5CDB /* MGConstant+Clash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811D829A32D6C005E5CDB /* MGConstant+Clash.swift */; };
 		701811DC29A32D7A005E5CDB /* MGConstant+Xray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811DB29A32D7A005E5CDB /* MGConstant+Xray.swift */; };
 		701811DD29A32E28005E5CDB /* MGConstant+Xray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701811DB29A32D7A005E5CDB /* MGConstant+Xray.swift */; };
-		702D9087299B2B4500B83324 /* MGIPV6View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9086299B2B4500B83324 /* MGIPV6View.swift */; };
 		702D908A299B58A400B83324 /* MGNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MGNotification.swift */; };
 		702D9091299FA40600B83324 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70C9EDAC29502C6500B6995B /* NetworkExtension.framework */; };
 		702D9099299FA40600B83324 /* XrayTunnel.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 702D9090299FA40600B83324 /* XrayTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -73,6 +72,12 @@
 		70B89C2C29C19E9C003DA577 /* MGLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B89C2B29C19E9C003DA577 /* MGLogViewModel.swift */; };
 		70B89C2E29C19F7D003DA577 /* MGLogEntranceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B89C2D29C19F7D003DA577 /* MGLogEntranceView.swift */; };
 		70B89C3029C19FF3003DA577 /* MGLogSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B89C2F29C19FF3003DA577 /* MGLogSettingView.swift */; };
+		70B89C3329C1A918003DA577 /* MGNetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B89C3229C1A918003DA577 /* MGNetworkModel.swift */; };
+		70B89C3429C1A918003DA577 /* MGNetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B89C3229C1A918003DA577 /* MGNetworkModel.swift */; };
+		70B89C3629C1A9C6003DA577 /* MGNetworkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B89C3529C1A9C6003DA577 /* MGNetworkViewModel.swift */; };
+		70B89C3829C1AA94003DA577 /* MGNetworkEntranceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B89C3729C1AA94003DA577 /* MGNetworkEntranceView.swift */; };
+		70B89C3A29C1AB18003DA577 /* MGNetworkSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B89C3929C1AB18003DA577 /* MGNetworkSettingView.swift */; };
+		70B89C3B29C1AE31003DA577 /* MGNetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B89C3229C1A918003DA577 /* MGNetworkModel.swift */; };
 		70B947A9295F302B006F6A38 /* Clash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947A8295F302B006F6A38 /* Clash.swift */; };
 		70B947AF29612F46006F6A38 /* MGSubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947AE29612F46006F6A38 /* MGSubscribeView.swift */; };
 		70B947B129613321006F6A38 /* MGSubscribeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B947B029613321006F6A38 /* MGSubscribeManager.swift */; };
@@ -171,7 +176,6 @@
 		7000C6E3295D635F0005626E /* MGControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGControlView.swift; sourceTree = "<group>"; };
 		701811D829A32D6C005E5CDB /* MGConstant+Clash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MGConstant+Clash.swift"; sourceTree = "<group>"; };
 		701811DB29A32D7A005E5CDB /* MGConstant+Xray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MGConstant+Xray.swift"; sourceTree = "<group>"; };
-		702D9086299B2B4500B83324 /* MGIPV6View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGIPV6View.swift; sourceTree = "<group>"; };
 		702D9088299B54FD00B83324 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		702D9089299B58A400B83324 /* MGNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGNotification.swift; sourceTree = "<group>"; };
 		702D9090299FA40600B83324 /* XrayTunnel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = XrayTunnel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +219,10 @@
 		70B89C2B29C19E9C003DA577 /* MGLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGLogViewModel.swift; sourceTree = "<group>"; };
 		70B89C2D29C19F7D003DA577 /* MGLogEntranceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGLogEntranceView.swift; sourceTree = "<group>"; };
 		70B89C2F29C19FF3003DA577 /* MGLogSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGLogSettingView.swift; sourceTree = "<group>"; };
+		70B89C3229C1A918003DA577 /* MGNetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGNetworkModel.swift; sourceTree = "<group>"; };
+		70B89C3529C1A9C6003DA577 /* MGNetworkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGNetworkViewModel.swift; sourceTree = "<group>"; };
+		70B89C3729C1AA94003DA577 /* MGNetworkEntranceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGNetworkEntranceView.swift; sourceTree = "<group>"; };
+		70B89C3929C1AB18003DA577 /* MGNetworkSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGNetworkSettingView.swift; sourceTree = "<group>"; };
 		70B947A8295F302B006F6A38 /* Clash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clash.swift; sourceTree = "<group>"; };
 		70B947AE29612F46006F6A38 /* MGSubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSubscribeView.swift; sourceTree = "<group>"; };
 		70B947B029613321006F6A38 /* MGSubscribeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSubscribeManager.swift; sourceTree = "<group>"; };
@@ -413,6 +421,17 @@
 			path = Log;
 			sourceTree = "<group>";
 		};
+		70B89C3129C1A8F9003DA577 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				70B89C3229C1A918003DA577 /* MGNetworkModel.swift */,
+				70B89C3529C1A9C6003DA577 /* MGNetworkViewModel.swift */,
+				70B89C3729C1AA94003DA577 /* MGNetworkEntranceView.swift */,
+				70B89C3929C1AB18003DA577 /* MGNetworkSettingView.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		70C9ED8C29501D5B00B6995B = {
 			isa = PBXGroup;
 			children = (
@@ -530,8 +549,8 @@
 				70DE0D7729A6306100B3E343 /* MGSettingView.swift */,
 				7084FC32296587C600065DAF /* MGLogLevelView.swift */,
 				708A48E92962AA2B0040184C /* MGAppearanceView.swift */,
-				702D9086299B2B4500B83324 /* MGIPV6View.swift */,
 				70C9EDD72951587D00B6995B /* MGResetView.swift */,
+				70B89C3129C1A8F9003DA577 /* Network */,
 				7074B14729A72CAE00CBB919 /* Clash */,
 				708B380129B0936C00E24312 /* Xray */,
 			);
@@ -690,6 +709,7 @@
 				70B89C2129C17EE2003DA577 /* MGSniffingModel.swift in Sources */,
 				706DB6CD29BAEE38002F22C7 /* MGConfiguration.swift in Sources */,
 				701811DD29A32E28005E5CDB /* MGConstant+Xray.swift in Sources */,
+				70B89C3429C1A918003DA577 /* MGNetworkModel.swift in Sources */,
 				70DE0D6C29A611E100B3E343 /* MGKernel.swift in Sources */,
 				708B385E29B81D3E00E24312 /* Tunnel.swift in Sources */,
 				706DB6CC29BAEE38002F22C7 /* MGConfigurationFormat.swift in Sources */,
@@ -703,6 +723,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				702D908A299B58A400B83324 /* MGNotification.swift in Sources */,
+				70B89C3329C1A918003DA577 /* MGNetworkModel.swift in Sources */,
 				706DB6C929BACC14002F22C7 /* MGConfigurationListManager.swift in Sources */,
 				706DB6BB29B9DFCE002F22C7 /* MGConfigurationLocation.swift in Sources */,
 				70B89C2E29C19F7D003DA577 /* MGLogEntranceView.swift in Sources */,
@@ -732,6 +753,7 @@
 				70DE0D6E29A6155C00B3E343 /* MGPresentedButton.swift in Sources */,
 				708A48EC2962AD740040184C /* MGAppearance.swift in Sources */,
 				7000C6DA295AED790005626E /* MGUpdatableViewModel.swift in Sources */,
+				70B89C3629C1A9C6003DA577 /* MGNetworkViewModel.swift in Sources */,
 				70B89C2029C17EE2003DA577 /* MGSniffingModel.swift in Sources */,
 				706DB6B929B9DFBC002F22C7 /* MGConfigurationFormat.swift in Sources */,
 				708B380629B0AA4200E24312 /* MGAssetViewModel.swift in Sources */,
@@ -739,6 +761,7 @@
 				7084FC1D295ECBC900065DAF /* MGAppMessage.swift in Sources */,
 				70DE0D6A29A611E100B3E343 /* MGKernel.swift in Sources */,
 				7000C6E4295D635F0005626E /* MGControlView.swift in Sources */,
+				70B89C3829C1AA94003DA577 /* MGNetworkEntranceView.swift in Sources */,
 				706DB6C729BAC4C7002F22C7 /* MGConfigurationListView.swift in Sources */,
 				7000C6D8295AED790005626E /* MGProxyModel.swift in Sources */,
 				708A48EA2962AA2B0040184C /* MGAppearanceView.swift in Sources */,
@@ -747,7 +770,6 @@
 				7061581629695E6A0005C024 /* MGFormPicker.swift in Sources */,
 				706DB6C129B9E006002F22C7 /* MGConfigurationLoadViewModel.swift in Sources */,
 				701811DC29A32D7A005E5CDB /* MGConstant+Xray.swift in Sources */,
-				702D9087299B2B4500B83324 /* MGIPV6View.swift in Sources */,
 				7000C6D9295AED790005626E /* MGProviderViewModel.swift in Sources */,
 				7000C6DE295D5F690005626E /* MGConnectedDurationView.swift in Sources */,
 				70B89C3029C19FF3003DA577 /* MGLogSettingView.swift in Sources */,
@@ -756,6 +778,7 @@
 				70B947B329613354006F6A38 /* MGAppDelegate.swift in Sources */,
 				708B380329B0937600E24312 /* MGSniffingSettingView.swift in Sources */,
 				70DE0D7029A62A5800B3E343 /* MGPacketTunnelManager.swift in Sources */,
+				70B89C3A29C1AB18003DA577 /* MGNetworkSettingView.swift in Sources */,
 				708B380829B0AA6200E24312 /* MGGEOAssetSettingView.swift in Sources */,
 				70B89C1B29C17C06003DA577 /* MGSniffingViewModel.swift in Sources */,
 				708A48E3296299640040184C /* MGProxyListView.swift in Sources */,
@@ -775,6 +798,7 @@
 				708B385D29B81D3D00E24312 /* MGPacketTunnelProvide.swift in Sources */,
 				701811DA29A32D71005E5CDB /* MGConstant+Clash.swift in Sources */,
 				708B386029B81DDA00E24312 /* MGNotification.swift in Sources */,
+				70B89C3B29C1AE31003DA577 /* MGNetworkModel.swift in Sources */,
 				7084FC21295ECC7400065DAF /* MGTunnelMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -46,10 +46,6 @@ import os
         MGLogLevel(rawValue: UserDefaults.shared.string(forKey: MGConstant.logLevel) ?? "") ?? .silent
     }
     
-    private static var isIPv6Enabel: Bool {
-        UserDefaults.shared.bool(forKey: MGConstant.ipv6Enable)
-    }
-    
     private static var tunnelFileDescriptor: Int32? {
         var buf = Array<CChar>(repeating: 0, count: Int(IFNAMSIZ))
         return (1...1024).first {
@@ -58,15 +54,15 @@ import os
         }
     }
     
-    static func run() throws {
+    static func run(network: MGNetworkModel) throws {
         let config = """
         mode: \(tunnelMode.rawValue)
         log-level: \(logLevel.rawValue)
-        ipv6: \(isIPv6Enabel ? "true" : "false")
+        ipv6: \(network.ipv6Enabled ? "true" : "false")
         dns:
             enable: true
             listen: 127.0.0.1:53
-            ipv6: \(isIPv6Enabel ? "true" : "false")
+            ipv6: \(network.ipv6Enabled ? "true" : "false")
             default-nameserver: [223.5.5.5, 119.29.29.29]
             enhanced-mode: fake-ip
             fake-ip-range: 198.18.0.1/16

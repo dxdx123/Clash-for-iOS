@@ -2,43 +2,42 @@ import NetworkExtension
 
 open class MGPacketTunnelProvider: NEPacketTunnelProvider {
     
-    open var isIPv4Enable: Bool { true }
-    open var isIPv6Enable: Bool {
-        UserDefaults.shared.bool(forKey: MGConstant.ipv6Enable)
-    }
     open var dnsServers: [String] { ["8.8.8.8", "114.114.114.114"] }
     
     public final override func startTunnel(options: [String : NSObject]? = nil) async throws {
         let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "254.1.1.1")
         settings.mtu = 9000
-        
+        let netowrk = MGNetworkModel.current
         settings.ipv4Settings = {
-            guard self.isIPv4Enable else {
-                return nil
-            }
             let settings = NEIPv4Settings(addresses: ["198.18.0.1"], subnetMasks: ["255.255.0.0"])
             settings.includedRoutes = [NEIPv4Route.default()]
+            if netowrk.hideVPNIcon {
+                settings.excludedRoutes = [NEIPv4Route(destinationAddress: "0.0.0.0", subnetMask: "255.0.0.0")]
+            }
             return settings
         }()
         settings.ipv6Settings = {
-            guard self.isIPv6Enable else {
+            guard netowrk.ipv6Enabled else {
                 return nil
             }
             let settings = NEIPv6Settings(addresses: ["fd6e:a81b:704f:1211::1"], networkPrefixLengths: [64])
             settings.includedRoutes = [NEIPv6Route.default()]
+            if netowrk.hideVPNIcon {
+                settings.excludedRoutes = [NEIPv6Route(destinationAddress: "::", networkPrefixLength: 64)]
+            }
             return settings
         }()
         settings.dnsSettings = NEDNSSettings(servers: self.dnsServers)
         try await self.setTunnelNetworkSettings(settings)
         do {
-            try await self.onTunnelStartCompleted(with: settings)
+            try await self.onTunnelStartCompleted(with: settings, network: netowrk)
         } catch {
             MGNotification.send(title: "", subtitle: "", body: error.localizedDescription)
             throw error
         }
     }
     
-    open func onTunnelStartCompleted(with settings: NEPacketTunnelNetworkSettings) async throws {}
+    open func onTunnelStartCompleted(with settings: NEPacketTunnelNetworkSettings, network: MGNetworkModel) async throws {}
     
     open override func stopTunnel(with reason: NEProviderStopReason) async {
         let message: String

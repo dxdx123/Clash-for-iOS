@@ -4,8 +4,8 @@ class PacketTunnelProvider: MGPacketTunnelProvider {
     
     override var dnsServers: [String] { ["127.0.0.1"] }
     
-    override func onTunnelStartCompleted(with settings: NEPacketTunnelNetworkSettings) async throws {
-        try Clash.run()
+    override func onTunnelStartCompleted(with settings: NEPacketTunnelNetworkSettings, network: MGNetworkModel) async throws {
+        try Clash.run(network: network)
     }
 
     override func handleAppMessage(_ messageData: Data) async -> Data? {
