@@ -1,41 +1,35 @@
 import SwiftUI
 
-struct MGGEOAssetView: View {
+struct MGAssetSettingView: View {
     
-    var body: some View {
-        NavigationLink {
-            MGGEOAssetSettingView()
-        } label: {
-            Label {
-                Text("GEO 资源")
-            } icon: {
-                Image(systemName: "cylinder.split.1x2")
-            }
-        }
-    }
-}
-
-struct MGGEOAssetSettingView: View {
-    
-    @StateObject private var viewModel = MGGEOAssetViewModel()
-    
+    @Environment(\.dataSizeFormatter) private var dataSizeFormatter
+    @ObservedObject private var assetViewModel: MGAssetViewModel
     @State private var isFileImporterPresented: Bool = false
+    
+    init(assetViewModel: MGAssetViewModel) {
+        self._assetViewModel = ObservedObject(initialValue: assetViewModel)
+    }
     
     var body: some View {
         Form {
-            ForEach(viewModel.items) { item in
-                VStack(alignment: .leading, spacing: 6) {
-                    Text(item.url.lastPathComponent)
-                    Text(item.date.formatted())
+            ForEach(assetViewModel.items) { item in
+                HStack {
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text(item.url.lastPathComponent)
+                        Text(item.date.formatted(date: .complete, time: .shortened))
+                            .foregroundColor(.secondary)
+                            .font(.callout)
+                            .monospacedDigit()
+                    }
+                    Spacer()
+                    Text(dataSizeFormatter.string(from: item.size) ?? "-")
                         .foregroundColor(.secondary)
-                        .font(.caption)
-                        .fontWeight(.light)
                         .monospacedDigit()
                 }
                 .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                     Button("删除", role: .destructive) {
                         do {
-                            try viewModel.delete(item: item)
+                            try assetViewModel.delete(item: item)
                         } catch {
                             debugPrint(error.localizedDescription)
                         }
@@ -43,10 +37,7 @@ struct MGGEOAssetSettingView: View {
                 }
             }
         }
-        .navigationTitle(Text("GEO 资源"))
-        .onAppear {
-            viewModel.reload()
-        }
+        .navigationTitle(Text("资源库"))
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
@@ -58,7 +49,7 @@ struct MGGEOAssetSettingView: View {
         }
         .fileImporter(isPresented: $isFileImporterPresented, allowedContentTypes: [.dat], allowsMultipleSelection: true) { result in
             do {
-                try viewModel.importLocalFiles(urls: try result.get())
+                try assetViewModel.importLocalFiles(urls: try result.get())
                 MGNotification.send(title: "", subtitle: "", body: "GEO资源导入成功")
             } catch {
                 MGNotification.send(title: "", subtitle: "", body: "GEO资源导入失败, 原因: \(error.localizedDescription)")

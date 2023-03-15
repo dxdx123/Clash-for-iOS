@@ -1,6 +1,6 @@
 import Foundation
 
-class MGGEOAssetViewModel: ObservableObject {
+class MGAssetViewModel: ObservableObject {
     
     struct Item: Identifiable {
         
@@ -8,10 +8,12 @@ class MGGEOAssetViewModel: ObservableObject {
         
         let url: URL
         let date: Date
+        let size: NSNumber
         
-        init(url: URL, date: Date) {
+        init(url: URL, date: Date, size: NSNumber) {
             self.url = url
             self.date = date
+            self.size = size
         }
     }
     
@@ -34,10 +36,11 @@ class MGGEOAssetViewModel: ObservableObject {
                     let attributes = try FileManager.default.attributesOfItem(atPath: url.path(percentEncoded: false))
                     let creationDate = attributes[.creationDate] as? Date
                     let modificationDate = attributes[.modificationDate] as? Date
-                    guard let date = (modificationDate ?? creationDate) else {
+                    guard let date = (modificationDate ?? creationDate),
+                          let size = attributes[.size] as? NSNumber else {
                         return nil
                     }
-                    return Item(url: url, date: date)
+                    return Item(url: url, date: date, size: size)
                 } catch {
                     return nil
                 }

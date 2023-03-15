@@ -20,7 +20,7 @@ struct MGSettingView: View {
                         MGGEOIPView()
                     case .xray:
                         MGSniffingEntranceView()
-                        MGGEOAssetView()
+                        MGAssetEntranceView()
                     }
                 } header: {
                     Text("内核")
