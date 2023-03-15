@@ -54,15 +54,15 @@ import os
         }
     }
     
-    static func run(network: MGNetworkModel) throws {
+    static func run(ipv6Enabled: Bool) throws {
         let config = """
         mode: \(tunnelMode.rawValue)
         log-level: \(logLevel.rawValue)
-        ipv6: \(network.ipv6Enabled ? "true" : "false")
+        ipv6: \(ipv6Enabled ? "true" : "false")
         dns:
             enable: true
             listen: 127.0.0.1:53
-            ipv6: \(network.ipv6Enabled ? "true" : "false")
+            ipv6: \(ipv6Enabled ? "true" : "false")
             default-nameserver: [223.5.5.5, 119.29.29.29]
             enhanced-mode: fake-ip
             fake-ip-range: 198.18.0.1/16

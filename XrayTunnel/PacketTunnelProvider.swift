@@ -2,7 +2,7 @@ import NetworkExtension
 import XrayKit
 import os
 
-class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
+class PacketTunnelProvider: PacketTunnelProviderBase, XrayLoggerProtocol {
     
     private let logger = Logger(subsystem: "com.Arror.Mango.XrayTunnel", category: "Core")
         
@@ -10,7 +10,7 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
         MGLogLevel(rawValue: UserDefaults.shared.string(forKey: MGConstant.logLevel) ?? "") ?? .silent
     }
     
-    override func onTunnelStartCompleted(with settings: NEPacketTunnelNetworkSettings, network: MGNetworkModel) async throws {
+    override func setupCore(with settings: NEPacketTunnelNetworkSettings) async throws -> Int {
         guard let id = UserDefaults.shared.string(forKey: "\(MGKernel.xray.rawValue.uppercased())_CURRENT"), !id.isEmpty else {
             fatalError()
         }
@@ -32,7 +32,7 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
         var error: NSError? = nil
         XrayRun(MGSniffingModel.current.generateInboudJSONString(with: port), fileURL.path(percentEncoded: false), &error)
         try error.flatMap { throw $0 }
-        try Tunnel.start(port: port)
+        return port
     }
     
     func onAccessLog(_ message: String?) {

@@ -1,6 +1,7 @@
 import NetworkExtension
+import Tun2SocksKit
 
-open class MGPacketTunnelProvider: NEPacketTunnelProvider {
+open class PacketTunnelProviderBase: NEPacketTunnelProvider {
     
     open var dnsServers: [String] { ["8.8.8.8", "114.114.114.114"] }
     
@@ -30,14 +31,36 @@ open class MGPacketTunnelProvider: NEPacketTunnelProvider {
         settings.dnsSettings = NEDNSSettings(servers: self.dnsServers)
         try await self.setTunnelNetworkSettings(settings)
         do {
-            try await self.onTunnelStartCompleted(with: settings, network: netowrk)
+            let config = """
+            tunnel:
+              mtu: 9000
+            socks5:
+              port: \(try await self.setupCore(with: settings))
+              address: ::1
+              udp: 'udp'
+            misc:
+              task-stack-size: 20480
+              connect-timeout: 5000
+              read-write-timeout: 60000
+              log-file: stderr
+              log-level: error
+              limit-nofile: 65535
+            """
+            let cache = URL(filePath: NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0], directoryHint: .isDirectory)
+            let file = cache.appending(component: "\(UUID().uuidString).yml", directoryHint: .notDirectory)
+            try config.write(to: file, atomically: true, encoding: .utf8)
+            DispatchQueue.global(qos: .userInitiated).async {
+                NSLog("HEV_SOCKS5_TUNNEL_MAIN: \(Socks5Tunnel.run(withConfig: file.path(percentEncoded: false)))")
+            }
         } catch {
             MGNotification.send(title: "", subtitle: "", body: error.localizedDescription)
             throw error
         }
     }
     
-    open func onTunnelStartCompleted(with settings: NEPacketTunnelNetworkSettings, network: MGNetworkModel) async throws {}
+    open func setupCore(with settings: NEPacketTunnelNetworkSettings) async throws -> Int {
+        fatalError()
+    }
     
     open override func stopTunnel(with reason: NEProviderStopReason) async {
         let message: String

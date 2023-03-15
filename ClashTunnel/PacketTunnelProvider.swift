@@ -1,11 +1,12 @@
 import NetworkExtension
 
-class PacketTunnelProvider: MGPacketTunnelProvider {
+class PacketTunnelProvider: PacketTunnelProviderBase {
     
     override var dnsServers: [String] { ["127.0.0.1"] }
     
-    override func onTunnelStartCompleted(with settings: NEPacketTunnelNetworkSettings, network: MGNetworkModel) async throws {
-        try Clash.run(network: network)
+    override func setupCore(with settings: NEPacketTunnelNetworkSettings) async throws -> Int {
+        try Clash.run(ipv6Enabled: settings.ipv6Settings != nil)
+        return 0
     }
 
     override func handleAppMessage(_ messageData: Data) async -> Data? {

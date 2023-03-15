@@ -14,11 +14,11 @@ final class MGPacketTunnelManager: ObservableObject {
     
     @Published private var manager: NETunnelProviderManager?
     
-    final var status: NEVPNStatus? {
+    var status: NEVPNStatus? {
         manager.flatMap { $0.connection.status }
     }
     
-    final var connectedDate: Date? {
+    var connectedDate: Date? {
         manager.flatMap { $0.connection.connectedDate }
     }
     
