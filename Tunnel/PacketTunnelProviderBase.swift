@@ -30,12 +30,16 @@ open class PacketTunnelProviderBase: NEPacketTunnelProvider {
         }()
         settings.dnsSettings = NEDNSSettings(servers: self.dnsServers)
         try await self.setTunnelNetworkSettings(settings)
+        let port = try await self.setupCore(with: settings)
+        guard port > 0 else {
+            return
+        }
         do {
             let config = """
             tunnel:
               mtu: 9000
             socks5:
-              port: \(try await self.setupCore(with: settings))
+              port: \(port)
               address: ::1
               udp: 'udp'
             misc:
