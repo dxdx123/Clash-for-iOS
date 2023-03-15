@@ -85,6 +85,9 @@ struct MGSniffingSettingView: View {
         }
         .onDisappear {
             self.sniffingViewModel.save {
+                guard let status = packetTunnelManager.status, status == .connected else {
+                    return
+                }
                 packetTunnelManager.stop()
                 Task(priority: .userInitiated) {
                     do {

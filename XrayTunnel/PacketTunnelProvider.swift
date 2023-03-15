@@ -22,10 +22,8 @@ class PacketTunnelProvider: MGPacketTunnelProvider, XrayLoggerProtocol {
         }
         let attributes = try JSONDecoder().decode(MGConfiguration.Attributes.self, from: data)
         let fileURL = folderURL.appending(component: "config.\(attributes.format.rawValue)")
-        XraySetAccessLogEnable(false)
-        XraySetDNSLogEnable(false)
-        XraySetErrorLogSeverity(4)
         XraySetLogger(self)
+        MGLogModel.current.applySettingToXrayCore()
         XraySetAsset(MGKernel.xray.assetDirectory.path(percentEncoded: false), nil)
         let port = XrayGetAvailablePort()
         let sniffing = MGSniffingModel.current
@@ -107,5 +105,14 @@ extension MGSniffingModel {
             temp = ["fakedns+others"]
         }
         return temp.map({ "\"\($0)\"" }).joined(separator: ", ")
+    }
+}
+
+extension MGLogModel {
+    
+    func applySettingToXrayCore() {
+        XraySetAccessLogEnable(self.accessLogEnabled)
+        XraySetDNSLogEnable(self.dnsLogEnabled)
+        XraySetErrorLogSeverity(self.errorLogSeverity.rawValue)
     }
 }

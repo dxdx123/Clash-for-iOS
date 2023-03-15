@@ -8,7 +8,9 @@ struct MGSettingView: View {
         NavigationStack {
             Form {
                 Section {
-                    MGLogLevelView()
+                    if tunnel.kernel == .clash {
+                        MGLogLevelView()                        
+                    }
                     MGIPV6View()
                 } header: {
                     Text("通用")
@@ -19,6 +21,7 @@ struct MGSettingView: View {
                         MGTunnelModeView()
                         MGGEOIPView()
                     case .xray:
+                        MGLogEntranceView()
                         MGSniffingEntranceView()
                         MGAssetEntranceView()
                     }
