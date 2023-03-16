@@ -2,15 +2,14 @@ import Foundation
 
 final class MGConfigurationLoadViewModel: ObservableObject {
     
-    @Published var location:   MGConfigurationLocation   = .remote
-    @Published var format:     MGConfigurationFormat     = .json
+    @Published var format: MGConfigurationFormat = .json
     
     @Published var name:       String = ""
     @Published var urlString:  String = ""
     
     @Published var isProcessing: Bool = false
     
-    func process() async throws {
+    func process(location: MGConfigurationLocation) async throws {
         await MainActor.run {
             isProcessing = true
         }

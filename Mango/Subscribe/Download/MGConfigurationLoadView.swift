@@ -10,6 +10,8 @@ struct MGConfigurationLoadView: View {
     
     @State private var isFileImporterPresented: Bool = false
     
+    let location: MGConfigurationLocation
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -24,7 +26,7 @@ struct MGConfigurationLoadView: View {
                     HStack(spacing: 4) {
                         TextField(addressPrompt, text: $vm.urlString)
                             .disabled(isAddressTextFieldDisable)
-                        switch vm.location {
+                        switch location {
                         case .local:
                             Button("浏览") {
                                 isFileImporterPresented.toggle()
@@ -50,7 +52,7 @@ struct MGConfigurationLoadView: View {
                     Button {
                         Task(priority: .userInitiated) {
                             do {
-                                try await vm.process()
+                                try await vm.process(location: location)
                                 await MainActor.run {
                                     configurationListManager.reload()
                                     dismiss()
@@ -71,21 +73,9 @@ struct MGConfigurationLoadView: View {
                     .disabled(isButtonDisbale)
                 }
             }
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle(Text(title))
+            .navigationBarTitleDisplayMode(.large)
             .interactiveDismissDisabled(vm.isProcessing)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Picker(selection: $vm.location) {
-                        ForEach(MGConfigurationLocation.allCases) { location in
-                            Text(location.description)
-                        }
-                    } label: {
-                        EmptyView()
-                    }
-                    .fixedSize()
-                    .pickerStyle(.segmented)
-                }
-            }
             .fileImporter(isPresented: $isFileImporterPresented, allowedContentTypes: MGConfigurationFormat.allCases.map(\.uniformTypeType)) { result in
                 switch result {
                 case .success(let success):
@@ -97,9 +87,6 @@ struct MGConfigurationLoadView: View {
                     MGNotification.send(title: "", subtitle: "", body: failure.localizedDescription)
                 }
             }
-            .onChange(of: vm.location) { _ in
-                vm.urlString = ""
-            }
             .toolbar {
                 if vm.isProcessing {
                     ProgressView()
@@ -109,8 +96,17 @@ struct MGConfigurationLoadView: View {
         .disabled(vm.isProcessing)
     }
     
+    private var title: String {
+        switch location {
+        case .local:
+            return "导入配置"
+        case .remote:
+            return "下载配置"
+        }
+    }
+    
     private var addressTitle: String {
-        switch vm.location {
+        switch location {
         case .local:
             return "位置"
         case .remote:
@@ -119,7 +115,7 @@ struct MGConfigurationLoadView: View {
     }
     
     private var addressPrompt: String {
-        switch vm.location {
+        switch location {
         case .local:
             return "请选择本地文件"
         case .remote:
@@ -128,7 +124,7 @@ struct MGConfigurationLoadView: View {
     }
     
     private var isAddressTextFieldDisable: Bool {
-        switch vm.location {
+        switch location {
         case .local:
             return true
         case .remote:
@@ -137,7 +133,7 @@ struct MGConfigurationLoadView: View {
     }
     
     private var buttonTitle: String {
-        switch vm.location {
+        switch location {
         case .local:
             return "导入"
         case .remote:
@@ -149,7 +145,7 @@ struct MGConfigurationLoadView: View {
         guard !vm.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             return true
         }
-        switch vm.location {
+        switch location {
         case .local:
             return vm.urlString.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         case .remote:

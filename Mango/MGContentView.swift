@@ -16,7 +16,7 @@ struct MGContentView: View {
                 }
             MGConfigurationListView(current: $current)
                 .tabItem {
-                    Text("配置")
+                    Text("配置管理")
                     Image(systemName: "doc")
                 }
             MGSettingView()
