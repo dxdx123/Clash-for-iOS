@@ -9,6 +9,7 @@ final class MGAppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCe
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
+        MGKernel.setupDefaultIfNeeded()
         MGNetworkViewModel.setupDefaultLogIfNeeded()
         MGSniffingViewModel.setupDefaultSettingsIfNeeded()
         MGLogViewModel.setupDefaultLogIfNeeded()

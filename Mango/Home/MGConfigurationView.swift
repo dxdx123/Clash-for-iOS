@@ -5,7 +5,8 @@ struct MGConfigurationView: View {
     @AppStorage("\(MGKernel.xray.rawValue.uppercased())_CURRENT", store: .shared) private var current: String = ""
 
     @EnvironmentObject private var tunnel: MGPacketTunnelManager
-    @EnvironmentObject private var configurationListManager: MGConfigurationListManager
+    
+    @StateObject private var configurationListManager = MGConfigurationListManager()
     
     @State private var isPresented = false
     
@@ -16,6 +17,7 @@ struct MGConfigurationView: View {
             }
             .sheet(isPresented: $isPresented) {
                 MGConfigurationListView(current: $current)
+                    .environmentObject(configurationListManager)
             }
         } label: {
             Label {

@@ -1,7 +1,21 @@
 import SwiftUI
 
 extension MGKernel {
+    
     static let storeKey = "MANGO_KERNEL"
+    
+    private static var _current: MGKernel? {
+        UserDefaults.standard.string(forKey: MGKernel.storeKey).flatMap(MGKernel.init(rawValue:))
+    }
+    
+    static var current: MGKernel { self._current.unsafelyUnwrapped }
+    
+    static func setupDefaultIfNeeded() {
+        guard self._current == nil else {
+            return
+        }
+        UserDefaults.standard.set(MGKernel.clash.rawValue, forKey: MGKernel.storeKey)
+    }
 }
 
 struct MGHomeView: View {
@@ -14,12 +28,19 @@ struct MGHomeView: View {
     var body: some View {
         NavigationStack {
             Group {
-                if let managers = viewModel.managers, !viewModel.isProcessing {
+                if viewModel.isProcessing {
+                    ZStack {
+                        LoadingBackgroundColor()
+                        ProgressView()
+                            .controlSize(.large)
+                    }
+                    .ignoresSafeArea()
+                } else {
                     Form {
                         switch kernel {
                         case .clash:
                             Section {
-                                MGSubscribeView(current: managers.subscribe.current)
+                                MGSubscribeView(current: viewModel.subscribeManager.current)
                             } header: {
                                 Text("订阅")
                             }
@@ -31,28 +52,21 @@ struct MGHomeView: View {
                             }
                         }
                         Section {
-                            MGControlView(packetTunnelManager: managers.tunnel)
-                            MGConnectedDurationView(packetTunnelManager: managers.tunnel)
+                            MGControlView(packetTunnelManager: viewModel.packetTunnelManager)
+                            MGConnectedDurationView(packetTunnelManager: viewModel.packetTunnelManager)
                         } header: {
                             Text("状态")
                         }
                         if kernel == .clash {
                             Section {
-                                MGPolicyGroupView(packetTunnelManager: managers.tunnel)
+                                MGPolicyGroupView(packetTunnelManager: viewModel.packetTunnelManager)
                             } header: {
                                 Text("代理")
                             }
                         }
                     }
-                    .environmentObject(managers.tunnel)
-                    .environmentObject(managers.subscribe)
-                } else {
-                    ZStack {
-                        LoadingBackgroundColor()
-                        ProgressView()
-                            .controlSize(.large)
-                    }
-                    .ignoresSafeArea()
+                    .environmentObject(viewModel.packetTunnelManager)
+                    .environmentObject(viewModel.subscribeManager)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -67,13 +81,13 @@ struct MGHomeView: View {
                     }
                     .pickerStyle(.segmented)
                     .fixedSize()
-                    .allowsHitTesting(viewModel.managers != nil)
+                    .allowsHitTesting(!viewModel.isProcessing)
                 }
-                if let managers = viewModel.managers {
+                if !viewModel.isProcessing {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         MGPresentedButton {
                             MGSettingView()
-                                .environmentObject(managers.tunnel)
+                                .environmentObject(viewModel.packetTunnelManager)
                                 .environmentObject(viewModel.geoip)
                         } label: {
                             Image(systemName: "slider.horizontal.3")
@@ -109,33 +123,33 @@ struct MGHomeView: View {
 @MainActor
 class MGHomeViewModel: ObservableObject {
     
-    struct Managers {
-        let tunnel: MGPacketTunnelManager
-        let subscribe: MGSubscribeManager
+    private static let cpm = MGPacketTunnelManager(kernel: .clash)
+    private static let xpm = MGPacketTunnelManager(kernel: .xray)
+    
+    private static func packetTunnelManager(of kernel: MGKernel) -> MGPacketTunnelManager {
+        switch kernel {
+        case .clash:    return cpm
+        case .xray:     return xpm
+        }
     }
     
     let geoip = MGGEOIPManager()
+    let subscribeManager = MGSubscribeManager(kernel: .clash)
 
     @Published var isProcessing = false
-    @Published private(set) var managers: Managers?
-    
-    private func currentConfigStoreKey(of kernel: MGKernel) -> String {
-        "\(kernel.rawValue.uppercased())_CURRENT"
-    }
+    @Published private(set) var packetTunnelManager = MGHomeViewModel.packetTunnelManager(of: .current)
     
     func `switch`(to kernel: MGKernel) {
-        self.managers = nil
-        let tunnel = MGPacketTunnelManager(kernel: kernel)
-        let subscribe = MGSubscribeManager(kernel: kernel)
+        let ptm = MGHomeViewModel.packetTunnelManager(of: kernel)
         self.isProcessing = true
         Task(priority: .high) {
-            await tunnel.prepare()
-            await subscribe.prepare()
+            await ptm.reload()
+            await subscribeManager.prepare()
             do {
                 try await Task.sleep(for: .milliseconds(150))
             } catch {}
             await MainActor.run {
-                self.managers = Managers(tunnel: tunnel, subscribe: subscribe)
+                self.packetTunnelManager = ptm
                 self.isProcessing = false
             }
         }

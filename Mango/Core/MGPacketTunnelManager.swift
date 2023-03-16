@@ -26,24 +26,23 @@ final class MGPacketTunnelManager: ObservableObject {
         self.kernel = kernel
     }
     
-    func prepare() async {
-        manager = await self.loadTunnelProviderManager()
+    func reload() async {
+        self.cancellables.removeAll()
+        self.manager = await self.loadTunnelProviderManager()
         NotificationCenter.default
             .publisher(for: .NEVPNConfigurationChange, object: nil)
             .receive(on: DispatchQueue.main)
-            .sink { [unowned self] _ in self.reload() }
+            .sink { [unowned self] _ in
+                Task(priority: .high) {
+                    self.manager = await self.loadTunnelProviderManager()
+                }
+            }
             .store(in: &cancellables)
         NotificationCenter.default
             .publisher(for: .NEVPNStatusDidChange)
             .receive(on: DispatchQueue.main)
             .sink { [unowned self] _ in objectWillChange.send() }
             .store(in: &cancellables)
-    }
-
-    private func reload() {
-        Task(priority: .high) {
-            manager = await self.loadTunnelProviderManager()
-        }
     }
     
     func saveToPreferences() async throws {
