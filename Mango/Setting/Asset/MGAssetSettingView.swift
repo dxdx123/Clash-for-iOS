@@ -16,10 +16,13 @@ struct MGAssetSettingView: View {
                 HStack {
                     VStack(alignment: .leading, spacing: 6) {
                         Text(item.url.lastPathComponent)
-                        Text(item.date.formatted(date: .complete, time: .shortened))
-                            .foregroundColor(.secondary)
-                            .font(.callout)
-                            .monospacedDigit()
+                        TimelineView(.periodic(from: Date(), by: 1)) { _ in
+                            Text(item.date.formatted(.relative(presentation: .numeric)))
+                                .lineLimit(1)
+                                .foregroundColor(.secondary)
+                                .font(.callout)
+                                .fontWeight(.light)
+                        }
                     }
                     Spacer()
                     Text(dataSizeFormatter.string(from: item.size) ?? "-")
@@ -50,9 +53,9 @@ struct MGAssetSettingView: View {
         .fileImporter(isPresented: $isFileImporterPresented, allowedContentTypes: [.dat], allowsMultipleSelection: true) { result in
             do {
                 try assetViewModel.importLocalFiles(urls: try result.get())
-                MGNotification.send(title: "", subtitle: "", body: "GEO资源导入成功")
+                MGNotification.send(title: "", subtitle: "", body: "资源导入成功")
             } catch {
-                MGNotification.send(title: "", subtitle: "", body: "GEO资源导入失败, 原因: \(error.localizedDescription)")
+                MGNotification.send(title: "", subtitle: "", body: "资源导入失败, 原因: \(error.localizedDescription)")
             }
         }
     }
