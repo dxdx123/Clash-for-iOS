@@ -26,12 +26,12 @@ struct MGConfigurationView: View {
                     Spacer()
                 }
             } else {
-                ForEach(Array(configurationListManager.configurations.enumerated()), id: \.offset) { pair in
+                ForEach(configurationListManager.configurations) { configuration in
                     Button {
-                        guard current.wrappedValue != pair.element.id else {
+                        guard current.wrappedValue != configuration.id else {
                             return
                         }
-                        current.wrappedValue = pair.element.id
+                        current.wrappedValue = configuration.id
                         guard let status = packetTunnelManager.status, status == .connected else {
                             return
                         }
@@ -45,21 +45,13 @@ struct MGConfigurationView: View {
                     } label: {
                         Label {
                             HStack {
-                                Text(pair.element.attributes.alias)
+                                Text(configuration.attributes.alias)
                                     .foregroundColor(.primary)
-                                Spacer()
-                                Image(systemName: "checkmark")
-                                    .foregroundColor(.accentColor)
-                                    .opacity(current.wrappedValue == pair.element.id ? 1.0 : 0.0)
+                                    .lineLimit(1)
                             }
                         } icon: {
-                            Image(systemName: "app")
-                                .foregroundColor(.clear)
-                                .overlay(alignment: .center) {
-                                    Text("\(pair.offset + 1)")
-                                        .foregroundColor(.primary)
-                                        .monospacedDigit()
-                                }
+                            Image(systemName: "arrow.right")
+                                .opacity(current.wrappedValue == configuration.id ? 1.0 : 0.0)
                         }
                     }
                 }
