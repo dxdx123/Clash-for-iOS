@@ -2,11 +2,7 @@ import SwiftUI
 
 struct MGConnectedDurationView: View {
     
-    @ObservedObject private var packetTunnelManager: MGPacketTunnelManager
-    
-    init(packetTunnelManager: MGPacketTunnelManager) {
-        self._packetTunnelManager = ObservedObject(wrappedValue: packetTunnelManager)
-    }
+    @EnvironmentObject private var packetTunnelManager: MGPacketTunnelManager
     
     var body: some View {
         LabeledContent {

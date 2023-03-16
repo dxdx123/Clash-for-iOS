@@ -3,15 +3,14 @@ import SwiftUI
 struct MGHomeView: View {
     
     @Environment(\.colorScheme) private var colorScheme
-    
-    @StateObject private var viewModel = MGHomeViewModel()
-    
+    @EnvironmentObject private var packetTunnelManager: MGPacketTunnelManager
+        
     let current: Binding<String>
     
     var body: some View {
         NavigationStack {
             Group {
-                if viewModel.isProcessing {
+                if packetTunnelManager.isProcessing {
                     ZStack {
                         LoadingBackgroundColor()
                         ProgressView()
@@ -26,13 +25,13 @@ struct MGHomeView: View {
                             Text("配置")
                         }
                         Section {
-                            MGControlView(packetTunnelManager: viewModel.packetTunnelManager)
-                            MGConnectedDurationView(packetTunnelManager: viewModel.packetTunnelManager)
+                            MGControlView()
+                            MGConnectedDurationView()
                         } header: {
                             Text("状态")
                         }
                     }
-                    .environmentObject(viewModel.packetTunnelManager)
+                    .environmentObject(packetTunnelManager)
                 }
             }
             .navigationTitle(Text("仪表盘"))
@@ -48,11 +47,4 @@ struct MGHomeView: View {
             return Color.clear
         }
     }
-}
-
-@MainActor
-class MGHomeViewModel: ObservableObject {
-    
-    @Published var isProcessing = false
-    @Published private(set) var packetTunnelManager = MGPacketTunnelManager()
 }

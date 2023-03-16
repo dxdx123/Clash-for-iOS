@@ -8,6 +8,8 @@ final class MGPacketTunnelManager: ObservableObject {
     
     @Published private var manager: NETunnelProviderManager?
     
+    @Published private(set) var isProcessing: Bool = false
+    
     var status: NEVPNStatus? {
         manager.flatMap { $0.connection.status }
     }
@@ -17,8 +19,17 @@ final class MGPacketTunnelManager: ObservableObject {
     }
     
     init() {
+        isProcessing = true
         Task(priority: .userInitiated) {
             await self.reload()
+            do {
+                try await Task.sleep(for: .milliseconds(250))
+            } catch {
+                debugPrint(error.localizedDescription)
+            }
+            await MainActor.run {
+                isProcessing = false
+            }
         }
     }
     

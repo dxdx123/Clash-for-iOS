@@ -41,7 +41,7 @@ extension Bundle {
     }
     
     public static var providerBundleIdentifier: String {
-        Bundle.main.infoDictionary?["TUNNEL_BUNDLE_SUFFIX_XRAY"] as! String
+        return "\(Bundle.appID).\(Bundle.main.infoDictionary?["TUNNEL_BUNDLE_SUFFIX_XRAY"] as! String)"
     }
 }
 

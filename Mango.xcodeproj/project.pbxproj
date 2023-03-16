@@ -60,6 +60,7 @@
 		70DE0D7029A62A5800B3E343 /* MGPacketTunnelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D6F29A62A5800B3E343 /* MGPacketTunnelManager.swift */; };
 		70DE0D7329A62C4E00B3E343 /* MGHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D7229A62C4E00B3E343 /* MGHomeView.swift */; };
 		70DE0D7829A6306100B3E343 /* MGSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE0D7729A6306100B3E343 /* MGSettingView.swift */; };
+		70F82CB629C2E6B40072B334 /* MGContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F82CB529C2E6B40072B334 /* MGContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +159,7 @@
 		70DE0D6F29A62A5800B3E343 /* MGPacketTunnelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGPacketTunnelManager.swift; sourceTree = "<group>"; };
 		70DE0D7229A62C4E00B3E343 /* MGHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGHomeView.swift; sourceTree = "<group>"; };
 		70DE0D7729A6306100B3E343 /* MGSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSettingView.swift; sourceTree = "<group>"; };
+		70F82CB529C2E6B40072B334 /* MGContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +295,7 @@
 				70C9EDBF2950303900B6995B /* Mango.entitlements */,
 				70B947B229613354006F6A38 /* MGAppDelegate.swift */,
 				70DE0D6729A6114B00B3E343 /* MGApp.swift */,
+				70F82CB529C2E6B40072B334 /* MGContentView.swift */,
 				70B89C2329C1984A003DA577 /* MGDataSizeFormatter.swift */,
 				70DE0D6D29A6155C00B3E343 /* MGPresentedButton.swift */,
 				70DE0D6F29A62A5800B3E343 /* MGPacketTunnelManager.swift */,
@@ -499,6 +502,7 @@
 				706DB6BB29B9DFCE002F22C7 /* MGConfigurationLocation.swift in Sources */,
 				70B89C2E29C19F7D003DA577 /* MGLogEntranceView.swift in Sources */,
 				70DE0D7329A62C4E00B3E343 /* MGHomeView.swift in Sources */,
+				70F82CB629C2E6B40072B334 /* MGContentView.swift in Sources */,
 				70C9EDDA2951841E00B6995B /* MGSubscribeListView.swift in Sources */,
 				70C9EDD82951587D00B6995B /* MGResetView.swift in Sources */,
 				70B89C1E29C17C29003DA577 /* MGSniffingEntranceView.swift in Sources */,
