@@ -39,10 +39,11 @@ struct MGConfigurationListView: View {
                     Button("删除", role: .destructive) {
                         do {
                             try configurationListManager.delete(configuration: configuration)
+                            MGNotification.send(title: "", subtitle: "", body: "\"\(configuration.attributes.alias)\"删除成功")
                             if configuration.id == current.wrappedValue {
                                 current.wrappedValue = ""
+                                packetTunnelManager.stop()
                             }
-                            MGNotification.send(title: "", subtitle: "", body: "\"\(configuration.attributes.alias)\"删除成功")
                         } catch {
                             MGNotification.send(title: "", subtitle: "", body: "\"\(configuration.attributes.alias)\"删除失败, 原因: \(error.localizedDescription)")
                         }
@@ -62,6 +63,14 @@ struct MGConfigurationListView: View {
                             do {
                                 try await configurationListManager.update(configuration: configuration)
                                 MGNotification.send(title: "", subtitle: "", body: "\"\(configuration.attributes.alias)\"更新成功")
+                                if configuration.id == current.wrappedValue {
+                                    packetTunnelManager.stop()
+                                    do {
+                                        try await packetTunnelManager.start()
+                                    } catch {
+                                        debugPrint(error.localizedDescription)
+                                    }
+                                }
                             } catch {
                                 MGNotification.send(title: "", subtitle: "", body: "\"\(configuration.attributes.alias)\"更新失败, 原因: \(error.localizedDescription)")
                             }
