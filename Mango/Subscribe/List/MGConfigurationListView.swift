@@ -4,10 +4,14 @@ struct MGConfigurationListView: View {
     
     @Environment(\.dismiss) private var dismiss
     
-    @EnvironmentObject private var tunnel: MGPacketTunnelManager
+    @EnvironmentObject private var packetTunnelManager: MGPacketTunnelManager
     @EnvironmentObject private var configurationListManager: MGConfigurationListManager
     
     @State private var isDownloadViewPresented = false
+    
+    @State private var isRenameAlertPresented = false
+    @State private var configurationItem: MGConfiguration?
+    @State private var configurationName: String = ""
     
     let current: Binding<String>
     
@@ -20,14 +24,14 @@ struct MGConfigurationListView: View {
                     }
                     current.wrappedValue = configuration.id
                     dismiss()
-                    guard let status = tunnel.status, status == .connected else {
+                    guard let status = packetTunnelManager.status, status == .connected else {
                         return
                     }
-                    tunnel.stop()
+                    packetTunnelManager.stop()
                     Task(priority: .userInitiated) {
                         do {
                             try await Task.sleep(for: .milliseconds(500))
-                            try await tunnel.start()
+                            try await packetTunnelManager.start()
                         } catch {}
                     }
                 } label: {
@@ -69,7 +73,9 @@ struct MGConfigurationListView: View {
                     .disabled(configurationListManager.downloadingConfigurationIDs.contains(configuration.id))
                     
                     Button("重命名") {
-                        
+                        self.configurationName = configuration.attributes.alias
+                        self.configurationItem = configuration
+                        self.isRenameAlertPresented.toggle()
                     }
                     .tint(.yellow)
                     .disabled(configurationListManager.downloadingConfigurationIDs.contains(configuration.id))
@@ -90,6 +96,21 @@ struct MGConfigurationListView: View {
             }
             .navigationTitle(Text("配置"))
             .navigationBarTitleDisplayMode(.large)
+            .alert("重命名", isPresented: $isRenameAlertPresented, presenting: configurationItem) { item in
+                TextField("请输入配置名称", text: $configurationName)
+                Button("确定") {
+                    let name = configurationName.trimmingCharacters(in: .whitespacesAndNewlines)
+                    guard !(name == item.attributes.alias || name.isEmpty) else {
+                        return
+                    }
+                    do {
+                        try configurationListManager.rename(configuration: item, name: name)
+                    } catch {
+                        MGNotification.send(title: "", subtitle: "", body: "重命名失败, 原因: \(error.localizedDescription)")
+                    }
+                }
+                Button("取消", role: .cancel) {}
+            }
             .toolbar {
                 Button {
                     isDownloadViewPresented.toggle()
