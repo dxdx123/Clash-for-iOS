@@ -42,11 +42,13 @@ struct MGConfigurationListView: View {
                                     .lineLimit(1)
                                     .foregroundColor(.primary)
                                     .fontWeight(.medium)
-                                Text(configuration.attributes.leastUpdated.formatted(.relative(presentation: .named)))
-                                    .lineLimit(1)
-                                    .foregroundColor(.secondary)
-                                    .font(.callout)
-                                    .fontWeight(.light)
+                                TimelineView(.periodic(from: Date(), by: 1)) { _ in
+                                    Text(configuration.attributes.leastUpdated.formatted(.relative(presentation: .numeric)))
+                                        .lineLimit(1)
+                                        .foregroundColor(.secondary)
+                                        .font(.callout)
+                                        .fontWeight(.light)
+                                }
                             }
                             Spacer()
                             if configurationListManager.downloadingConfigurationIDs.contains(configuration.id) {
