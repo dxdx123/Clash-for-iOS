@@ -133,8 +133,8 @@ class PacketTunnelProvider: NEPacketTunnelProvider, XrayLoggerProtocol {
         message.flatMap { logger.log("\($0, privacy: .public)") }
     }
     
-    func onGeneralMessage(_ severity: String?, message: String?) {
-        let level = severity.flatMap({ _ in MGLogModel.Severity(rawValue: 0) }) ?? .none
+    func onGeneralMessage(_ severity: Int, message: String?) {
+        let level = MGLogModel.Severity(rawValue: severity) ?? .none
         guard let message = message, !message.isEmpty else {
             return
         }

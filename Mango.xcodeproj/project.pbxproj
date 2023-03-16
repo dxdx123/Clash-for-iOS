@@ -801,7 +801,7 @@
 			repositoryURL = "https://github.com/daemooon/XrayKit.git";
 			requirement = {
 				kind = exactVersion;
-				version = 0.1.40;
+				version = 0.1.42;
 			};
 		};
 		708B37F829B036C500E24312 /* XCRemoteSwiftPackageReference "Tun2SocksKit" */ = {
