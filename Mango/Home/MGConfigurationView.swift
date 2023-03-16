@@ -26,12 +26,12 @@ struct MGConfigurationView: View {
                     Spacer()
                 }
             } else {
-                ForEach(configurationListManager.configurations) { configuration in
+                ForEach(Array(configurationListManager.configurations.enumerated()), id: \.offset) { pair in
                     Button {
-                        guard current.wrappedValue != configuration.id else {
+                        guard current.wrappedValue != pair.element.id else {
                             return
                         }
-                        current.wrappedValue = configuration.id
+                        current.wrappedValue = pair.element.id
                         guard let status = packetTunnelManager.status, status == .connected else {
                             return
                         }
@@ -43,12 +43,23 @@ struct MGConfigurationView: View {
                             } catch {}
                         }
                     } label: {
-                        HStack {
-                            Image(systemName: "checkmark")
-                                .foregroundColor(.accentColor)
-                                .opacity(current.wrappedValue == configuration.id ? 1.0 : 0.0)
-                            Text(configuration.attributes.alias)
-                                .foregroundColor(.primary)
+                        Label {
+                            HStack {
+                                Text(pair.element.attributes.alias)
+                                    .foregroundColor(.primary)
+                                Spacer()
+                                Image(systemName: "checkmark")
+                                    .foregroundColor(.accentColor)
+                                    .opacity(current.wrappedValue == pair.element.id ? 1.0 : 0.0)
+                            }
+                        } icon: {
+                            Image(systemName: "app")
+                                .foregroundColor(.clear)
+                                .overlay(alignment: .center) {
+                                    Text("\(pair.offset + 1)")
+                                        .foregroundColor(.primary)
+                                        .monospacedDigit()
+                                }
                         }
                     }
                 }
@@ -72,7 +83,7 @@ struct MGConfigurationView: View {
     
     private var currentConfigurationName: String {
         guard let configuration = configurationListManager.configurations.first(where: { $0.id == current.wrappedValue }) else {
-            return "无"
+            return configurationListManager.configurations.isEmpty ? "无" : "未选择"
         }
         return configuration.attributes.alias
     }
