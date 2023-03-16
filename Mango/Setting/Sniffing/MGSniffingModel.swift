@@ -1,6 +1,6 @@
 import Foundation
 
-extension MGConstant.Xray {
+extension MGConstant {
     public static let sniffing: String = "XRAY_SNIFFIN_DATA"
 }
 
@@ -28,7 +28,7 @@ public struct MGSniffingModel: Codable, Equatable {
     
     public static var current: MGSniffingModel {
         do {
-            guard let data = UserDefaults.shared.data(forKey: MGConstant.Xray.sniffing) else {
+            guard let data = UserDefaults.shared.data(forKey: MGConstant.sniffing) else {
                 return .default
             }
             return try JSONDecoder().decode(MGSniffingModel.self, from: data)

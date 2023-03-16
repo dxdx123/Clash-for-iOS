@@ -8,23 +8,14 @@ struct MGSettingView: View {
         NavigationStack {
             Form {
                 Section {
-                    if tunnel.kernel == .clash {
-                        MGLogLevelView()
-                    }
                     MGNetworkEntranceView()
                 } header: {
                     Text("系统")
                 }
                 Section {
-                    switch tunnel.kernel {
-                    case .clash:
-                        MGTunnelModeView()
-                        MGGEOIPView()
-                    case .xray:
-                        MGLogEntranceView()
-                        MGSniffingEntranceView()
-                        MGAssetEntranceView()
-                    }
+                    MGLogEntranceView()
+                    MGSniffingEntranceView()
+                    MGAssetEntranceView()
                 } header: {
                     Text("内核")
                 }

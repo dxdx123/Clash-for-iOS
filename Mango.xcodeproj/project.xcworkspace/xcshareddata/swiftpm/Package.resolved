@@ -1,15 +1,6 @@
 {
   "pins" : [
     {
-      "identity" : "clashkit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/daemooon/ClashKit.git",
-      "state" : {
-        "revision" : "c70deb57c21fdafbca845bcd771f2f51e4f3173d",
-        "version" : "1.8.17"
-      }
-    },
-    {
       "identity" : "tun2sockskit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/daemooon/Tun2SocksKit.git",

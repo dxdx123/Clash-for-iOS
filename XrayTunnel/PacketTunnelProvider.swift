@@ -5,16 +5,12 @@ import os
 class PacketTunnelProvider: PacketTunnelProviderBase, XrayLoggerProtocol {
     
     private let logger = Logger(subsystem: "com.Arror.Mango.XrayTunnel", category: "Core")
-        
-    private var logLevel: MGLogLevel {
-        MGLogLevel(rawValue: UserDefaults.shared.string(forKey: MGConstant.logLevel) ?? "") ?? .silent
-    }
     
     override func setupCore(with settings: NEPacketTunnelNetworkSettings) async throws -> Int {
-        guard let id = UserDefaults.shared.string(forKey: "\(MGKernel.xray.rawValue.uppercased())_CURRENT"), !id.isEmpty else {
+        guard let id = UserDefaults.shared.string(forKey: "XRAY_CURRENT"), !id.isEmpty else {
             fatalError()
         }
-        let folderURL = MGKernel.xray.configDirectory.appending(component: id)
+        let folderURL = MGConstant.configDirectory.appending(component: id)
         let folderAttributes = try FileManager.default.attributesOfItem(atPath: folderURL.path(percentEncoded: false))
         guard let mapping = folderAttributes[MGConfiguration.key] as? [String: Data],
               let data = mapping[MGConfiguration.Attributes.key] else {
@@ -27,7 +23,7 @@ class PacketTunnelProvider: PacketTunnelProviderBase, XrayLoggerProtocol {
         XraySetAccessLogEnable(log.accessLogEnabled)
         XraySetDNSLogEnable(log.dnsLogEnabled)
         XraySetErrorLogSeverity(log.errorLogSeverity.rawValue)
-        XraySetAsset(MGKernel.xray.assetDirectory.path(percentEncoded: false), nil)
+        XraySetAsset(MGConstant.assetDirectory.path(percentEncoded: false), nil)
         let port = XrayGetAvailablePort()
         var error: NSError? = nil
         XrayRun(MGSniffingModel.current.generateInboudJSONString(with: port), fileURL.path(percentEncoded: false), &error)
@@ -44,7 +40,7 @@ class PacketTunnelProvider: PacketTunnelProviderBase, XrayLoggerProtocol {
     }
     
     func onGeneralMessage(_ severity: String?, message: String?) {
-        let level = severity.flatMap({ MGLogLevel(rawValue: $0.lowercased()) }) ?? .silent
+        let level = severity.flatMap({ _ in MGLogModel.Severity(rawValue: 0) }) ?? .none
         guard let message = message, !message.isEmpty else {
             return
         }
@@ -57,7 +53,7 @@ class PacketTunnelProvider: PacketTunnelProviderBase, XrayLoggerProtocol {
             logger.warning("\(message, privacy: .public)")
         case .error:
             logger.error("\(message, privacy: .public)")
-        case .silent:
+        case .none:
             break
         }
     }

@@ -60,7 +60,7 @@ final class MGConfigurationLoadViewModel: ObservableObject {
     
     private func save(sourceURL: URL, fileURL: URL) throws {
         let id = UUID()
-        let folderURL = MGKernel.xray.configDirectory.appending(component: "\(id.uuidString)")
+        let folderURL = MGConstant.configDirectory.appending(component: "\(id.uuidString)")
         let attributes = MGConfiguration.Attributes(
             alias: name.trimmingCharacters(in: .whitespacesAndNewlines),
             source: sourceURL,

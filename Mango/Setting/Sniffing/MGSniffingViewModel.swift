@@ -29,11 +29,11 @@ final class MGSniffingViewModel: ObservableObject {
     }
     
     static func setupDefaultSettingsIfNeeded() {
-        guard UserDefaults.shared.data(forKey: MGConstant.Xray.sniffing) == nil else {
+        guard UserDefaults.shared.data(forKey: MGConstant.sniffing) == nil else {
             return
         }
         do {
-            UserDefaults.shared.set(try JSONEncoder().encode(MGSniffingModel.default), forKey: MGConstant.Xray.sniffing)
+            UserDefaults.shared.set(try JSONEncoder().encode(MGSniffingModel.default), forKey: MGConstant.sniffing)
         } catch {
             fatalError(error.localizedDescription)
         }
@@ -72,7 +72,7 @@ final class MGSniffingViewModel: ObservableObject {
             guard model != self.current else {
                 return
             }
-            UserDefaults.shared.set(try JSONEncoder().encode(model), forKey: MGConstant.Xray.sniffing)
+            UserDefaults.shared.set(try JSONEncoder().encode(model), forKey: MGConstant.sniffing)
             self.current = model
             updated()
         } catch {

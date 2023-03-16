@@ -17,11 +17,11 @@ final class MGLogViewModel: ObservableObject {
     }
     
     static func setupDefaultLogIfNeeded() {
-        guard UserDefaults.shared.data(forKey: MGConstant.Xray.log) == nil else {
+        guard UserDefaults.shared.data(forKey: MGConstant.log) == nil else {
             return
         }
         do {
-            UserDefaults.shared.set(try JSONEncoder().encode(MGLogModel.default), forKey: MGConstant.Xray.log)
+            UserDefaults.shared.set(try JSONEncoder().encode(MGLogModel.default), forKey: MGConstant.log)
         } catch {
             fatalError(error.localizedDescription)
         }
@@ -37,7 +37,7 @@ final class MGLogViewModel: ObservableObject {
             guard model != self.current else {
                 return
             }
-            UserDefaults.shared.set(try JSONEncoder().encode(model), forKey: MGConstant.Xray.log)
+            UserDefaults.shared.set(try JSONEncoder().encode(model), forKey: MGConstant.log)
             self.current = model
             updated()
         } catch {

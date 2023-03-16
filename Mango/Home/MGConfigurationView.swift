@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MGConfigurationView: View {
     
-    @AppStorage("\(MGKernel.xray.rawValue.uppercased())_CURRENT", store: .shared) private var current: String = ""
+    @AppStorage("XRAY_CURRENT", store: .shared) private var current: String = ""
 
     @EnvironmentObject private var tunnel: MGPacketTunnelManager
     

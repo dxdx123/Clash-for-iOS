@@ -1,6 +1,6 @@
 import Foundation
 
-extension MGConstant.Xray {
+extension MGConstant {
     public static let log: String = "XRAY_LOG_DATA"
 }
 
@@ -27,7 +27,7 @@ public struct MGLogModel: Codable, Equatable {
     
     public static var current: MGLogModel {
         do {
-            guard let data = UserDefaults.shared.data(forKey: MGConstant.Xray.log) else {
+            guard let data = UserDefaults.shared.data(forKey: MGConstant.log) else {
                 return .default
             }
             return try JSONDecoder().decode(MGLogModel.self, from: data)

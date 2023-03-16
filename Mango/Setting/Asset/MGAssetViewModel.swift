@@ -27,7 +27,7 @@ class MGAssetViewModel: ObservableObject {
     
     private func fetchItemURLs() -> [Item] {
         do {
-            let children = try FileManager.default.contentsOfDirectory(at: MGKernel.xray.assetDirectory, includingPropertiesForKeys: nil)
+            let children = try FileManager.default.contentsOfDirectory(at: MGConstant.assetDirectory, includingPropertiesForKeys: nil)
             return children.compactMap { url in
                 guard url.pathExtension == "dat" else {
                     return nil
@@ -59,7 +59,7 @@ class MGAssetViewModel: ObservableObject {
                 url.stopAccessingSecurityScopedResource()
             }
             
-            let destinationURL = MGKernel.xray.assetDirectory.appendingPathComponent(url.lastPathComponent)
+            let destinationURL = MGConstant.assetDirectory.appendingPathComponent(url.lastPathComponent)
             if FileManager.default.fileExists(atPath: destinationURL.path(percentEncoded: false)) {
                 try FileManager.default.removeItem(at: destinationURL)
             }
