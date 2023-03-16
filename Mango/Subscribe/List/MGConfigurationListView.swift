@@ -18,44 +18,21 @@ struct MGConfigurationListView: View {
     var body: some View {
         NavigationStack {
             List(configurationListManager.configurations) { configuration in
-                Button {
-                    guard current.wrappedValue != configuration.id else {
-                        return
+                HStack(alignment: .center, spacing: 8) {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(configuration.attributes.alias)
+                            .lineLimit(1)
+                            .foregroundColor(.primary)
+                            .fontWeight(.medium)
+                        Text(configuration.attributes.leastUpdated.formatted(.relative(presentation: .named)))
+                            .lineLimit(1)
+                            .foregroundColor(.secondary)
+                            .font(.callout)
+                            .fontWeight(.light)
                     }
-                    current.wrappedValue = configuration.id
-                    dismiss()
-                    guard let status = packetTunnelManager.status, status == .connected else {
-                        return
-                    }
-                    packetTunnelManager.stop()
-                    Task(priority: .userInitiated) {
-                        do {
-                            try await Task.sleep(for: .milliseconds(500))
-                            try await packetTunnelManager.start()
-                        } catch {}
-                    }
-                } label: {
-                    HStack(alignment: .center, spacing: 8) {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(configuration.attributes.alias)
-                                .lineLimit(1)
-                                .foregroundColor(.primary)
-                                .fontWeight(.medium)
-                            Text(configuration.attributes.leastUpdated.formatted(.relative(presentation: .named)))
-                                .lineLimit(1)
-                                .foregroundColor(.secondary)
-                                .font(.callout)
-                                .fontWeight(.light)
-                        }
-                        Spacer()
-                        if configurationListManager.downloadingConfigurationIDs.contains(configuration.id) {
-                            ProgressView()
-                        }
-                        if current.wrappedValue == configuration.id {
-                            Image(systemName: "checkmark")
-                                .foregroundColor(.accentColor)
-                                .fontWeight(.medium)
-                        }
+                    Spacer()
+                    if configurationListManager.downloadingConfigurationIDs.contains(configuration.id) {
+                        ProgressView()
                     }
                 }
                 .swipeActions(edge: .trailing, allowsFullSwipe: false) {

@@ -4,7 +4,7 @@ struct MGHomeView: View {
     
     @Environment(\.colorScheme) private var colorScheme
     @EnvironmentObject private var packetTunnelManager: MGPacketTunnelManager
-        
+    
     let current: Binding<String>
     
     var body: some View {
@@ -20,15 +20,13 @@ struct MGHomeView: View {
                 } else {
                     Form {
                         Section {
-                            MGConfigurationView(current: current)
-                        } header: {
-                            Text("配置")
-                        }
-                        Section {
                             MGControlView()
                             MGConnectedDurationView()
                         } header: {
                             Text("状态")
+                        }
+                        Section {
+                            MGConfigurationView(current: current)
                         }
                     }
                     .environmentObject(packetTunnelManager)
