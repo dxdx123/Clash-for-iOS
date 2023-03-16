@@ -7,16 +7,21 @@ extension MGKernel {
 struct MGHomeView: View {
     
     @Environment(\.colorScheme)     private var colorScheme
-    @AppStorage(MGKernel.storeKey)  private var kernel = MGKernel.clash
     
     @StateObject private var viewModel = MGHomeViewModel()
+    
+    private let kernel: Binding<MGKernel>
+    
+    init(kernel: Binding<MGKernel>) {
+        self.kernel = kernel
+    }
     
     var body: some View {
         NavigationStack {
             Group {
                 if let managers = viewModel.managers, !viewModel.isProcessing {
                     Form {
-                        switch kernel {
+                        switch kernel.wrappedValue {
                         case .clash:
                             Section {
                                 MGSubscribeView(current: managers.subscribe.current)
@@ -36,7 +41,7 @@ struct MGHomeView: View {
                         } header: {
                             Text("状态")
                         }
-                        if kernel == .clash {
+                        if kernel.wrappedValue == .clash {
                             Section {
                                 MGPolicyGroupView(packetTunnelManager: managers.tunnel)
                             } header: {
@@ -58,7 +63,7 @@ struct MGHomeView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Picker(selection: $kernel) {
+                    Picker(selection: kernel) {
                         ForEach(MGKernel.allCases) { kernel in
                             Text(kernel.rawValue.uppercased())
                         }
@@ -81,13 +86,13 @@ struct MGHomeView: View {
                     }
                 }
             }
-            .onChange(of: kernel) { newValue in
+            .onChange(of: kernel.wrappedValue) { newValue in
                 self.viewModel.switch(to: newValue)
             }
         }
         .onAppear {
-            self.viewModel.switch(to: self.kernel)
-            switch kernel {
+            self.viewModel.switch(to: self.kernel.wrappedValue)
+            switch kernel.wrappedValue {
             case .clash:
                 viewModel.geoip.checkAndUpdateIfNeeded()
             case .xray:
