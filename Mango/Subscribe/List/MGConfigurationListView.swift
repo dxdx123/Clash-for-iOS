@@ -68,13 +68,11 @@ struct MGConfigurationListView: View {
                     }
                     .disabled(configurationListManager.downloadingConfigurationIDs.contains(configuration.id))
                     
-//                    Button("重命名") {
-//                        self.subscribeName = item.extend.alias
-//                        self.subscribeItem = item
-//                        self.isRenameAlertPresented.toggle()
-//                    }
-//                    .tint(.yellow)
-//                    .disabled(configurationListManager.downloadingConfigurationIDs.contains(configuration.id))
+                    Button("重命名") {
+                        
+                    }
+                    .tint(.yellow)
+                    .disabled(configurationListManager.downloadingConfigurationIDs.contains(configuration.id))
                     
                     Button("更新") {
                         Task(priority: .userInitiated) {
@@ -90,8 +88,8 @@ struct MGConfigurationListView: View {
                     .disabled(configuration.attributes.source.isFileURL || configurationListManager.downloadingConfigurationIDs.contains(configuration.id))
                 }
             }
-            .navigationTitle(Text("配置管理"))
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle(Text("配置"))
+            .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 Button {
                     isDownloadViewPresented.toggle()

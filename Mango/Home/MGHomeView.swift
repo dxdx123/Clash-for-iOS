@@ -6,6 +6,8 @@ struct MGHomeView: View {
     
     @StateObject private var viewModel = MGHomeViewModel()
     
+    let current: Binding<String>
+    
     var body: some View {
         NavigationStack {
             Group {
@@ -19,7 +21,7 @@ struct MGHomeView: View {
                 } else {
                     Form {
                         Section {
-                            MGConfigurationView()
+                            MGConfigurationView(current: current)
                         } header: {
                             Text("配置")
                         }
@@ -33,19 +35,8 @@ struct MGHomeView: View {
                     .environmentObject(viewModel.packetTunnelManager)
                 }
             }
-            .navigationTitle(Text("Xray"))
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    MGPresentedButton {
-                        MGSettingView()
-                            .environmentObject(viewModel.packetTunnelManager)
-                    } label: {
-                        Image(systemName: "slider.horizontal.3")
-                    }
-                    .disabled(viewModel.isProcessing)
-                }
-            }
+            .navigationTitle(Text("仪表盘"))
+            .navigationBarTitleDisplayMode(.large)
         }
     }
     

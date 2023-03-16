@@ -28,7 +28,6 @@
 		708B380629B0AA4200E24312 /* MGAssetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B380529B0AA4200E24312 /* MGAssetViewModel.swift */; };
 		708B380829B0AA6200E24312 /* MGGEOAssetSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B380729B0AA6200E24312 /* MGGEOAssetSettingView.swift */; };
 		708B385B29B81CEB00E24312 /* Tun2SocksKit in Frameworks */ = {isa = PBXBuildFile; productRef = 708B385A29B81CEB00E24312 /* Tun2SocksKit */; };
-		708B385F29B81D3E00E24312 /* PacketTunnelProviderBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B37FB29B03E6400E24312 /* PacketTunnelProviderBase.swift */; };
 		708B386129B81DDB00E24312 /* MGNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D9089299B58A400B83324 /* MGNotification.swift */; };
 		70B89C1B29C17C06003DA577 /* MGSniffingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B89C1A29C17C06003DA577 /* MGSniffingViewModel.swift */; };
 		70B89C1E29C17C29003DA577 /* MGSniffingEntranceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B89C1D29C17C29003DA577 /* MGSniffingEntranceView.swift */; };
@@ -126,7 +125,6 @@
 		706DB6CA29BAE954002F22C7 /* MGConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConfigurationView.swift; sourceTree = "<group>"; };
 		7084FC242963FB8A00065DAF /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		7084FC252963FDE300065DAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		708B37FB29B03E6400E24312 /* PacketTunnelProviderBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProviderBase.swift; sourceTree = "<group>"; };
 		708B380229B0937600E24312 /* MGSniffingSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSniffingSettingView.swift; sourceTree = "<group>"; };
 		708B380529B0AA4200E24312 /* MGAssetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGAssetViewModel.swift; sourceTree = "<group>"; };
 		708B380729B0AA6200E24312 /* MGGEOAssetSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGGEOAssetSettingView.swift; sourceTree = "<group>"; };
@@ -224,14 +222,6 @@
 			path = List;
 			sourceTree = "<group>";
 		};
-		708B37DC29B034BD00E24312 /* Tunnel */ = {
-			isa = PBXGroup;
-			children = (
-				708B37FB29B03E6400E24312 /* PacketTunnelProviderBase.swift */,
-			);
-			path = Tunnel;
-			sourceTree = "<group>";
-		};
 		70B89C1929C17BEC003DA577 /* Sniffing */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,7 +272,6 @@
 				7084FC242963FB8A00065DAF /* Config.xcconfig */,
 				70C9EDCF295145DB00B6995B /* Shared */,
 				70C9ED9729501D5B00B6995B /* Mango */,
-				708B37DC29B034BD00E24312 /* Tunnel */,
 				702D9092299FA40600B83324 /* XrayTunnel */,
 				70C9EDAB29502C6500B6995B /* Frameworks */,
 				70C9ED9629501D5B00B6995B /* Products */,
@@ -489,7 +478,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				708B385F29B81D3E00E24312 /* PacketTunnelProviderBase.swift in Sources */,
 				7069E01F29ADEAA30012C435 /* PacketTunnelProvider.swift in Sources */,
 				70CEB89929A30C79003436C2 /* MGConstant.swift in Sources */,
 				70B89C2129C17EE2003DA577 /* MGSniffingModel.swift in Sources */,

@@ -2,6 +2,8 @@ import Foundation
 
 public struct MGConfiguration: Identifiable {
     
+    public static let currentStoreKey = "XRAY_CURRENT"
+    
     public static let key = FileAttributeKey("NSFileExtendedAttributes")
     
     public let id: String
