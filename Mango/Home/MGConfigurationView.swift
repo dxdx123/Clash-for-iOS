@@ -5,13 +5,11 @@ struct MGConfigurationView: View {
     @EnvironmentObject private var packetTunnelManager: MGPacketTunnelManager
     
     @EnvironmentObject private var configurationListManager: MGConfigurationListManager
-        
-    @State private var isConfigurationListExpanded = true
-
+    
     let current: Binding<String>
     
     var body: some View {
-        DisclosureGroup(isExpanded: $isConfigurationListExpanded) {
+        Group {
             if configurationListManager.configurations.isEmpty {
                 HStack {
                     Spacer()
@@ -56,18 +54,7 @@ struct MGConfigurationView: View {
                     }
                 }
             }
-        } label: {
-            LabeledContent {
-                Text(isConfigurationListExpanded ? "" : currentConfigurationName)
-            } label: {
-                Label {
-                    Text("配置")
-                } icon: {
-                    Image(systemName: "doc.plaintext")
-                }
-            }
         }
-        .listRowSeparator(configurationListManager.configurations.isEmpty ? .hidden : .automatic)
         .onAppear {
             configurationListManager.reload()
         }
