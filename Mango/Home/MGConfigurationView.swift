@@ -20,7 +20,6 @@ struct MGConfigurationView: View {
                     }
                     .foregroundColor(.secondary)
                     .padding()
-                    .padding(.trailing, 25)
                     Spacer()
                 }
             } else {

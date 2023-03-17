@@ -31,80 +31,96 @@ struct MGConfigurationListView: View {
                     }
                 } header: {
                     Text("导入")
-                } footer: {
-                    Text("支持 JSON、YAML、TOML 格式配置")
                 }
                 Section {
-                    ForEach(configurationListManager.configurations) { configuration in
-                        HStack(alignment: .center, spacing: 8) {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text(configuration.attributes.alias)
-                                    .lineLimit(1)
-                                    .foregroundColor(.primary)
-                                    .fontWeight(.medium)
-                                TimelineView(.periodic(from: Date(), by: 1)) { _ in
-                                    Text(configuration.attributes.leastUpdated.formatted(.relative(presentation: .numeric)))
+                    if configurationListManager.configurations.isEmpty {
+                        HStack {
+                            Spacer()
+                            VStack(spacing: 20) {
+                                Image(systemName: "doc.text.magnifyingglass")
+                                    .font(.largeTitle)
+                                Text("暂无配置")
+                            }
+                            .foregroundColor(.secondary)
+                            .padding()
+                            Spacer()
+                        }
+                    } else {
+                        ForEach(configurationListManager.configurations) { configuration in
+                            HStack(alignment: .center, spacing: 8) {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(configuration.attributes.alias)
                                         .lineLimit(1)
-                                        .foregroundColor(.secondary)
-                                        .font(.callout)
-                                        .fontWeight(.light)
+                                        .foregroundColor(.primary)
+                                        .fontWeight(.medium)
+                                    TimelineView(.periodic(from: Date(), by: 1)) { _ in
+                                        Text(configuration.attributes.leastUpdated.formatted(.relative(presentation: .numeric)))
+                                            .lineLimit(1)
+                                            .foregroundColor(.secondary)
+                                            .font(.callout)
+                                            .fontWeight(.light)
+                                    }
+                                }
+                                Spacer()
+                                if configurationListManager.downloadingConfigurationIDs.contains(configuration.id) {
+                                    ProgressView()
                                 }
                             }
-                            Spacer()
-                            if configurationListManager.downloadingConfigurationIDs.contains(configuration.id) {
-                                ProgressView()
-                            }
-                        }
-                        .contextMenu {
-                            Button {
-                                self.configurationName = configuration.attributes.alias
-                                self.configurationItem = configuration
-                                self.isRenameAlertPresented.toggle()
-                            } label: {
-                                Label("重命名", systemImage: "square.and.pencil")
-                            }
-                            Button {
-                                Task(priority: .userInitiated) {
+                            .contextMenu {
+                                Button {
+                                    self.configurationName = configuration.attributes.alias
+                                    self.configurationItem = configuration
+                                    self.isRenameAlertPresented.toggle()
+                                } label: {
+                                    Label("重命名", systemImage: "square.and.pencil")
+                                }
+                                Button {
+                                    Task(priority: .userInitiated) {
+                                        do {
+                                            try await configurationListManager.update(configuration: configuration)
+                                            MGNotification.send(title: "", subtitle: "", body: "\"\(configuration.attributes.alias)\"更新成功")
+                                            if configuration.id == current.wrappedValue {
+                                                guard let status = packetTunnelManager.status, status == .connected else {
+                                                    return
+                                                }
+                                                packetTunnelManager.stop()
+                                                do {
+                                                    try await packetTunnelManager.start()
+                                                } catch {
+                                                    debugPrint(error.localizedDescription)
+                                                }
+                                            }
+                                        } catch {
+                                            MGNotification.send(title: "", subtitle: "", body: "\"\(configuration.attributes.alias)\"更新失败, 原因: \(error.localizedDescription)")
+                                        }
+                                    }
+                                } label: {
+                                    Label("更新", systemImage: "arrow.triangle.2.circlepath")
+                                }
+                                .disabled(configurationListManager.downloadingConfigurationIDs.contains(configuration.id) || configuration.attributes.source.isFileURL)
+                                Divider()
+                                Button(role: .destructive) {
                                     do {
-                                        try await configurationListManager.update(configuration: configuration)
-                                        MGNotification.send(title: "", subtitle: "", body: "\"\(configuration.attributes.alias)\"更新成功")
+                                        try configurationListManager.delete(configuration: configuration)
+                                        MGNotification.send(title: "", subtitle: "", body: "\"\(configuration.attributes.alias)\"删除成功")
                                         if configuration.id == current.wrappedValue {
-                                            guard let status = packetTunnelManager.status, status == .connected else {
-                                                return
-                                            }
+                                            current.wrappedValue = ""
                                             packetTunnelManager.stop()
-                                            do {
-                                                try await packetTunnelManager.start()
-                                            } catch {
-                                                debugPrint(error.localizedDescription)
-                                            }
                                         }
                                     } catch {
-                                        MGNotification.send(title: "", subtitle: "", body: "\"\(configuration.attributes.alias)\"更新失败, 原因: \(error.localizedDescription)")
+                                        MGNotification.send(title: "", subtitle: "", body: "\"\(configuration.attributes.alias)\"删除失败, 原因: \(error.localizedDescription)")
                                     }
+                                } label: {
+                                    Label("删除", systemImage: "trash")
                                 }
-                            } label: {
-                                Label("更新", systemImage: "arrow.triangle.2.circlepath")
+                                .disabled(configurationListManager.downloadingConfigurationIDs.contains(configuration.id))
                             }
-                            .disabled(configurationListManager.downloadingConfigurationIDs.contains(configuration.id) || configuration.attributes.source.isFileURL)
-                            Divider()
-                            Button(role: .destructive) {
-                                do {
-                                    try configurationListManager.delete(configuration: configuration)
-                                    MGNotification.send(title: "", subtitle: "", body: "\"\(configuration.attributes.alias)\"删除成功")
-                                    if configuration.id == current.wrappedValue {
-                                        current.wrappedValue = ""
-                                        packetTunnelManager.stop()
-                                    }
-                                } catch {
-                                    MGNotification.send(title: "", subtitle: "", body: "\"\(configuration.attributes.alias)\"删除失败, 原因: \(error.localizedDescription)")
-                                }
-                            } label: {
-                                Label("删除", systemImage: "trash")
-                            }
-                            .disabled(configurationListManager.downloadingConfigurationIDs.contains(configuration.id))
                         }
                     }
+                } header: {
+                    Text("配置列表")
+                } footer: {
+                    Text("支持 JSON、YAML、TOML 格式配置")
                 }
             }
             .navigationTitle(Text("配置管理"))
