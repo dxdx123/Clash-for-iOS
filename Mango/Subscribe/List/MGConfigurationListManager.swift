@@ -12,7 +12,7 @@ final class MGConfigurationListManager: ObservableObject {
     
     private func loadConfigurations() -> [MGConfiguration] {
         do {
-            let children = try FileManager.default.contentsOfDirectory(at: MGKernel.xray.configDirectory, includingPropertiesForKeys: nil)
+            let children = try FileManager.default.contentsOfDirectory(at: MGConstant.configDirectory, includingPropertiesForKeys: nil)
             return children.compactMap(MGConfiguration.init(url:)).sorted(by: { $0.creationDate < $1.creationDate })
         } catch {
             return []
@@ -22,7 +22,7 @@ final class MGConfigurationListManager: ObservableObject {
     func delete(configuration: MGConfiguration) throws {
         let err: Error?
         do {
-            try FileManager.default.removeItem(at: MGKernel.xray.configDirectory.appending(path: configuration.id))
+            try FileManager.default.removeItem(at: MGConstant.configDirectory.appending(path: configuration.id))
             err = nil
         } catch {
             err = error
@@ -32,7 +32,7 @@ final class MGConfigurationListManager: ObservableObject {
     }
     
     func rename(configuration: MGConfiguration, name: String) throws {
-        let target = MGKernel.xray.configDirectory.appending(path: "\(configuration.id)")
+        let target = MGConstant.configDirectory.appending(path: "\(configuration.id)")
         let attributes = MGConfiguration.Attributes(
             alias: name,
             source: configuration.attributes.source,
@@ -59,7 +59,7 @@ final class MGConfigurationListManager: ObservableObject {
                     debugPrint(error.localizedDescription)
                 }
             }
-            let folderURL = MGKernel.xray.configDirectory.appending(path: configuration.id)
+            let folderURL = MGConstant.configDirectory.appending(path: configuration.id)
             let destinationURL = folderURL.appending(path: "config.\(configuration.attributes.format.rawValue)")
             try FileManager.default.replaceItem(at: destinationURL, withItemAt: tempURL, backupItemName: nil, resultingItemURL: nil)
             let attributes = MGConfiguration.Attributes(

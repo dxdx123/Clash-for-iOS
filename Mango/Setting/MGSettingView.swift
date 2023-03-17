@@ -1,43 +1,44 @@
 import SwiftUI
 
 struct MGSettingView: View {
-    
-    @EnvironmentObject private var tunnel: MGPacketTunnelManager
-    
+        
     var body: some View {
         NavigationStack {
             Form {
                 Section {
-                    MGLogLevelView()
-                    MGIPV6View()
+                    MGNetworkEntranceView()
                 } header: {
-                    Text("通用")
+                    Text("系统")
                 }
                 Section {
-                    switch tunnel.kernel {
-                    case .clash:
-                        MGTunnelModeView()
-                        MGGEOIPView()
-                    case .xray:
-                        MGSniffingEntranceView()
-                        MGGEOAssetView()
-                    }
+                    MGLogEntranceView()
+                    MGSniffingEntranceView()
+                    MGAssetEntranceView()
                 } header: {
                     Text("内核")
+                }
+                Section {
+                    LabeledContent {
+                        Text(Bundle.appVersion)
+                            .monospacedDigit()
+                    } label: {
+                        Label("应用", systemImage: "app")
+                    }
+                    LabeledContent {
+                        Text("1.8.0")
+                            .monospacedDigit()
+                    } label: {
+                        Label("内核", systemImage: "app.fill")
+                    }
+                } header: {
+                    Text("版本")
                 }
                 Section {
                     MGResetView()
                 }
             }
-            .environmentObject(tunnel)
             .navigationTitle(Text("设置"))
-            .safeAreaInset(edge: .bottom) {
-                Text(Bundle.appVersion)
-                    .foregroundColor(.secondary)
-                    .font(.caption)
-                    .fontWeight(.light)
-                    .monospacedDigit()
-            }
+            .navigationBarTitleDisplayMode(.large)
         }
     }
 }
