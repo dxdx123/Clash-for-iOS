@@ -24,12 +24,12 @@ struct MGConfigurationView: View {
                     Spacer()
                 }
             } else {
-                ForEach(configurationListManager.configurations) { configuration in
+                ForEach(Array(configurationListManager.configurations.enumerated()), id: \.element.id) { pair in
                     Button {
-                        guard current.wrappedValue != configuration.id else {
+                        guard current.wrappedValue != pair.element.id else {
                             return
                         }
-                        current.wrappedValue = configuration.id
+                        current.wrappedValue = pair.element.id
                         guard let status = packetTunnelManager.status, status == .connected else {
                             return
                         }
@@ -42,15 +42,14 @@ struct MGConfigurationView: View {
                         }
                     } label: {
                         Label {
-                            HStack {
-                                Text(configuration.attributes.alias)
-                                    .foregroundColor(.primary)
-                                    .lineLimit(1)
-                            }
+                            Text(pair.element.attributes.alias)
+                                .lineLimit(1)
                         } icon: {
-                            Image(systemName: "arrow.right")
-                                .opacity(current.wrappedValue == configuration.id ? 1.0 : 0.0)
+                            Text("\(pair.offset + 1)")
+                                .lineLimit(1)
+                                .monospacedDigit()
                         }
+                        .foregroundColor(current.wrappedValue == pair.element.id ? .accentColor : .primary)
                     }
                 }
             }

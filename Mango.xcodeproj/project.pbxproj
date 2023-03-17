@@ -809,7 +809,7 @@
 			repositoryURL = "https://github.com/daemooon/Tun2SocksKit.git";
 			requirement = {
 				kind = exactVersion;
-				version = 2.1.6;
+				version = 2.1.10;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
